@@ -48,10 +48,10 @@ export default async function Home() {
 
       </div>
 
-      <div className="w-full  bg-white px-4 z-2 relative grid grid-cols-12 gap-x-4">
+      <div className="w-full  bg-offWhite px-4 z-2 relative grid grid-cols-12 gap-x-4">
         <div className='col-span-full grid grid-cols-2 py-7 border-b items-start'>
           <Reveal styleSet="uppercase"><PortableText value={data.welcome.title} /></Reveal>
-          <div className="text-right footnote text-gray"><PortableText value={data.welcome.copy} /></div>
+          <Reveal styleSet="text-right footnote text-gray"><PortableText value={data.welcome.copy} /></Reveal>
         </div>
         <div className="col-span-full flex flex-col-reverse"><div className=" text py-7 uppercase ml-auto mr-0 inline-block"><PortableText value={data.build.title} /></div>
         </div>
