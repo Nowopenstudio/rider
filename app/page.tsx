@@ -1,103 +1,92 @@
-import Image from "next/image";
 
-export default function Home() {
+import Link from "next/link";
+import { SwitchContent } from "./util/contentSwitch";
+import { MuxVideoBG } from "./util/muxPlayer";
+import { getData } from "./util/sanity";
+import React from "react";
+
+
+import ScrollUp from "./util/misc";
+import { PortableText } from "next-sanity";
+import { ScrollArrow } from "./components/svg";
+import { Reveal } from "./util/reveal";
+
+
+
+export default async function Home() {
+  const query = await getData(`{
+    'data': *[_type=='home'][0]{header{headlines,cta,video{"vid":video.asset->playbackId, "ratio":video.asset->data.aspect_ratio},gallery[]{"vid":video.asset->playbackId, "ratio":reel.asset->data.aspect_ratio,"image":image.asset->url,credits}},welcome,build{title,copy,gallery[]{"vid":video.asset->playbackId, "ratio":video.asset->data.aspect_ratio,"image":image.asset->url}}}
+    }`)
+
+
+
+  const { data } = query.data
+  console.log(data)
+
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+
+    <React.Fragment>
+      <div className="w-full h-[100dvh] grid grid-cols-2 sticky top-0 z-1">
+
+        <div className="projectCover col-span-1 h-[100dvh] relative coverSwitch fadeOn ">
+          <SwitchContent work={data.header.video} title={'Header Video'} ratio={data.header.video.ratio} audio={false} cover />
+          <div className='z-20 center-object w-full text-white px-4'>
+            <div className="w-auto mb-2"> <PortableText value={data.header.headlines[0].title} /></div>
+            <div className="cta inline-block"><p>{data.header.cta.label}</p></div>
+
+          </div>
+          <div className="scrollArrow absolute left-4 bottom-4"><ScrollArrow className="w-[30px] h-auto" fill={"#ffffff"} /></div>
+
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+
+        <div className="projectCover col-span-1  h-[100dvh] relative coverSwitch fadeOn ">
+          {data.header.gallery.length ? (<SwitchContent work={data.header.gallery[0]} title={'Header Video'} ratio={data.header.gallery[0].ratio} audio={false} cover />) : ('')}
+
+
+        </div>
+
+      </div>
+
+      <div className="w-full  bg-white px-4 z-2 relative grid grid-cols-12 gap-x-4">
+        <div className='col-span-full grid grid-cols-2 py-7 border-b items-start'>
+          <Reveal styleSet="uppercase"><PortableText value={data.welcome.title} /></Reveal>
+          <div className="text-right footnote text-gray"><PortableText value={data.welcome.copy} /></div>
+        </div>
+        <div className="col-span-full flex flex-col-reverse"><div className=" text py-7 uppercase ml-auto mr-0 inline-block"><PortableText value={data.build.title} /></div>
+        </div>
+        <div className="col-span-5 mb-22"><PortableText value={data.build.copy}/></div>
+        <div className="col-span-6 col-start-4 mb-38">
+              {data.build.gallery.length ? (<SwitchContent work={data.build.gallery[0]} title={'Header Video'} ratio={data.header.gallery[0].ratio} audio={false} />) : ('')}
+        </div>
+
+      </div>
+      <div className="w-full  grid grid-cols-2  bottom-0 z-3 bg-black">
+
+      </div>
+
+
+    </React.Fragment>
+
   );
 }
+
+
+
+
+export async function generateMetadata() {
+  const query = await getData(`{
+    'data':*[_type=='settings'][0]{meta{title,description,keywords,"image":image.asset->url}}
+ }`)
+  const { data } = query.data
+  return {
+    title: `${data.meta.title}`,
+    keywords: `${data.meta.keywords}`,
+    description: `${data.meta.description}`,
+    openGraph: {
+      images: data.meta.image
+    }
+  };
+}
+
+
