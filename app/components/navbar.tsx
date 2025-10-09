@@ -43,7 +43,7 @@ export default function Navbar({ data, weather }: any) {
           <div><p className="pr-4" >Inquries</p></div>
           <div className="flex ">
             <div className="px-1 text-gray"><p className="langOption">en</p></div>
-            <div className='px-1 border-l border-r border-gray text-gray'><p className="langOption ">es</p></div>
+            <div className='px-1   text-gray'><p className="langOption ">es</p></div>
             <div className="px-1  text-gray"><p className="langOption">pt</p></div>
           </div>
           

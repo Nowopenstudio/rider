@@ -15,7 +15,7 @@ import { Reveal } from "./util/reveal";
 
 export default async function Home() {
   const query = await getData(`{
-    'data': *[_type=='home'][0]{header{headlines,cta,video{"vid":video.asset->playbackId, "ratio":video.asset->data.aspect_ratio},gallery[]{"vid":video.asset->playbackId, "ratio":reel.asset->data.aspect_ratio,"image":image.asset->url,credits}},welcome,build{title,copy,gallery[]{"vid":video.asset->playbackId, "ratio":video.asset->data.aspect_ratio,"image":image.asset->url}}}
+    'data': *[_type=='home'][0]{header{headlines,cta,video{"vid":video.asset->playbackId, "ratio":video.asset->data.aspect_ratio},gallery[]{"vid":video.asset->playbackId, "ratio":reel.asset->data.aspect_ratio,"image":image.asset->url,credits}},welcome,build{title,copy,gallery[]{"vid":video.asset->playbackId, "ratio":video.asset->data.aspect_ratio,"image":image.asset->url}}, menu[]{title,copy,url,gallery[]{"vid":video.asset->playbackId, "ratio":video.asset->data.aspect_ratio,"image":image.asset->url}}}
     }`)
 
 
@@ -51,16 +51,34 @@ export default async function Home() {
       <div className="w-full  bg-offWhite px-4 z-2 relative grid grid-cols-12 gap-x-4">
         <div className='col-span-full grid grid-cols-2 py-7 border-b items-start'>
           <Reveal styleSet="uppercase"><PortableText value={data.welcome.title} /></Reveal>
-          <Reveal styleSet="text-right footnote text-gray"><PortableText value={data.welcome.copy} /></Reveal>
+          <Reveal styleSet="text-right footnote text-gray pointer-events-none"><PortableText value={data.welcome.copy} /></Reveal>
         </div>
-        <div className="col-span-full flex flex-col-reverse"><div className=" text py-7 uppercase ml-auto mr-0 inline-block"><PortableText value={data.build.title} /></div>
+        <div className="col-span-full flex flex-col-reverse"><Reveal styleSet=" text py-7 uppercase ml-auto mr-0 inline-block"><PortableText value={data.build.title} /></Reveal>
         </div>
-        <div className="col-span-5 mb-22"><PortableText value={data.build.copy}/></div>
-        <div className="col-span-6 col-start-4 mb-38">
+        <Reveal styleSet="col-span-5 mb-22"><PortableText value={data.build.copy}/></Reveal>
+        <Reveal styleSet="col-span-6 col-start-4 mb-38">
               {data.build.gallery.length ? (<SwitchContent work={data.build.gallery[0]} title={'Header Video'} ratio={data.header.gallery[0].ratio} audio={false} />) : ('')}
+
+        </Reveal>
+        <div className="miniMenu grid grid-cols-2 gap-8 col-span-full mb-38">
+              {data.menu?(
+                  data.menu.map((item:any,i:number)=>{
+                    return(
+                      <Reveal styleSet={'col-span-1 mb-8'} key={`${item.title}`}>
+                        <div className="aspect-video w-full bg-mux relative mb-4">
+                           {item.gallery.length ? (<SwitchContent work={item.gallery[0]} title={`${item.title}`} ratio={data.header.gallery[0].ratio} audio={false} cover />) : ('')}
+                        </div>
+                        <div className="w-full">
+                          <h3 className="text-gray uppercase py-3">{item.title}</h3>
+                        </div>
+                      </Reveal>
+                    )
+                  })
+              ):('')}
         </div>
 
       </div>
+
       <div className="w-full  grid grid-cols-2  bottom-0 z-3 bg-black">
 
       </div>
