@@ -12,12 +12,12 @@ export default {
                         {name:'title',title:'Title',type:'string'},
                         {name:'lat', type:'number',title:'Lat'},
                         {name:'long', type:'number',title:'Long'},
-                        {name:'area',type:'string',title:'Area',initialValue:"wynwood",list: [
+                        {name:'area',type:'string',title:'Area',initialValue:"wynwood",options:{list: [
                                     { title: 'Wynwood', value: 'wynwood' },
                                     { title: 'Design District', value: 'design-district' },
                                     { title: 'Midtown Miami', value: 'midtown-miami' },
                                     { title: 'Edgewater', value: 'Edgewater' },
-                                ]}
+                                ]}}
                     ]
                 }]}
             

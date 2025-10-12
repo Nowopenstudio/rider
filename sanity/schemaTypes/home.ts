@@ -115,6 +115,16 @@ export default {
                 },
             ]
         },
+        {name:'map',type:'object',title:'Map',fields:[
+            {name:'label',type:'string',title:'Label'},
+            {name:'title',type:'array', title:'title',of:[{type:'block'}]},
+             {
+                    name: 'cta', title: "CTA", type: 'object', fields: [
+                        { type: 'string', title: 'Label', name: 'label' },
+                        { type: 'string', title: 'URL', name: 'url' },
+                    ]
+                },
+        ]},
         {
             name: 'residency', title: 'Residency', type: 'object', fields: [
                 { name: 'title', title: "Title", type: 'string' },

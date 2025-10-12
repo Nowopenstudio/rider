@@ -1,0 +1,148 @@
+"use client"
+
+import Link from 'next/link';
+import Image from 'next/image';
+import React, { useEffect, useState } from 'react';
+import { ReactLenis } from 'lenis/react';
+import { usePathname } from 'next/navigation';
+import { Reveal } from '../util/reveal';
+import { TextOn } from '../util/misc';
+import useResize from '../util/useResize';
+
+
+
+export default function Map({data }: any) {
+  const [total,setTotal] = useState([]);
+  const [cat,setCat]=useState('all');
+
+  const runCount=()=>{
+    const count:any = []
+    data.locations.map((item:any,i:any)=>{
+      count.push(item.points.length+(i>0?count[i-1]:0))
+      console.log(count)
+
+    })
+    setTotal(count)
+  }
+  useEffect(()=>{
+    runCount()
+  },[])
+
+  const toggleFilter=(section:string)=>{
+    if(section!==cat){
+      setCat(section)
+    }
+    else{
+      setCat('all')
+    }
+  }
+  const showPoint=(e)=>{
+     const key=document.getElementsByClassName('keyHold')
+       if(key.length){
+      Array.from(key).forEach(function(item){
+        item.classList.add('dim')
+    })
+  }
+    const curr = e.currentTarget.getAttribute('data-count')
+    const el = document.querySelector(`div[data-count='${curr}']`)
+    if(el){
+      el.classList.add('highlight')
+    }
+
+    const id = document.getElementById(`key-${curr}`)
+    if(id){
+      id.classList.add('highlight')
+    }
+  }
+
+const hidePoints=()=>{
+   const key =document.getElementsByClassName('keyHold')
+       if(key.length){
+      Array.from(key).forEach(function(item){
+        item.classList.remove('dim')
+    })
+  }
+    const curr =document.getElementsByClassName('highlight')
+    if(curr.length){
+      Array.from(curr).forEach(function(item){
+        item.classList.remove('highlight')
+    })
+  }
+}
+
+
+  return (
+    <React.Fragment>
+         <div className="col-span-full grid grid-cols-12 gap-x-4">
+           <div className="col-span-6 relative">
+                    
+                    {data.map ? (
+                      <Image alt="image" height={0} width={0} sizes="100vw" src={data.map} className={`w-full h-auto `} />
+                    ) : ('')}
+
+                    <div className="pointHold absolute w-full h-full top-0 left-0">
+                      {data.locations?(
+                          data.locations.map((item:any,i:number)=>{
+                            return(
+                              <div key={`${item.title}`} className={`w-full h-full pointHold absolute top-0 left-0 pointer-events-none`}>
+                                        
+                                          {item.points?(
+                                            item.points.map((point:any,p:number)=>{
+                                              return(
+                                                <div onMouseLeave={hidePoints} onMouseEnter={(e:any)=>showPoint(e)} data-count={p+1+(i>0?total[i-1]:0)} className={`w-[30px] h-[30px] cursor-pointer pointer-events-auto text-darkGray  rounded-full flex items-center justify-center singlePoint absolute mapPoints border border-darkGray bg-offWhite ${(cat!=="all" && cat!==point.area)?"hide":''} hover:z-[900]`} key={`loc-${point.title}`} style={{left:`${point.lat}%`,top:`${point.long}%`}}>
+                                                 <p >{p+1+(i>0?total[i-1]:0)}</p>
+                                                </div>
+                                              )
+                                            })
+                                          ):('')}
+                                          
+                                        
+                              </div>
+                            )
+                          })
+                        ):('')}
+                    </div>
+                  </div>
+                  <div className="col-span-5 col-end-13">
+                    <div className="w-full">
+                      <Reveal styleSet="footnote text-gray pointer-events-none"><p className="italic mb-2">Filter by neighborhood</p></Reveal>
+                      <div className="flex gap-4 mb-4">
+                        <div onClick={()=>toggleFilter('wynwood')} className={`${cat=="wynwood"?'active':''} cta filter cursor-pointer inline-block`}><p>WYNWOOD</p></div>
+        
+                        <div onClick={()=>toggleFilter('design-district')} className={`${cat=="design-district"?'active':''} cta filter cursor-pointer inline-block`}><p>DESIGN DISTRICT</p></div>
+                        <div onClick={()=>toggleFilter('midtown-miami')} className={`${cat=="midtown-miami"?'active':''} cta filter cursor-pointer inline-block`}><p>MIDTOWN MIAMI</p></div>
+                        <div onClick={()=>toggleFilter('Edgewater')} className={`${cat=="Edgewater"?'active':''} cta filter cursor-pointer inline-block`}><p>EDGEWATER</p></div>
+                      </div>
+                      <div className="w-full h-3/4 flex flex-wrap flex-col">
+                        {data.locations?(
+                          data.locations.map((item:any,i:number)=>{
+                            return(
+                              <div key={`${item.title}`} className="w-1/2 mr-4">
+                                          <div className="w-full py-2   label"><p className="uppercase mb-2 font-bold">{item.title}</p>
+                                          <div className='w-full keyHold'>
+                                            {item.points?(
+                                              item.points.map((point:any,p:number)=>{
+                                                return(
+                                                  <div id={`key-${p+1+(i>0?total[i-1]:0)}`} data-count={p+1+(i>0?total[i-1]:0)} onMouseLeave={hidePoints} onMouseEnter={(e:any)=>showPoint(e)} className={`cursor-pointer w-full grid grid-cols-12 mapPoints keyList text-darkGray ${(cat!=="all" && cat!==point.area)?"hide":''}`} key={`${point.title}`}>
+                                                    <div className='col-span-1'><p>{p+1+(i>0?total[i-1]:0)}</p></div>
+                                                    <div className="col-span-11"><p>{point.title}</p></div>
+                                                  </div>
+                                                )
+                                              })
+                                            ):('')}
+                                          </div>
+                                          
+                                          </div>
+                              </div>
+                            )
+                          })
+                        ):('')}
+                      </div>
+        
+                    </div>
+                  </div>
+         </div>
+    </React.Fragment>
+
+  );
+}
