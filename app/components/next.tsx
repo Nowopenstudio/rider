@@ -1,0 +1,41 @@
+"use client"
+import React, { useEffect, useRef, useState } from 'react';
+import { SwitchContent } from '../util/contentSwitch';
+import { PortableText } from 'next-sanity';
+import Image from 'next/image';
+import Link from 'next/link';
+
+
+export default function Next({ cta,next}: any) {
+
+  
+
+
+  return (
+    <React.Fragment>
+        <div className="w-full grid grid-cols-2 py-9 bg-white">
+              <div className="col-span-full py-2 uppercase label font-bold px-9"><p>{cta.label}</p></div>
+    
+              <div className="col-span-1 border-r px-9 ">
+                <div className="w-full border-t border-b h-full py-2">
+                  <div className="mb-8 uppercase divide w-full"><PortableText value={cta.title}/></div>
+                  <div className="w-2/3 mb-16"><PortableText value={cta.copy}/></div>
+                  <div className="w-full flex gap-13 pb-9 items-center">
+                    <div className="h-[45px] w-[45px]"><Image alt="image" sizes={`150px`} width={45} height={45} src={cta.image}  className={`w-auto h-[45px]}`} /></div>
+                     <div className="cta secondary inline-block"><p>{cta.cta.label}</p></div>
+                  </div>
+                </div>
+              </div >
+                <Link href={next.url} className="col-span-1 border-r px-9 " >
+                  <div className="w-full h-full">
+                    <div className="w-full border-t border-b h-full py-2 flex items-center justify-center">
+                    <div className="cta-sub text-darkGray"><p>{next.label}</p></div>
+                  
+                  </div>
+                
+                </div>
+                </Link>
+            </div>
+    </React.Fragment>
+  );
+}

@@ -13,7 +13,7 @@
       --color-black:#000000;
       --color-gray:#cccccc;
       --color-darkGray:#6f6f6f;
-      --spacing: 8px; 
+      --spacing: 4px; 
 }
 
 /* Lenis */
@@ -48,6 +48,8 @@ html.lenis, html.lenis body {
 	/* Hide all controls at once */
 	--controls: none;
   }
+
+  img{max-width: auto;}
 
   
 mux-player{
@@ -123,43 +125,66 @@ mux-player {
 
 @font-face {
 	font-family: 'sans';
-	src: url('/fonts/sans-med.woff2');
+	src: url('/fonts/sans-mediem.woff');
 	font-weight: 700;
-	font-style: bold;
+	font-style: noraml;
 }
 
 
 @font-face {
 	font-family: 'sans';
-	src: url('/fonts/sans-bold.woff2');
+	src: url('/fonts/sans-bold.woff');
 	font-weight: 900;
-	font-style: bold;
+	font-style: normal;
 }
 
 @font-face {
-	font-family: 'serif';
-	src: url('/fonts/serif-italics.woff2');
-	font-weight: 900;
+	font-family: 'sans';
+	src: url('/fonts/sans-italics.woff');
+	font-weight: 500;
 	font-style: italic;
+}
+@font-face {
+	font-family: 'sans';
+	src: url('/fonts/sans-italics-med.woff');
+	font-weight: 700;
+	font-style: italic;
+}
+
+
+@font-face {
+	font-family: 'serif';
+	src: url('/fonts/serif.woff');
+	font-weight: 900;
+	font-style: normal;
 }
 body{
   font-family: 'sans',arial, sans-serif;
   font-size:1em;
+  line-height: 1.06em;
   background-color: var(--color-white);
   transition: all .45s ease-in-out;
 }
 
 
-p{  font-size:1.875rem; letter-spacing: .9px;line-height: .95em;}
+p{  font-size:1.875rem;  line-height: 1.06em;}
 
-h1{font-size:41pt;line-height: .92em;}
-h2{font-size:7.25rem;line-height:.82em;letter-spacing: -5.8px}
-h3{font-size:3.125rem;line-height:.82em;letter-spacing: -2.5px;margin-bottom:80px}
+h1{font-size:2.875rem;line-height:1.03em;letter-spacing: -0.02em}
+h2{font-size:7.25rem;line-height:.88em;letter-spacing: -.05em}
+h3{font-size:3.125rem;line-height:.93em;letter-spacing: -.05em;}
+.footer h3{font-size: 50pt;}
 h4{font-family: "didot",'Times New Roman', Times, serif;font-size:3.755rem;line-height:.82em;letter-spacing: -2.5px}
-.divide h3{font-size:4.625rem}
+.divide h3{font-size:4.625rem;letter-spacing: -.05em;}
 
 .navBar p{
   font-size:1.25rem;
+}
+
+.menu p{
+  font-size:3rem;
+  letter-spacing: -.03em;
+  line-height: .73em;
+  
 }
 
 p.langOption{
@@ -167,14 +192,29 @@ p.langOption{
   font-size: .75rem;
 }
 
-.label, .label p{
+.label, .label p, label{
   font-size: 1rem;
 
 }
 
-.cta p{
+.cta p, .caption p{
    font-size: .75rem;
+
 }
+
+.menuText p em{
+  font-family: 'serif','Times New Roman', Times, serif;
+  font-size:1.25rem;
+  letter-spacing:-.36px;
+font-style: italic;
+}
+
+.navContact p{
+  font-size:.875rem;
+  line-height: 1em;
+  letter-spacing: .01em;
+}
+
 .footnote p{
 color: #000000cc;
 font-family: 'serif','Times New Roman', Times, serif;
@@ -183,9 +223,38 @@ letter-spacing:-.36px;
 font-style: italic;
 }
 
+.policies p{
+  font-family: "helvetica neue",Arial, Helvetica, sans-serif;
+  font-style: normal;
+}
+
+.copyright p{
+  font-size: .5625rem;
+}
+
+.legal p{
+  font-size: .4375rem;
+  line-height: 1.09em;
+}
+
 .mapPoints p{
   font-size:.8125rem;
   line-height: 1.13em;
+}
+
+.footerContact p{
+  font-size:1.1875rem
+}
+
+/* captions */
+.credits p, .credits{
+ font-family: 'Times New Roman', Times, serif;
+  font-size: .6725rem;
+}
+
+.downloadBar p{
+  font-size: 0.875rem;
+  font-weight: 700;
 }
 
 /* CTAs */
@@ -194,7 +263,7 @@ font-style: italic;
   border-width: 1px;
   display: inline-flex;
   width:auto;
-  height:30px;
+  height:40px;
   padding: 0 calc(var(--spacing) * 3);
   background-color: rgba(255,255,255,0);
   text-transform: uppercase;
@@ -202,9 +271,21 @@ font-style: italic;
   justify-content: center;
   flex-shrink: 0;
   transition: all 750ms ease-out;
+  cursor:pointer;
 }
 
 .cta.inverted:hover{
+  background-color: rgba(255,255,255,1);
+    color:rgba(0,0,0,1);
+}
+
+.cta.secondary{
+   background-color: rgba(0,0,0,1);
+   color:#fff;
+}
+
+
+.cta.secondary:hover{
   background-color: rgba(255,255,255,1);
     color:rgba(0,0,0,1);
 }
@@ -236,4 +317,40 @@ font-style: italic;
   font-weight: bold !important;
   color:#000000;
   opacity: 1 !important;
+}
+
+
+/* credits */
+.creditHold{
+  opacity: 0;
+  transition: opacity 750ms ease-out;
+}
+
+.creditHold.show{
+  opacity: 1;
+}
+
+
+/* inputs */
+input {height:20px}
+
+
+/* gallery */
+/* .galleryImage{
+  transition: transform .75s ease-in-out;
+} */
+
+.galleryImage.static{
+  transition: none;
+}
+
+.galleryB {
+  transition: opacity .75s ease-in-out;
+}
+
+
+/* menu */
+.blur{
+background: rgba(95, 95, 95, 0.04);
+backdrop-filter: blur(150px);
 }

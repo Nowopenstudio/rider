@@ -4,6 +4,17 @@ export default {
     title: 'Footer',
     fields: [
         {
+            name:"contact",title:"Contact",type:'object',fields:[
+                {name:'phone',title:'Phone',type:'string'},
+                {
+                    name: 'cta', title: "CTA", type: 'object', fields: [
+                        { type: 'string', title: 'Label', name: 'label' },
+                        { type: 'string', title: 'URL', name: 'url' },
+                    ]
+                },
+            ]
+        },
+        {
             name: 'form', title: "Form", type: 'object', fields: [
                 { name: 'headline', type: 'string', title: "Headline" },
                 { name: 'copy', type: 'array', title: 'Copy',of:[{type:'block'}] },
@@ -18,13 +29,31 @@ export default {
                     ]
                 },
                 {
-                    name: 'rooms', type: 'array', title: "Inputs", of: [
-                        {
+                    name: 'rooms', type: 'object', title: "Room", fields: [
+                        {name:'label',title:'label',type:'string'},
+                        {name:'options',type:'array',title:'Options',of:[
+                              {
                             name: 'type', type: 'object', title: 'Type', fields: [
                                 { name: 'label', type: 'string', title: 'Label' },
                                 { name: 'value', type: 'string', title: "Value" }
                             ]
                         }
+                        ]}
+                      
+                    ]
+                },
+                      {
+                    name: 'broker', type: 'object', title: "Broker", fields: [
+                        {name:'label',title:'label',type:'string'},
+                        {name:'options',type:'array',title:'Options',of:[
+                              {
+                            name: 'type', type: 'object', title: 'Type', fields: [
+                                { name: 'label', type: 'string', title: 'Label' },
+                                { name: 'value', type: 'string', title: "Value" }
+                            ]
+                        }
+                        ]}
+                      
                     ]
                 },
 
@@ -68,7 +97,7 @@ export default {
 
                     ]
                 },
-                { name: 'copyright', type: 'array', title: "Copywrite", of: [{ type: 'block' }] }
+                { name: 'copyright', type: 'array', title: "Copyrite", of: [{ type: 'block' }] }
             ]
         },
 

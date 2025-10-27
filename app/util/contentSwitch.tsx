@@ -2,7 +2,7 @@
 import { MuxVideoBG } from "./muxPlayer";
 import Image from "next/image";
 
-export function SwitchContent({work, title,ratio,cover, contain,size, audio,color,ratioImg}: any) {
+export function SwitchContent({work, title,ratio,cover, contain,size, audio,color,ratioImg,dim,height}: any) {
   if (!work) return null
 
   
@@ -12,7 +12,7 @@ export function SwitchContent({work, title,ratio,cover, contain,size, audio,colo
 
     }
    
-  if (work.image) return <Image alt="image" onContextMenu={(e)=>{e.preventDefault()}} height={0}  width={0} sizes={`${size?size:`100vw`}`}  src={work.image}  className={`w-full ${contain?"object-contain h-full":""} ${cover?"object-cover h-full":""}`} style={{aspectRatio:ratioImg}}/>
+  if (work.image) return <Image alt="image" onContextMenu={(e)=>{e.preventDefault()}} height={0}  width={0} sizes={`${size?size:`100vw`}`}  src={work.image}  className={`${height?`h-full w-auto`:'w-full h-auto'} ${contain?"object-contain h-full":""} ${cover?"object-cover h-full":""}`} style={{aspectRatio:ratioImg}}/>
     
  
 }

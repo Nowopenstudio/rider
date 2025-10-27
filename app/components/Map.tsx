@@ -23,6 +23,7 @@ export default function Map({data }: any) {
 
     })
     setTotal(count)
+    console.log(total,"count")
   }
   useEffect(()=>{
     runCount()
@@ -36,7 +37,7 @@ export default function Map({data }: any) {
       setCat('all')
     }
   }
-  const showPoint=(e)=>{
+  const showPoint=(e:any)=>{
      const key=document.getElementsByClassName('keyHold')
        if(key.length){
       Array.from(key).forEach(function(item){
@@ -73,7 +74,8 @@ const hidePoints=()=>{
 
   return (
     <React.Fragment>
-         <div className="col-span-full grid grid-cols-12 gap-x-4">
+        {total.length?(
+           <div className="col-span-full grid grid-cols-12 gap-x-4">
            <div className="col-span-6 relative">
                     
                     {data.map ? (
@@ -81,7 +83,7 @@ const hidePoints=()=>{
                     ) : ('')}
 
                     <div className="pointHold absolute w-full h-full top-0 left-0">
-                      {data.locations?(
+                      {data.locations.length?(
                           data.locations.map((item:any,i:number)=>{
                             return(
                               <div key={`${item.title}`} className={`w-full h-full pointHold absolute top-0 left-0 pointer-events-none`}>
@@ -90,7 +92,7 @@ const hidePoints=()=>{
                                             item.points.map((point:any,p:number)=>{
                                               return(
                                                 <div onMouseLeave={hidePoints} onMouseEnter={(e:any)=>showPoint(e)} data-count={p+1+(i>0?total[i-1]:0)} className={`w-[30px] h-[30px] cursor-pointer pointer-events-auto text-darkGray  rounded-full flex items-center justify-center singlePoint absolute mapPoints border border-darkGray bg-offWhite ${(cat!=="all" && cat!==point.area)?"hide":''} hover:z-[900]`} key={`loc-${point.title}`} style={{left:`${point.lat}%`,top:`${point.long}%`}}>
-                                                 <p >{p+1+(i>0?total[i-1]:0)}</p>
+                                                 <p>{p+1+(i>0?total[i-1]:0)}</p>
                                                 </div>
                                               )
                                             })
@@ -114,7 +116,7 @@ const hidePoints=()=>{
                         <div onClick={()=>toggleFilter('Edgewater')} className={`${cat=="Edgewater"?'active':''} cta filter cursor-pointer inline-block`}><p>EDGEWATER</p></div>
                       </div>
                       <div className="w-full h-3/4 flex flex-wrap flex-col">
-                        {data.locations?(
+                        {data.locations.length?(
                           data.locations.map((item:any,i:number)=>{
                             return(
                               <div key={`${item.title}`} className="w-1/2 mr-4">
@@ -142,6 +144,7 @@ const hidePoints=()=>{
                     </div>
                   </div>
          </div>
+        ):('')}
     </React.Fragment>
 
   );

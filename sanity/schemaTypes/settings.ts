@@ -13,8 +13,9 @@ export default {
             name: 'header', title: "header", type: 'object', fields: [
                 {
                     name: 'headlines', type: 'array', title: "headlines", of: [
-                        { name: 'title', title: 'title', type: 'string' }]
-                }
+                  { name: 'title', title: 'title', type: 'string' }]
+                },
+
 
 
 
