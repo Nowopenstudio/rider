@@ -47,7 +47,7 @@ const next=()=>{
 
   return (
     <React.Fragment>
-        <div className="w-full h-[100dvh] relative overflow-x-hidden py-39"  >
+        <div className="w-full h-[100dvh] relative overflow-x-hidden py-39 galleryFull"  >
 
           <div className="opacity-0 flex flex-nowrap ">
             {data.map((item:any, i:number)=>{
@@ -67,7 +67,7 @@ const next=()=>{
             })}
           </div>
         
-       <div className="w-full absolute h-full top-0 left-0">
+       <div className="w-full absolute h-full top-0 left-0 galleryFull">
             <div className="w-1/2 h-full z-40 left-0 absolute cursor-w-resize" onClick={back}></div>
              <div className="w-1/2 h-full z-40 left-1/2 absolute cursor-e-resize" onClick={next}></div>
             {data.map((item:any, i:number)=>{

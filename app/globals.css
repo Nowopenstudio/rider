@@ -49,7 +49,7 @@ html.lenis, html.lenis body {
 	--controls: none;
   }
 
-  img {max-width:unset;}
+  .galleryFull img {max-width:unset;}
 
   
 mux-player{
@@ -119,22 +119,22 @@ mux-player {
 @font-face {
 	font-family: 'sans';
 	src: url('/fonts/sans.woff');
-	font-weight: 500;
+	font-weight: 400;
 	font-style: normal;
 }
 
 @font-face {
 	font-family: 'sans';
-	src: url('/fonts/sans-mediem.woff');
-	font-weight: 700;
-	font-style: noraml;
+	src: url('/fonts/sans-medium.woff');
+	font-weight: 600;
+	font-style: normal;
 }
 
 
 @font-face {
 	font-family: 'sans';
 	src: url('/fonts/sans-bold.woff');
-	font-weight: 900;
+	font-weight: 700;
 	font-style: normal;
 }
 
@@ -147,7 +147,7 @@ mux-player {
 @font-face {
 	font-family: 'sans';
 	src: url('/fonts/sans-italics-med.woff');
-	font-weight: 700;
+	font-weight: 600;
 	font-style: italic;
 }
 
@@ -155,7 +155,7 @@ mux-player {
 @font-face {
 	font-family: 'serif';
 	src: url('/fonts/serif.woff');
-	font-weight: 900;
+	font-weight: 400;
 	font-style: normal;
 }
 body{
@@ -164,41 +164,59 @@ body{
   line-height: 1.06em;
   background-color: var(--color-white);
   transition: all .45s ease-in-out;
+  text-box: trim-both cap alphabetic;
 }
 
 
 p{  font-size:1.875rem;  line-height: 1.06em;}
 
-h1{font-size:2.875rem;line-height:1.03em;letter-spacing: -0.02em}
-h2{font-size:7.25rem;line-height:.88em;letter-spacing: -.05em}
-h3{font-size:3.125rem;line-height:.93em;letter-spacing: -.05em;}
+h1,h5{font-size:2.875rem;line-height:1.03em;letter-spacing: -0.02em;text-box: trim-both cap alphabetic;}
+h2{font-size:7.25rem;line-height:.88em;letter-spacing: -.05em;text-box: trim-both cap alphabetic;}
+h3{font-size:3.125rem;line-height:.93em;letter-spacing: -.05em;text-box: trim-both cap alphabetic;}
 .footer h3{font-size: 50pt;}
-h4{font-family: "didot",'Times New Roman', Times, serif;font-size:3.755rem;line-height:.82em;letter-spacing: -2.5px}
-.divide h3{font-size:4.625rem;letter-spacing: -.05em;}
+h4{font-family: "didot",'Times New Roman', Times, serif;font-size:3.755rem;line-height:.82em;letter-spacing: -2.5px;text-box: trim-both cap alphabetic;}
+.divide h3{font-size:4.625rem;letter-spacing: -.05em;text-box: trim-both cap alphabetic;margin-bottom: 74px;}
 
 .navBar p{
-  font-size:1.25rem;
+  font-size:1.25rem;text-box: trim-both cap alphabetic;
 }
 
 .menu p{
   font-size:3rem;
   letter-spacing: -.03em;
   line-height: .73em;
+  text-box: trim-both cap alphabetic;
   
+}
+
+.subMenu{
+  font-size:2.25rem;
+  letter-spacing: -.03em;
+  line-height: 1.45em;
+  text-box: trim-both cap alphabetic;
+}
+
+.p2 p{
+  font-size:1.5rem;
+  line-height: 1.05em;
+  letter-spacing: -0.02em;
 }
 
 p.langOption{
   font-family: "didot",'Times New Roman', Times, serif;
   font-size: .75rem;
+  text-box: trim-both cap alphabetic;
 }
 
 .label, .label p, label{
   font-size: 1rem;
+  text-box: trim-both cap alphabetic;
 
 }
 
 .cta p, .caption p{
    font-size: .75rem;
+   text-box: trim-both cap alphabetic;
 
 }
 
@@ -207,12 +225,14 @@ p.langOption{
   font-size:1.25rem;
   letter-spacing:-.36px;
 font-style: italic;
+text-box: trim-both cap alphabetic;
 }
 
 .navContact p{
   font-size:.875rem;
   line-height: 1em;
   letter-spacing: .01em;
+  text-box: trim-both cap alphabetic;
 }
 
 .footnote p{
@@ -221,15 +241,18 @@ font-family: 'serif','Times New Roman', Times, serif;
 font-size: .75rem;
 letter-spacing:-.36px;
 font-style: italic;
+text-box: trim-both cap alphabetic;
 }
 
 .policies p{
   font-family: "helvetica neue",Arial, Helvetica, sans-serif;
   font-style: normal;
+  text-box: trim-both cap alphabetic;
 }
 
 .copyright p{
   font-size: .5625rem;
+  text-box: trim-both cap alphabetic;
 }
 
 .legal p{
@@ -240,21 +263,25 @@ font-style: italic;
 .mapPoints p{
   font-size:.8125rem;
   line-height: 1.13em;
+  text-box: trim-both cap alphabetic;
 }
 
 .footerContact p{
-  font-size:1.1875rem
+  font-size:1.1875rem;
+  text-box: trim-both cap alphabetic;
 }
 
 /* captions */
 .credits p, .credits{
  font-family: 'Times New Roman', Times, serif;
   font-size: .6725rem;
+  text-box: trim-both cap alphabetic;
 }
 
 .downloadBar p{
   font-size: 0.875rem;
   font-weight: 700;
+  text-box: trim-both cap alphabetic;
 }
 
 /* CTAs */
@@ -272,6 +299,7 @@ font-style: italic;
   flex-shrink: 0;
   transition: all 750ms ease-out;
   cursor:pointer;
+  text-box: trim-both cap alphabetic;
 }
 
 .cta.inverted:hover{

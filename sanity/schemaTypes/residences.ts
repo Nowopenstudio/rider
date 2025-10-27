@@ -24,20 +24,16 @@ export default {
         },
         {
             name: 'intro', title: 'Intro', type: 'object', fields: [
-
+                 { name: 'title', type: 'array', title:'Title',of: [{ type: 'block' }] },
                 { name: 'copy', type: 'array', of: [{ type: 'block' }] },
                 {
-                    name: 'gallery', type: 'array', title: "Gallery", of: [
-                        {
-                            name: 'single', title: "single", type: 'object', fields: [
+                            name: 'media', title: "Image", type: 'object', fields: [
                                 { name: 'image', title: 'Image', type: 'image' },
                                 { name: 'video', title: 'video', type: 'mux.video' },
                                 { name: 'captions', title: 'Captions', type: 'array', of: [{ type: 'block' }] },
                                 { name: 'credits', title: 'Credits', type: 'array', of: [{ type: 'block' }] },
                             ]
                         }
-                    ]
-                },
 
 
 
@@ -46,6 +42,8 @@ export default {
         {name:'specs',title:'Specs',type:'array',of:[
             {name:'spec',title:'Spec',type:'object',fields:[
                 {name:'title',type:'string',title:'Title'},
+                    {name:'subtitle',type:'string',title:'SubTitle'},
+                        {name:'subHead',type:'string',title:'Subhead'},
                  {
                     name: 'gallery', type: 'array', title: "Gallery", of: [
                         {
