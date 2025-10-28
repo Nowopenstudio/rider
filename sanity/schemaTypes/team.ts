@@ -85,7 +85,7 @@ export default {
 
         {
             name: 'outro', title: "Outro Video", type: 'object', fields: [
-                { name: 'title', title: "Title", type: "string" },
+                { name: 'title', title: 'Title', type: 'array',of: [{ type: 'block' }] },
                 {
                     name: 'video', title: 'video', type: 'object', fields: [
                         { name: 'image', title: 'thumb', type: 'image' },
