@@ -208,7 +208,8 @@ export default async function Home() {
 
 
     </div>
-
+ 
+          <ScrollUp />
     </React.Fragment >
 
   );

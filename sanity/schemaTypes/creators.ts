@@ -22,24 +22,26 @@ export default {
 
             ]
         },
-        {
+         {
             name: 'intro', title: 'Intro', type: 'object', fields: [
-
-                { name: 'intro', type: 'array', title: 'Intro', of: [{ type: 'block' }] },
+                { name: 'title', type: 'array', of: [{ type: 'block' }] },
+                { name: 'subhead', type: 'array', of: [{ type: 'block' }] },
+                { name: 'copy', type: 'array', of: [{ type: 'block' }] },
+                 { name: 'outro', type: 'array', of: [{ type: 'block' }] },
                 {
-                    name: 'gallery', type: 'array', title: "Gallery", of: [
-                        {
-                            name: 'single', title: "single", type: 'object', fields: [
+                            name: 'media', title: "single", type: 'object', fields: [
                                 { name: 'image', title: 'Image', type: 'image' },
                                 { name: 'video', title: 'video', type: 'mux.video' },
                                 { name: 'captions', title: 'Captions', type: 'array', of: [{ type: 'block' }] },
                                 { name: 'credits', title: 'Credits', type: 'array', of: [{ type: 'block' }] },
                             ]
-                        }
+                        },
+                {
+                    name: 'cta', title: "CTA", type: 'object', fields: [
+                        { type: 'string', title: 'Label', name: 'label' },
+                        { type: 'string', title: 'URL', name: 'url' },
                     ]
                 },
-                { name: 'outro', type: 'array', title: 'Outro', of: [{ type: 'block' }] },
-
 
 
 
@@ -47,14 +49,7 @@ export default {
         },
         {
             name: 'legends', title: 'Legends', type: 'object', fields: [
-                {
-                    name: 'hero', title: 'video', type: 'object', fields: [
-                        { name: 'title', title: 'Title', type: "array", of: [{ type: 'block' }] },
-                        { name: 'image', title: 'thumb', type: 'image' },
-                        { name: 'video', title: 'Video', type: 'mux.video' },
-                        { name: 'credits', title: 'Credits', type: "array", of: [{ type: 'block' }] }
-                    ]
-                },
+                { name: 'headline', title: 'Headline', type: 'array', of: [{ type: 'block' }] },
 
             ]
         },
@@ -67,6 +62,7 @@ export default {
                                 { name: 'name', type: 'string', title: 'Name' },
                                 { name: 'title', type: 'string', title: 'Title' },
                                 { name: 'image', type: 'image', title: "Image" },
+                                
                                 { name: 'bio', title: 'Bio', type: "array", of: [{ type: 'block' }] },
                                 {
                                     name: 'gallery', type: 'array', title: "Gallery", of: [
@@ -74,6 +70,8 @@ export default {
                                             name: 'single', title: "single", type: 'object', fields: [
                                                 { name: 'image', title: 'Image', type: 'image' },
                                                 { name: 'video', title: 'video', type: 'mux.video' },
+                                                { name: 'title', title: 'Title', type: 'array', of: [{ type: 'block' }] },
+                                                { name: 'copy', title: 'Copy', type: 'array', of: [{ type: 'block' }] },
                                                 { name: 'captions', title: 'Captions', type: 'array', of: [{ type: 'block' }] },
                                                 { name: 'credits', title: 'Credits', type: 'array', of: [{ type: 'block' }] },
                                             ]
@@ -81,9 +79,19 @@ export default {
                                     ]
                                 },
                                 {
-                                    name: 'feat', title: "single", type: 'object', fields: [
+                                    name: 'feat', title: "Feat", type: 'object', fields: [
                                         { name: 'image', title: 'Image', type: 'image' },
                                         { name: 'video', title: 'video', type: 'mux.video' },
+                                        { name: 'headline', title: 'Headline', type: 'array', of: [{ type: 'block' }] },
+                                        { name: 'captions', title: 'Captions', type: 'array', of: [{ type: 'block' }] },
+                                        { name: 'credits', title: 'Credits', type: 'array', of: [{ type: 'block' }] },
+                                    ]
+                                },
+                                 {
+                                    name: 'media', title: "Media", type: 'object', fields: [
+                                        { name: 'image', title: 'Image', type: 'image' },
+                                        { name: 'video', title: 'video', type: 'mux.video' },
+                                        { name: 'headline', title: 'Headline', type: 'array', of: [{ type: 'block' }] },
                                         { name: 'captions', title: 'Captions', type: 'array', of: [{ type: 'block' }] },
                                         { name: 'credits', title: 'Credits', type: 'array', of: [{ type: 'block' }] },
                                     ]

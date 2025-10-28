@@ -9,7 +9,7 @@ export default {
         },
     ],
     fields: [
-        {
+       {
             name: 'header', title: "header", type: 'object', fields: [
                 { name: 'title', title: "Site Descriptor", type: "string" },
                 {
@@ -22,30 +22,44 @@ export default {
 
             ]
         },
-        {
+         {
             name: 'intro', title: 'Intro', type: 'object', fields: [
-
-                { name: 'title', type: 'array', title: 'Title', of: [{ type: 'block' }] },
-                { name: 'copy', type: 'array', title: 'copy', of: [{ type: 'block' }] },
-
-                
-
+                { name: 'title', type: 'array', of: [{ type: 'block' }] },
+                { name: 'subhead', type: 'array', of: [{ type: 'block' }] },
+                { name: 'copy', type: 'array', of: [{ type: 'block' }] },
+                 { name: 'outro', type: 'array', of: [{ type: 'block' }] },
+                {
+                            name: 'media', title: "single", type: 'object', fields: [
+                                { name: 'image', title: 'Image', type: 'image' },
+                                { name: 'video', title: 'video', type: 'mux.video' },
+                                { name: 'captions', title: 'Captions', type: 'array', of: [{ type: 'block' }] },
+                                { name: 'credits', title: 'Credits', type: 'array', of: [{ type: 'block' }] },
+                            ]
+                        },
+                {
+                    name: 'cta', title: "CTA", type: 'object', fields: [
+                        { type: 'string', title: 'Label', name: 'label' },
+                        { type: 'string', title: 'URL', name: 'url' },
+                    ]
+                },
 
 
 
             ]
         },
-        {
-            name: 'team', title: 'Team', type: 'object', fields: [
-                 { name: 'title', type: 'array', title: 'Title', of: [{ type: 'block' }] },
-                  {
-            name: 'profiles', title: "Profiles", type: 'array', of: [
+       {
+            name: 'team', title: "Team", type: 'array', of: [
                 {
-                    name: 'profile', title: 'Profile', type: 'object', fields: [
+                    name: 'single', title: 'Single', type: 'object', fields: [
                         {
                             name: 'profile', type: 'object', title: 'Profile', fields: [
+                                { name: 'label', type: 'string', title: 'Label' },
+                                { name: 'Role', type: 'string', title: 'Role' },
+                                { name: 'Company', type: 'string', title: 'Company' },
                                 { name: 'name', type: 'string', title: 'Name' },
-                                { name: 'title', type: 'string', title: 'Title' },
+                                { name: 'title', type: 'array', title: 'Title',of:[{type:'block'}] },
+                                { name: 'image', type: 'image', title: "Image" },
+                                { name: 'intro', title: 'Intro', type: "array", of: [{ type: 'block' }] },
                                 { name: 'bio', title: 'Bio', type: "array", of: [{ type: 'block' }] },
                                 {
                                     name: 'gallery', type: 'array', title: "Gallery", of: [
@@ -53,27 +67,19 @@ export default {
                                             name: 'single', title: "single", type: 'object', fields: [
                                                 { name: 'image', title: 'Image', type: 'image' },
                                                 { name: 'video', title: 'video', type: 'mux.video' },
+                                                { name: 'title', title: 'Title', type: 'array', of: [{ type: 'block' }] },
+                                                { name: 'copy', title: 'Copy', type: 'array', of: [{ type: 'block' }] },
                                                 { name: 'captions', title: 'Captions', type: 'array', of: [{ type: 'block' }] },
                                                 { name: 'credits', title: 'Credits', type: 'array', of: [{ type: 'block' }] },
                                             ]
                                         }
                                     ]
                                 },
-                                {
-                                    name: 'feat', title: "single", type: 'object', fields: [
-                                        { name: 'image', title: 'Image', type: 'image' },
-                                        { name: 'video', title: 'video', type: 'mux.video' },
-                                        { name: 'captions', title: 'Captions', type: 'array', of: [{ type: 'block' }] },
-                                        { name: 'credits', title: 'Credits', type: 'array', of: [{ type: 'block' }] },
-                                    ]
-                                }
+                                
                             ]
                         },
                     ]
                 }
-            ]
-        },
-
             ]
         },
 
