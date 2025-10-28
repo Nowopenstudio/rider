@@ -210,7 +210,7 @@ p.langOption{
 
 .label, .label p, label{
   font-size: 1rem;
-  text-box: trim-both cap alphabetic;
+
 
 }
 
@@ -241,18 +241,18 @@ font-family: 'serif','Times New Roman', Times, serif;
 font-size: .75rem;
 letter-spacing:-.36px;
 font-style: italic;
-text-box: trim-both cap alphabetic;
+
 }
 
 .policies p{
   font-family: "helvetica neue",Arial, Helvetica, sans-serif;
   font-style: normal;
-  text-box: trim-both cap alphabetic;
+  
 }
 
 .copyright p{
   font-size: .5625rem;
-  text-box: trim-both cap alphabetic;
+
 }
 
 .legal p{
@@ -263,7 +263,14 @@ text-box: trim-both cap alphabetic;
 .mapPoints p{
   font-size:.8125rem;
   line-height: 1.13em;
-  text-box: trim-both cap alphabetic;
+
+}
+
+.planNumber p{
+  font-size:45pt;
+}
+.planTitle p{
+  font-size:27pt;
 }
 
 .footerContact p{
@@ -291,7 +298,7 @@ text-box: trim-both cap alphabetic;
   display: inline-flex;
   width:auto;
   height:40px;
-  padding: 0 calc(var(--spacing) * 3);
+  padding: 0 calc(var(--spacing) * 5);
   background-color: rgba(255,255,255,0);
   text-transform: uppercase;
   flex-direction: column;
@@ -376,6 +383,10 @@ input {height:20px}
   transition: opacity .75s ease-in-out;
 }
 
+/* floorplan */
+.floorList.hide{
+  opacity:.15;
+}
 
 /* menu */
 .blur{

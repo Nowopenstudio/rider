@@ -5,7 +5,7 @@ import { PortableText } from 'next-sanity';
 
 
 
-export default function GalleryA({data}: any) {
+export default function GalleryA({data,full}: any) {
   const ref = useRef<HTMLDivElement>(null)
   const [x,setX] = useState<number>(0)
 const [total,setTotal] = useState([]);
@@ -47,7 +47,7 @@ const next=()=>{
 
   return (
     <React.Fragment>
-        <div className="w-full h-[100dvh] relative overflow-x-hidden py-39 galleryFull"  >
+        <div className={`w-full h-[100dvh] relative overflow-x-hidden ${full?'':'py-39'} galleryFull` } >
 
           <div className="opacity-0 flex flex-nowrap ">
             {data.map((item:any, i:number)=>{
@@ -72,7 +72,7 @@ const next=()=>{
              <div className="w-1/2 h-full z-40 left-1/2 absolute cursor-e-resize" onClick={next}></div>
             {data.map((item:any, i:number)=>{
               return(
-                <div key={`image-${i}`} onTransitionEnd={(e)=>checkSpace(e,i)} className={`w-auto h-full absolute galleryImage origin-center py-39`} style={{left:'50%',transform:`translateX(${(i==0 && (curr==data.length-1))?`50`:`${(i==data.length-1 && curr==0)?'-150':`${((100*i)-(curr*100))-50}`}`}%)`}}>
+                <div key={`image-${i}`} onTransitionEnd={(e)=>checkSpace(e,i)} className={`w-auto h-full absolute galleryImage origin-center ${full?'':'py-39'}`} style={{left:'50%',transform:`translateX(${(i==0 && (curr==data.length-1))?`50`:`${(i==data.length-1 && curr==0)?'-150':`${((100*i)-(curr*100))-50}`}`}%)`}}>
                  <div className="singleMedia h-full relative w-auto" ref={i==0?ref:undefined}>
                     <div className="w-auto h-full z-40 left-0 absolute text-white pointer-events-none" ><h2>{i}</h2></div>
                    <div className="w-auto h-full relative"> <SwitchContent work={item} title={`${item}`} ratio={item.ratio} audio={false} height />

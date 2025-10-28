@@ -24,7 +24,8 @@ export default {
         },
         {
             name: 'intro', title: 'Intro', type: 'object', fields: [
-                 { name: 'title', title: "Site Descriptor", type: "string" },
+                { name: 'title', type: 'array', of: [{ type: 'block' }] },
+                { name: 'subhead', type: 'array', of: [{ type: 'block' }] },
                 { name: 'copy', type: 'array', of: [{ type: 'block' }] },
                 {
                     name: 'gallery', type: 'array', title: "Gallery", of: [
@@ -38,6 +39,12 @@ export default {
                         }
                     ]
                 },
+                {
+                    name: 'cta', title: "CTA", type: 'object', fields: [
+                        { type: 'string', title: 'Label', name: 'label' },
+                        { type: 'string', title: 'URL', name: 'url' },
+                    ]
+                },
 
 
 
@@ -45,7 +52,17 @@ export default {
         },
         { name: 'locations', title: 'Locations', type: 'array', of: [
             {name:'location',type:"object",title:"Location",fields:[
-                {name:'title',type:'string',title:'Title'},
+                 { name: 'label', title: 'Label', type: 'string' },
+                { name: 'title', title: 'Title', type: 'string' },
+                { name: 'copy', title: "Copy", type: "array", of: [{ type: 'block' }] },
+                {
+                            name: 'media', title: "media", type: 'object', fields: [
+                                { name: 'image', title: 'Image', type: 'image' },
+                                { name: 'video', title: 'video', type: 'mux.video' },
+                                { name: 'captions', title: 'Captions', type: 'array', of: [{ type: 'block' }] },
+                                { name: 'credits', title: 'Credits', type: 'array', of: [{ type: 'block' }] },
+                            ]
+                        },
                 {
                     name: 'gallery', type: 'array', title: "Gallery", of: [
                         {
@@ -58,6 +75,7 @@ export default {
                         }
                     ]
                 },
+                
 
             ]}
         ]},

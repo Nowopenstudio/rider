@@ -218,7 +218,7 @@ export default {
          {
             name: 'floors', type: 'object', title: 'Floorplan', fields: [
                  { name: 'label', type: 'string', title: 'Label' },
-                { name: 'title', type: 'string', title: 'Title' },
+                { name: 'title', type: 'array', title: 'Title',of:[{type:'block'}] },
                                            
                 {
                     name: 'rooms', type: 'array', title: "Rooms", of: [{
@@ -226,7 +226,7 @@ export default {
                             { name: 'title', type: 'string', title: "Title" },
                             {
                                 name: 'rooms', type: 'array', title: "Rooms", of: [{
-                                    name: 'room', type: 'object', title: "Room", fields: [
+                                    name: 'room', type: 'object', ititle: "Room", fields: [
                                         { name: "name", type: 'string', title: 'Title' },
                                         { name: 'copy', type: "array", title: "Copy", of: [{ type: 'block' }] },
                                         { name: 'image', type: 'image', title: "Image" },
@@ -283,7 +283,7 @@ export default {
         {
             name: 'smart', type: 'object', title: 'Smart Technology', fields: [
                 { name: 'label', type: 'string', title: 'Label' },
-                { name: 'title', type: 'string', title: 'Title' },
+                { name: 'title', type: 'array', title: 'Title', of: [{ type: 'block' }] },
                 { name: 'subhead', type: 'array', title: 'Subhead', of: [{ type: 'block' }] },
                 { name: 'copy', type: 'array', title: 'Copy', of: [{ type: 'block' }] },
                 {

@@ -18,6 +18,8 @@ import TextBlock from "../components/textBlock";
 import GalleryB from "../components/galleryB";
 import Next from "../components/next";
 import GalleryC from "../components/galleryC";
+import Floorplans from "../components/floorplans";
+import GalleryD from "../components/galleryD";
 
 
 
@@ -137,41 +139,77 @@ export default async function Home() {
         </div>
 
         {/* floors */}
-        <div className="col-span-12 rounded-t-[12px] bg-offWhite py-9 z-3 reliatve">
-          <div className="w-full grid grid-cols-12 px-9">
+        <div className="col-span-12  bg-offWhite py-9 z-3 relative">
+          <div className="w-full grid grid-cols-12 px-9 mb-39">
 
             <div className="col-span-full py-2 border-b  pb-4 mb-4 uppercase label font-bold"><p>{data.floorplan.label}</p></div>
-            <div className="col-span-full divide uppercase mb-14">
+            <div className="col-span-6 divide uppercase mb-14 row-start-2">
               <PortableText value={data.floorplan.title} />
             </div>
-            <div className="col-span-6 mb-30">
+            <div className="col-span-6 mb-30 row-start-3">
               <PortableText value={data.floorplan.copy} />
             </div>
-            </div>
-            <div className="col-span-6">
-              
-            </div>
-
-
-
-
-
-
           </div>
+          <div className="col-span-12 mb-14">
+            <Floorplans data={data.floorplan.rooms} filter cta={data.floorplan.cta}/>
+          </div>
+          
 
-
-
-
-
-
-
-          {/* CTA */}
-          <div className="col-span-full"> <Next next={data.next} cta={data.cta} /></div>
+            
 
 
         </div>
 
-    </React.Fragment>
+
+         <div className="col-span-12  bg-offWhite py-9 z-3 relatve mb-39">
+              <div className="w-full uppercase px-9 divide">
+                <PortableText value={data.floors.title} />
+                
+              </div>
+
+              <div className="col-span-12 mb-14">
+                <Floorplans data={data.floors.rooms} cta={data.floors.cta}/>
+            </div>
+            
+         </div>
+         <Reveal styleSet="col-span-6 col-start-4 mb-39 ">
+          {data.floors.media ? (<SwitchContent work={data.floors.media} title={'Header Video'} audio={false} />) : ('')}
+
+        </Reveal>
+
+
+        <div className='col-span-full grid grid-cols-12 px-9'>
+          <div className="col-span-full py-2 border-b  pb-4 mb-9 uppercase label font-bold"><p>{data.smart.label}</p></div>
+          <div className="col-span-full divide uppercase">
+            <PortableText value={data.smart.title} />
+          </div>
+          <div className="col-span-6 mb-14">
+            <PortableText value={data.smart.subhead} />
+          </div>
+          <div className="col-span-6 mb-14 row-start-4">
+            <PortableText value={data.smart.copy} />
+          </div>
+          <div className="col-span-4 col-start-5 mt-39">
+            <GalleryD data={data.smart.gallery}/>
+          </div>
+        </div>
+
+
+    
+
+
+
+
+
+
+
+      {/* CTA */}
+      <div className="col-span-full"> <Next next={data.next} cta={data.cta} /></div>
+
+
+    </div>
+
+    </React.Fragment >
 
   );
 }
