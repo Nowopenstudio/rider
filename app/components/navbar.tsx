@@ -89,7 +89,7 @@ export default function Navbar({ data, footer }: any) {
                                                  <Link href="/creators" onClick={closeMenu}> <div className="cursor-pointer mb-6"><p>Creators</p></div></Link>
                                                    <Link href="team" onClick={closeMenu}> <div className="cursor-pointer mb-6"><p>team</p></div></Link>
                                                      <Link href="cipres-living" onClick={closeMenu}> <div className="cursor-pointer mb-6"><p>CIPRÉS LIVING</p></div></Link>
-                                                       <Link href="crypto" onClick={closeMenu}> <div className="cursor-pointer mb-6"><p>Crypto</p></div></Link>
+                                                       <Link className="pointer-events-none" href="crypto" onClick={closeMenu}> <div className="pointer-events-none cursor-pointer mb-6 opacity-20"><p>Crypto</p></div></Link>
                                                          <Link href="brokers" onClick={closeMenu}> <div className="cursor-pointer mb-6"><p>Brokers</p></div></Link>
                                               </div>
             </div>

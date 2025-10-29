@@ -118,14 +118,14 @@ mux-player {
 
 @font-face {
 	font-family: 'sans';
-	src: url('/fonts/sans.woff');
+	src: url('/fonts/sans.woff2');
 	font-weight: 400;
 	font-style: normal;
 }
 
 @font-face {
 	font-family: 'sans';
-	src: url('/fonts/sans-medium.woff');
+	src: url('/fonts/sans-medium.woff2');
 	font-weight: 600;
 	font-style: normal;
 }
@@ -158,6 +158,15 @@ mux-player {
 	font-weight: 400;
 	font-style: normal;
 }
+
+
+@font-face {
+	font-family: 'serif';
+	src: url('/fonts/serif-italic.woff2');
+	font-weight: 400;
+	font-style: italic;
+}
+
 body{
   font-family: 'sans',Arial, Helvetica, sans-serif;
   font-size:1em;
@@ -180,6 +189,12 @@ h4{font-family: "didot",'Times New Roman', Times, serif;font-size:3.755rem;line-
 .divide h3:last-child{margin-bottom:0}
 .navBar p{
   font-size:1.25rem;text-box: trim-both cap alphabetic;
+}
+
+.cipres h4{
+  font-size:3.6875em;
+  line-height: .94em;
+  letter-spacing: -.04em;
 }
 
 
@@ -429,4 +444,9 @@ input {height:20px}
 .blur{
 background: rgba(95, 95, 95, 0.04);
 backdrop-filter: blur(150px);
+}
+
+/* cipres */
+.cipresContact p, .cipresContact h3{
+  margin-bottom
 }

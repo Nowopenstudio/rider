@@ -238,7 +238,9 @@ export default {
          {
             name: 'schedule', title: 'Schedule', type: 'object', fields: [
                 
+                 { name: 'title', type: 'array', of: [{ type: 'block' }] },
                  { name: 'copy', type: 'array', of: [{ type: 'block' }] },
+                 { name: 'contact', type: 'array', of: [{ type: 'block' }] },
                 
                  {
                             name: 'media',  type: 'object', fields: [
