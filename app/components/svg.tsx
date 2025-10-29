@@ -12,4 +12,12 @@ export function ScrollArrow(props:any){
 <path d="M13.1546 0H16.8477V28.7386C18.0946 27.3365 21.4619 24.0649 24.372 21.121C26.0783 19.3912 27.9724 17.5699 30.0023 15.5606V20.5597C26.5399 23.9252 18.8798 31.0755 15.0034 35C11.0296 31.119 3.46232 23.9252 0 20.5597V15.5606C1.98461 17.5699 3.87644 19.3912 5.58497 21.121L13.1546 28.7386V0Z" />
         </svg>)}
 
+export function Plus(props:any){
+    return(
+        <svg {...props}  x="0px" y="0px"  viewBox="0 0 32 32">
+<path d="M16 0L16 32" stroke="black" stroke-width="2" stroke-linejoin="round"/>
+<path d="M32 16L0 16" stroke="black" stroke-width="2" stroke-linejoin="round"/> 
+ </svg>)}
+
+
 

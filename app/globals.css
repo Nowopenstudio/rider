@@ -159,7 +159,7 @@ mux-player {
 	font-style: normal;
 }
 body{
-  font-family: 'sans',arial, sans-serif;
+  font-family: 'sans',Arial, Helvetica, sans-serif;
   font-size:1em;
   line-height: 1.06em;
   background-color: var(--color-white);
@@ -168,7 +168,7 @@ body{
 }
 
 
-p{  font-size:1.875rem;  line-height: 1.06em;}
+p,li{  font-size:1.875rem;  line-height: 1.06em;}
 
 h1,h5{font-size:2.875rem;line-height:1.03em;letter-spacing: -0.02em;text-box: trim-both cap alphabetic;}
 h2{font-size:7.25rem;line-height:.88em;letter-spacing: -.05em;text-box: trim-both cap alphabetic;}
@@ -187,6 +187,16 @@ h4{font-family: "didot",'Times New Roman', Times, serif;font-size:3.755rem;line-
   line-height: .73em;
   text-box: trim-both cap alphabetic;
   
+}
+
+li{
+  list-style-type: disc;
+  list-style-position: inside;
+
+}
+li:before {
+    content: "";
+    margin-left: -0.7em;
 }
 
 .subMenu{
@@ -295,6 +305,18 @@ font-style: italic;
   font-size: 0.875rem;
   font-weight: 700;
   text-box: trim-both cap alphabetic;
+}
+
+.sheets h3{
+  font-size:3.625rem;
+  line-height: .82em;
+  letter-spacing: -.02em;
+}
+
+.resource p{
+  font-size:1.1875rem;
+  line-height: 1.11em;
+  letter-spacing: -0.03em;
 }
 
 /* CTAs */

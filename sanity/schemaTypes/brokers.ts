@@ -9,9 +9,9 @@ export default {
         },
     ],
     fields: [
-        {
+
+         {
             name: 'header', title: "header", type: 'object', fields: [
-                { name: 'title', title: "Site Descriptor", type: "string" },
                 {
                     name: 'video', title: 'video', type: 'object', fields: [
                         { name: 'image', title: 'thumb', type: 'image' },
@@ -22,95 +22,128 @@ export default {
 
             ]
         },
-        {
+         {
             name: 'intro', title: 'Intro', type: 'object', fields: [
-
-                { name: 'title', type: 'array', title: 'Title', of: [{ type: 'block' }] },
-
-            ]
-        },
-        {
-            name: 'sales', title: 'Sales Sheet', type: 'object', fields: [
-                { name: 'title', type: 'array', title: 'Title', of: [{ type: 'block' }] },
-                { name: 'subhead', type: 'array', title: 'Subhead', of: [{ type: 'block' }] },
+                { name: 'title', type: 'array', of: [{ type: 'block' }] },
+                { name: 'subhead', type: 'array', of: [{ type: 'block' }] },
+                { name: 'copy', type: 'array', of: [{ type: 'block' }] },
+                 { name: 'outro', type: 'array', of: [{ type: 'block' }] },
                 {
-                    name: 'categories', title: "Categories", type: 'array', of: [
-                        {
-                            name: 'category', title: 'Category', type: 'object', fields: [
-                                { name: 'title', type: 'string', title: 'Title' },
-                                { name: 'bio', title: 'Bio', type: "array", of: [{ type: 'block' }] },
-                            ]
-                        }
-                    ]
-                },
-
-            ]
-        },
-
-        {
-            name: 'toolkit', title: "Toolkit", type: 'object', fields: [
-                { name: 'title', title: "Title", type: "string" },
-                { name: 'subhead', type: 'array', title: 'Subhead', of: [{ type: 'block' }] },
-                { name: 'copy', type: 'array', title: 'Copy', of: [{ type: 'block' }] },
-                {
-                    name: 'gallery', type: 'array', title: "Gallery", of: [
-                        {
-                            name: 'single', title: "single", type: 'object', fields: [
+                            name: 'media', title: "single", type: 'object', fields: [
                                 { name: 'image', title: 'Image', type: 'image' },
                                 { name: 'video', title: 'video', type: 'mux.video' },
                                 { name: 'captions', title: 'Captions', type: 'array', of: [{ type: 'block' }] },
                                 { name: 'credits', title: 'Credits', type: 'array', of: [{ type: 'block' }] },
                             ]
-                        }
+                        },
+                {
+                    name: 'cta', title: "CTA", type: 'object', fields: [
+                        { type: 'string', title: 'Label', name: 'label' },
+                        { type: 'string', title: 'URL', name: 'url' },
                     ]
                 },
+
+
 
             ]
         },
         {
-            name: 'renders', title: 'Renders', type: 'array', of: [
-                {
-                    name: 'single', title: "Menu Item", type: 'object', fields: [
-                        { name: 'title', title: "Title", type: 'string' },
-                        { name: 'copy', title: 'Descriptor', type: "array", of: [{ type: 'block' }] },
-                        {
-                            name: 'gallery', type: 'array', title: "Gallery", of: [
-                                {
-                                    name: 'single', title: "single", type: 'object', fields: [
-                                        { name: 'image', title: 'Image', type: 'image' },
-                                        { name: 'video', title: 'video', type: 'mux.video' },
-                                        { name: 'credits', title: 'Credits', type: 'array', of: [{ type: 'block' }] },
-                                    ]
-                                }
-                            ]
-                        },
-                        {
-                            name: 'cta', type: 'object', title: 'CTA', fields: [
-                                { name: 'label', title: "Label", type: 'string' },
-                                { name: 'url', title: 'url', type: 'string' },
-                                {
-                                    name: 'file',
-                                    type: 'file',
-                                    title: "File",
-                                    options: {
-                                        storeOriginalFilename: true
-                                    }
-                                },
+            name:'sales', title:"Sales",type:'object',fields:[
+                {name:'title',title:"Title",type:'array',of:[{type:'block'}]},
+                {name:'subhead',title:'Subhead',type:'array',of:[{type:'block'}]},
+                {name:'sheets',type:"array",title:'Sheets',of:[
+                    {name:'single',type:'object',title:'Single',fields:[
+                        {name:'title',title:'Title',type:"string"}
+                    ]},
 
-                            ]
-                        },
-
-                    ]
-                }
+                ]}
             ]
-
         },
+
+          {
+            name:'toolkit', title:"toolkit",type:'object',fields:[
+                {name:'title',title:"Title",type:'array',of:[{type:'block'}]},
+                {name:'subhead',title:'Subhead',type:'array',of:[{type:'block'}]},
+                {name:'copy',title:"Copy",type:'array',of:[{type:'block'}]},
+                 {
+                    name: 'cta', title: "CTA", type: 'object', fields: [
+                        { type: 'string', title: 'Label', name: 'label' },
+                        { type: 'string', title: 'URL', name: 'url' },
+                    ]
+                },
+                 {
+                            name: 'media', title: "single", type: 'object', fields: [
+                                { name: 'image', title: 'Image', type: 'image' },
+                                { name: 'video', title: 'video', type: 'mux.video' },
+                                { name: 'captions', title: 'Captions', type: 'array', of: [{ type: 'block' }] },
+                                { name: 'credits', title: 'Credits', type: 'array', of: [{ type: 'block' }] },
+                            ]
+                        },
+                
+            ]
+        },
+        {
+            name:'resources',type:'array',title:"Resources",of:[
+               {name:'single',type:'object',title:'Single',fields:[
+                        {name:'title',title:'Title',type:"string"},
+                        {name:'copy',title:'Copy',type:'array',of:[{type:'block'}]},
+                          {
+                    name: 'cta', title: "CTA", type: 'object', fields: [
+                        { type: 'string', title: 'Label', name: 'label' },
+                        { type: 'string', title: 'URL', name: 'url' },
+                    ]
+                },
+                {
+                            name: 'media', title: "single", type: 'object', fields: [
+                                { name: 'image', title: 'Image', type: 'image' },
+                                { name: 'video', title: 'video', type: 'mux.video' },
+                                { name: 'captions', title: 'Captions', type: 'array', of: [{ type: 'block' }] },
+                                { name: 'credits', title: 'Credits', type: 'array', of: [{ type: 'block' }] },
+                            ]
+                        },
+
+                    ]},
+            ]
+        },
+        {
+            name:'brokers', title:"Broker",type:'object',fields:[
+                {name:'title',title:"Title",type:'array',of:[{type:'block'}]},
+                {name:'copy',title:'Copy',type:'array',of:[{type:'block'}]},
+                {name:'profiles',type:"array",title:'Profiles',of:[
+                    {name:'single',type:'object',title:'Single',fields:[
+                        {name:'name',title:'name',type:"string"},
+                        {name:'contact',title:'Contact',type:"array",of:[{type:'block'}]},
+                        {
+                            name: 'media', title: "single", type: 'object', fields: [
+                                { name: 'image', title: 'Image', type: 'image' },
+                                { name: 'video', title: 'video', type: 'mux.video' },
+                                { name: 'captions', title: 'Captions', type: 'array', of: [{ type: 'block' }] },
+                                { name: 'credits', title: 'Credits', type: 'array', of: [{ type: 'block' }] },
+                            ]
+                        },
+                    ]},
+
+                ]},
+                  {
+                            name: 'media', title: "single", type: 'object', fields: [
+                                { name: 'image', title: 'Image', type: 'image' },
+                                { name: 'video', title: 'video', type: 'mux.video' },
+                                { name: 'captions', title: 'Captions', type: 'array', of: [{ type: 'block' }] },
+                                { name: 'credits', title: 'Credits', type: 'array', of: [{ type: 'block' }] },
+                            ]
+                        },
+
+            ]
+        },
+       
 
         {
             name: 'cta', title: 'Page CTA', type: 'object', fields: [
                 { name: 'label', title: 'Label', type: 'string' },
-                { name: 'title', title: 'Title', type: 'string' },
+                { name: 'title', title: 'Title',  type: "array", of: [{ type: 'block' }]  },
                 { name: 'copy', title: "Copy", type: "array", of: [{ type: 'block' }] },
+
+
                 {
                     name: 'cta', title: "CTA", type: 'object', fields: [
                         { type: 'string', title: 'Label', name: 'label' },
@@ -128,8 +161,6 @@ export default {
 
             ]
         },
-
-
         {
             name: "meta",
             title: 'Metadata',
@@ -160,10 +191,10 @@ export default {
             ]
         }
     ],
-     preview: {
-            select: {
-              title: '_type'
-            },
-            
-          }
+    preview: {
+        select: {
+            title: '_type'
+        },
+
+    }
 }

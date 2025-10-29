@@ -17,7 +17,7 @@ export default function Next({ cta,next}: any) {
               <div className="col-span-full py-2 uppercase label font-bold px-9"><p>{cta.label}</p></div>
     
               <div className="col-span-1 border-r px-9 ">
-                <div className="w-full border-t border-b h-full py-2">
+                <div className="w-full border-t border-b h-full py-4">
                   <div className="mb-8 uppercase divide w-full"><PortableText value={cta.title}/></div>
                   <div className="w-2/3 mb-16"><PortableText value={cta.copy}/></div>
                   <div className="w-full flex gap-13 pb-9 items-center">

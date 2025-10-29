@@ -12,6 +12,9 @@ export const myStructure = (S: any, context: any) =>
        S.listItem()
         .title('Residences')
         .child(S.document().title("Residences").schemaType('residences').documentId('residences')),
+        S.listItem()
+        .title('Amenities')
+        .child(S.document().title("Amenities").schemaType('amenities').documentId('amenities')),
       S.listItem()
         .title('Location')
         .child(S.document().title("Location").schemaType('location').documentId('location')),
@@ -39,7 +42,7 @@ export const myStructure = (S: any, context: any) =>
 
 
 
-      ...S.documentTypeListItems().filter(listItem => !['mux.videoAsset','building','residences','location','creators','team','brokers','map','footer','settings'].includes(listItem.getId())),
+      ...S.documentTypeListItems().filter(listItem => !['amenities','mux.videoAsset','building','residences','location','creators','team','brokers','map','footer','settings'].includes(listItem.getId())),
 
 
 

@@ -1,3 +1,4 @@
+import amenities from "./amenities";
 import brokers from "./brokers";
 import building from "./building";
 import creators from "./creators";
@@ -9,4 +10,4 @@ import residences from "./residences";
 import settings from "./settings";
 import team from "./team";
 
-export const schemaTypes = [home,team,footer,brokers,building,creators,location, map, residences,settings]
+export const schemaTypes = [home,team,footer,building,creators,location, map, residences,settings,amenities,brokers]
