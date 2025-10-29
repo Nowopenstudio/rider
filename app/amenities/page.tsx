@@ -62,15 +62,17 @@ export default async function Home() {
         <div className={'col-span-6 relative z-2 px-9'}>
         <div className="w-full font-bold uppercase"><p className="subMenu font-semibold mb-4">{data.feat.title}</p></div>
           <div className="menuText mb-[42px]"><p><em>{data.feat.subhead}</em></p></div>
-          <div className="listHold mb-14 border-darkGray  border-b">
-            {data.feat.points.map((item: any, i: number) => {
+          <div className="listHold mb-14 beorder-darkGray  border-b">
+            {data.feat.points?(
+              data.feat.points.map((item: any, i: number) => {
               return (
                 <div key={`service-${i}`} className="flex gap-x-3 w-full py-[15px] font-semibold text-darkGray border-darkGray border-t  uppercase">
                   <p className="label">{i < 9 ? '0' : ''}{i + 1}.</p>
                   <p className="label">{item.title}</p>
                 </div>
               )
-            })}
+            })
+            ):('')}
           </div>
       </div>
 
@@ -133,7 +135,10 @@ export default async function Home() {
           <PortableText value={data.beach.title}/>
         </div>
         <div className="col-span-6 col-start-4">
-          <GalleryH data={data.beach.gallery}/>
+          {data.beach.gallery?(
+                 <GalleryH data={data.beach.gallery}/>
+          ):('')}
+     
         </div>
 
       </div>
