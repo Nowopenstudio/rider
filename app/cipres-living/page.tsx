@@ -10,19 +10,20 @@ import React from "react";
 
 import ScrollUp from "../util/misc";
 import { PortableText } from "next-sanity";
-import { ScrollArrow } from "../components/svg";
+import { Right, ScrollArrow } from "../components/svg";
 import { Reveal } from "../util/reveal";
 import Map from "../components/Map";
 import GalleryA from "../components/galleryA";
 import TextBlock from "../components/textBlock";
 import GalleryB from "../components/galleryB";
 import Next from "../components/next";
+import GalleryC from "../components/galleryC";
 
 
 
 export default async function Home() {
   const query = await getData(`{
-    'data': *[_type=='building'][0]{build{title,subhead,copy,hero{"image":image.asset->url,"vid":video.asset->playbackId, "ratio":video.asset->data.aspect_ratio,credits,caption}, outro, gallery[]{"image":image.asset->url,"vid":video.asset->playbackId, "ratio":video.asset->data.aspect_ratio,credits,caption}},landmark{title,services,feat,cta},specs{spec,media{"image":image.asset->url,"vid":video.asset->playbackId, "ratio":video.asset->data.aspect_ratio,credits}},devStory{label,title,quote,profile{name,title,'image':image.asset->url},copy,footerlogos[]{'image':image.asset->url,url}},rise{title,copy,'image':image.asset->url},retail{lable,title,copy,cta,intro,outro,gallery[]{"image":image.asset->url,"vid":video.asset->playbackId, "ratio":video.asset->data.aspect_ratio,credits,caption}},cta{label,title,copy,cta,"image":image.asset->url}, next{label,url}},
+    'data': *[_type=='cipres'][0]{header{video{"image":image.asset->url,"vid":video.asset->playbackId, "ratio":video.asset->data.aspect_ratio,credits,caption}},intro{title,subtitle,subhead,copy,left{top{"image":image.asset->url,"vid":video.asset->playbackId, "ratio":video.asset->data.aspect_ratio,credits,caption},bottom{"image":image.asset->url,"vid":video.asset->playbackId, "ratio":video.asset->data.aspect_ratio,credits,caption}}, right{benefits[]{title},media{"image":image.asset->url,"vid":video.asset->playbackId, "ratio":video.asset->data.aspect_ratio,credits,caption}}}, edge{title,copy,benefits[]{title},profile{name,title,media{"image":image.asset->url,"vid":video.asset->playbackId, "ratio":video.asset->data.aspect_ratio,credits,caption}}}, residences{title,subtitle,copy,media{"image":image.asset->url,"vid":video.asset->playbackId, "ratio":video.asset->data.aspect_ratio,credits,caption},gallery[]{"image":image.asset->url,"vid":video.asset->playbackId, "ratio":video.asset->data.aspect_ratio,credits,caption}},services{title,subtitle,media{"image":image.asset->url,"vid":video.asset->playbackId, "ratio":video.asset->data.aspect_ratio,credits,caption},benefits[]{title,subhead}}, tech{title,subtitle,copy,media{"image":image.asset->url,"vid":video.asset->playbackId, "ratio":video.asset->data.aspect_ratio,credits,caption},screen{"image":image.asset->url,"vid":video.asset->playbackId, "ratio":video.asset->data.aspect_ratio,credits,caption}},setup{title,media{"image":image.asset->url,"vid":video.asset->playbackId, "ratio":video.asset->data.aspect_ratio,credits,caption},benefits[]{title},gallery[]{"image":image.asset->url,"vid":video.asset->playbackId, "ratio":video.asset->data.aspect_ratio,credits,caption}},guest{title,subtitle,copy,gallery[]{"image":image.asset->url,"vid":video.asset->playbackId, "ratio":video.asset->data.aspect_ratio,credits,caption}}, potential{title,subtile,copy,media{"image":image.asset->url,"vid":video.asset->playbackId, "ratio":video.asset->data.aspect_ratio,credits,caption}},schedule{copy,media{"image":image.asset->url,"vid":video.asset->playbackId, "ratio":video.asset->data.aspect_ratio,credits,caption}},cta{label,title,copy,cta{label,url},"image":image.asset->url},next},
 
     }`)
 
@@ -38,8 +39,8 @@ export default async function Home() {
       <div className="w-full h-[100dvh] grid grid-cols-2 sticky top-0 z-1">
 
         <div className="projectCover col-span-2 h-[100dvh] relative coverSwitch fadeOn ">
-          <SwitchContent work={data.build.hero} title={'Header Video'} ratio={data.build.hero.ratio} audio={false} cover />
-          
+          <SwitchContent work={data.header.video} title={'Header Video'} ratio={data.header.video.ratio} audio={false} cover />
+
           <div className="scrollArrow absolute left-4 bottom-4"><ScrollArrow className="w-[30px] h-auto" fill={"#ffffff"} /></div>
 
         </div>
@@ -47,33 +48,167 @@ export default async function Home() {
       </div>
 
       <div className="w-full  bg-offWhite  sticky z-2 grid grid-cols-12">
-        <div className="col-span-full"> <TextBlock title={data.build.title}  copy={data.build.copy} subhead={data.build.subhead} /></div>
+        <div className="col-span-full mb-12"> <TextBlock title={data.intro.title} /></div>
+        <div className="col-span-6 divide mb-24 px-9"><PortableText value={data.intro.subtitle} /></div>
+        <div className="col-span-12 px-9 grid grid-cols-2 gap-9 items-start mb-45">
+          <div className="col-span-1 cipres"><PortableText value={data.intro.subhead} /></div>
+          <div className="col-span-1 grid grid-cols-6 mb-45"><div className="col-span-5"><PortableText value={data.intro.copy} /></div></div>
+          <div className="grid grid-cols-6"><div className="col-span-5 mb-48"><SwitchContent work={data.intro.left.top} title={'Header Video'} audio={false} cover /></div>
+            <div className="col-span-3 col-start-2"><SwitchContent work={data.intro.left.bottom} title={'Header Video'} audio={false} cover /></div></div>
+          <div className="grid grid-cols-6 gap-9">
+            <div className="benifits border-t col-span-full mb-25">
+              {data.intro.right.benefits ? (
+                data.intro.right.benefits.map((item: any, i: number) => {
+                  return (
 
+                    <div className="w-full flex items-center gap-3 py-5 border-b" key={`intro-benefits-${i}`}>
+                      <div className="w-[28px] h-auto"><Right className="w-full h-auto" /></div>
+                      <div className="font-semibold uppercase"><h5>{item.title}</h5></div>
+                    </div>
+                  )
+                })
+              ) : ('')}
 
-      
+            </div>
+            <div className="col-span-3 mb-48"><SwitchContent work={data.intro.right.media} title={'Header Video'} audio={false} cover /></div>
+          </div>
+        </div>
 
+        {/* edge */}
+        <div className="col-span-full mb-81.5">
+          <div className="w-full grid grid-cols-2 px-9 gap-9">
+            <div className="col-span-full divide py-12 border-t uppercase mb-37.5"><PortableText value={data.edge.title} /></div>
+            <div className="grid grid-cols-9">
+              <div className="col-span-5 col-start-3"><div className="w-full"><SwitchContent work={data.edge.profile.media} title={'Header Video'} audio={false} /></div>
+                <div className="w-full uppercase py-4.5">
+                  <p className="mb-2 label">{data.edge.profile.name}</p>
+                  <div className="text-darkGray label"><PortableText value={data.edge.profile.title}/></div>
+                </div>
+              </div>
+            </div>
+            <div className="grid grid-cols-6">
+              <div className="col-span-full mb-31.5"><PortableText value={data.edge.copy} /></div>
+              <div className="benifits border-t col-span-full mb-25">
+                {data.edge.benefits ? (
+                  data.edge.benefits.map((item: any, i: number) => {
+                    return (
 
-     
+                      <div className="w-full flex items-center gap-3 py-5 border-b" key={`intro-benefits-${i}`}>
+                        <div className="w-[28px] h-auto"><Right className="w-full h-auto" /></div>
+                        <div className="font-semibold uppercase"><h5>{item.title}</h5></div>
+                      </div>
+                    )
+                  })
+                ) : ('')}
 
-    
+              </div>
+            </div>
+          </div>
 
+        </div>
 
+        {/* Residences */}
+        <div className="col-span-full mb-81.5">
+          <div className="w-full grid grid-cols-2 px-9 gap-x-9 items-center">
+            <div className="col-span-full divide pt-12 border-t uppercase mb-34"><PortableText value={data.residences.title} /></div>
+            <div className="col-span-full divide uppercase mb-37.5"><PortableText value={data.residences.subtitle} /></div>
+            <div className="grid grid-cols-6">
+              <div className="col-span-5"><PortableText value={data.residences.copy} /></div>
+            </div>
+            <div className="grid grid-cols-8">
+              <div className="col-span-4 col-start-3 mb-37.5"><div className="w-full"><SwitchContent work={data.residences.media} title={'Header Video'} audio={false} /></div>
+              </div>
+            </div>
 
+          </div>
+          <div className="w-full">
+            <GalleryC data={data.residences.gallery} />
+          </div>
 
+        </div>
 
-
-
-   
+        {/* services */}
+        <div className="col-span-full mb-46">
+          <div className="w-full grid grid-cols-12 px-9 gap-x-9 items-center">
+            <div className="col-span-full divide pt-12 border-t uppercase mb-34"><PortableText value={data.services.title} /></div>
+                <div className="col-span-4 col-start-5 mb-27.5"><SwitchContent work={data.services.media} title={'Header Video'} audio={false} /></div>
+            <div className="col-span-full divide uppercase mb-12"><PortableText value={data.services.subtitle} /></div>
+            
+            
+          </div>
+               <div className="w-full px-9">
+                  {data.services.benefits ? (
+                    data.services.benefits.map((item: any, i: number) => {
+                      return (
   
+                        <div className="w-full flex items-top gap-3 py-5 border-b" key={`intro-benefits-${i}`}>
+                          <div className="w-[28px] h-auto"><Right className="w-full h-auto pt-2" /></div>
+                          <div><div className="font-semibold uppercase mb-5.5"><h5>{item.title}</h5></div>
+                          <div className="font-semibold  text-darkGray"><PortableText value={item.subhead}/></div>
+                          </div>
+                        </div>
+                      )
+                    })
+                  ) : ('')}
+  
+               </div>
+        </div>
+
+
+        {/* tech */}
+        <div className="col-span-full mb-81.5">
+          <div className="w-full grid grid-cols-2 px-9 gap-9 items-center">
+            <div className="col-span-full divide py-12 border-t uppercase mb-37.5"><PortableText value={data.tech.title} /></div>
+            <div className="grid grid-cols-9">
+              <div className="col-span-5 col-start-3"><div className="w-full"><SwitchContent work={data.tech.media} title={'Header Video'} audio={false} /></div>
+                
+              </div>
+            </div>
+            <div className="grid grid-cols-6">
+              <div className="col-span-full mb-31.5"><PortableText value={data.edge.copy} /></div>
+              <div className="benifits border-t col-span-full mb-25">
+                {data.edge.benefits ? (
+                  data.edge.benefits.map((item: any, i: number) => {
+                    return (
+
+                      <div className="w-full flex items-center gap-3 py-5 border-b" key={`intro-benefits-${i}`}>
+                        <div className="w-[28px] h-auto"><Right className="w-full h-auto" /></div>
+                        <div className="font-semibold uppercase"><h5>{item.title}</h5></div>
+                      </div>
+                    )
+                  })
+                ) : ('')}
+
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
         {/* CTA */}
-       <div className="col-span-full"> <Next next={data.next} cta={data.cta} /></div>
+        <div className="col-span-full"> <Next next={data.next} cta={data.cta} /></div>
 
 
       </div>
- 
-          <ScrollUp />
+
+      <ScrollUp />
     </React.Fragment>
 
   );

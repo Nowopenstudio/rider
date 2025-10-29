@@ -27,6 +27,9 @@ export const myStructure = (S: any, context: any) =>
       S.listItem()
         .title('Brokers')
         .child(S.document().title("Brokers").schemaType('brokers').documentId('brokers')),
+      S.listItem()
+        .title('Cipres')
+        .child(S.document().title("Cipres").schemaType('cipres').documentId('cipres')),
       S.divider(),
       S.listItem()
         .title('Map')
@@ -42,7 +45,7 @@ export const myStructure = (S: any, context: any) =>
 
 
 
-      ...S.documentTypeListItems().filter(listItem => !['amenities','mux.videoAsset','building','residences','location','creators','team','brokers','map','footer','settings'].includes(listItem.getId())),
+      ...S.documentTypeListItems().filter(listItem => !['cipres','amenities','mux.videoAsset','building','residences','location','creators','team','brokers','map','footer','settings'].includes(listItem.getId())),
 
 
 

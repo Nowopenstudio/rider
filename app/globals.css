@@ -177,10 +177,16 @@ h3{font-size:3.125rem;line-height:.93em;letter-spacing: -.05em;text-box: trim-bo
 h4{font-family: "didot",'Times New Roman', Times, serif;font-size:3.755rem;line-height:.82em;letter-spacing: -2.5px;text-box: trim-both cap alphabetic;}
 .divide h3{font-size:4.625rem;letter-spacing: -.05em;text-box: trim-both cap alphabetic;margin-bottom: 74px;}
 
+.divide h3:last-child{margin-bottom:0}
 .navBar p{
   font-size:1.25rem;text-box: trim-both cap alphabetic;
 }
 
+p{margin-bottom: 36px;}
+
+p:last-child{
+  margin-bottom: 0;
+}
 .menu p{
   font-size:3rem;
   letter-spacing: -.03em;
@@ -205,6 +211,13 @@ li:before {
   line-height: 1.45em;
   text-box: trim-both cap alphabetic;
 }
+.cipres p{
+  font-size: 2.3125em;
+  letter-spacing: -.03em;
+  line-height: .82em;
+  text-box: trim-both cap alphabetic;
+}
+
 
 .p2 p{
   font-size:1.5rem;

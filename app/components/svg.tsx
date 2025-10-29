@@ -15,8 +15,16 @@ export function ScrollArrow(props:any){
 export function Plus(props:any){
     return(
         <svg {...props}  x="0px" y="0px"  viewBox="0 0 32 32">
-<path d="M16 0L16 32" stroke="black" stroke-width="2" stroke-linejoin="round"/>
-<path d="M32 16L0 16" stroke="black" stroke-width="2" stroke-linejoin="round"/> 
+<path d="M16 0L16 32" stroke="black" strokeWidth="2" strokeLinejoin="round"/>
+<path d="M32 16L0 16" stroke="black" strokeWidth="2" strokeLinejoin="round"/> 
+ </svg>)}
+
+
+export function Right(props:any){
+    return(
+        <svg {...props}  x="0px" y="0px"  viewBox="0 0 30 23" fill="none">
+<path d="M1 11.1816L27.3027 11.1816" stroke="black" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+<path d="M18.9023 21.3634L28.9992 11.1817L18.9023 1" stroke="black" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
  </svg>)}
 
 
