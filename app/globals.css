@@ -182,11 +182,7 @@ h4{font-family: "didot",'Times New Roman', Times, serif;font-size:3.755rem;line-
   font-size:1.25rem;text-box: trim-both cap alphabetic;
 }
 
-p{margin-bottom: 36px;}
 
-p:last-child{
-  margin-bottom: 0;
-}
 .menu p{
   font-size:3rem;
   letter-spacing: -.03em;

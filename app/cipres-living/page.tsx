@@ -176,14 +176,14 @@ export default async function Home() {
                         <div className="font-semibold uppercase"><h5>{item.title}</h5></div>
                       </div>
                     )
-                  })
+                  })      
                 ) : ('')}
 
               </div>
             </div>
-          </div>
+          </div>           
 
-        </div>
+        </div> 
 
         
 
