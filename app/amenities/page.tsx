@@ -84,7 +84,11 @@ export default async function Home() {
 
 
       </div>
-            <div className="mb-39 col-span-full"><GalleryC data={data.feat.gallery} /></div>
+            <div className="mb-39 col-span-full">
+              {data.feat.gallery?(
+                 <GalleryC data={data.feat.gallery} />
+              ):('')}
+             </div>
 
       <Reveal styleSet="col-span-4 col-start-5 mb-39 ">
                 {data.outro.media ? (<SwitchContent work={data.outro.media} title={'Header Video'} ratio={data.outro.media.ratio} audio={false} />) : ('')}
