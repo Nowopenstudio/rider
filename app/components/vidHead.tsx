@@ -52,7 +52,7 @@ export function VidHead({data, size}:any){
            
                    <div className={`projectCover col-span-2 relative coverSwitch fadeOn `} style={{height:`${condense?`85`:`${scrollY}`}%`,aspectRatio:`${winX}/${winY}`}}>
                      <SwitchContent work={data} title={'Header Video'} ratio={data.ratio} audio={false} cover />
-                    <div className="credits w-1/2 absolute bottom-0 py-4 left-0 translate-y-[100%]"><PortableText value={data.credits}/></div>
+                    <div className="credits w-full absolute bottom-0 py-4 left-0 translate-y-[100%]"><PortableText value={data.credits}/></div>
                      
            
                    </div>

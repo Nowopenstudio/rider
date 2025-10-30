@@ -544,6 +544,8 @@ opacity:1;
   transition: all .75s ease-in-out;
 }
 
+/* hovers */
+
 .navItem:hover p::after{
   max-width: 900px;
 }
@@ -590,6 +592,15 @@ opacity:1;
 
 .mediaGrow{
   transition: transform 1s ease-in-out;
+}
+
+.hoverRight {
+  transform:translateX(0);
+  transition: transform cubic-bezier(0.175, 0.885, 0.32, 1.275) .75s;
+}
+
+.hoverOn:hover .hoverRight{
+  transform:translateX(50px)
 }
 
 

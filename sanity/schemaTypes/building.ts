@@ -126,8 +126,8 @@ export default {
                     name: 'media', title: 'Media', type: 'object', fields: [
                         { name: 'image', title: 'thumb', type: 'image' },
                         { name: 'video', title: 'Video', type: 'mux.video' },
-                        { name: 'credits', title: 'Credits', type: "array", of: [{ type: 'block' }] }
-                    ]
+                        { name: 'captions', title: 'Captions', type: 'array', of: [{ type: 'block' }] },
+                        { name: 'credits', title: 'Credits', type: 'array', of: [{ type: 'block' }] },                    ]
                 },
 
             ]
@@ -163,6 +163,9 @@ export default {
                 { name: 'title', title: 'Title', type: 'array', of: [{ type: 'block' }] },
                 { name: 'copy', type: 'array', title: 'Copy', of: [{ type: 'block' }] },
                 { name: 'image', title: 'thumb', type: 'image' },
+                                        { name: 'captions', title: 'Captions', type: 'array', of: [{ type: 'block' }] },
+                        { name: 'credits', title: 'Credits', type: 'array', of: [{ type: 'block' }] },                    
+
 
             ]
         },
@@ -192,6 +195,7 @@ export default {
                     name: 'intro', title: 'Gallery Intro', type: 'object', fields: [
                         { name: 'image', title: 'thumb', type: 'image' },
                         { name: 'video', title: 'Video', type: 'mux.video' },
+                        { name: 'captions', title: 'Captions', type: "array", of: [{ type: 'block' }] },
                         { name: 'credits', title: 'Credits', type: "array", of: [{ type: 'block' }] }
                     ]
                 },
@@ -201,7 +205,7 @@ export default {
                             name: 'single', title: "single", type: 'object', fields: [
                                 { name: 'image', title: 'Image', type: 'image' },
                                 { name: 'video', title: 'video', type: 'mux.video' },
-                                { name: 'caption', title: 'Caption', type: 'array', of: [{ type: 'block' }] },
+                                { name: 'captions', title: 'Captions', type: 'array', of: [{ type: 'block' }] },
                                 { name: 'credits', title: 'Credits', type: 'array', of: [{ type: 'block' }] },
                             ]
                         }

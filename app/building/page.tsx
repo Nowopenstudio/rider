@@ -24,7 +24,7 @@ import { VidHead } from "../components/vidHead";
 
 export default async function Home() {
   const query = await getData(`{
-    'data': *[_type=='building'][0]{build{title,subhead,copy,hero{"image":image.asset->url,"vid":video.asset->playbackId, "ratio":video.asset->data.aspect_ratio,credits,captions},building{"image":image.asset->url,"vid":video.asset->playbackId, "ratio":video.asset->data.aspect_ratio,credits,captions},outro, gallery[]{"image":image.asset->url,"vid":video.asset->playbackId, "ratio":video.asset->data.aspect_ratio,credits,caption}},landmark{title,services,feat,cta},specs{title,spec,media{"image":image.asset->url,"vid":video.asset->playbackId, "ratio":video.asset->data.aspect_ratio,credits}},devStory{label,title,quote,profile{name,title,'image':image.asset->url},copy,footerLogos[]{'image':image.asset->url,url}},rise{title,copy,'image':image.asset->url},retail{label,title,copy,cta,intro{"image":image.asset->url,"vid":video.asset->playbackId, "ratio":video.asset->data.aspect_ratio,credits,caption},outro{"image":image.asset->url,"vid":video.asset->playbackId, "ratio":video.asset->data.aspect_ratio,credits,cta,title},gallery[]{"image":image.asset->url,"vid":video.asset->playbackId, "ratio":video.asset->data.aspect_ratio,credits,caption}},cta{label,title,copy,cta,"image":image.asset->url}, next{label,url}},
+    'data': *[_type=='building'][0]{build{title,subhead,copy,hero{"image":image.asset->url,"vid":video.asset->playbackId, "ratio":video.asset->data.aspect_ratio,credits,captions},building{"image":image.asset->url,"vid":video.asset->playbackId, "ratio":video.asset->data.aspect_ratio,credits,captions},outro, gallery[]{"image":image.asset->url,"vid":video.asset->playbackId, "ratio":video.asset->data.aspect_ratio,credits,captions}},landmark{title,services,feat,cta},specs{title,spec,media{"image":image.asset->url,"vid":video.asset->playbackId, "ratio":video.asset->data.aspect_ratio,credits,captions}},devStory{label,title,quote,profile{name,title,'image':image.asset->url},copy,footerLogos[]{'image':image.asset->url,url}},rise{title,copy,'image':image.asset->url,credits,captions},retail{label,title,copy,cta,intro{"image":image.asset->url,"vid":video.asset->playbackId, "ratio":video.asset->data.aspect_ratio,credits,caption},outro{"image":image.asset->url,"vid":video.asset->playbackId, "ratio":video.asset->data.aspect_ratio,credits,captions,cta,title},gallery[]{"image":image.asset->url,"vid":video.asset->playbackId, "ratio":video.asset->data.aspect_ratio,credits,captions}},cta{label,title,copy,cta,"image":image.asset->url}, next{label,url}},
 
     }`)
 
@@ -49,8 +49,8 @@ export default async function Home() {
       </div> */}
       <VidHead data={data.build.hero}/>
       <div className="w-full  bg-offWhite  sticky z-2 grid grid-cols-12">
-        <div className="col-span-full mb-39"> <TextBlock arrow title={data.build.title} copy={data.build.copy} subhead={data.build.subhead} /></div>
-        <Reveal styleSet="col-span-6 col-start-4 mb-39 hoverOn ">
+        <div className="col-span-full mb-39"> <TextBlock arrow title={data.build.title} copy={data.build.copy} subhead={data.build.subhead} top right/></div>
+        <Reveal styleSet="col-span-8 col-start-3 mb-39 hoverOn ">
           {data.build.building ? (<SwitchContent  credits captions work={data.build.building} title={'Header Video'} ratio={data.build.building.ratio} audio={false} />) : ('')}
 
         </Reveal>
@@ -63,15 +63,15 @@ export default async function Home() {
         {/* Specs */}
         <div className="col-span-full grid grid-cols-2 pb-39">
 
-          <div className="col-span-1 px-9 ">
+          <Reveal styleSet="col-span-1 px-9 ">
             <div className="w-full font-bold uppercase"><p className="subMenu font-semibold mb-4">Building Services</p></div>
             <div className="menuText mb-[42px]"><p><em>{data.landmark.services.title}</em></p></div>
             <div className="listHold mb-14 border-darkGray border-b">
               {data.landmark.services.points.map((item: any, i: number) => {
                 return (
-                  <div key={`service-${i}`} className="flex gap-x-3 w-full py-[15px] font-semibold text-darkGray border-darkGray border-t uppercase">
+                  <div key={`service-${i}`} className="hoverOn flex gap-x-3 w-full py-[15px] font-semibold text-darkGray border-darkGray border-t uppercase">
                     <p className="label">{i < 9 ? '0' : ''}{i + 1}.</p>
-                    <p className="label">{item.title}</p>
+                    <p className="label hoverRight">{item.title}</p>
                   </div>
                 )
               })}
@@ -82,18 +82,18 @@ export default async function Home() {
             <div className="listHold mb-14 border-darkGray  border-b">
               {data.landmark.feat.points.map((item: any, i: number) => {
                 return (
-                  <div key={`service-${i}`} className="flex gap-x-3 w-full py-[15px] font-semibold text-darkGray border-darkGray border-t  uppercase">
+                  <div key={`service-${i}`} className="flex gap-x-3 w-full py-[15px] font-semibold text-darkGray border-darkGray border-t  uppercase hoverOn">
                     <p className="label">{i < 9 ? '0' : ''}{i + 1}.</p>
-                    <p className="label">{item.title}</p>
+                    <p className="label hoverRight">{item.title}</p>
                   </div>
                 )
               })}
             </div>
-            <div className="cta inline-block"><p>{data.landmark.cta.label}</p></div>
-          </div>
+            <a href={data.landmark.cta.url} className="cta inline-block"><p>{data.landmark.cta.label}</p></a>
+          </Reveal>
           <div className="col-span-1 grid grid-cols-6 pt-29">
-            <div className="col-span-4 col-start-2">
-              <div className="w-full mb-9"> {data.specs.media ? (<SwitchContent work={data.specs.media} title={'Building Spec'} ratio={data.specs.media.ratio} audio={false} />) : ('')}</div>
+            <Reveal styleSet="col-span-4 col-start-2">
+              <div className="w-full mb-9 hoverOn"> {data.specs.media ? (<SwitchContent credits captions work={data.specs.media} title={'Building Spec'} ratio={data.specs.media.ratio} audio={false} />) : ('')}</div>
               <h3 className="mb-10">{data.specs.title}</h3>
               <div className="specsList w-full">
                 {data.specs.spec.map((item: any, i: number) => {
@@ -102,20 +102,20 @@ export default async function Home() {
                   )
                 })}
               </div>
-            </div>
+            </Reveal>
 
           </div>
 
         </div>
 
         {/* dev */}
-        <div className="col-span-full grid grid-cols-12 bg-black p-9 items-end z-2 sticky top-0">
-          <div className="col-span-full py-2 border-b border-white pb-4 mb-4 uppercase label font-bold text-white"><p>{data.devStory.label}</p></div>
+        <div className="col-span-full grid grid-cols-12 bg-black p-9 items-center z-2 sticky top-[74px] h-[calc(100dvh_-_74px)]">
+          <Reveal styleSet="col-span-full py-2 border-b border-white pb-4 mb-4 uppercase label font-bold text-white"><p>{data.devStory.label}</p></Reveal>
           <div className="col-span-full text-white divide">
             <PortableText value={data.devStory.title} />
           </div>
           <div className="col-span-6 grid grid-cols-6">
-            <div className="col-span-3">
+            <div className="col-span-2">
               <div className="w-full pb-9 pt-27">
                 {data.devStory.profile ? (<SwitchContent work={data.devStory.profile} title={'Building Spec'} audio={false} />) : ('')}
               </div>
@@ -141,13 +141,13 @@ export default async function Home() {
         </div>
 
         {/* Rise */}
-        <div className="col-span-12 rounded-t-[12px] bg-offWhite py-9 z-3 reliatve">
+        <div className="col-span-12 rounded-t-[12px] bg-offWhite pt-9 z-3 reliatve">
           <div className="w-full grid grid-cols-12 px-9">
             <div className="col-span-5 mb-39"><div className="mb-18 divide"><PortableText value={data.rise.title} /></div>
               <div className="w-full"><PortableText value={data.rise.copy} /></div>
             </div>
-            <Reveal styleSet="col-span-6 col-start-4 mb-39 ">
-              {data.rise.image ? (<SwitchContent work={data.rise} title={'Header Video'} audio={false} />) : ('')}
+            <Reveal styleSet="col-span-6 col-start-4 mb-39 hoverOn">
+              {data.rise.image ? (<SwitchContent captions credits work={data.rise} title={'Header Video'} audio={false} />) : ('')}
 
             </Reveal>
 
@@ -170,8 +170,8 @@ export default async function Home() {
 
           <div className="mb-39 col-span-full"><GalleryC data={data.retail.gallery} /></div>
           <div className="w-full grid grid-cols-12 px-9">
-            <Reveal styleSet="col-span-6 col-start-4 mb-39 ">
-              {data.retail.intro ? (<SwitchContent work={data.retail.intro} title={'Header Video'} audio={false} />) : ('')}
+            <Reveal styleSet="col-span-6 col-start-4 mb-39 hoverOn">
+              {data.retail.intro ? (<SwitchContent captions credits work={data.retail.intro} title={'Header Video'} audio={false} />) : ('')}
             </Reveal>
           </div>
           <div className='w-full aspect-video flex items-center relative'>
