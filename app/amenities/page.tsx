@@ -20,6 +20,7 @@ import Next from "../components/next";
 import GalleryC from "../components/galleryC";
 import GalleryG from "../components/galleryG";
 import GalleryH from "../components/galleryH";
+import { VidHead } from "../components/vidHead";
 
 
 
@@ -38,7 +39,7 @@ export default async function Home() {
 
 
     <React.Fragment>
-      <div className="w-full h-[100dvh] grid grid-cols-2 sticky top-0 z-1">
+      {/* <div className="w-full h-[100dvh] grid grid-cols-2 sticky top-0 z-1">
 
         <div className="projectCover col-span-2 h-[100dvh] relative coverSwitch fadeOn ">
           <SwitchContent work={data.header.video} title={'Header Video'} ratio={data.header.video.ratio} audio={false} cover />
@@ -47,7 +48,8 @@ export default async function Home() {
 
         </div>
 
-      </div>
+      </div> */}
+          <VidHead data={data.header.video}/>
 
       <div className="w-full  bg-offWhite  sticky z-2 grid grid-cols-12 ">
         <div className="col-span-full mb-39">

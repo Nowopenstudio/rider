@@ -84,7 +84,7 @@ export default function Footer({ data }: any) {
               <div className="absolute top-0 left-0 w-full h-full pointer-events-none z-11 flex justify-between items-center px-11">
                                   {data.contacts.map((item:any,i:number)=>{
                                     return(
-                                      <div className="flex-shrink-0 col-span-1 footerContact uppercase text-white" key={`contacts-${i}`}>
+                                      <div className="flex-shrink-0 col-span-1 font-bold footerContact uppercase text-white" key={`contacts-${i}`}>
                                         <p className="uppercase mb-9">{item.title}</p>
                                         <PortableText value={item.copy}/>
                                       </div>

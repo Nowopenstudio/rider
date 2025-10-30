@@ -27,5 +27,14 @@ export function Right(props:any){
 <path d="M18.9023 21.3634L28.9992 11.1817L18.9023 1" stroke="black" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
  </svg>)}
 
+ export function Pause(props:any){
+    return(
+        <svg {...props}  x="0px" y="0px"  viewBox="0 0 15 15" fill="none">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M0 7.5C0 11.6422 3.35775 15 7.5 15C11.6422 15 15 11.6422 15 7.5C15 3.35775 11.6422 0 7.5 0C3.35775 0 0 3.35775 0 7.5ZM13.5 7.5C13.5 10.8137 10.8137 13.5 7.5 13.5C4.18629 13.5 1.5 10.8137 1.5 7.5C1.5 4.18629 4.18629 1.5 7.5 1.5C10.8137 1.5 13.5 4.18629 13.5 7.5ZM5.25 5.25H6.75V9.75H5.25V5.25ZM9.75 5.25H8.25V9.75H9.75V5.25Z" fill="#001018"/>
+ </svg>)}
+
+
+
+
 
 

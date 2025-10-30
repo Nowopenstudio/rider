@@ -12,6 +12,7 @@
       --color-offWhite:#f6f6f6;
       --color-black:#000000;
       --color-gray:#cccccc;
+      --color-medGray:#e5e5e5;
       --color-darkGray:#6f6f6f;
       --spacing: 4px; 
 }
@@ -126,14 +127,14 @@ mux-player {
 @font-face {
 	font-family: 'sans';
 	src: url('/fonts/sans-medium.woff2');
-	font-weight: 600;
+	font-weight: 500;
 	font-style: normal;
 }
 
 
 @font-face {
 	font-family: 'sans';
-	src: url('/fonts/sans-bold.woff');
+	src: url('/fonts/sans-bold.woff2');
 	font-weight: 700;
 	font-style: normal;
 }
@@ -154,7 +155,7 @@ mux-player {
 
 @font-face {
 	font-family: 'serif';
-	src: url('/fonts/serif.woff');
+	src: url('/fonts/didot.woff');
 	font-weight: 400;
 	font-style: normal;
 }
@@ -183,7 +184,7 @@ h1,h5{font-size:2.875rem;line-height:1.03em;letter-spacing: -0.02em;text-box: tr
 h2{font-size:7.25rem;line-height:.88em;letter-spacing: -.05em;text-box: trim-both cap alphabetic;}
 h3{font-size:3.125rem;line-height:.93em;letter-spacing: -.05em;text-box: trim-both cap alphabetic;}
 .footer h3{font-size: 50pt;}
-h4{font-family: "didot",'Times New Roman', Times, serif;font-size:3.755rem;line-height:.82em;letter-spacing: -2.5px;text-box: trim-both cap alphabetic;}
+h4{font-family: "serif",'Times New Roman', Times, serif;font-size:3.755rem;line-height:.82em;letter-spacing: -2.5px;text-box: trim-both cap alphabetic;}
 .divide h3{font-size:4.625rem;letter-spacing: -.05em;text-box: trim-both cap alphabetic;margin-bottom: 74px;}
 
 .divide h3:last-child{margin-bottom:0}
@@ -243,7 +244,7 @@ li:before {
 }
 
 p.langOption{
-  font-family: "didot",'Times New Roman', Times, serif;
+  font-family: "serif",'Times New Roman', Times, serif;
   font-size: .75rem;
   text-box: trim-both cap alphabetic;
 }
@@ -256,6 +257,7 @@ p.langOption{
 
 .cta p, .caption p{
    font-size: .75rem;
+   text-rendering: optimizeLegibility;
    text-box: trim-both cap alphabetic;
 
 }
@@ -278,7 +280,16 @@ text-box: trim-both cap alphabetic;
 .footnote p{
 color: #000000cc;
 font-family: 'serif','Times New Roman', Times, serif;
-font-size: .75rem;
+font-size: .9375rem;
+letter-spacing:-.36px;
+font-style: italic;
+
+}
+
+.menunote p{
+color: #000000cc;
+font-family: 'serif','Times New Roman', Times, serif;
+font-size: 1rem;
 letter-spacing:-.36px;
 font-style: italic;
 
@@ -301,8 +312,9 @@ font-style: italic;
 }
 
 .mapPoints p{
-  font-size:.8125rem;
-  line-height: 1.13em;
+
+  line-height: 1.17em;
+  letter-spacing: .01em;
 
 }
 
@@ -319,11 +331,27 @@ font-style: italic;
 }
 
 /* captions */
+.captions p, .captions p{
+ font-family: "sans",Arial, Helvetica, sans-serif;
+  font-size: .9375rem;
+  text-box: trim-both cap alphabetic;
+}
 .credits p, .credits{
- font-family: 'Times New Roman', Times, serif;
+ font-family: "serif",'Times New Roman', Times, serif;
   font-size: .6725rem;
   text-box: trim-both cap alphabetic;
 }
+
+.creditsHold{
+  opacity: 0;
+  transition: opacity .25s ease-in-out;
+}
+
+.creditsOn:hover .creditsHold{
+  opacity:1;
+}
+
+
 
 .downloadBar p{
   font-size: 0.875rem;
@@ -351,19 +379,35 @@ font-style: italic;
   width:auto;
   height:40px;
   padding: 0 calc(var(--spacing) * 5);
-  background-color: rgba(255,255,255,0);
+  background-color: rgba(0,0,0,0);
+  border-color: #000000;
   text-transform: uppercase;
   flex-direction: column;
   justify-content: center;
   flex-shrink: 0;
-  transition: all 750ms ease-out;
+  transition: all 300ms ease-out;
   cursor:pointer;
   text-box: trim-both cap alphabetic;
+}
+
+.cta.inverted{
+   border-color: #ffffff;
+    background-color: rgba(255,255,255,0);
+}
+
+.cta.filter{
+    padding: 0 10px;
+    height:20px;
 }
 
 .cta.inverted:hover{
   background-color: rgba(255,255,255,1);
     color:rgba(0,0,0,1);
+}
+
+.cta:hover{
+  background-color: rgba(0,0,0,1);
+    color:rgba(255,255,255,1);
 }
 
 .cta.secondary{
@@ -393,6 +437,25 @@ font-style: italic;
   opacity:1;
   z-index: 900;
 
+}
+
+.cta-sub{
+  transform: all .5s ease-in-out;
+}
+
+.cta-sub:hover{
+  color:#000000;
+}
+
+.nextArrow{
+  transform: translateX(100%);
+  opacity: 0;
+  transition: all .5s ease-in-out;
+}
+
+.cta-sub:hover .nextArrow{
+    transform: translateX(200%);
+  opacity: 1;
 }
 
 .mapPoints{
@@ -431,6 +494,10 @@ input {height:20px}
   transition: none;
 }
 
+.galleryFade{
+  transition: opacity .25s ease-in-out;
+}
+
 .galleryB {
   transition: opacity .75s ease-in-out;
 }
@@ -442,7 +509,87 @@ input {height:20px}
 
 /* menu */
 .blur{
-background: rgba(95, 95, 95, 0.04);
-backdrop-filter: blur(150px);
+background-color: rgba(95, 95, 95, 0.04);
+backdrop-filter: blur(150px) opacity(0);
+transition: all .5s ease-in-out;
+transition-delay: .25;
+opacity: 0;
 }
+
+.blur.active{
+backdrop-filter: blur(150px) opacity(1);
+opacity:1;
+}
+
+.mainMenu{
+ transition:  opacity .5s ease-in-out;
+}
+.navItem p{
+  display: inline-block;
+  position:relative;
+}
+.navBar {
+  transition: all .5s ease-in-out;
+}
+.navItem p::after{
+  content:'';
+  position:absolute;
+  bottom:0;
+  left:0;
+  background-color: #ffffff;
+  width:100%;
+  height:1px;
+  max-width:0;
+  transform: translateY(8px);
+  transition: all .75s ease-in-out;
+}
+
+.navItem:hover p::after{
+  max-width: 900px;
+}
+
+.singleBar{
+  transform-origin: center;
+}
+
+.onHover{
+  opacity: 0;
+  pointer-events:none;
+  transition:opacity .25s ease-in-out;
+}
+
+.hoverOn:hover .onHover{
+  opacity: 1;
+}
+.onHoverBorder::after{
+  content: '';
+  position: absolute;
+  pointer-events:none;
+  height: 1px;
+  width:100%;
+  background-color: black;
+  bottom:0;
+  left:0;
+  opacity:0
+}
+.onHoverBorder::before{
+  content: '';
+  position: absolute;
+  pointer-events:none;
+  height: 1px;
+  width:100%;
+  background-color: black;
+  top:0;
+  left:0;
+  opacity:0
+}
+
+.hoverOn:hover .onHoverBorder::after, .hoverOn:hover .onHoverBorder::before{
+  opacity: 1;
+}
+
+.mediaGrow{
+  transition: transform 1s ease-in-out;
+}
+
 

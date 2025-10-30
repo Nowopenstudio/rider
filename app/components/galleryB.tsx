@@ -41,8 +41,12 @@ export default function GalleryB({ data }: any) {
   return (
     <React.Fragment>
       <div className={`galleryB w-full aspect-video relative`}>
-      <div className="w-1/2 h-full z-40 left-0 absolute cursor-w-resize" onClick={back}></div>
+        {data.gallery.length > 1?(
+          <React.Fragment>
+            <div className="w-1/2 h-full z-40 left-0 absolute cursor-w-resize" onClick={back}></div>
              <div className="w-1/2 h-full z-40 left-1/2 absolute cursor-e-resize" onClick={next}></div>
+          </React.Fragment>
+        ):('')}
         {data.gallery.map((item:any,i:number)=>{
           return(
             <div className={`galleryB w-full ${i>0?"absolute top-0 left-0 ":''}`} key={`image-${i}`} style={{opacity:i==curr?1:0}}>
@@ -56,13 +60,16 @@ export default function GalleryB({ data }: any) {
           <h3 className="uppercase mb-2">{data.title}</h3>
           <div className="menuText"><PortableText value={data.copy} /></div>
         </div>
-        <div className="galleryMarker flex h-[10px] pt-9 gap-2 ">
+        {data.gallery.length > 1?(
+          <div className="galleryMarker flex h-[10px] pt-9 gap-2 ">
           {data.gallery.map((dot: any, d: number) => {
             return (
               <div key={`${data.title}-${d}`} className={`w-[10px] h-[10px] border border-white rounded-full ${d==curr?"bg-white":""}`}></div>
             )
           })}
         </div>
+        ):('')}
+        
       </div>
     </React.Fragment>
   );

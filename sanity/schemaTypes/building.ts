@@ -27,7 +27,8 @@ export default {
                     name: 'building', title: "single", type: 'object', fields: [
                         { name: 'image', title: 'Image', type: 'image' },
                         { name: 'video', title: 'video', type: 'mux.video' },
-                        { name: 'array', title: 'credits', type: 'mux.video' }
+                        { name: 'captions', title: 'Captions', type: 'array', of: [{ type: 'block' }] },
+                        { name: 'credits', title: 'Credits', type: 'array', of: [{ type: 'block' }] },
                     ]
                 },
                 {

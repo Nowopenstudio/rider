@@ -70,6 +70,7 @@ export default {
                             name: 'single', title: "single", type: 'object', fields: [
                                 { name: 'image', title: 'Image', type: 'image' },
                                 { name: 'video', title: 'video', type: 'mux.video' },
+                                { name: 'caption', title: 'Captions', type: 'array', of: [{ type: 'block' }] },
                                 { name: 'credits', title: 'Credits', type: 'array', of: [{ type: 'block' }] },
                             ]
                         }
@@ -146,6 +147,12 @@ export default {
                         { name: 'image', title: 'Thumbnail', type: 'image' },
                         { name: 'video', title: 'Video', type: 'mux.video' },
                         { name: 'credits', title: 'Credits', type: "array", of: [{ type: 'block' }] }
+                    ]
+                },
+                {
+                    name: 'cta', title: "CTA", type: 'object', fields: [
+                        { type: 'string', title: 'Label', name: 'label' },
+                        { type: 'string', title: 'URL', name: 'url' },
                     ]
                 },
             ]

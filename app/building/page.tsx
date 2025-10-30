@@ -18,12 +18,13 @@ import TextBlock from "../components/textBlock";
 
 import Next from "../components/next";
 import GalleryC from "../components/galleryC";
+import { VidHead } from "../components/vidHead";
 
 
 
 export default async function Home() {
   const query = await getData(`{
-    'data': *[_type=='building'][0]{build{title,subhead,copy,hero{"image":image.asset->url,"vid":video.asset->playbackId, "ratio":video.asset->data.aspect_ratio,credits,caption},building{"image":image.asset->url,"vid":video.asset->playbackId, "ratio":video.asset->data.aspect_ratio,credits,caption},outro, gallery[]{"image":image.asset->url,"vid":video.asset->playbackId, "ratio":video.asset->data.aspect_ratio,credits,caption}},landmark{title,services,feat,cta},specs{title,spec,media{"image":image.asset->url,"vid":video.asset->playbackId, "ratio":video.asset->data.aspect_ratio,credits}},devStory{label,title,quote,profile{name,title,'image':image.asset->url},copy,footerLogos[]{'image':image.asset->url,url}},rise{title,copy,'image':image.asset->url},retail{label,title,copy,cta,intro{"image":image.asset->url,"vid":video.asset->playbackId, "ratio":video.asset->data.aspect_ratio,credits,caption},outro{"image":image.asset->url,"vid":video.asset->playbackId, "ratio":video.asset->data.aspect_ratio,credits,cta,title},gallery[]{"image":image.asset->url,"vid":video.asset->playbackId, "ratio":video.asset->data.aspect_ratio,credits,caption}},cta{label,title,copy,cta,"image":image.asset->url}, next{label,url}},
+    'data': *[_type=='building'][0]{build{title,subhead,copy,hero{"image":image.asset->url,"vid":video.asset->playbackId, "ratio":video.asset->data.aspect_ratio,credits,captions},building{"image":image.asset->url,"vid":video.asset->playbackId, "ratio":video.asset->data.aspect_ratio,credits,captions},outro, gallery[]{"image":image.asset->url,"vid":video.asset->playbackId, "ratio":video.asset->data.aspect_ratio,credits,caption}},landmark{title,services,feat,cta},specs{title,spec,media{"image":image.asset->url,"vid":video.asset->playbackId, "ratio":video.asset->data.aspect_ratio,credits}},devStory{label,title,quote,profile{name,title,'image':image.asset->url},copy,footerLogos[]{'image':image.asset->url,url}},rise{title,copy,'image':image.asset->url},retail{label,title,copy,cta,intro{"image":image.asset->url,"vid":video.asset->playbackId, "ratio":video.asset->data.aspect_ratio,credits,caption},outro{"image":image.asset->url,"vid":video.asset->playbackId, "ratio":video.asset->data.aspect_ratio,credits,cta,title},gallery[]{"image":image.asset->url,"vid":video.asset->playbackId, "ratio":video.asset->data.aspect_ratio,credits,caption}},cta{label,title,copy,cta,"image":image.asset->url}, next{label,url}},
 
     }`)
 
@@ -36,21 +37,21 @@ export default async function Home() {
 
 
     <React.Fragment>
-      <div className="w-full h-[100dvh] grid grid-cols-2 sticky top-0 z-1">
+      {/* <div className="w-full h-[100dvh] grid grid-cols-2 sticky top-0 z-1">
 
         <div className="projectCover col-span-2 h-[100dvh] relative coverSwitch fadeOn ">
           <SwitchContent work={data.build.hero} title={'Header Video'} ratio={data.build.hero.ratio} audio={false} cover />
 
-          <div className="scrollArrow absolute left-4 bottom-4"><ScrollArrow className="w-[30px] h-auto" fill={"#ffffff"} /></div>
+          
 
         </div>
 
-      </div>
-
+      </div> */}
+      <VidHead data={data.build.hero}/>
       <div className="w-full  bg-offWhite  sticky z-2 grid grid-cols-12">
-        <div className="col-span-full mb-39"> <TextBlock title={data.build.title} copy={data.build.copy} subhead={data.build.subhead} /></div>
-        <Reveal styleSet="col-span-6 col-start-4 mb-39 ">
-          {data.build.building ? (<SwitchContent work={data.build.building} title={'Header Video'} ratio={data.build.building.ratio} audio={false} />) : ('')}
+        <div className="col-span-full mb-39"> <TextBlock arrow title={data.build.title} copy={data.build.copy} subhead={data.build.subhead} /></div>
+        <Reveal styleSet="col-span-6 col-start-4 mb-39 hoverOn ">
+          {data.build.building ? (<SwitchContent  credits captions work={data.build.building} title={'Header Video'} ratio={data.build.building.ratio} audio={false} />) : ('')}
 
         </Reveal>
         {/* Gallery */}
