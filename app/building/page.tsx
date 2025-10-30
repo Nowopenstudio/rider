@@ -64,7 +64,7 @@ export default async function Home() {
         <div className="col-span-full grid grid-cols-2 pb-39">
 
           <Reveal styleSet="col-span-1 px-9 ">
-            <div className="w-full font-bold uppercase"><p className="subMenu font-semibold mb-4">Building Services</p></div>
+            <div className="w-full font-bold uppercase"><p className="subMenu font-medium mb-4">Building Services</p></div>
             <div className="menuText mb-[42px]"><p><em>{data.landmark.services.title}</em></p></div>
             <div className="listHold mb-14 border-darkGray border-b">
               {data.landmark.services.points.map((item: any, i: number) => {
@@ -77,7 +77,7 @@ export default async function Home() {
               })}
             </div>
             {/* feat */}
-            <div className="w-full font-bold uppercase"><p className="subMenu font-semibold mb-4">Building Features</p></div>
+            <div className="w-full font-bold uppercase"><p className="subMenu font-medium mb-4">Building Features</p></div>
             <div className="menuText mb-[42px]"><p><em>{data.landmark.feat.title}</em></p></div>
             <div className="listHold mb-14 border-darkGray  border-b">
               {data.landmark.feat.points.map((item: any, i: number) => {
