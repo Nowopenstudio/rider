@@ -64,7 +64,7 @@ export default async function Home() {
 
       <div id={'intro'} className="w-full  bg-offWhite relative z-2 grid grid-cols-12 rounded-t-[12px]">
         <div className="col-span-12 text-right footnote text-gray pointer-events-none sticky top-18 right-9 pr-9 translate-y-9 h-0 z-2"><PortableText value={data.welcome.copy} /></div>
-       <div className="col-span-full"> <TextBlock title={data.welcome.title} footnote={data.welcome.copy} copy={data.build.copy} subhead={data.build.title}/></div>
+       <div className="col-span-full"> <TextBlock off title={data.welcome.title} footnote={data.welcome.copy} copy={data.build.copy} subhead={data.build.title}/></div>
         
     
         <Reveal styleSet="col-span-6 col-start-4 mb-76 mt-39 relative hoverOn">
@@ -169,7 +169,7 @@ export default async function Home() {
 
       {/* Area */}
         <div className="col-span-full  grid grid-cols-12 gap-4 px-9 relative z-2 bg-offWhite py-14">
-          <Reveal styleSet='col-span-full uppercase py-3 border-t border-b text-center mb-42'><h4 className='w-full'>{data.location.title}</h4></Reveal>
+          <Reveal styleSet='col-span-full uppercase py-3 border-t border-b text-center mb-42'><h2 className='w-full serif'>{data.location.title}</h2></Reveal>
           <Reveal styleSet="col-span-6 col-start-4 aspect-video relative">
             <div className="absolute center-object w-1/3">
               <Image alt="image" height={0} width={0} sizes="100vw" src={data.location.video.image} className={`w-full h-auto `} />
@@ -220,7 +220,7 @@ export default async function Home() {
           <div className="col-span-full grid grid-cols-12 px-9 mb-10">
             <div className="col-span-full py-2 border-b  uppercase label font-bold"><p>{data.gallery.title}</p></div>
             <div className=" col-span-full mb-10 py-9">
-              <div className="mb-6 uppercase divide"> <PortableText value={data.gallery.headline} /></div>
+              <div className="mb-12.5 uppercase divide"> <PortableText value={data.gallery.headline} /></div>
               <div className="mb-6 grid grid-cols-6 gap-4">
                 {data.gallery.contacts.map((item: any, i: number) => {
                   return (

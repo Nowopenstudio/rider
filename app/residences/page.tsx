@@ -21,12 +21,13 @@ import GalleryC from "../components/galleryC";
 import Floorplans from "../components/floorplans";
 import GalleryD from "../components/galleryD";
 import { VidHead } from "../components/vidHead";
+import { ScrollCTA } from "../components/scrollTarget";
 
 
 
 export default async function Home() {
   const query = await getData(`{
-    'data': *[_type=='residences'][0]{header{title,video{"image":image.asset->url,"vid":video.asset->playbackId, "ratio":video.asset->data.aspect_ratio,credits,caption}},intro{title,copy,media{"image":image.asset->url,"vid":video.asset->playbackId, "ratio":video.asset->data.aspect_ratio,credits,caption},cta},specs[]{title,subtitle,subhead,copy,logos[]{"image":image.asset->url,url},gallery[]{"image":image.asset->url,"vid":video.asset->playbackId, "ratio":video.asset->data.aspect_ratio,credits,caption},outro{title,copy,media{"image":image.asset->url,"vid":video.asset->playbackId, "ratio":video.asset->data.aspect_ratio,credits,caption},gallery[]{"image":image.asset->url,"vid":video.asset->playbackId, "ratio":video.asset->data.aspect_ratio,credits,caption}}}, feats{label,title,subhead,points[]{title},media{"image":image.asset->url,"vid":video.asset->playbackId, "ratio":video.asset->data.aspect_ratio,credits,caption},cta}, floorplan{label,title,subhead,copy,rooms[]{title,rooms[]{name,copy,"image":image.asset->url,cta}},cta}, floors{label,title,rooms[]{title,rooms[]{name,copy,"image":image.asset->url,cta}},cta,media{"image":image.asset->url,"vid":video.asset->playbackId, "ratio":video.asset->data.aspect_ratio,credits,caption}},smart{label,title,subhead,copy,gallery[]{"image":image.asset->url,"vid":video.asset->playbackId, "ratio":video.asset->data.aspect_ratio,credits,caption}},cta{label,title,copy,"image":image.asset->url,cta},next},
+    'data': *[_type=='residences'][0]{header{title,video{"image":image.asset->url,"vid":video.asset->playbackId, "ratio":video.asset->data.aspect_ratio,credits,captions}},intro{title,copy,media{"image":image.asset->url,"vid":video.asset->playbackId, "ratio":video.asset->data.aspect_ratio,credits,captions},cta},specs[]{title,subtitle,subHead,copy,logos[]{"image":image.asset->url,url},gallery[]{"image":image.asset->url,"vid":video.asset->playbackId, "ratio":video.asset->data.aspect_ratio,credits,captions},outro{title,copy,media{"image":image.asset->url,"vid":video.asset->playbackId, "ratio":video.asset->data.aspect_ratio,credits,captions},gallery[]{"image":image.asset->url,"vid":video.asset->playbackId, "ratio":video.asset->data.aspect_ratio,credits,captions}}}, feats{label,title,subhead,points[]{title},media{"image":image.asset->url,"vid":video.asset->playbackId, "ratio":video.asset->data.aspect_ratio,credits,captions},cta}, floorplan{label,title,subhead,copy,rooms[]{title,rooms[]{name,copy,"image":image.asset->url,cta}},cta}, floors{label,title,rooms[]{title,rooms[]{name,copy,"image":image.asset->url,cta}},cta,media{"image":image.asset->url,"vid":video.asset->playbackId, "ratio":video.asset->data.aspect_ratio,credits,captions}},smart{label,title,subhead,copy,gallery[]{"image":image.asset->url,"vid":video.asset->playbackId, "ratio":video.asset->data.aspect_ratio,credits,captions}},cta{label,title,copy,"image":image.asset->url,cta},next},
 
     }`)
 
@@ -51,13 +52,19 @@ export default async function Home() {
       </div> */}
        <VidHead data={data.header.video}/>
 
-      <div className="w-full  bg-offWhite relative z-2 grid grid-cols-12">
-        <div className="col-span-full mb-39"> <TextBlock title={data.intro.title} copy={data.intro.copy} cta={data.intro.cta} />
+      <div className="w-full  bg-offWhite relative z-2 grid grid-cols-12 rounded-t-[12px]">
+                <div className="col-span-12 pointer-events-none sticky top-4 right-9 pr-9 translate-y-18 h-0 z-10 flex flex-row-reverse">
+                 
+                  <ScrollCTA id={'floors'} cta={data.intro.cta} sub />
+                  </div>
+        
+       
+        <div className="col-span-full mb-39"> <TextBlock title={data.intro.title} copy={data.intro.copy} arrowBot/>
 
 
         </div>
-        <Reveal styleSet="col-span-6 col-start-4 mb-39 ">
-          {data.intro.media ? (<SwitchContent work={data.intro.media} title={'Header Video'} ratio={data.intro.media.ratio} audio={false} />) : ('')}
+        <Reveal styleSet="col-span-6 col-start-4 mb-39 hoverOn ">
+          {data.intro.media ? (<SwitchContent captions credits work={data.intro.media} title={'Header Video'} ratio={data.intro.media.ratio} audio={false} />) : ('')}
 
         </Reveal>
 
@@ -70,16 +77,16 @@ export default async function Home() {
             return (
               <div className="col-span-full grid grid-cols-2 mb-39" key={`spec-${i}`}>
                 <div className="grid grid-cols-2 px-9 col-span-2 relative">
-                  <div className="header mb-7 col-span-full border-t pt-9"><h3 className="serif uppdercase">{item.title}</h3></div>
-                  <div className="subtitle mb-18"><h4 className="serif uppdercase">{item.subtitle}</h4></div>
-                  <div className="subhead mb-10"><p><em>{item.subHead}</em></p></div>
+                  <div className="header mb-5.5 col-span-full border-t pt-9"><h3 className="serif uppdercase">{item.title}</h3></div>
+                  <div className="subtitle mb-21  col-span-full "><h4 className="serif uppdercase">{item.subtitle}</h4></div>
+                  <div className="subhead mb-9  col-span-full serif "><p><em>{item.subHead}</em></p></div>
                   <div className="mb-9"><PortableText value={item.copy} /></div>
                   {item.logos ? (
                     <div className="logo absolute top-9 z-10 right-9 flex flex-col justify-end items-end gap-4">
                       {item.logos.map((logo: any, l: number) => {
                         return (
-                          <div className="h-[45px] w-auto mix-blend-difference flex-shrink-0" key={`logo-${i}-${l}`}>
-                            <Image alt="image" sizes={`150px`} width={45} height={45} src={logo.image} className={`w-auto h-[45px] `} />
+                          <div className="h-[70px] w-auto mix-blend-difference flex-shrink-0" key={`logo-${i}-${l}`}>
+                            <Image alt="image" sizes={`150px`} width={45} height={45} src={logo.image} className={`w-auto h-[70px] `} />
                           </div>
                         )
                       })}
@@ -96,8 +103,8 @@ export default async function Home() {
                   </div>
                 ) : ('')}
                 {item.outro.media ? (
-                  <div className=" relative col-span-1">
-                    <SwitchContent work={item.outro.media} title={'Header Video'} ratio={item.outro.media.ratio} audio={false} />
+                  <div className=" relative col-span-1 hoverOn">
+                    <SwitchContent captions credits work={item.outro.media} title={'Header Video'} ratio={item.outro.media.ratio} audio={false} />
                   </div>
                 ) : ('')}
 
@@ -125,27 +132,27 @@ export default async function Home() {
             <div className="listHold  border-darkGray border-b mb-[42px]">
               {data.feats.points.map((item: any, i: number) => {
                 return (
-                  <div key={`service-${i}`} className="flex gap-x-3 w-full py-[15px] font-semibold text-darkGray border-darkGray border-t uppercase">
+                  <div key={`service-${i}`} className="hoverOn flex gap-x-3 w-full py-[15px] font-semibold text-darkGray border-darkGray border-t uppercase">
                     <p className="label">{i < 9 ? '0' : ''}{i + 1}.</p>
-                    <p className="label">{item.title}</p>
+                    <p className="label hoverRight">{item.title}</p>
                   </div>
                 )
               })}
             </div>
-            <div className="cta inline-block "><p>{data.feats.cta.label}</p></div>
+            <a href={data.feats.cta.url} className="cta inline-block "><p>{data.feats.cta.label}</p></a>
           </div>
-          <div className="col-span-1 grid grid-cols-6 px-9">
-            <div className="col-span-4 col-end-7"><div className="w-full mb-9"> {data.feats.media ? (<SwitchContent work={data.feats.media} title={'Building Spec'} ratio={data.feats.media.ratio} audio={false} />) : ('')}</div></div>
+          <div className="col-span-1 grid grid-cols-6 px-9 hoverOn">
+            <div className="col-span-4 col-end-7"><div className="w-full mb-9"> {data.feats.media ? (<SwitchContent captions credits work={data.feats.media} title={'Building Spec'} ratio={data.feats.media.ratio} audio={false} />) : ('')}</div></div>
           </div>
 
         </div>
 
         {/* floors */}
-        <div className="col-span-12  bg-offWhite py-9 z-3 relative">
+        <div id={'floors'} className="col-span-12  bg-offWhite py-9 z-3 relative">
           <div className="w-full grid grid-cols-12 px-9 mb-39">
 
-            <div className="col-span-full py-2 border-b  pb-4 mb-4 uppercase label font-bold"><p>{data.floorplan.label}</p></div>
-            <div className="col-span-6 divide uppercase mb-14 row-start-2">
+            <div className="col-span-full py-2 border-b  pb-4 uppercase label font-bold"><p>{data.floorplan.label}</p></div>
+            <div className="col-span-6 divide uppercase mb-14 row-start-2 pt-9">
               <PortableText value={data.floorplan.title} />
             </div>
             <div className="col-span-6 mb-30 row-start-3">
@@ -164,7 +171,7 @@ export default async function Home() {
 
 
          <div className="col-span-12  bg-offWhite py-9 z-3 relatve mb-39">
-              <div className="w-full uppercase px-9 divide">
+              <div className="w-full uppercase px-9 divide mb-14">
                 <PortableText value={data.floors.title} />
                 
               </div>
@@ -174,15 +181,15 @@ export default async function Home() {
             </div>
             
          </div>
-         <Reveal styleSet="col-span-6 col-start-4 mb-39 ">
-          {data.floors.media ? (<SwitchContent work={data.floors.media} title={'Header Video'} audio={false} />) : ('')}
+         <Reveal styleSet="col-span-6 col-start-4 mb-39 hoverOn">
+          {data.floors.media ? (<SwitchContent credits captions work={data.floors.media} title={'Header Video'} audio={false} />) : ('')}
 
         </Reveal>
 
 
         <div className='col-span-full grid grid-cols-12 px-9'>
           <div className="col-span-full py-2 border-b  pb-4 mb-9 uppercase label font-bold"><p>{data.smart.label}</p></div>
-          <div className="col-span-full divide uppercase">
+          <div className="col-span-full divide uppercase mb-14">
             <PortableText value={data.smart.title} />
           </div>
           <div className="col-span-6 mb-14">

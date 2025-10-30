@@ -21,12 +21,13 @@ import GalleryC from "../components/galleryC";
 import GalleryG from "../components/galleryG";
 import GalleryH from "../components/galleryH";
 import { VidHead } from "../components/vidHead";
+import GalleryD from "../components/galleryD";
 
 
 
 export default async function Home() {
   const query = await getData(`{
-    'data': *[_type=='amenities'][0]{header{title,video{"image":image.asset->url,"vid":video.asset->playbackId, "ratio":video.asset->data.aspect_ratio,credits,caption}},intro{title,subhead,copy,outro,media{"image":image.asset->url,"vid":video.asset->playbackId, "ratio":video.asset->data.aspect_ratio,credits,caption},cta},feat{title,subhead,points[]{title},media{"image":image.asset->url,"vid":video.asset->playbackId, "ratio":video.asset->data.aspect_ratio,credits,caption},gallery[]{"image":image.asset->url,"vid":video.asset->playbackId, "ratio":video.asset->data.aspect_ratio,credits,caption}},outro{media{"image":image.asset->url,"vid":video.asset->playbackId, "ratio":video.asset->data.aspect_ratio,credits,caption}, gallery[]{"image":image.asset->url,"vid":video.asset->playbackId, "ratio":video.asset->data.aspect_ratio,credits,caption}},box{label,title,copy,feat{"image":image.asset->url,"vid":video.asset->playbackId, "ratio":video.asset->data.aspect_ratio,credits,caption},outro{"image":image.asset->url,"vid":video.asset->playbackId, "ratio":video.asset->data.aspect_ratio,credits,caption}},swing{label,title,copy,feat{"image":image.asset->url,"vid":video.asset->playbackId, "ratio":video.asset->data.aspect_ratio,credits,caption}},beach{label,title,copy,gallery[]{"image":image.asset->url,"vid":video.asset->playbackId, "ratio":video.asset->data.aspect_ratio,credits,caption}},cta{label,title,copy,cta,'image':image.asset->url},next},
+    'data': *[_type=='amenities'][0]{header{title,video{"image":image.asset->url,"vid":video.asset->playbackId, "ratio":video.asset->data.aspect_ratio,credits,captions}},intro{title,subhead,copy,outro,gallery[]{"image":image.asset->url,"vid":video.asset->playbackId, "ratio":video.asset->data.aspect_ratio,credits,captions},cta},feat{title,subhead,points[]{title},media{"image":image.asset->url,"vid":video.asset->playbackId, "ratio":video.asset->data.aspect_ratio,credits,captions},gallery[]{"image":image.asset->url,"vid":video.asset->playbackId, "ratio":video.asset->data.aspect_ratio,credits,captions}},outro{media{"image":image.asset->url,"vid":video.asset->playbackId, "ratio":video.asset->data.aspect_ratio,credits,captions}, gallery[]{"image":image.asset->url,"vid":video.asset->playbackId, "ratio":video.asset->data.aspect_ratio,credits,captions}},box{label,title,copy,feat{"image":image.asset->url,"vid":video.asset->playbackId, "ratio":video.asset->data.aspect_ratio,credits,captions},outro{"image":image.asset->url,"vid":video.asset->playbackId, "ratio":video.asset->data.aspect_ratio,credits,captions}},swing{label,title,copy,feat{"image":image.asset->url,"vid":video.asset->playbackId, "ratio":video.asset->data.aspect_ratio,credits,captions}},beach{label,title,copy,gallery[]{"image":image.asset->url,"vid":video.asset->playbackId, "ratio":video.asset->data.aspect_ratio,credits,captions}},cta{label,title,copy,cta,'image':image.asset->url},next},
 
     }`)
 
@@ -53,11 +54,11 @@ export default async function Home() {
 
       <div className="w-full  bg-offWhite  sticky z-2 grid grid-cols-12 ">
         <div className="col-span-full mb-39">
-          <TextBlock title={data.intro.title} copy={data.intro.copy} subhead={data.intro.subhead} />
+          <TextBlock title={data.intro.title} copy={data.intro.copy} subhead={data.intro.subhead} arrowBot />
         </div>
 
-        <div className="col-span-full px-9 mb-39">
-          <SwitchContent work={data.intro.media} title={'Header Video'} ratio={data.intro.media.ratio} audio={false} />
+        <div className="col-span-full px-9 mb-39 hoverOn">
+          <GalleryD data={data.intro.gallery} />
         </div>
 
         {/* amenities */}
@@ -68,9 +69,9 @@ export default async function Home() {
             {data.feat.points?(
               data.feat.points.map((item: any, i: number) => {
               return (
-                <div key={`service-${i}`} className="flex gap-x-3 w-full py-[15px] font-semibold text-darkGray border-darkGray border-t  uppercase">
+                <div key={`service-${i}`} className="flex hoverOn gap-x-3 w-full py-[15px] font-semibold text-darkGray border-darkGray border-t  uppercase">
                   <p className="label">{i < 9 ? '0' : ''}{i + 1}.</p>
-                  <p className="label">{item.title}</p>
+                  <p className="label hoverRight">{item.title}</p>
                 </div>
               )
             })
@@ -79,8 +80,8 @@ export default async function Home() {
       </div>
 
       <div className="col-span-6 grid grid-cols-6  px-9">
-        <div className="col-span-4 col-start-3">
-          <div className="w-full mb-9"> {data.feat.media ? (<SwitchContent work={data.feat.media} title={'Building Spec'} ratio={data.feat.media.ratio} audio={false} />) : ('')}</div>
+        <div className="col-span-4 col-start-3 hoverOn">
+          <div className="w-full mb-9"> {data.feat.media ? (<SwitchContent captions credits work={data.feat.media} title={'Building Spec'} ratio={data.feat.media.ratio} audio={false} />) : ('')}</div>
         
         </div>
 
@@ -92,8 +93,8 @@ export default async function Home() {
               ):('')}
              </div>
 
-      <Reveal styleSet="col-span-4 col-start-5 mb-39 ">
-                {data.outro.media ? (<SwitchContent work={data.outro.media} title={'Header Video'} ratio={data.outro.media.ratio} audio={false} />) : ('')}
+      <Reveal styleSet="col-span-4 col-start-5 mb-39 hoverOn">
+                {data.outro.media ? (<SwitchContent captions credits work={data.outro.media} title={'Header Video'} ratio={data.outro.media.ratio} audio={false} />) : ('')}
       
       </Reveal>
 

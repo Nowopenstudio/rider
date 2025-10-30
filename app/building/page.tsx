@@ -48,7 +48,7 @@ export default async function Home() {
 
       </div> */}
       <VidHead data={data.build.hero}/>
-      <div className="w-full  bg-offWhite  sticky z-2 grid grid-cols-12">
+      <div className="w-full  bg-offWhite  sticky z-2 grid grid-cols-12 rounded-t-[12px]">
         <div className="col-span-full mb-39"> <TextBlock arrow title={data.build.title} copy={data.build.copy} subhead={data.build.subhead} top right/></div>
         <Reveal styleSet="col-span-8 col-start-3 mb-39 hoverOn ">
           {data.build.building ? (<SwitchContent  credits captions work={data.build.building} title={'Header Video'} ratio={data.build.building.ratio} audio={false} />) : ('')}
@@ -151,14 +151,14 @@ export default async function Home() {
 
             </Reveal>
 
-            <div className="col-span-full py-2 border-b  pb-4 mb-4 uppercase label font-bold"><p>{data.retail.label}</p></div>
-            <div className="col-span-full divide uppercase">
+            <div className="col-span-full py-2 border-b  pb-4 uppercase label font-bold"><p>{data.retail.label}</p></div>
+            <div className="col-span-full divide uppercase mb-14 py-9">
               <PortableText value={data.retail.title} />
             </div>
             <div className="col-span-6 mb-14">
               <PortableText value={data.retail.copy} />
             </div>
-            <div className="col-span-12"> <div className="cta inline-block"><p>{data.retail.cta.label}</p></div></div>
+            <a href={data.retail.cta.url} className="col-span-12"> <div className="cta inline-block"><p>{data.retail.cta.label}</p></div></a>
 
 
 

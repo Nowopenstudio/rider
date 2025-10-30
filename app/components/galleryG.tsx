@@ -6,6 +6,7 @@ import { PortableText } from 'next-sanity';
 
 
 export default function GalleryG({ data }: any) {
+  // dots on the side container
 
   const [curr, setCurr] = useState(0);
 
@@ -45,7 +46,7 @@ export default function GalleryG({ data }: any) {
              <div className="w-1/2 h-full z-40 left-1/2 absolute cursor-e-resize" onClick={next}></div>
         {data.map((item:any,i:number)=>{
           return(
-            <div className={`gallery w-full ${i>0?"absolute top-0 left-0 ":''}`} key={`image-${i}`} style={{opacity:i==curr?1:0}}>
+            <div className={`galleryFade w-full ${i>0?"absolute top-0 left-0 ":''}`} key={`image-${i}`} style={{opacity:i==curr?1:0}}>
               <SwitchContent work={item} title={`${item.title}`} ratio={item.ratio} audio={false} cover />
             </div>
           )
