@@ -19,13 +19,14 @@ import GalleryB from "../components/galleryB";
 import Next from "../components/next";
 import Locations from "./locations";
 import { VidHead } from "../components/vidHead";
+import { ScrollCTA } from "../components/scrollTarget";
 
 
 
 export default async function Home() {
   const query = await getData(`{
     'map':*[_type=='map'][0]{'map':map.asset->url, locations},
-    'data': *[_type=='location'][0]{header{video{"image":image.asset->url,"vid":video.asset->playbackId, "ratio":video.asset->data.aspect_ratio,credits,caption}},intro{title,subhead,copy,galery[]{"image":image.asset->url,"vid":video.asset->playbackId, "ratio":video.asset->data.aspect_ratio,credits,caption},cta},locations[]{label,title,copy,media{"image":image.asset->url,"vid":video.asset->playbackId, "ratio":video.asset->data.aspect_ratio,credits,caption},gallery[]{"image":image.asset->url,"vid":video.asset->playbackId, "ratio":video.asset->data.aspect_ratio,credits,caption}},cta{label,title,copy,'image':image.asset->url,cta},next},
+    'data': *[_type=='location'][0]{header{video{"image":image.asset->url,"vid":video.asset->playbackId, "ratio":video.asset->data.aspect_ratio,credits,captions}},intro{title,subhead,copy,galery[]{"image":image.asset->url,"vid":video.asset->playbackId, "ratio":video.asset->data.aspect_ratio,credits,captions},cta},locations[]{label,title,copy,media{"image":image.asset->url,"vid":video.asset->playbackId, "ratio":video.asset->data.aspect_ratio,credits,captions},gallery[]{"image":image.asset->url,"vid":video.asset->playbackId, "ratio":video.asset->data.aspect_ratio,credits,captions}},cta{label,title,copy,'image':image.asset->url,cta},next},
 
     }`)
 
@@ -51,12 +52,16 @@ export default async function Home() {
        <VidHead data={data.header.video}/>
 
       <div className="w-full  bg-offWhite  sticky z-2 grid grid-cols-12 ">
+         <div className="col-span-12 pointer-events-none sticky top-4 right-9 pr-9 translate-y-18 h-0 z-7 flex flex-row-reverse">
+                         
+                          <ScrollCTA id={'map'} cta={data.intro.cta} sub />
+                          </div>
         <div className="col-span-full mb-24">
-            <TextBlock title={data.intro.title} copy={data.intro.copy} subhead={data.intro.subhead} cta={data.intro.cta} />
+            <TextBlock title={data.intro.title} copy={data.intro.copy} subhead={data.intro.subhead}  arrowBot />
         </div>
 
         {/* menu */}
-        <div className="col-span-full flex gap-4">
+        <div className="col-span-full flex gap-4 relative">
           <Locations data={data.locations}/>
         </div>
 
@@ -73,7 +78,7 @@ export default async function Home() {
 
 
         {/* Map */}
-        <div className="col-span-full grid grid-cols-12 gap-4 px-9">
+        <div id={'map'} className="col-span-full grid grid-cols-12 gap-4 px-9 pt-9 relative">
           
           {map ? (
             <Map data={map} />
@@ -86,10 +91,11 @@ export default async function Home() {
 
 
         {/* CTA */}
-        <div className="col-span-full"> <Next next={data.next} cta={data.cta} /></div>
+        
 
 
       </div>
+      <div className="col-span-full relative z-10"> <Next next={data.next} cta={data.cta} /></div>
  
           <ScrollUp />
     </React.Fragment>

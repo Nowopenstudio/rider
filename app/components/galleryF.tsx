@@ -60,11 +60,12 @@ export default function GalleryF({ data }: any) {
           })}
         </div>
         <div className="py-4 w-3/4">
-          <p  className="uppercase mb-2 label font-semibold">{data.name}</p>
-          <div className=" label  font-semibold text-darkGray"><PortableText value={data.title} /></div>
+          <p  className="uppercase mb-2 label font-semibold"><PortableText value={data.gallery[curr].title}/></p>
+          <div className=" label  font-semibold text-darkGray"><PortableText value={data.gallery[curr].copy}/></div>
         </div>
         
       </div>
+       
     </React.Fragment>
   );
 }

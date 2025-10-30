@@ -19,6 +19,7 @@ import GalleryB from "../components/galleryB";
 import Next from "../components/next";
 import GalleryF from "../components/galleryF";
 import { VidHead } from "../components/vidHead";
+import { ScrollCTA } from "../components/scrollTarget";
 
 
 
@@ -49,9 +50,13 @@ export default async function Home() {
             </div> */}
             
                 <VidHead data={data.header.video}/>
-            <div className="w-full  bg-offWhite  sticky z-2 grid grid-cols-12 ">
+            <div className="w-full  bg-offWhite  sticky z-2 grid grid-cols-12 rounded-t-[12px]">
+               <div className="col-span-12 pointer-events-none sticky top-14 right-9 pr-9 translate-y-9 h-0 z-7 flex flex-row-reverse">
+                                       
+                                        <ScrollCTA id={'map'} cta={data.intro.cta} sub />
+                                        </div>
               <div className="col-span-full mb-24">
-                <TextBlock title={data.intro.title} copy={data.intro.copy} subhead={data.intro.subhead} cta={data.intro.cta} />
+                <TextBlock title={data.intro.title} copy={data.intro.copy} subhead={data.intro.subhead} arrowBot off top />
               </div>
 
               {/* profile */}
@@ -75,7 +80,7 @@ export default async function Home() {
                         </div>
                         <div className="col-span-6  grid grid-cols-6 items-start">
                           <div className="col-span-3 col-start-3 p3  mb-6">
-                            <div className="mb-6 uppercase"><PortableText value={item.profile.intro}/></div>
+                            <div className="mb-6 uppercase font-semibold"><PortableText value={item.profile.intro}/></div>
                             <PortableText value={item.profile.bio}/>
                             </div>
                           
@@ -103,7 +108,7 @@ export default async function Home() {
                           <React.Fragment>
                             
                             <div className="col-span-full py-14 flex items-center justify-center border-t border-darkGray bg-black flex-wrap px-9 ">
-                              <div className="w-full text-white divide uppercase pt-9 border-t border-darkGray">
+                              <div className="w-full text-white divide uppercase pt-9 border-t border-darkGray mb-14">
                                 <PortableText value={data.outro.title}/>
                               </div>
                               <div className="w-2/3 pb-35">

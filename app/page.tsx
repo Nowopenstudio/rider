@@ -136,7 +136,7 @@ export default async function Home() {
       <div className="w-full bg-black py-9 relative z-3 grid grid-cols-12 text-white pb-22 ">
         <Reveal styleSet='col-span-full px-9'><div className="w-full py-2 border-b uppercase label font-bold"><p>{data.interiors.title}</p></div></Reveal>
         <Reveal styleSet="col-span-full mb-39">
-          <TextBlock title={data.interiors.headline.copy} copy={data.interiors.copy} subhead={data.interiors.subhead}/>
+          <TextBlock title={data.interiors.headline.copy} copy={data.interiors.copy} subhead={data.interiors.subhead} off/>
         </Reveal>
        
         <Reveal styleSet="deisngHold col-span-full grid grid-cols-12">

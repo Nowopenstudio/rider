@@ -11,6 +11,7 @@ import useResize from '../util/useResize';
 import { SwitchContent } from '../util/contentSwitch';
 import { PortableText } from 'next-sanity';
 import GalleryC from '../components/galleryC';
+import { ScrollCTA } from '../components/scrollTarget';
 
 
 
@@ -29,10 +30,10 @@ export default function Locations({ data }: any) {
     <React.Fragment>
 
       <div className="w-full">
-        <div className="w-full mb-79 px-9 ">
+        <div className="w-full mb-79 px-9 flex gap-4 ">
           {data.map((item: any, i: number) => {
             return (
-              <div id={`loc-${i}`}key={`filter-${item.title}`} onClick={() => scrollto(i)} className={`cta filter cursor-pointer inline-block secondary`}><p>{item.title}</p></div>
+              <div key={`filter-${item.title}`}><ScrollCTA id={`loc-${i}`} cta={{"label":item.title}} sub/></div>
   
             )
           })}
@@ -40,8 +41,8 @@ export default function Locations({ data }: any) {
 
         {data.map((item:any,i:number)=>{
           return(
-            <div className="w-full" key={`location-${i}`}>
-              <div className="w-full grid grid-cols-12 px-9 mb-19">
+            <div id={`loc-${i}`} className="w-full" key={`location-${i}`}>
+              <div className="w-full grid grid-cols-12 px-9">
               
                           <div className="col-span-full py-2 border-b  pb-4 mb-9 uppercase label font-bold"><p>{item.label}</p></div>
                           <div className="col-span-6 divide uppercase mb-14 row-start-2">
@@ -50,14 +51,14 @@ export default function Locations({ data }: any) {
                           <div className="col-span-6 mb-30 row-start-3">
                             <PortableText value={item.copy} />
                           </div>
-                          <Reveal styleSet="col-span-10 col-start-2 mb-39 aspect-video">
-                                    <div className="w-full h-full flex items-center justify-center">{item.media ? (<SwitchContent work={item.media} title={'Header Video'} ratio={item.media.ratio} audio={false} contain/>) : ('')}</div>
+                          <Reveal styleSet="col-span-10 col-start-2 aspect-video hoverOn">
+                                    <div className="w-full h-full flex flex-wrap items-center justify-center relative flex-shrink-0">{item.media ? (<SwitchContent credits captions work={item.media} title={'Header Video'} ratio={item.media.ratio} audio={false} contain/>) : ('')}</div>
                           
                                   </Reveal>
                           
                     </div>
-                     <div className="mb-39">
-                      <GalleryC data={item.gallery} full/>
+                     <div className="">
+                      <GalleryC data={item.gallery}/>
                      </div>
             </div>
            

@@ -15,7 +15,7 @@ export function SwitchContent({work, title,ratio,cover, contain,size, audio,colo
     }
    
   if (work.image) return (<React.Fragment><Image alt="image" onContextMenu={(e)=>{e.preventDefault()}} height={0}  width={0} sizes={`${size?size:`100vw`}`}  src={work.image}  className={`${height?`h-full w-auto`:'w-full h-auto'} ${contain?"object-contain h-full":""} ${cover?"object-cover h-full":""}`} style={{aspectRatio:ratioImg}}/>
-  {credits || captions?( <div className={`flex justify-between w-full onHover py-4 ${inside?"text-white absolute bottom-0 left-0 px-4 z-10":""}`}><div className="captions">{captions?(<PortableText value={work.captions}/>):('')}</div><div className={`credits uppercase ${captions?'text-right':''}`}>{credits?(<PortableText value={work.credits}/>):('')}</div></div>
+  {credits || captions?( <div className={`flex justify-between w-full  onHover py-4 ${inside?"text-white absolute bottom-0 left-0 px-4 z-10":""}`}><div className="captions">{captions?(<PortableText value={work.captions}/>):('')}</div><div className={`credits uppercase ${captions?'text-right':''}`}>{credits?(<PortableText value={work.credits}/>):('')}</div></div>
   ):('')}</React.Fragment>
  
     
