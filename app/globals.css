@@ -258,9 +258,17 @@ p.langOption{
 
 }
 
-.cta p, .caption p{
+.cta p {
    font-size: .75rem;
    text-rendering: optimizeLegibility;
+   text-box: trim-both cap alphabetic;
+
+}
+
+.captions p {
+   font-size: 0.93755rem;
+   text-rendering: optimizeLegibility;
+   letter-spacing: -0.03em;
    text-box: trim-both cap alphabetic;
 
 }

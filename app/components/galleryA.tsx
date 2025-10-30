@@ -78,7 +78,7 @@ const next=()=>{
                     {/* <div className="w-full h-full z-40 left-0 absolute text-white pointer-events-none" ><h2>{i}</h2></div> */}
                    <div className="w-full h-auto relative"> <SwitchContent work={item} title={`${item}`} ratio={item.ratio} audio={false} contain/>
                    </div>
-                   <div className={`creditHold justify-between flex  ${curr==i?"onHover":""} py-1`}>
+                   <div className={`creditHold justify-between flex items-center  ${curr==i?"onHover":""} py-2`}>
                     <div className="caption"><PortableText value={item.caption}/></div>
                     <div className="credits uppercase"><PortableText value={item.credits}/></div>
                    </div>
