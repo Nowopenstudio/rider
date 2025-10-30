@@ -304,7 +304,7 @@ export default {
         {
             name: 'cta', title: 'Page CTA', type: 'object', fields: [
                 { name: 'label', title: 'Label', type: 'string' },
-                { name: 'title', title: 'Title', type: 'string' },
+                { name: 'title', title: 'Title', type: "array", of: [{ type: 'block' }]},
                 { name: 'copy', title: "Copy", type: "array", of: [{ type: 'block' }] },
                 {
                     name: 'cta', title: "CTA", type: 'object', fields: [

@@ -53,7 +53,8 @@ export default {
                 {name:'subhead',title:'Subhead',type:'array',of:[{type:'block'}]},
                 {name:'sheets',type:"array",title:'Sheets',of:[
                     {name:'single',type:'object',title:'Single',fields:[
-                        {name:'title',title:'Title',type:"string"}
+                        {name:'title',title:'Title',type:"string"},
+                        {name:'copy',title:"Copy",type:'array',of:[{type:'block'}]}
                     ]},
 
                 ]}

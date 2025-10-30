@@ -18,12 +18,13 @@ import TextBlock from "../components/textBlock";
 import GalleryB from "../components/galleryB";
 import Next from "../components/next";
 import { VidHead } from "../components/vidHead";
+import { ListExpand } from "../components/listExpand";
 
 
 
 export default async function Home() {
   const query = await getData(`{
-    'data': *[_type=='brokers'][0]{header{video{"image":image.asset->url,"vid":video.asset->playbackId, "ratio":video.asset->data.aspect_ratio,credits,caption}},intro{title,subhead,copy,outro,media{"image":image.asset->url,"vid":video.asset->playbackId, "ratio":video.asset->data.aspect_ratio,credits,caption},cta},sales{title,subhead,sheets[]{title}}, toolkit{title,subhead,copy,cta,media{"image":image.asset->url,"vid":video.asset->playbackId, "ratio":video.asset->data.aspect_ratio,credits,caption}},resources[]{title,copy,cta,media{"image":image.asset->url,"vid":video.asset->playbackId, "ratio":video.asset->data.aspect_ratio,credits,caption}},brokers{title,copy,profiles[]{name,contact,media{"image":image.asset->url,"vid":video.asset->playbackId, "ratio":video.asset->data.aspect_ratio,credits,caption}},media{"image":image.asset->url,"vid":video.asset->playbackId, "ratio":video.asset->data.aspect_ratio,credits,caption}},cta{label,title,copy,cta,"image":image.asset->url},next}
+    'data': *[_type=='brokers'][0]{header{video{"image":image.asset->url,"vid":video.asset->playbackId, "ratio":video.asset->data.aspect_ratio,credits,caption}},intro{title,subhead,copy,outro,media{"image":image.asset->url,"vid":video.asset->playbackId, "ratio":video.asset->data.aspect_ratio,credits,caption},cta},sales{title,subhead,sheets[]{title,copy}}, toolkit{title,subhead,copy,cta,media{"image":image.asset->url,"vid":video.asset->playbackId, "ratio":video.asset->data.aspect_ratio,credits,caption}},resources[]{title,copy,cta,media{"image":image.asset->url,"vid":video.asset->playbackId, "ratio":video.asset->data.aspect_ratio,credits,caption}},brokers{title,copy,profiles[]{name,contact,media{"image":image.asset->url,"vid":video.asset->playbackId, "ratio":video.asset->data.aspect_ratio,credits,caption}},media{"image":image.asset->url,"vid":video.asset->playbackId, "ratio":video.asset->data.aspect_ratio,credits,caption}},cta{label,title,copy,cta,"image":image.asset->url},next}
 
     }`)
 
@@ -50,7 +51,7 @@ export default async function Home() {
 
       <div className="w-full  bg-offWhite  sticky z-2 grid grid-cols-12 ">
         <div className="col-span-full mb-24">
-          <TextBlock title={data.intro.title} copy={data.intro.copy} subhead={data.intro.subhead} cta={data.intro.cta} />
+          <TextBlock title={data.intro.title} copy={data.intro.copy} subhead={data.intro.subhead} cta={data.intro.cta} off arrowBot />
         </div>
 
 
@@ -60,10 +61,7 @@ export default async function Home() {
           <div className="w-full sheetsHold border-t ">
             {data.sales.sheets.map((item:any,i:number)=>{
               return(
-                <div className="w-full flex items-center gap-3 py-5 border-b" key={`sheet-${i}`}>
-                      <div className="w-[45px] h-[45px]"><Plus className="w-full h-full"/></div>
-                      <div className="font-semibold uppercase"><h5>{item.title}</h5></div>
-                </div>
+              <ListExpand key={`cheat-${item.title}`} data={item}/>
               )
             })}
           </div>
