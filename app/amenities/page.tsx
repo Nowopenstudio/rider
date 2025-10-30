@@ -22,12 +22,13 @@ import GalleryG from "../components/galleryG";
 import GalleryH from "../components/galleryH";
 import { VidHead } from "../components/vidHead";
 import GalleryD from "../components/galleryD";
+import { ScrollCTA } from "../components/scrollTarget";
 
 
 
 export default async function Home() {
   const query = await getData(`{
-    'data': *[_type=='amenities'][0]{header{title,video{"image":image.asset->url,"vid":video.asset->playbackId, "ratio":video.asset->data.aspect_ratio,credits,captions}},intro{title,subhead,copy,outro,gallery[]{"image":image.asset->url,"vid":video.asset->playbackId, "ratio":video.asset->data.aspect_ratio,credits,captions},cta},feat{title,subhead,points[]{title},media{"image":image.asset->url,"vid":video.asset->playbackId, "ratio":video.asset->data.aspect_ratio,credits,captions},gallery[]{"image":image.asset->url,"vid":video.asset->playbackId, "ratio":video.asset->data.aspect_ratio,credits,captions}},outro{media{"image":image.asset->url,"vid":video.asset->playbackId, "ratio":video.asset->data.aspect_ratio,credits,captions}, gallery[]{"image":image.asset->url,"vid":video.asset->playbackId, "ratio":video.asset->data.aspect_ratio,credits,captions}},box{label,title,copy,feat{"image":image.asset->url,"vid":video.asset->playbackId, "ratio":video.asset->data.aspect_ratio,credits,captions},outro{"image":image.asset->url,"vid":video.asset->playbackId, "ratio":video.asset->data.aspect_ratio,credits,captions}},swing{label,title,copy,feat{"image":image.asset->url,"vid":video.asset->playbackId, "ratio":video.asset->data.aspect_ratio,credits,captions}},beach{label,title,copy,gallery[]{"image":image.asset->url,"vid":video.asset->playbackId, "ratio":video.asset->data.aspect_ratio,credits,captions}},cta{label,title,copy,cta,'image':image.asset->url},next},
+    'data': *[_type=='amenities'][0]{header{title,video{"image":image.asset->url,"vid":video.asset->playbackId, "ratio":video.asset->data.aspect_ratio,credits,captions}},intro{title,subhead,copy,outro,gallery[]{"image":image.asset->url,"vid":video.asset->playbackId, "ratio":video.asset->data.aspect_ratio,credits,captions},cta},feat{title,subhead,points[]{title},media{"image":image.asset->url,"vid":video.asset->playbackId, "ratio":video.asset->data.aspect_ratio,credits,captions},gallery[]{"image":image.asset->url,"vid":video.asset->playbackId, "ratio":video.asset->data.aspect_ratio,credits,captions}},outro{media{"image":image.asset->url,"vid":video.asset->playbackId, "ratio":video.asset->data.aspect_ratio,credits,captions}, gallery[]{"image":image.asset->url,"vid":video.asset->playbackId, "ratio":video.asset->data.aspect_ratio,credits,captions}},box{label,title,copy,feat{"image":image.asset->url,"vid":video.asset->playbackId, "ratio":video.asset->data.aspect_ratio,credits,captions},outro{"image":image.asset->url,"vid":video.asset->playbackId, "ratio":video.asset->data.aspect_ratio,credits,captions}},swing{label,title,copy,feat{"image":image.asset->url,"vid":video.asset->playbackId, "ratio":video.asset->data.aspect_ratio,credits,captions}},beach{label,title,copy,gallery[]{"image":image.asset->url,"vid":video.asset->playbackId, "ratio":video.asset->data.aspect_ratio,credits,captions}},cta{label,title,copy,cta,'image':image.asset->url},next,access{"image":image.asset->url,"vid":video.asset->playbackId, "ratio":video.asset->data.aspect_ratio,credits,captions,cta,title}},
 
     }`)
 
@@ -105,11 +106,11 @@ export default async function Home() {
       
       </Reveal>
 
-      <div className="col-span-full bg-black  grid grid-cols-12 text-white py-9">
+      <div className="col-span-full bg-black  grid grid-cols-12 text-white py-9 relative z-3">
                <div className="px-9 col-span-full"> <div className="col-span-full py-2 border-b  pb-4  uppercase label font-bold"><p>{data.box.label}</p></div></div>
 
         <div className="col-span-full mb-39 ">
-          <TextBlock title={data.box.title} copy={data.box.copy} subhead={data.box.subhead} />
+          <TextBlock off title={data.box.title} copy={data.box.copy} subhead={data.box.subhead} />
         </div>
 
         <div className="col-span-full mb-39 px-9">
@@ -135,6 +136,18 @@ export default async function Home() {
 
 
       </div>
+
+      <div className="col-span-full  relative z-2 bg-white top-0" style={{height:"200vh"}}>
+              <div className="sticky top-0 mt-[-100vh] h-[100dvh]">
+                {data.access? (<SwitchContent work={data.access} title={'Header Video'} ratio={data.access.ratio} audio={false} cover/>) : ('')}
+                <div className="w-full h-[100dvh] absolute z-3 top-0 left-0 flex items-center" style={{backgroundColor:`rgba(0,0,0,.4)`}}>
+                    <div className="w-1/3 px-9 text-white">
+                      <div className="w-full mb-9"><PortableText value={data.access.title}/></div>
+                      <ScrollCTA id={'intro'} cta={data.access.cta} inverted />
+                    </div>
+                </div>
+              </div>
+            </div>
 
 
       <div className="col-span-full p-9 grid grid-cols-12">

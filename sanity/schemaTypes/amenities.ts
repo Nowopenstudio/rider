@@ -10,7 +10,7 @@ export default {
     ],
     fields: [
 
-         {
+        {
             name: 'header', title: "header", type: 'object', fields: [
                 { name: 'title', title: "Site Descriptor", type: "string" },
                 {
@@ -23,13 +23,13 @@ export default {
 
             ]
         },
-         {
+        {
             name: 'intro', title: 'Intro', type: 'object', fields: [
                 { name: 'title', type: 'array', of: [{ type: 'block' }] },
                 { name: 'subhead', type: 'array', of: [{ type: 'block' }] },
                 { name: 'copy', type: 'array', of: [{ type: 'block' }] },
-                 { name: 'outro', type: 'array', of: [{ type: 'block' }] },
-               {
+                { name: 'outro', type: 'array', of: [{ type: 'block' }] },
+                {
                     name: 'gallery', type: 'array', title: "Gallery", of: [
                         {
                             name: 'single', title: "single", type: 'object', fields: [
@@ -52,36 +52,36 @@ export default {
 
             ]
         },
-         {
-                    name: 'feat', title: 'Features', type: 'object', fields: [
-                        {
+        {
+            name: 'feat', title: 'Features', type: 'object', fields: [
+                {
 
-                            name: 'title', type: 'string', title: 'Title'
-                        },
-                         {
+                    name: 'title', type: 'string', title: 'Title'
+                },
+                {
 
-                            name: 'subhead', type: 'string', title: 'Subhead'
-                        },
-                        {
-                            name: 'points', type: 'array', title: "Points", of: [{
-                                name: 'point', title: 'Point', type: "object", fields: [
-                                    { name: 'title', title: 'Title', type: 'string' },
+                    name: 'subhead', type: 'string', title: 'Subhead'
+                },
+                {
+                    name: 'points', type: 'array', title: "Points", of: [{
+                        name: 'point', title: 'Point', type: "object", fields: [
+                            { name: 'title', title: 'Title', type: 'string' },
 
-                                ]
+                        ]
 
-                            }
+                    }
 
-                            ]
-                        },
-                         {
-                            name: 'media', title: "Media", type: 'object', fields: [
-                                { name: 'image', title: 'Image', type: 'image' },
-                                { name: 'video', title: 'video', type: 'mux.video' },
-                                { name: 'captions', title: 'Caption', type: 'array', of: [{ type: 'block' }] },
-                                { name: 'credits', title: 'Credits', type: 'array', of: [{ type: 'block' }] },
-                            ]
-                        },
-                        {
+                    ]
+                },
+                {
+                    name: 'media', title: "Media", type: 'object', fields: [
+                        { name: 'image', title: 'Image', type: 'image' },
+                        { name: 'video', title: 'video', type: 'mux.video' },
+                        { name: 'captions', title: 'Caption', type: 'array', of: [{ type: 'block' }] },
+                        { name: 'credits', title: 'Credits', type: 'array', of: [{ type: 'block' }] },
+                    ]
+                },
+                {
                     name: 'gallery', type: 'array', title: "Gallery", of: [
                         {
                             name: 'single', title: "single", type: 'object', fields: [
@@ -93,18 +93,19 @@ export default {
                         }
                     ]
                 },
+            ]
+        },
+        {
+            name: 'outro', title: 'Outro', type: 'object', fields: [
+                {
+                    name: 'media', title: "Media", type: 'object', fields: [
+                        { name: 'image', title: 'Image', type: 'image' },
+                        { name: 'video', title: 'video', type: 'mux.video' },
+                        { name: 'captions', title: 'Caption', type: 'array', of: [{ type: 'block' }] },
+                        { name: 'credits', title: 'Credits', type: 'array', of: [{ type: 'block' }] },
                     ]
                 },
-                {name:'outro',title:'Outro',type:'object',fields:[
-                      {
-                            name: 'media', title: "Media", type: 'object', fields: [
-                                { name: 'image', title: 'Image', type: 'image' },
-                                { name: 'video', title: 'video', type: 'mux.video' },
-                                { name: 'captions', title: 'Caption', type: 'array', of: [{ type: 'block' }] },
-                                { name: 'credits', title: 'Credits', type: 'array', of: [{ type: 'block' }] },
-                            ]
-                        },
-                        {
+                {
                     name: 'gallery', type: 'array', title: "Gallery", of: [
                         {
                             name: 'single', title: "single", type: 'object', fields: [
@@ -116,10 +117,11 @@ export default {
                         }
                     ]
                 },
-                ]},
-       
-       
-       
+            ]
+        },
+
+
+
 
         {
             name: 'box', title: 'Box', type: 'object', fields: [
@@ -128,21 +130,21 @@ export default {
                 { name: 'copy', type: 'array', title: 'Copy', of: [{ type: 'block' }] },
 
                 {
-                            name: 'feat', title: "Feat", type: 'object', fields: [
-                                { name: 'image', title: 'Image', type: 'image' },
-                                { name: 'video', title: 'video', type: 'mux.video' },
-                                { name: 'captions', title: 'Caption', type: 'array', of: [{ type: 'block' }] },
-                                { name: 'credits', title: 'Credits', type: 'array', of: [{ type: 'block' }] },
-                            ]
-                        },
+                    name: 'feat', title: "Feat", type: 'object', fields: [
+                        { name: 'image', title: 'Image', type: 'image' },
+                        { name: 'video', title: 'video', type: 'mux.video' },
+                        { name: 'captions', title: 'Caption', type: 'array', of: [{ type: 'block' }] },
+                        { name: 'credits', title: 'Credits', type: 'array', of: [{ type: 'block' }] },
+                    ]
+                },
                 {
-                            name: 'outro', title: "Outro", type: 'object', fields: [
-                                { name: 'image', title: 'Image', type: 'image' },
-                                { name: 'video', title: 'video', type: 'mux.video' },
-                                { name: 'captions', title: 'Caption', type: 'array', of: [{ type: 'block' }] },
-                                { name: 'credits', title: 'Credits', type: 'array', of: [{ type: 'block' }] },
-                            ]
-                        },
+                    name: 'outro', title: "Outro", type: 'object', fields: [
+                        { name: 'image', title: 'Image', type: 'image' },
+                        { name: 'video', title: 'video', type: 'mux.video' },
+                        { name: 'captions', title: 'Caption', type: 'array', of: [{ type: 'block' }] },
+                        { name: 'credits', title: 'Credits', type: 'array', of: [{ type: 'block' }] },
+                    ]
+                },
 
 
 
@@ -153,37 +155,59 @@ export default {
 
             ]
         },
-         {
+        {
             name: 'swing', title: 'Swing', type: 'object', fields: [
                 { name: 'label', type: 'string', title: "Label" },
                 { name: 'title', type: 'array', title: 'Title', of: [{ type: 'block' }] },
                 { name: 'copy', type: 'array', title: 'Copy', of: [{ type: 'block' }] },
 
                 {
-                            name: 'feat', title: "Feat", type: 'object', fields: [
-                                { name: 'image', title: 'Image', type: 'image' },
-                                { name: 'video', title: 'video', type: 'mux.video' },
-                                { name: 'captions', title: 'Caption', type: 'array', of: [{ type: 'block' }] },
-                                { name: 'credits', title: 'Credits', type: 'array', of: [{ type: 'block' }] },
-                            ]
-                        },
+                    name: 'feat', title: "Feat", type: 'object', fields: [
+                        { name: 'image', title: 'Image', type: 'image' },
+                        { name: 'video', title: 'video', type: 'mux.video' },
+                        { name: 'captions', title: 'Caption', type: 'array', of: [{ type: 'block' }] },
+                        { name: 'credits', title: 'Credits', type: 'array', of: [{ type: 'block' }] },
+                    ]
+                },
 
 
             ]
         },
-         {
+        {
+            name: 'access', title: 'Beach Access', type: 'object', fields: [
+                { name: 'image', title: 'thumb', type: 'image' },
+                { name: 'video', title: 'Video', type: 'mux.video' },
+                { name: 'credits', title: 'Credits', type: "array", of: [{ type: 'block' }] },
+                { name: 'captions', title: 'Captions', type: "array", of: [{ type: 'block' }] },
+
+                { name: 'title', type: 'array', title: 'Title', of: [{ type: 'block' }] },
+                {
+                    name: 'cta', type: 'object', title: 'CTA', fields: [
+                        { name: 'label', title: "Label", type: 'string' },
+                        { name: 'url', title: 'url', type: 'string' },
+
+
+                    ]
+                },
+            ]
+        },
+        {
             name: 'beach', title: 'Swing', type: 'object', fields: [
                 { name: 'label', type: 'string', title: "Label" },
                 { name: 'title', type: 'array', title: 'Title', of: [{ type: 'block' }] },
                 { name: 'copy', type: 'array', title: 'Copy', of: [{ type: 'block' }] },
                 {
-                            name: 'feat', title: "Feat", type: 'object', fields: [
+                    name: 'gallery', type: 'array', title: "Gallery", of: [
+                        {
+                            name: 'single', title: "single", type: 'object', fields: [
                                 { name: 'image', title: 'Image', type: 'image' },
                                 { name: 'video', title: 'video', type: 'mux.video' },
                                 { name: 'captions', title: 'Caption', type: 'array', of: [{ type: 'block' }] },
                                 { name: 'credits', title: 'Credits', type: 'array', of: [{ type: 'block' }] },
                             ]
-                        },
+                        }
+                    ]
+                },
 
 
             ]
