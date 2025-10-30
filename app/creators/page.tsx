@@ -51,7 +51,7 @@ export default async function Home() {
 
       <div className="w-full  bg-offWhite  sticky z-2 grid grid-cols-12 ">
         <div className="col-span-full mb-24">
-          <TextBlock title={data.intro.title} copy={data.intro.copy} subhead={data.intro.subhead} cta={data.intro.cta} />
+          <TextBlock title={data.intro.title} copy={data.intro.copy} subhead={data.intro.subhead} arrowBot off />
         </div>
 
         <Reveal styleSet="col-span-6 col-start-4 mb-39 ">

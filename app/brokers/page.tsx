@@ -55,7 +55,7 @@ export default async function Home() {
         </div>
 
 
-        <div className='col-span-full px-9 mb-35'>
+        <Reveal styleSet='col-span-full px-9 mb-35'>
           <div className="sheets mb-5"><PortableText value={data.sales.title}/></div>
           <div className="mb-14"><PortableText value={data.sales.subhead}/></div>
           <div className="w-full sheetsHold border-t ">
@@ -65,9 +65,9 @@ export default async function Home() {
               )
             })}
           </div>
-        </div>
+        </Reveal>
 
-        <div className="col-span-full px-9 grid grid-cols-2 items-center mb-39">
+        <Reveal styleSet="col-span-full px-9 grid grid-cols-2 items-center mb-39">
           <div className="col-span-1">
             <div className="sheets mb-5"><PortableText value={data.toolkit.title}/></div>
           <div className="mb-14"><PortableText value={data.toolkit.subhead}/></div>
@@ -78,12 +78,12 @@ export default async function Home() {
               <SwitchContent work={data.toolkit.media} title={'Header Video'} ratio={data.toolkit.media.ratio} audio={false} />
             </div>
           </div>
-        </div>
+        </Reveal>
 
         <div className="col-span-full px-9 grid grid-cols-12 mb-39">
           {data.resources.map((item:any,i:number)=>{
             return(
-              <div key={`resources-${i}`} className="col-span-6 col-start-4 mb-22">
+              <Reveal key={`resources-${i}`} styleSet="col-span-6 col-start-4 mb-22">
                 <div className="w-full aspect-[791/532]">
                 <SwitchContent work={item.media} title={'Header Video'} ratio={item.media.ratio} audio={false} cover/>
                 
@@ -94,22 +94,22 @@ export default async function Home() {
                   </div>
                   <div className="w-1/3 flex-shrink-0 text-right resource"><PortableText value={item.copy}/></div>
                 </div>
-                <div className="cta inline-block inverted"><p>{item.cta.label}</p></div>
-              </div>
+                <div className="cta inline-block"><p>{item.cta.label}</p></div>
+              </Reveal>
             )
           })}
         </div>
 
         <div className="col-span-full bg-black grid grid-cols-12 p-9 text-white">
-          <div className="col-span-full border-darkGray border-t divide py-9 mb-28">
+          <Reveal styleSet="col-span-full border-darkGray border-t divide py-9 mb-28">
             <PortableText value={data.brokers.title}/>
-          </div>
+          </Reveal>
           <div className="col-span-8 col-start-3 mb-28">
-            <div className="w-full uppercase mb-28"><PortableText value={data.brokers.copy}/></div>
+            <Reveal styleSet="w-full uppercase mb-28"><PortableText value={data.brokers.copy}/></Reveal>
              <div className="w-full grid grid-cols-3 gap-15 mb-39">
               {data.brokers.profiles.map((item:any,i:number)=>{
                 return(
-                  <div key={`broker-${i}`} className="col-span-1">
+                  <Reveal key={`broker-${i}`} styleSet="col-span-1">
                       <div className="w-full aspect-[352/440]">
                               <SwitchContent work={item.media} title={'Header Video'} ratio={item.media.ratio} audio={false} cover/>
 
@@ -118,13 +118,13 @@ export default async function Home() {
                         <p className="mb-3">{item.name}</p>
                         <div className="w-full text-darkGray"><PortableText value={item.contact}/></div>
                       </div>
-                  </div>
+                  </Reveal>
                 )
               })}
              </div>
-             <div className="w-full">
+             <Reveal styleSet="w-full">
               <SwitchContent work={data.brokers.media} title={'Header Video'} ratio={data.brokers.media.ratio} audio={false} />
-             </div>
+             </Reveal>
           </div>
          
         </div>

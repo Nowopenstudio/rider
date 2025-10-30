@@ -2,6 +2,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { SwitchContent } from '../util/contentSwitch';
 import { PortableText } from 'next-sanity';
+import { Reveal } from '../util/reveal';
 
 
 
@@ -52,7 +53,7 @@ const next=()=>{
           <div className="opacity-0 flex flex-nowrap ">
             {data.map((item:any, i:number)=>{
               return(
-                <div key={`image-${i}`} className='w-auto h-full flex-shrink-0'>
+                <Reveal count={i} key={`image-${i}`} styleSet='w-auto h-full flex-shrink-0'>
                  <div className="singleMedia h-full" ref={i==0?ref:undefined}>
                    
                    <div className="h-full w-auto relative"> <SwitchContent work={item} title={`${item}`} ratio={item.ratio} audio={false} contain/>
@@ -62,7 +63,7 @@ const next=()=>{
                     <div className="credits uppercase"><PortableText value={item.credits}/></div>
                    </div>
                  </div>
-                </div>
+                </Reveal>
               )
             })}
           </div>

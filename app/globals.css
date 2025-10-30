@@ -614,7 +614,16 @@ opacity:1;
 
 .hoverOn.hoverList:hover{
    background-color: var(--color-black);
+
   color: white;
+}
+
+.nameHold{
+  transition: all .4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.hoverOn.hoverList:hover .nameHold{
+transform: translateX(76px);
 }
 
 .listLabel{
@@ -623,7 +632,7 @@ transform:translateX(0);
 }
 
 .listOn:hover .listLabel, .listOn.show .listLabel{
-  transform:translateX(40px);
+  transform:translateX(60px);
 }
 
 .listItem{
