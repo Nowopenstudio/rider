@@ -87,7 +87,7 @@ export default async function Home() {
   
                       
                     </div>
-                    <div className="w-full py-4 onHoverBorder relative flex items-center justify-between">
+                    <div className="w-full py-4 onHoverBorder relative flex items-center justify-between box-border">
                       <h3 className="uppercase py-3">{item.title}</h3>
                       <div className="menunote text-right onHover"><PortableText value={item.copy}/></div>
                     </div>
