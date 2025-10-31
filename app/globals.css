@@ -174,7 +174,9 @@ body{
   line-height: 1.06em;
   background-color: var(--color-white);
   transition: all .45s ease-in-out;
-  text-box: trim-both cap alphabetic;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; /* For Firefox */
+ text-rendering: optimizeLegibility;
 }
 
 
