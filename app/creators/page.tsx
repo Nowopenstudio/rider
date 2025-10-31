@@ -24,7 +24,7 @@ import { VidHead } from "../components/vidHead";
 
 export default async function Home() {
   const query = await getData(`{
-    'data': *[_type=='creators'][0]{header{video{"image":image.asset->url,"vid":video.asset->playbackId, "ratio":video.asset->data.aspect_ratio,credits,captions}},intro{title,subhead,copy,outro,media{"image":image.asset->url,"vid":video.asset->playbackId, "ratio":video.asset->data.aspect_ratio,credits,caption},cta},legends,artists[]{profile{name,title,"image":image.asset->url,bio,gallery[]{"image":image.asset->url,"vid":video.asset->playbackId, "ratio":video.asset->data.aspect_ratio,credits,caption,title,copy},feat{"image":image.asset->url,"vid":video.asset->playbackId, "ratio":video.asset->data.aspect_ratio,credits,caption,headline},media{"image":image.asset->url,"vid":video.asset->playbackId, "ratio":video.asset->data.aspect_ratio,credits,caption,headline}}},cta{cta,label,title,copy,"image":image.asset->url},next},
+    'data': *[_type=='creators'][0]{header{video{"image":image.asset->url,"vid":video.asset->playbackId, "ratio":video.asset->data.aspect_ratio,credits,captions}},intro{title,subhead,copy,outro,media{"image":image.asset->url,"vid":video.asset->playbackId, "ratio":video.asset->data.aspect_ratio,credits,caption},cta},legends,artists[]{profile{name,title,"image":image.asset->url,bio,gallery[]{"image":image.asset->url,"vid":video.asset->playbackId, "ratio":video.asset->data.aspect_ratio,credits,caption,title,copy},icon{"image":image.asset->url,"vid":video.asset->playbackId, "ratio":video.asset->data.aspect_ratio,credits,caption,headline},feat{"image":image.asset->url,"vid":video.asset->playbackId, "ratio":video.asset->data.aspect_ratio,credits,caption,headline},media{title,subtitle,"image":image.asset->url,"vid":video.asset->playbackId, "ratio":video.asset->data.aspect_ratio,credits,caption,headline}}},cta{cta,label,title,copy,"image":image.asset->url},next},
 
     }`)
 
@@ -49,7 +49,7 @@ export default async function Home() {
       </div> */}
       <VidHead data={data.header.video}/>
 
-      <div className="w-full  bg-offWhite  sticky z-2 grid grid-cols-12 ">
+      <div className="w-full  bg-offWhite  sticky z-2 grid grid-cols-12 rounded-t-[12px] ">
         <div className="col-span-full mb-24">
           <TextBlock title={data.intro.title} copy={data.intro.copy} subhead={data.intro.subhead} arrowBot off />
         </div>
@@ -71,23 +71,27 @@ export default async function Home() {
         <div className="bg-black p-9 col-span-full">
           {data.artists.map((item: any, i: number) => {
             return (
-              <div className="w-full singleArtist " key={`${item.profile.name}`}>
-                <div className="w-full py-4 grid grid-cols-12 border-t  border-darkGray text-white items-center">
+              <div className="w-full singleArtist pb-14" key={`${item.profile.name}`}>
+                <div className="w-full py-18.5 grid grid-cols-12 border-t  border-darkGray text-white items-center">
                   <div className="col-span-6 grid grid-cols-6 border-r border-darkGray">
-                    <div className="col-span-full divide pt-14"><h3>{item.profile.name}</h3></div>
+                    <div className="col-span-full divide mb-10.5 w-3/4"><h3>{item.profile.name}</h3></div>
                     <div className="col-span-3">
-                      <div className="w-full pb-9">
+                      <div className="w-full pb-10.5">
                         {item.profile ? (<SwitchContent work={item.profile} title={'Building Spec'} audio={false} />) : ('')}
                       </div>
                       <div className="profile">
-                        <h3 className=" text-white uppercase mb-4">{item.profile.title}</h3>
+                        <h3 className=" text-white uppercase">{item.profile.title}</h3>
 
 
                       </div>
                     </div>
                   </div>
                   <div className="col-span-6 grid grid-cols-6">
-                    <div className="col-span-4 col-start-2 text-white p2"><PortableText value={item.profile.bio} /></div>
+                    
+                    <div className="col-span-2 col-start-2 mb-17.5 ">
+                      {item.profile.icon?(<SwitchContent work={item.profile.icon} title={`${item.profile.name}-logo`} audio={false} />):('')}
+                    </div>
+                    <div className="col-span-4 col-start-2 text-white p2 richText "><PortableText value={item.profile.bio} /></div>
                   </div>
                 </div>
 
@@ -107,16 +111,25 @@ export default async function Home() {
                   </React.Fragment>
                 ):('')}
                 {item.profile.gallery?(
-                      <div className="col-span-full h-[100dvh] py-9 border-t border-darkGray relative">
-                      <GalleryE data={item.profile.gallery}/>
+                      <div className="col-span-full h-[calc(100dvh_-_74px)] py-9 border-t border-darkGray relative">
+                      <GalleryE data={item.profile.gallery} name={item.profile.name}/>
                     </div>
                     ):('')}
 
                     {item.profile.media?(
                   <React.Fragment>
                     
-                    <div className="col-span-full h-[100dvh] flex items-center justify-center border-t border-darkGray">
-                      <div className="w-2/3">{item.profile.media ? (<SwitchContent work={item.profile.media} ratio={item.profile.media.ratio} title={'Building Spec'} audio={true} />) : ('')}</div>
+                    <div className="col-span-full h-[100dvh] flex items-center justify-center border-t border-darkGray relative">
+                      <div className="absolute w-full h-full top-0 left-0 pointer-events-none z-2 grid grid-cols-12">
+                        <div className="col-span-10 col-start-2 h-full flex items-center justify-center">
+                          <div className="w-full flex justify-between text-white items-center">
+                            <div><PortableText value={item.profile.media.title}/></div>
+                            <div><PortableText value={item.profile.media.subtitle}/></div>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="w-2/3 z-1 relative">{item.profile.media ? (<SwitchContent work={item.profile.media} ratio={item.profile.media.ratio} title={'Building Spec'} autoplay audio={true} />) : ('')}</div>
+                      
                     </div>
                     
                   </React.Fragment>

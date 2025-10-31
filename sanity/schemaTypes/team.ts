@@ -50,7 +50,12 @@ export default {
        {
             name: 'team', title: "Team", type: 'array', of: [
                 {
-                    name: 'single', title: 'Single', type: 'object', fields: [
+                    name: 'single', title: 'Single', type: 'object',  preview: {
+            select: {
+              title: 'profile.Role'
+            },
+            
+          },fields: [
                         {
                             name: 'profile', type: 'object', title: 'Profile', fields: [
                                 { name: 'label', type: 'string', title: 'Label' },

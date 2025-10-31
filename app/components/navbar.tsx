@@ -50,13 +50,13 @@ export default function Navbar({ data, footer }: any) {
           
 
         </div>
-        <Link className=" w-1/3 py-1"  href="/"><div className="relative w-full h-full"  style={{opacity:active?0:1}}> <Logo className="w-auto h-full mx-auto my-0 " fill={'#000000'} /></div></Link>
+        <Link className=" w-1/3 py-1"  href="/"><div className="relative w-full h-full flex items-center justify-center"  style={{opacity:active?0:1}}> <Logo className="w-auto h-[50px] " fill={'#000000'} /></div></Link>
           <div className=" w-1/3 flex items-center justify-end">
             <div>
-            <div onClick={() => menuToggle()} className={`cursor-pointer mix-blend-difference ml-auto mr-0 flex uppercase items-center flex-col justify-between mobileBar w-[42px] h-[16px] relative z-[1]  pointer-events-auto ${active?'active':''}`}>
-                <div className="w-full border-b-[2px] border-white  h-[1px] singleBar topBar"></div>
-                <div className="w-full  border-b-[2px] border-white  h-[1px] singleBar midBar"></div>
-                <div className="w-full border-b-[2px] border-white  h-[1px] singleBar botBar"></div>
+            <div onClick={() => menuToggle()} className={`cursor-pointer mix-blend-difference ml-auto mr-0 flex uppercase items-end flex-col justify-between mobileBar w-[42px] h-[16px] relative z-[1]  pointer-events-auto ${active?'active':''}`}>
+                <div className="w-full border-b-[2px] border-white  h-[1px] singleBar topBar" style={{transform:`rotate(${active?'45':'0'}deg)`,transformOrigin:"25% 30%"}}></div>
+                <div className="w-full  border-b-[2px] border-white  h-[1px] singleBar midBar" style={{maxWidth:active?0:42,transformOrigin:"100% 50%"}} ></div>
+                <div className="w-full border-b-[2px] border-white  h-[1px] singleBar botBar" style={{transform:`rotate(${active?'-45':'0'}deg)`,transformOrigin:"25% 30%"}}></div>
               </div>
             </div>
           </div>

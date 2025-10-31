@@ -183,6 +183,13 @@ body{
 p,li{  font-size:1.875rem;  line-height: 1.06em;}
 p em{font-family: "serif",'Times New Roman', Times, serif;}
 .listItem p{line-height: 1.45em;}
+.richText p{
+  margin-bottom:22px
+}
+.richText p:last-child{
+  margin-bottom:0;
+}
+
 h1,h5{font-size:2.875rem;line-height:1.03em;letter-spacing: -0.02em;text-box: trim-both cap alphabetic;}
 h2{font-size:7.25rem;line-height:.88em;letter-spacing: -.05em;text-box: trim-both cap alphabetic;}
 h2.serif{font-family: "serif",'Times New Roman', Times, serif;font-size:3.75rem;line-height:.9em;letter-spacing: -2.5px;text-box: trim-both cap alphabetic;}
@@ -341,6 +348,12 @@ font-style: italic;
 .footerContact p{
   font-size:1.1875rem;
   text-box: trim-both cap alphabetic;
+}
+
+.galleryD p{
+  font-size:1.12rem;
+  line-height:1.12em;
+  letter-spacing: -0.03em;
 }
 
 /* captions */
@@ -541,7 +554,7 @@ opacity:1;
   display: inline-block;
   position:relative;
 }
-.navBar {
+.navBar,.singleBar {
   transition: all .5s ease-in-out;
 }
 .navItem p::after{
@@ -563,9 +576,6 @@ opacity:1;
   max-width: 900px;
 }
 
-.singleBar{
-  transform-origin: center;
-}
 
 .onHover{
   opacity: 0;

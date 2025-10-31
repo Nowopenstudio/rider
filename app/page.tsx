@@ -50,7 +50,7 @@ export default async function Home() {
            <ScrollCTA id={'intro'} cta={data.header.cta} inverted />
 
           </div>
-          <div className="scrollArrow absolute left-4 bottom-4"><ScrollTarget id={'intro'}/></div>
+          <div className="scrollArrow absolute left-9 bottom-9"><ScrollTarget id={'intro'}/></div>
 
         </div>
 
@@ -127,7 +127,7 @@ export default async function Home() {
 
       
       </div>
-      <div className='w-full bg-offWhite z-2 sticky top-18 h-[200dvh] pt-9' >
+      <div className='w-full bg-offWhite z-1 sticky top-18 h-[200dvh] pt-10' >
          <div className="w-full px-9 hoverOn mb-39 h-[100dvh] bg-offWhite realtive z-2">
             {data.residency.video.vid ? (
                 <MediaGrow data={data.residency.video} size={.568}/>

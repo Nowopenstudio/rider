@@ -65,7 +65,7 @@ export default async function Home() {
                   {data.team.map((item:any,i:number)=>{
                     return(
                       <div key={`team-${i}`} className="w-full grid grid-cols-12 gap-9 mb-39">
-                        <div className="col-span-full py-2 border-b  pb-4 mb-4 uppercase label font-bold"><p>{item.profile.label}</p></div>
+                        <div className="col-span-full py-2 border-b  pb-4 mb-4 uppercase label font-medium"><p>{item.profile.label}</p></div>
                         <div className="col-span-6 col-start-4">
                           <h3 className="uppercase text-darkGray mb-2">{item.profile.Role}</h3>
                           <h3 className="uppercase ">{item.profile.Company}</h3>

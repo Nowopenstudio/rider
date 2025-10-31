@@ -80,7 +80,7 @@ const next=()=>{
                    </div>
                    <div className={`creditHold justify-between flex ${curr==i?"onHover":""} py-2`}>
                     <div className="captions"><PortableText value={item.captions}/></div>
-                    <div className="credits uppercase"><PortableText value={item.credits}/></div>
+                    <div className="credits uppercase text-right"><PortableText value={item.credits}/></div>
                    </div>
                  </div>
                 </div>

@@ -45,7 +45,7 @@ export default function GalleryF({ data }: any) {
              <div className="w-1/2 h-full z-40 left-1/2 absolute cursor-e-resize" onClick={next}></div>
         {data.gallery.map((item:any,i:number)=>{
           return(
-            <div className={`gallery w-full ${i>0?"absolute top-0 left-0 ":''}`} key={`image-${i}`} style={{opacity:i==curr?1:0}}>
+            <div className={`gallery galleryFade w-full ${i>0?"absolute top-0 left-0 ":''}`} key={`image-${i}`} style={{opacity:i==curr?1:0}}>
               <SwitchContent work={item} title={`${item.title}`} ratio={item.ratio} audio={false} cover />
             </div>
           )
@@ -60,8 +60,8 @@ export default function GalleryF({ data }: any) {
           })}
         </div>
         <div className="py-4 w-3/4">
-          <p  className="uppercase mb-2 label font-semibold"><PortableText value={data.gallery[curr].title}/></p>
-          <div className=" label  font-semibold text-darkGray"><PortableText value={data.gallery[curr].copy}/></div>
+          <p  className="uppercase mb-2 label font-medium"><PortableText value={data.gallery[curr].title}/></p>
+          <div className=" label  font-medium text-darkGray"><PortableText value={data.gallery[curr].copy}/></div>
         </div>
         
       </div>
