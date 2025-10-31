@@ -53,7 +53,7 @@ export default function Navbar({ data, footer }: any) {
         <Link className=" w-1/3 py-1"  href="/"><div className="relative w-full h-full"  style={{opacity:active?0:1}}> <Logo className="w-auto h-full mx-auto my-0 " fill={'#000000'} /></div></Link>
           <div className=" w-1/3 flex items-center justify-end">
             <div>
-            <div onClick={() => menuToggle()} className={`mix-blend-difference ml-auto mr-0 flex uppercase items-center flex-col justify-between mobileBar w-[42px] h-[16px] relative z-[1]  pointer-events-auto ${active?'active':''}`}>
+            <div onClick={() => menuToggle()} className={`cursor-pointer mix-blend-difference ml-auto mr-0 flex uppercase items-center flex-col justify-between mobileBar w-[42px] h-[16px] relative z-[1]  pointer-events-auto ${active?'active':''}`}>
                 <div className="w-full border-b-[2px] border-white  h-[1px] singleBar topBar"></div>
                 <div className="w-full  border-b-[2px] border-white  h-[1px] singleBar midBar"></div>
                 <div className="w-full border-b-[2px] border-white  h-[1px] singleBar botBar"></div>
