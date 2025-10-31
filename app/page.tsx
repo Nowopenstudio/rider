@@ -79,7 +79,7 @@ export default async function Home() {
               return (
                 <Reveal styleSet={'col-span-1 mb-9 relative hoverOn'} key={`${item.title}`} count={i * .25}>
                   <Link href={item.url}>
-                    <div className="aspect-video w-full bg-mux relative mb-4">
+                    <div className="aspect-[1.48/1] w-full bg-mux relative mb-4">
                       {item.gallery.length ? (<SwitchContent work={item.gallery[0]} title={`${item.title}`} ratio={data.header.gallery[0].ratio} audio={false} cover />) : ('')}
   
                        {item.gallery.length >= 2 ? (<div className="w-full h-full absolute z-2 top-0 left-0 onHover"><SwitchContent work={item.gallery[1]} title={`${item.title}`}  audio={false} cover credits inside /></div>) : ('')}
@@ -98,7 +98,7 @@ export default async function Home() {
           ) : ('')}
         </div>
 
-        
+       
 
       {/* Residencies */}
         <div className="col-span-full gap-4">
@@ -116,11 +116,7 @@ export default async function Home() {
           </div>
         ) : ('')}
 
-         <div className="w-full grid grid-cols-12 px-9 hoverOn mb-39">
-            {data.residency.video.vid ? (
-                <MediaGrow data={data.residency.video} size={.568}/>
-              ) : ('')}
-         </div>
+    
 
 
         </div>
@@ -131,9 +127,17 @@ export default async function Home() {
 
       
       </div>
+      <div className='w-full bg-offWhite z-2 sticky top-18 h-[200dvh] pt-9' >
+         <div className="w-full px-9 hoverOn mb-39 h-[100dvh] bg-offWhite realtive z-2">
+            {data.residency.video.vid ? (
+                <MediaGrow data={data.residency.video} size={.568}/>
+              ) : ('')}
+         </div>
+      </div>
+
 
       {/* design */}
-      <div className="w-full bg-black py-9 relative z-3 grid grid-cols-12 text-white pb-22 ">
+      <div className="w-full bg-black py-9 relative z-3 grid grid-cols-12 text-white pb-22 mt-[-100dvh] rounded-t-[12px]">
         <Reveal styleSet='col-span-full px-9'><div className="w-full py-2 border-b uppercase label font-bold"><p>{data.interiors.title}</p></div></Reveal>
         <Reveal styleSet="col-span-full mb-39">
           <TextBlock title={data.interiors.headline.copy} copy={data.interiors.copy} subhead={data.interiors.subhead} off/>

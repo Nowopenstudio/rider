@@ -19,14 +19,14 @@ export function MediaGrow({data, size}:any){
    
    return(
       
-           <React.Fragment>
-               <div ref={ref} className={`col-span-12  relative  origin-center mediaGrow `} style={{ transform:`scale(${isInView?1:size})`,aspectRatio: `${data.ratio.replace(":", " / ")}` }}>
+           <div className="w-full">
+               <div ref={ref} className={`col-span-12 relative  origin-center mediaGrow `} style={{ transform:`scale(${isInView?1:size})`,aspectRatio: `${data.ratio.replace(":", " / ")}` }}>
                                  <SwitchContent work={data} title={'Header Video'} ratio={data.ratio} audio={false} cover />
                </div>
                <div className="flex py-4 justify-between col-span-full onHover">
                     <div className="credits w-2/3 uppercase"><PortableText value={data.credits}/></div>
                </div>
-           </React.Fragment>
+           </div>
 
     
     )

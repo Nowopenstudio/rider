@@ -50,10 +50,10 @@ const next=()=>{
     <React.Fragment>
         <div className="w-full relative overflow-x-hidden"  >
 
-          <div className="opacity-0 flex flex-nowrap pb-7">
+          <div className="opacity-0 flex flex-nowrap">
             {data.map((item:any, i:number)=>{
               return(
-                <div key={`image-${i}`} className='w-[47.5%] h-auto flex-shrink-0'>
+                <div key={`image-${i}`} className='w-[63.07%] h-auto flex-shrink-0'>
                  <div className="singleMedia w-full" ref={i==0?ref:undefined}>
                    
                    <div className="w-full h-auto relative"> <SwitchContent work={item} title={`${item}`} ratio={item.ratio} audio={false} contain/>
@@ -73,7 +73,7 @@ const next=()=>{
              <div className="w-1/2 h-full z-40 left-1/2 absolute cursor-e-resize" onClick={next}></div>
             {data.map((item:any, i:number)=>{
               return(
-                <div key={`image-${i}`} onTransitionEnd={(e)=>checkSpace(e,i)} className={`w-[47.5%] h-auto absolute galleryImage origin-center`} style={{left:'50%',transform:`translateX(${(i==0 && (curr==data.length-1))?`50`:`${(i==data.length-1 && curr==0)?'-150':`${((100*i)-(curr*100))-50}`}`}%) scale(${i==curr?"1.0":".75"})`}}>
+                <div key={`image-${i}`} onTransitionEnd={(e)=>checkSpace(e,i)} className={`w-[63.07%] h-auto absolute galleryImage origin-center`} style={{left:'50%',transform:`translateX(${(i==0 && (curr==data.length-1))?`50`:`${(i==data.length-1 && curr==0)?'-150':`${((100*i)-(curr*100))-50}`}`}%) scale(${i==curr?"1.0":".75"})`}}>
                  <div className="singleMedia w-full" ref={i==0?ref:undefined}>
                     {/* <div className="w-full h-full z-40 left-0 absolute text-white pointer-events-none" ><h2>{i}</h2></div> */}
                    <div className="w-full h-auto relative"> <SwitchContent work={item} title={`${item}`} ratio={item.ratio} audio={false} contain/>
