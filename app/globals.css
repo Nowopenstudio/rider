@@ -189,6 +189,10 @@ p em{font-family: "serif",'Times New Roman', Times, serif;}
 .richText p:last-child{
   margin-bottom:0;
 }
+.richText a{
+  text-decoration: underline;
+}
+
 
 h1,h5{font-size:2.875rem;line-height:1.03em;letter-spacing: -0.02em;text-box: trim-both cap alphabetic;}
 h2{font-size:7.25rem;line-height:.88em;letter-spacing: -.05em;text-box: trim-both cap alphabetic;}
@@ -526,6 +530,10 @@ input {height:20px}
 
 .galleryB {
   transition: opacity .75s ease-in-out;
+}
+
+.galleryDot{
+  transition: all .5s cubic-bezier(0.175, 0.885, 0.32, 1.275) ;
 }
 
 /* floorplan */

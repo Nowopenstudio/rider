@@ -78,10 +78,10 @@ export default function GalleryE({ data,name }: any) {
         })}
     </div>
       <div className="w-full left-0 bottom-9 absolute z-3">
-        <div className="galleryMarker flex justify-center gap-2">
+        <div className="galleryMarker flex justify-center gap-[6px]">
           {data.map((dot: any, d: number) => {
             return (
-              <div key={`${data.title}-${d}`} className={`w-[10px] h-[10px] border border-white rounded-full ${d==curr?"bg-white":""}`}></div>
+              <div key={`${data.title}-${d}`} className={`relative ${d==0?'z-10':'z-1'} galleryDot w-[6px] h-[6px] rounded-full ${d==0?"bg-white":"bg-darkGray"}`} style={{transformOrigin:'center', transform: `scale(${d==0?1.5:1}) translateX(${d==0?(curr*8):(d<=curr)?(-12):(0)}px)`}}></div>
             )
           })}
         </div>

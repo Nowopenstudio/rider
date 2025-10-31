@@ -72,26 +72,29 @@ export default async function Home() {
           {data.artists.map((item: any, i: number) => {
             return (
               <div className="w-full singleArtist pb-14" key={`${item.profile.name}`}>
-                <div className="w-full py-18.5 grid grid-cols-12 border-t  border-darkGray text-white items-center">
-                  <div className="col-span-6 grid grid-cols-6 border-r border-darkGray">
-                    <div className="col-span-full divide mb-10.5 w-3/4"><h3>{item.profile.name}</h3></div>
-                    <div className="col-span-3">
-                      <div className="w-full pb-10.5">
-                        {item.profile ? (<SwitchContent work={item.profile} title={'Building Spec'} audio={false} />) : ('')}
-                      </div>
-                      <div className="profile">
-                        <h3 className=" text-white uppercase">{item.profile.title}</h3>
-
-
+                <div className="w-full py-4  border-t  border-darkGray text-white items-center relative">
+                  <div className='w-full grid grid-cols-12 relative py-18.5'>
+                    <div className="w-[1px] h-full absolute top-0 left-1/2 border-darkGray border-l"></div>
+                    <div className="col-span-6 grid grid-cols-6">
+                      <div className="col-span-full divide mb-10.5 w-3/4"><h3>{item.profile.name}</h3></div>
+                      <div className="col-span-3">
+                        <div className="w-full pb-10.5">
+                          {item.profile ? (<SwitchContent work={item.profile} title={'Building Spec'} audio={false} />) : ('')}
+                        </div>
+                        <div className="profile">
+                          <h3 className=" text-white uppercase">{item.profile.title}</h3>
+  
+  
+                        </div>
                       </div>
                     </div>
-                  </div>
-                  <div className="col-span-6 grid grid-cols-6">
-                    
-                    <div className="col-span-2 col-start-2 mb-17.5 ">
-                      {item.profile.icon?(<SwitchContent work={item.profile.icon} title={`${item.profile.name}-logo`} audio={false} />):('')}
+                    <div className="col-span-6 grid grid-cols-6">
+                      
+                      <div className="col-span-2 col-start-2 mb-17.5 ">
+                        {item.profile.icon?(<SwitchContent work={item.profile.icon} title={`${item.profile.name}-logo`} audio={false} />):('')}
+                      </div>
+                      <div className="col-span-4 col-start-2 text-white p2 richText "><PortableText value={item.profile.bio} /></div>
                     </div>
-                    <div className="col-span-4 col-start-2 text-white p2 richText "><PortableText value={item.profile.bio} /></div>
                   </div>
                 </div>
 
