@@ -9,17 +9,15 @@ import { Reveal } from '../util/reveal';
 export default function GalleryA({data}: any) {
   const ref = useRef<HTMLDivElement>(null)
   const [x,setX] = useState<number>(0)
+  const [direction,setDir] = useState<number>(0)
 const [total,setTotal] = useState([]);
   const [curr,setCurr]=useState(0);
 
-useEffect(()=>{
-  if(ref.current){
-    setX(ref.current!.clientHeight);
-  }
-},[ref])
 
 const back=()=>{
+     setDir(0)
   if(curr!=0){
+  
     setCurr((previousCurr)=> previousCurr-1)
   }
   else{setCurr(data.length-1)}
@@ -27,7 +25,9 @@ const back=()=>{
 }
 
 const next=()=>{
+   setDir(1)
   if(curr<data.length-1){
+   
     setCurr((previousCurr)=> previousCurr+1)
    
   }
@@ -36,25 +36,27 @@ const next=()=>{
 }
 
   const checkSpace=(e:any,i:number)=>{
-    if((i-curr) < -2){
-      e.transition="none";
-
-    }else if((curr==data.length-2)&&(curr-i>2)){
-          
-    }
+   if(direction){
+   if(curr==0 && (i==data.length-1)){
+    e.currentTarget.style.index=0
+   }
+  }
+  if(i==curr){
+    e.currentTarget.style.index=5
+  }
   }
 
   
 
   return (
     <React.Fragment>
-        <div className="w-full relative overflow-x-hidden"  >
+        <div className="w-full relative overflow-x-hidden" ref={ref} >
 
           <div className="opacity-0 flex flex-nowrap">
             {data.map((item:any, i:number)=>{
               return(
                 <div key={`image-${i}`} className='w-[66.67%] h-auto flex-shrink-0'>
-                 <div className="singleMedia w-full" ref={i==0?ref:undefined}>
+                 <div className="singleMedia w-full">
                    
                    <div className="w-full h-auto relative"> <SwitchContent work={item} title={`${item}`} ratio={item.ratio} audio={false} contain/>
                    </div>
@@ -73,7 +75,7 @@ const next=()=>{
              <div className="w-1/2 h-full z-40 left-1/2 absolute cursor-e-resize" onClick={next}></div>
             {data.map((item:any, i:number)=>{
               return(
-                <div key={`image-${i}`} onTransitionEnd={(e)=>checkSpace(e,i)} className={`w-[66.67%] h-auto absolute galleryImage origin-center`} style={{left:'50%',transform:`translateX(${(i==0 && (curr==data.length-1))?`50`:`${(i==data.length-1 && curr==0)?'-150':`${((100*i)-(curr*100))-50}`}`}%) scale(${i==curr?"1.0":".75"})`}}>
+                <div key={`image-${i}`} onTransitionStart={(e)=>checkSpace(e,i)} className={`w-[66.67%] h-auto absolute galleryImage origin-center`} style={{left:'50%', zIndex:i==curr?data.length+1:data.length-1,transform:`translateX(${(i==0 && (curr==data.length-1))?`50`:`${(i==data.length-1 && curr==0)?'-150':`${((100*i)-(curr*100))-50}`}`}%) scale(${i==curr?"1.0":".75"})`}}>
                  <div className="singleMedia w-full" ref={i==0?ref:undefined}>
                     {/* <div className="w-full h-full z-40 left-0 absolute text-white pointer-events-none" ><h2>{i}</h2></div> */}
                    <div className="w-full h-auto relative"> <SwitchContent work={item} title={`${item}`} ratio={item.ratio} audio={false} contain/>

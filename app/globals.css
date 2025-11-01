@@ -55,6 +55,7 @@ html.lenis, html.lenis body {
   
 mux-player{
   clip-path: inset(2px 2px);
+  transition: opacity .45s ease-in-out;
 }
   
 .bgMux mux-player{
@@ -516,12 +517,12 @@ input {height:20px}
 
 
 /* gallery */
-/* .galleryImage{
+.galleryImage{
   transition: transform .75s ease-in-out;
-} */
+}
 
 .galleryImage.static{
-  transition: none;
+  z-index: 0;
 }
 
 .galleryFade{

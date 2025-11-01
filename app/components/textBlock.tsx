@@ -21,7 +21,7 @@ export default function TextBlock({title,footnote,copy,subhead, cta,arrow,top,ri
                     {cta?(<div className="cta inline-block absolute top-9 right-0 secondary"><p>{cta.label}</p></div>):('')}
                    
                   </div>
-                  {copy?(  <Reveal styleSet="col-span-6  pt-9"><PortableText value={copy} /></Reveal>):('')}
+                  {copy?(  <Reveal styleSet="col-span-6  pt-9 grid grid-cols-6"><div className="col-span-4"><PortableText value={copy} /></div></Reveal>):('')}
                   
                   {subhead?(<div className={`col-span-6 col-end-13 flex flex-col-reverse divide ${right?"text-right":""}`}><Reveal styleSet=" text pt-9 uppercase ml-auto mr-0 inline-block"><PortableText value={subhead} /></Reveal>
                   </div>):('')}
