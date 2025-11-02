@@ -27,7 +27,7 @@ import { ScrollCTA } from "../components/scrollTarget";
 
 export default async function Home() {
   const query = await getData(`{
-    'data': *[_type=='residences'][0]{header{title,video{"image":image.asset->url,"vid":video.asset->playbackId, "ratio":video.asset->data.aspect_ratio,credits,captions}},intro{title,copy,media{"image":image.asset->url,"vid":video.asset->playbackId, "ratio":video.asset->data.aspect_ratio,credits,captions},cta},specs[]{title,subtitle,subHead,copy,logos[]{"image":image.asset->url,url},gallery[]{"image":image.asset->url,"vid":video.asset->playbackId, "ratio":video.asset->data.aspect_ratio,credits,captions},outro{title,copy,media{"image":image.asset->url,"vid":video.asset->playbackId, "ratio":video.asset->data.aspect_ratio,credits,captions},gallery[]{"image":image.asset->url,"vid":video.asset->playbackId, "ratio":video.asset->data.aspect_ratio,credits,captions}}}, feats{label,title,subhead,points[]{title},media{"image":image.asset->url,"vid":video.asset->playbackId, "ratio":video.asset->data.aspect_ratio,credits,captions},cta}, floorplan{label,title,subhead,copy,rooms[]{title,rooms[]{name,copy,"image":image.asset->url,cta}},cta}, floors{label,title,rooms[]{title,rooms[]{name,copy,"image":image.asset->url,cta}},cta,media{"image":image.asset->url,"vid":video.asset->playbackId, "ratio":video.asset->data.aspect_ratio,credits,captions}},smart{label,title,subhead,copy,gallery[]{"image":image.asset->url,"vid":video.asset->playbackId, "ratio":video.asset->data.aspect_ratio,credits,captions}},cta{label,title,copy,"image":image.asset->url,cta},next},
+    'data': *[_type=='residences'][0]{header{title,video{"image":image.asset->url,"vid":video.asset->playbackId, 'ratioImg':image.asset->metadata.dimensions.aspectRatio,"ratio":video.asset->data.aspect_ratio,'ratioImg':image.asset->metadata.dimensions.aspectRatio,credits,captions}},intro{title,copy,media{"image":image.asset->url,"vid":video.asset->playbackId, 'ratioImg':image.asset->metadata.dimensions.aspectRatio,"ratio":video.asset->data.aspect_ratio,'ratioImg':image.asset->metadata.dimensions.aspectRatio,credits,captions},cta},specs[]{title,subtitle,subHead,copy,logos[]{"image":image.asset->url,url},gallery[]{"image":image.asset->url,"vid":video.asset->playbackId,'ratioImg':image.asset->metadata.dimensions.aspectRatio, 'ratioImg':image.asset->metadata.dimensions.aspectRatio,"ratio":video.asset->data.aspect_ratio,credits,captions},outro{title,copy,media{"image":image.asset->url,"vid":video.asset->playbackId,'ratioImg':image.asset->metadata.dimensions.aspectRatio, 'ratioImg':image.asset->metadata.dimensions.aspectRatio,"ratio":video.asset->data.aspect_ratio,credits,captions},gallery[]{"image":image.asset->url,"vid":video.asset->playbackId,'ratioImg':image.asset->metadata.dimensions.aspectRatio, 'ratioImg':image.asset->metadata.dimensions.aspectRatio,"ratio":video.asset->data.aspect_ratio,credits,captions}}}, feats{label,title,subhead,points[]{title},media{"image":image.asset->url,"vid":video.asset->playbackId,'ratioImg':image.asset->metadata.dimensions.aspectRatio, 'ratioImg':image.asset->metadata.dimensions.aspectRatio,"ratio":video.asset->data.aspect_ratio,credits,captions},cta}, floorplan{label,title,subhead,copy,rooms[]{title,rooms[]{name,copy,"image":image.asset->url,cta}},cta}, floors{label,title,rooms[]{title,rooms[]{name,copy,"image":image.asset->url,cta}},cta,media{"image":image.asset->url,"vid":video.asset->playbackId,'ratioImg':image.asset->metadata.dimensions.aspectRatio, 'ratioImg':image.asset->metadata.dimensions.aspectRatio,"ratio":video.asset->data.aspect_ratio,credits,captions}},smart{label,title,subhead,copy,gallery[]{"image":image.asset->url,"vid":video.asset->playbackId,'ratioImg':image.asset->metadata.dimensions.aspectRatio, 'ratioImg':image.asset->metadata.dimensions.aspectRatio,"ratio":video.asset->data.aspect_ratio,credits,captions}},cta{label,title,copy,"image":image.asset->url,cta},next},
 
     }`)
 
@@ -93,7 +93,7 @@ export default async function Home() {
                     </div>
                   ) : ('')}
                 </div>
-                <div className="col-span-2">
+                <div className="col-span-2 h-[66dvh] mb-39">
                   <GalleryC data={item.gallery} />
                 </div>
                 {item.outro ? (
@@ -109,7 +109,7 @@ export default async function Home() {
                 ) : ('')}
 
                 {item.outro.gallery ? (
-                  <div className="col-span-2">
+                  <div className="col-span-2 h-[66dvh] mb-39">
                     <GalleryC data={item.outro.gallery} />
                   </div>
                 ) : ('')}

@@ -24,7 +24,7 @@ import { VidHead } from "../components/vidHead";
 
 export default async function Home() {
   const query = await getData(`{
-    'data': *[_type=='building'][0]{build{title,subhead,copy,hero{"image":image.asset->url,"vid":video.asset->playbackId, "ratio":video.asset->data.aspect_ratio,credits,captions},building{"image":image.asset->url,"vid":video.asset->playbackId, "ratio":video.asset->data.aspect_ratio,credits,captions},outro, gallery[]{"image":image.asset->url,"vid":video.asset->playbackId, "ratio":video.asset->data.aspect_ratio,credits,captions}},landmark{title,services,feat,cta},specs{title,spec,media{"image":image.asset->url,"vid":video.asset->playbackId, "ratio":video.asset->data.aspect_ratio,credits,captions}},devStory{label,title,quote,profile{name,title,'image':image.asset->url},copy,footerLogos[]{'image':image.asset->url,url}},rise{title,copy,'image':image.asset->url,credits,captions},retail{label,title,copy,cta,intro{"image":image.asset->url,"vid":video.asset->playbackId, "ratio":video.asset->data.aspect_ratio,credits,caption},outro{"image":image.asset->url,"vid":video.asset->playbackId, "ratio":video.asset->data.aspect_ratio,credits,captions,cta,title},gallery[]{"image":image.asset->url,"vid":video.asset->playbackId, "ratio":video.asset->data.aspect_ratio,credits,captions}},cta{label,title,copy,cta,"image":image.asset->url}, next{label,url}},
+    'data': *[_type=='building'][0]{build{title,subhead,copy,hero{"image":image.asset->url,"vid":video.asset->playbackId,'ratioImg':image.asset->metadata.dimensions.aspectRatio, "ratio":video.asset->data.aspect_ratio,credits,captions},building{"image":image.asset->url,"vid":video.asset->playbackId,'ratioImg':image.asset->metadata.dimensions.aspectRatio, "ratio":video.asset->data.aspect_ratio,credits,captions},outro, gallery[]{"image":image.asset->url,"vid":video.asset->playbackId,'ratioImg':image.asset->metadata.dimensions.aspectRatio, "ratio":video.asset->data.aspect_ratio,credits,captions}},landmark{title,services,feat,cta},specs{title,spec,media{"image":image.asset->url,"vid":video.asset->playbackId,'ratioImg':image.asset->metadata.dimensions.aspectRatio, "ratio":video.asset->data.aspect_ratio,credits,captions}},devStory{label,title,quote,profile{name,title,'image':image.asset->url},copy,footerLogos[]{'image':image.asset->url,url}},rise{title,copy,'image':image.asset->url,credits,captions},retail{label,title,copy,cta,intro{"image":image.asset->url,"vid":video.asset->playbackId,'ratioImg':image.asset->metadata.dimensions.aspectRatio, "ratio":video.asset->data.aspect_ratio,credits,caption},outro{"image":image.asset->url,"vid":video.asset->playbackId,'ratioImg':image.asset->metadata.dimensions.aspectRatio, "ratio":video.asset->data.aspect_ratio,credits,captions,cta,title},gallery[]{"image":image.asset->url,"vid":video.asset->playbackId,'ratioImg':image.asset->metadata.dimensions.aspectRatio, "ratio":video.asset->data.aspect_ratio,credits,captions}},cta{label,title,copy,cta,"image":image.asset->url}, next{label,url}},
 
     }`)
 
@@ -57,7 +57,7 @@ export default async function Home() {
         {/* Gallery */}
         <div className="col-span-12 "><div className="w-1/2 px-9"><PortableText value={data.build.outro} />
         </div>
-          <GalleryC data={data.build.gallery} />
+          <div className="w-full h-[66dvh] my-39"><GalleryC data={data.build.gallery} /></div>
         </div>
 
         {/* Specs */}
@@ -168,7 +168,7 @@ export default async function Home() {
           </div>
 
 
-          <div className="mb-39 col-span-full"><GalleryC data={data.retail.gallery} /></div>
+          <div className=" col-span-full pt-13 pb-39"><GalleryC data={data.retail.gallery} /></div>
           <div className="w-full grid grid-cols-12 px-9">
             <Reveal styleSet="col-span-6 col-start-4 mb-39 hoverOn">
               {data.retail.intro ? (<SwitchContent captions credits work={data.retail.intro} title={'Header Video'} audio={false} />) : ('')}

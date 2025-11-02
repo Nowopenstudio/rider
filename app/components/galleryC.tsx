@@ -3,79 +3,105 @@ import React, { useEffect, useRef, useState } from 'react';
 import { SwitchContent } from '../util/contentSwitch';
 import { PortableText } from 'next-sanity';
 import { Reveal } from '../util/reveal';
+import useResize from '../util/useResize';
 
 
 
 export default function GalleryA({data,full}: any) {
   const ref = useRef<HTMLDivElement>(null)
+  const {winX, winY, mobile} = useResize();
   const [x,setX] = useState<number>(0)
-const [total,setTotal] = useState([]);
+  const[indie,setIndie] = useState([])
+  const [total,setTotal] = useState([]);
+  const [disable,setDisable]=useState(false);
+  const [animating,setAnim]=useState(false); 
   const [curr,setCurr]=useState(0);
+  const gallery = [data[data.length-2],data[data.length-1],...data,data[0],data[1]]
+
+    const runCount=()=>{
+       const count:any = []
+       const indie:any =[]
+       Array.from(ref.current!.children).forEach((item, i) => {
+    count.push(item.clientWidth +(i>0?count[i-1]:0))
+    indie.push(item.clientWidth)
+     });
+  setTotal(count)
+  setIndie(indie)
+    
+    }
+
 
 useEffect(()=>{
-  if(ref.current){
-    setX(ref.current!.clientHeight);
-  }
-},[ref])
+runCount()
+},[ref.current,winX])
 
 const back=()=>{
-  if(curr!=0){
+  
+    if(disable){
+      setDisable(false)
+    }
+    if(curr >=0){
     setCurr((previousCurr)=> previousCurr-1)
-  }
-  else{setCurr(data.length-1)}
-   console.log(curr)
+    }
+  
+  
 }
 
 const next=()=>{
-  if(curr<data.length-1){
+     if(disable){
+      setDisable(false)
+    }
+  if(curr<data.length){
     setCurr((previousCurr)=> previousCurr+1)
    
   }
-  else{setCurr(0)}
+  
    console.log(curr)
 }
 
-  const checkSpace=(e:any,i:number)=>{
-    if((i-curr) < -2){
-      e.transition="none";
-
-    }else if((curr==data.length-2)&&(curr-i>2)){
-          
-    }
+  const resetMin=()=>{
+    setAnim(false)
+    setDisable(true)
+    setCurr(0)
   }
+
+    const resetMax=()=>{
+       setAnim(false)
+    setDisable(true)
+    setCurr(data.length-1)
+    
+  }
+
+      const setStart=()=>{
+    setAnim(true)
+    setDisable(false)    
+  }
+
+    const setStop=()=>{
+    setAnim(false)
+        setDisable(false)    
+    
+  }
+
+
+
 
   
 
   return (
     <React.Fragment>
-        <div className={`w-full h-[100dvh] relative overflow-x-hidden ${full?'':'py-39'} galleryFull` } >
-
-          <div className="opacity-0 flex flex-nowrap ">
-            {data.map((item:any, i:number)=>{
-              return(
-                <Reveal count={i} key={`image-${i}`} styleSet='w-auto h-full flex-shrink-0'>
-                 <div className="singleMedia h-full" ref={i==0?ref:undefined}>
-                   
-                   <div className="h-full w-auto relative"> <SwitchContent work={item} title={`${item}`} ratio={item.ratio} audio={false} contain/>
-                   </div>
-                   <div className={`creditHold justify-between flex ${curr==i?"onHover":""} py-2`}>
-                    <div className="caption"><PortableText value={item.captions}/></div>
-                    <div className="credits uppercase"><PortableText value={item.credits}/></div>
-                   </div>
-                 </div>
-                </Reveal>
-              )
-            })}
-          </div>
+        <Reveal styleSet={`w-full h-full relative overflow-x-hidden  hoverOn }` } >
+  <div className={`w-1/2 h-full z-40 left-0 absolute cursor-w-resize ${animating?'pointer-events-none':''}`} onClick={back}></div>
+             <div className={`w-1/2 h-full z-40 left-1/2 absolute cursor-e-resize ${animating?'pointer-events-none':''}`} onClick={next}></div>
+         
         
-       <div className="w-full absolute h-full top-0 left-0 galleryFull hoverOn">
-            <div className="w-1/2 h-full z-40 left-0 absolute cursor-w-resize" onClick={back}></div>
-             <div className="w-1/2 h-full z-40 left-1/2 absolute cursor-e-resize" onClick={next}></div>
-            {data.map((item:any, i:number)=>{
+       <div onTransitionStart={setStart} onTransitionEnd={(curr==data.length)?(resetMin):(curr<0?resetMax:setStop)} className={`w-auto h-full flex flex-nowrap galleryFull gap-9 galleryScroll ${disable?'disable':''}`} ref={ref} style={{transform:`translateX(${total?(winX/2-indie[curr+2]/2-36)+(+(total[curr+1]+((curr+2)*36))*(-1))+36:`36`}px)`}}>
+          
+            {gallery.map((item:any, i:number)=>{
               return(
-                <div key={`image-${i}`} onTransitionEnd={(e)=>checkSpace(e,i)} className={` w-auto h-full absolute galleryImage origin-center ${full?'':'py-39'}`} style={{left:'50%',transform:`translateX(${(i==0 && (curr==data.length-1))?`50`:`${(i==data.length-1 && curr==0)?'-150':`${((100*i)-(curr*100))-50}`}`}%)`}}>
-                 <div className="singleMedia h-full relative w-auto" ref={i==0?ref:undefined}>
-                    <div className="w-auto h-full z-40 left-0 absolute text-white pointer-events-none" ><h2>{i}</h2></div>
+                <div key={`image-${i}`}  className={` w-auto h-full  galleryImage origin-center flex-shrink-0`} >
+                 <div className="singleMedia h-full relative w-auto">
+                 
                    <div className="w-auto h-full relative"> <SwitchContent work={item} title={`${item}`} ratio={item.ratio} audio={false} height />
                    </div>
                    <div className={`creditHold justify-between flex ${curr==i?"onHover":""} py-2`}>
@@ -87,7 +113,7 @@ const next=()=>{
               )
             })}
        </div>
-        </div>
+        </Reveal>
     </React.Fragment>
   );
 }

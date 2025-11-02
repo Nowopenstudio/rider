@@ -41,9 +41,7 @@ const next=()=>{
     e.currentTarget.style.index=0
    }
   }
-  if(i==curr){
-    e.currentTarget.style.index=5
-  }
+
   }
 
   

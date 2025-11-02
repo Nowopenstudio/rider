@@ -523,6 +523,15 @@ input {height:20px}
 
 .galleryImage.static{
   z-index: 0;
+ 
+}
+
+.galleryScroll{
+ transition: transform .75s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.galleryScroll.disable{
+  transition:none;
 }
 
 .galleryFade{
