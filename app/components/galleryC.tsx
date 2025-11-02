@@ -33,14 +33,14 @@ export default function GalleryA({data,full}: any) {
 
 useEffect(()=>{
 runCount()
-},[ref.current,winX])
+},[ref,gallery,winX])
 
 const back=()=>{
   
     if(disable){
       setDisable(false)
     }
-    if(curr >=0){
+    if(curr >=0  && !animating){
     setCurr((previousCurr)=> previousCurr-1)
     }
   
@@ -51,7 +51,7 @@ const next=()=>{
      if(disable){
       setDisable(false)
     }
-  if(curr<data.length){
+  if(curr<data.length && !animating){
     setCurr((previousCurr)=> previousCurr+1)
    
   }
@@ -90,9 +90,9 @@ const next=()=>{
 
   return (
     <React.Fragment>
-        <Reveal styleSet={`w-full h-full relative overflow-x-hidden  hoverOn }` } >
-  <div className={`w-1/2 h-full z-40 left-0 absolute cursor-w-resize ${animating?'pointer-events-none':''}`} onClick={back}></div>
-             <div className={`w-1/2 h-full z-40 left-1/2 absolute cursor-e-resize ${animating?'pointer-events-none':''}`} onClick={next}></div>
+        <Reveal styleSet={`w-full h-full relative overflow-x-hidden  hoverOn` } >
+        <div className={`w-1/2 h-full z-40 left-0 absolute cursor-w-resize `} onClick={back}></div>
+             <div className={`w-1/2 h-full z-40 left-1/2 absolute cursor-e-resize `} onClick={next}></div>
          
         
        <div onTransitionStart={setStart} onTransitionEnd={(curr==data.length)?(resetMin):(curr<0?resetMax:setStop)} className={`w-auto h-full flex flex-nowrap galleryFull gap-9 galleryScroll ${disable?'disable':''}`} ref={ref} style={{transform:`translateX(${total?(winX/2-indie[curr+2]/2-36)+(+(total[curr+1]+((curr+2)*36))*(-1))+36:`36`}px)`}}>
@@ -104,7 +104,7 @@ const next=()=>{
                  
                    <div className="w-auto h-full relative"> <SwitchContent work={item} title={`${item}`} ratio={item.ratio} audio={false} height />
                    </div>
-                   <div className={`creditHold justify-between flex ${curr==i?"onHover":""} py-2`}>
+                   <div className={`creditHold justify-between flex ${curr+2==i?"onHover":''} py-2  z-2`}>
                     <div className="captions"><PortableText value={item.captions}/></div>
                     <div className="credits uppercase text-right"><PortableText value={item.credits}/></div>
                    </div>
