@@ -17,7 +17,7 @@ export default function Footer({ data }: any) {
 
   return (
     <React.Fragment>
-      <div className="w-full h-[200dvh] z-1 mt-[-100dvh] bg-offWhite footer ">
+      <div id={'footer'} className="w-full h-[200dvh] z-1 mt-[-100dvh] bg-offWhite footer ">
         <div className="sticky w-full h-[100dvh] top-0 left-0 grid grid-cols-2">
           <div className="downloadBar absolute top-[74px] px-9 w-full z-20 bg-black h-[60px] flex items-center justify-between">
             <div className="uppercase text-white"><p>{data.contact.phone}</p></div>

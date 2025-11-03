@@ -36,12 +36,22 @@ export default function Navbar({ data, footer }: any) {
     setActive(false)
   }
 
+  
+  const scrollTo=()=>{
+ 
+    const element = document.getElementById('footer')
+    const y = element!.getBoundingClientRect().bottom + window.scrollY - 62;
+    window.scrollTo({top: y, behavior: 'smooth'});
+   
+
+  }
+
 
   return (
     <React.Fragment>
       <div className={`navBar fixed top-0 left-0 w-[100vw] h-[74px] flex px-9  z-100 items-top`} style={{backgroundColor:active?"rgba(255,255,255,0.0)":"rgba(255,255,255,1.0)"}}>
         <div className="uppercase  flex items-center h-full w-1/3">
-          <div><p className="pr-4 text-black font-medium" >Inquries</p></div>
+          <div><p className="pr-4 text-black font-medium pointer-events-auto cursor-pointer" onClick={scrollTo} >Inquries</p></div>
           <div className={"flex"} style={{opacity:active?0:1}}>
             <div className="px-1 text-gray"><p className="langOption">en</p></div>
             <div className='px-1   text-gray'><p className="langOption ">es</p></div>

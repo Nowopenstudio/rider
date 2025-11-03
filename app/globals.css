@@ -198,6 +198,7 @@ p em{font-family: "serif",'Times New Roman', Times, serif;}
 h1,h5{font-size:2.875rem;line-height:1.03em;letter-spacing: -0.02em;text-box: trim-both cap alphabetic;}
 h2{font-size:7.25rem;line-height:.88em;letter-spacing: -.05em;text-box: trim-both cap alphabetic;}
 h2.serif{font-family: "serif",'Times New Roman', Times, serif;font-size:3.75rem;line-height:.9em;letter-spacing: -2.5px;text-box: trim-both cap alphabetic;}
+h2.loader{font-size:12rem}
 h3{font-size:3.125rem;line-height:.93em;letter-spacing: -.05em;text-box: trim-both cap alphabetic;}
 .footer h3{font-size: 50pt;}
 h3.serif{font-family: "serif",'Times New Roman', Times, serif;font-size:6.25rem;line-height:.9em;letter-spacing: -2.5px;text-box: trim-both cap alphabetic;}
@@ -686,3 +687,62 @@ transform:translateX(0);
 }
 
 
+/* animation */
+.fadeOn{
+    opacity:0;
+    animation: fadeOn 1s ease-out forwards;
+}
+
+.loaderIn{
+    opacity:0;
+    animation: loaderIn 1.5s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
+}
+
+
+
+.fadeOut .loaderIn{
+    opacity:1;
+    transform:translateX(0px);
+
+    animation: loaderOut 1.5s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
+}
+
+
+.loader{
+  transition: .5s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+  @keyframes fadeOn {
+    0% {
+      opacity:0;
+    }
+    100%{
+    opacity:1;
+    }
+  }
+
+
+    @keyframes loaderIn {
+    0% {
+      opacity:0;
+      transform:translateX(20px)
+    }
+    
+    100%{
+    opacity:1;
+     transform:translateX(0px)
+    }
+  }
+
+  
+    @keyframes loaderOut {
+    0% {
+      opacity:1;
+ 
+    }
+    
+    100%{
+    opacity:0;
+
+    }
+  }

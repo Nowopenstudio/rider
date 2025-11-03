@@ -9,6 +9,15 @@ export default {
         },
     ],
     fields: [
+         {
+            name: 'loader', title: "Loader", type: 'object', fields: [
+                {
+                    name: 'words', type: 'array', title: "Words", of: [
+                  { name: 'word', title: 'Word', type: 'string' }]
+                },
+
+            ]
+        },
         {
             name: 'header', title: "header", type: 'object', fields: [
                 {
