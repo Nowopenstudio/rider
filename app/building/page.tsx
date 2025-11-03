@@ -51,7 +51,7 @@ export default async function Home() {
       <div className="w-full  bg-offWhite  sticky z-2 grid grid-cols-12 rounded-t-[12px]">
         <div className="col-span-full mb-39"> <TextBlock arrow title={data.build.title} copy={data.build.copy} subhead={data.build.subhead} top right/></div>
         <Reveal styleSet="col-span-8 col-start-3 mb-39 hoverOn ">
-          {data.build.building ? (<SwitchContent  credits captions work={data.build.building} title={'Header Video'} ratio={data.build.building.ratio} audio={false} />) : ('')}
+          {data.build.building ? (<SwitchContent  zoom credits captions work={data.build.building} title={'Header Video'} ratio={data.build.building.ratio} audio={false} />) : ('')}
 
         </Reveal>
         {/* Gallery */}
@@ -93,7 +93,7 @@ export default async function Home() {
           </Reveal>
           <div className="col-span-1 grid grid-cols-6 pt-29">
             <Reveal styleSet="col-span-4 col-start-2">
-              <div className="w-full mb-9 hoverOn"> {data.specs.media ? (<SwitchContent credits captions work={data.specs.media} title={'Building Spec'} ratio={data.specs.media.ratio} audio={false} />) : ('')}</div>
+              <div className="w-full mb-9 hoverOn"> {data.specs.media ? (<SwitchContent zoom credits captions work={data.specs.media} title={'Building Spec'} ratio={data.specs.media.ratio} audio={false} />) : ('')}</div>
               <h3 className="mb-10">{data.specs.title}</h3>
               <div className="specsList w-full">
                 {data.specs.spec.map((item: any, i: number) => {
@@ -147,7 +147,7 @@ export default async function Home() {
               <div className="w-full"><PortableText value={data.rise.copy} /></div>
             </div>
             <Reveal styleSet="col-span-6 col-start-4 mb-39 hoverOn">
-              {data.rise.image ? (<SwitchContent captions credits work={data.rise} title={'Header Video'} audio={false} />) : ('')}
+              {data.rise.image ? (<SwitchContent zoom captions credits work={data.rise} title={'Header Video'} audio={false} />) : ('')}
 
             </Reveal>
 
@@ -171,7 +171,7 @@ export default async function Home() {
           <div className=" col-span-full pt-13 pb-39"><GalleryC data={data.retail.gallery} /></div>
           <div className="w-full grid grid-cols-12 px-9">
             <Reveal styleSet="col-span-6 col-start-4 mb-39 hoverOn">
-              {data.retail.intro ? (<SwitchContent captions credits work={data.retail.intro} title={'Header Video'} audio={false} />) : ('')}
+              {data.retail.intro ? (<SwitchContent zoom captions credits work={data.retail.intro} title={'Header Video'} audio={false} />) : ('')}
             </Reveal>
           </div>
           <div className='w-full aspect-video flex items-center relative'>
