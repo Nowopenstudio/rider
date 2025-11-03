@@ -40,7 +40,7 @@ export default function GalleryI({ data }: any) {
 
   return (
     <React.Fragment>
-      <div className={`galleryB w-full relative aspect-video`}>
+      <div className={`galleryB w-full relative aspect-[1.3] md:aspect-video`}>
       <div className="w-1/2 h-full z-40 left-0 absolute cursor-w-resize" onClick={back}></div>
              <div className="w-1/2 h-full z-40 left-1/2 absolute cursor-e-resize" onClick={next}></div>
         {data.map((item:any,i:number)=>{

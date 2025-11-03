@@ -20,11 +20,11 @@ export function MediaGrow({data, size}:any){
    return(
       
            <div className="w-full">
-               <div ref={ref} className={`col-span-12 relative  origin-center mediaGrow `} style={{ transform:`scale(${isInView?1:size})`,aspectRatio: `${data.ratio.replace(":", " / ")}` }}>
-                                 <SwitchContent work={data} title={'Header Video'} ratio={data.ratio} audio={false} cover />
+               <div ref={ref} className={`w-full relative  origin-center mediaGrow h-[75dvh] md:h-auto`} style={{ transform:`scale(${isInView?1:size})`,aspectRatio: `${data.ratio.replace(":", " / ")}` }}>
+                                 <SwitchContent work={data} title={'Header Video'} ratio={data.ratio} audio={false} cover={mobile?true:undefined} />
                </div>
                <div className="flex py-4 justify-between col-span-full onHover">
-                    <div className="credits w-2/3 uppercase"><PortableText value={data.credits}/></div>
+                    <div className="credits px-4 md:px-0 w-full lg:w-2/3 uppercase"><PortableText value={data.credits}/></div>
                </div>
            </div>
 

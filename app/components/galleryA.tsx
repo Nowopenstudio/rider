@@ -53,8 +53,8 @@ const next=()=>{
           <div className="opacity-0 flex flex-nowrap">
             {data.map((item:any, i:number)=>{
               return(
-                <div key={`image-${i}`} className='w-[66.67%] h-auto flex-shrink-0'>
-                 <div className="singleMedia w-full">
+                <div key={`image-${i}`} className='w-[100%] md:w-[66.67%] h-auto flex-shrink-0'>
+                 <div className="singleMedia w-full px-4 md:px-0">
                    
                    <div className="w-full h-auto relative"> <SwitchContent work={item} title={`${item}`} ratio={item.ratio} audio={false} contain/>
                    </div>
@@ -73,14 +73,14 @@ const next=()=>{
              <div className="w-1/2 h-full z-40 left-1/2 absolute cursor-e-resize" onClick={next}></div>
             {data.map((item:any, i:number)=>{
               return(
-                <div key={`image-${i}`} onTransitionStart={(e)=>checkSpace(e,i)} className={`w-[66.67%] h-auto absolute galleryImage origin-center`} style={{left:'50%', zIndex:i==curr?data.length+1:data.length-1,transform:`translateX(${(i==0 && (curr==data.length-1))?`50`:`${(i==data.length-1 && curr==0)?'-150':`${((100*i)-(curr*100))-50}`}`}%) scale(${i==curr?"1.0":".75"})`}}>
-                 <div className="singleMedia w-full" ref={i==0?ref:undefined}>
+                <div key={`image-${i}`} onTransitionStart={(e)=>checkSpace(e,i)} className={`w-[100%] md:w-[66.67%] h-auto absolute galleryImage origin-center`} style={{left:'50%', zIndex:i==curr?data.length+1:data.length-1,transform:`translateX(${(i==0 && (curr==data.length-1))?`50`:`${(i==data.length-1 && curr==0)?'-150':`${((100*i)-(curr*100))-50}`}`}%) scale(${i==curr?"1.0":".75"})`}}>
+                 <div className="singleMedia w-full px-4 md:px-0" ref={i==0?ref:undefined}>
                     {/* <div className="w-full h-full z-40 left-0 absolute text-white pointer-events-none" ><h2>{i}</h2></div> */}
                    <div className="w-full h-auto relative"> <SwitchContent work={item} title={`${item}`} ratio={item.ratio} audio={false} contain/>
                    </div>
-                   <div className={`creditHold justify-between flex items-center  ${curr==i?"onHover":""} py-2`}>
-                    <div className="captions"><PortableText value={item.caption}/></div>
-                    <div className="credits uppercase"><PortableText value={item.credits}/></div>
+                   <div className={`creditHold justify-between md:flex items-center  ${curr==i?"onHover":""} py-2`}>
+                    <div className="captions mb-4 md:mb-0 uppercase w-1/2 md:w-auto"><PortableText value={item.caption}/></div>
+                    <div className="credits uppercase w-1/2 md:w-auto"><PortableText value={item.credits}/></div>
                    </div>
                  </div>
                 </div>

@@ -56,8 +56,8 @@ export default function GalleryB({ data }: any) {
         })}
     </div>
       <div className="flex justify-between w-full">
-        <div className="py-9 w-3/4">
-          <h3 className="uppercase mb-2">{data.title}</h3>
+        <div className="py-9 w-full md:w-3/4">
+          <h3 className="uppercase mb-3 md:mb-2">{data.title}</h3>
           <div className="menuText"><PortableText value={data.copy} /></div>
         </div>
         {data.gallery.length > 1?(

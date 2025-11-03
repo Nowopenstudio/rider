@@ -75,8 +75,8 @@ const hidePoints=()=>{
   return (
     <React.Fragment>
         {total.length?(
-           <Reveal styleSet="col-span-full grid grid-cols-12 gap-x-4">
-           <div className="col-span-6 relative">
+           <Reveal styleSet="col-span-full grid grid-cols-12 gap-x-4 items-start">
+           <div className="col-span-full md:col-span-6 relative">
                     
                     {data.map ? (
                       <Image alt="image" height={0} width={0} sizes="100vw" src={data.map} className={`w-full h-auto mix-blend-multiply `} />
@@ -105,11 +105,11 @@ const hidePoints=()=>{
                         ):('')}
                     </div>
                   </div>
-                  <div className="col-span-5 col-end-13">
-                    <div className="w-full grid grid-cols-3 gap-9">
+                  <div className="col-span-full md:col-span-5 md:col-end-13">
+                    <div className="w-full grid grid-cols-2 lg:grid-cols-3 gap-9">
                       <div className="col-span-1 py-2">
                         <Reveal styleSet=" pointer-events-none label"><p className="uppercase mb-2 font-bold">Filter</p></Reveal>
-                        <div className="flex flex-col gap-4 mb-4 items-start">
+                        <div className="flex lg:flex-col gap-4 mb-4 items-start">
                           <div onClick={()=>toggleFilter('wynwood')} className={`${cat=="wynwood"?'active':''} cta map filter cursor-pointer inline-block`}><p>WYNWOOD</p></div>
           
                           <div onClick={()=>toggleFilter('design-district')} className={`${cat=="design-district"?'active':''} cta filter cursor-pointer inline-block`}><p>DESIGN DISTRICT</p></div>
@@ -117,7 +117,7 @@ const hidePoints=()=>{
                           <div onClick={()=>toggleFilter('Edgewater')} className={`${cat=="Edgewater"?'active':''} cta filter cursor-pointer inline-block`}><p>EDGEWATER</p></div>
                         </div>
                       </div>
-                      <div className="col-span-2 h-3/4 flex flex-wrap flex-col">
+                      <div className="col-span-2 md:h-3/4 flex flex-wrap flex-col">
                         {data.locations.length?(
                           data.locations.map((item:any,i:number)=>{
                             return(

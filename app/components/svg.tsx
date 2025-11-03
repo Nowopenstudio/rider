@@ -70,6 +70,14 @@ export function Right(props:any){
         <svg {...props}  x="0px" y="0px" viewBox="0 0 12 12" >
 <path d="M1.71429 7.71429H0V12H4.28571V10.2857H1.71429V7.71429ZM0 4.28571H1.71429V1.71429H4.28571V0H0V4.28571ZM10.2857 10.2857H7.71429V12H12V7.71429H10.2857V10.2857ZM7.71429 0V1.71429H10.2857V4.28571H12V0H7.71429Z" /></svg>)}
 
+ export function CircleRight(props:any){
+    return(
+        <svg {...props}  x="0px" y="0px" viewBox="0 0 21 21" fill={'none'} >
+<g opacity="0.4">
+<circle cx="10" cy="10" r="9.5" stroke="#151515"/>
+<path d="M9.99999 5.83366L14.1667 10.0003L9.99999 14.167" stroke="#151515"/>
+<path d="M5.83334 10H14.1667" stroke="#151515"/>
+</g></svg>)}
 
 
 
