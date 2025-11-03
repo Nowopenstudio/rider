@@ -36,7 +36,7 @@ const zoomOff=()=>{
     }
    
   if (work.image) return (
-  <div className="w-full relative">
+  <div className="w-full relative h-full">
     <Image alt="image" onClick={zoom?zoomOn:undefined} onContextMenu={(e)=>{e.preventDefault()}} height={0}  width={0} sizes={`${size?size:`100vw`}`}  src={work.image}  className={`${height?`h-full w-auto`:'w-full h-auto'} ${contain?"object-contain h-full":""} ${cover?"object-cover h-full":""} ${zoom?'cursor-pointer':''}`} style={{aspectRatio:work.ratioImg}}/>
   {credits || captions?( <div className={`flex justify-between w-full  onHover py-4 ${inside?"text-white absolute bottom-0 left-0 px-4 z-10":""}`}><div className="captions">{captions?(<PortableText value={work.captions}/>):('')}</div><div className={`credits uppercase ${captions?'text-right':''}`}>{credits?(<PortableText value={work.credits}/>):('')}</div></div>
   ):('')}
