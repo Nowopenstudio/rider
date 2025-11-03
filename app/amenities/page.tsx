@@ -82,7 +82,7 @@ export default async function Home() {
 
       <div className="col-span-6 grid grid-cols-6  px-9">
         <div className="col-span-4 col-start-3 hoverOn">
-          <div className="w-full mb-9"> {data.feat.media ? (<SwitchContent captions credits work={data.feat.media} title={'Building Spec'} ratio={data.feat.media.ratio} audio={false} />) : ('')}</div>
+          <div className="w-full mb-46"> {data.feat.media ? (<SwitchContent captions credits work={data.feat.media} title={'Building Spec'} ratio={data.feat.media.ratio} audio={false} />) : ('')}</div>
         
         </div>
 
@@ -101,7 +101,7 @@ export default async function Home() {
 
           <Reveal styleSet="col-span-8 col-start-3 mb-39 ">
                 {data.outro.media ? (
-                  <GalleryG data={data.outro.gallery}/>
+                  <GalleryD data={data.outro.gallery}/>
                 ) : ('')}
       
       </Reveal>

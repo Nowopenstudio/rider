@@ -68,7 +68,7 @@ export default async function Home() {
         
     
         <Reveal styleSet="col-span-6 col-start-4 mb-76 mt-39 relative hoverOn">
-          {data.build.gallery.length ? (<SwitchContent caption credits work={data.build.gallery[0]} title={'Header Video'} ratio={data.header.gallery[0].ratio} audio={false} />) : ('')}
+          {data.build.gallery.length ? (<SwitchContent zoom caption credits work={data.build.gallery[0]} title={'Header Video'} ratio={data.header.gallery[0].ratio} audio={false} />) : ('')}
 
         </Reveal>
 

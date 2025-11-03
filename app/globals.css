@@ -569,6 +569,13 @@ opacity:1;
 .mainMenu{
  transition:  opacity .5s ease-in-out;
 }
+
+.lightBox .navBar{
+  opacity:0;
+  pointer-events: none;
+  transition: opacity .25s ease-in-out;
+  display: none;
+}
 .navItem p{
   display: inline-block;
   position:relative;

@@ -42,7 +42,7 @@ export default function Locations({ data }: any) {
         {data.map((item:any,i:number)=>{
           return(
             <div id={`loc-${i}`} className="w-full" key={`location-${i}`}>
-              <div className="w-full grid grid-cols-12 px-9">
+              <div className="w-full grid grid-cols-12 px-9 mb-19">
               
                           <div className="col-span-full py-2 border-b  pb-4 mb-9 uppercase label font-bold"><p>{item.label}</p></div>
                           <div className="col-span-6 divide uppercase mb-14 row-start-2">
@@ -57,7 +57,7 @@ export default function Locations({ data }: any) {
                                   </Reveal>
                           
                     </div>
-                     <div className="">
+                     <div className="h-[66dvh] mb-39">
                       <GalleryC data={item.gallery}/>
                      </div>
             </div>

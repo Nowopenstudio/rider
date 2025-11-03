@@ -123,7 +123,7 @@ export default async function Home() {
             </div>
 
           </div>
-          <div className="w-full">
+          <div className="w-full h-[66dvh]">
             <GalleryC data={data.residences.gallery} />
           </div>
 
@@ -227,7 +227,7 @@ export default async function Home() {
             
 
           </div>
-          <div className="w-full">
+          <div className="w-full h-[66dvh]">
             <GalleryC data={data.guest.gallery} />
           </div>
 

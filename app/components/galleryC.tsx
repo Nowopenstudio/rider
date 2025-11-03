@@ -32,8 +32,9 @@ export default function GalleryA({data,full}: any) {
 
 
 useEffect(()=>{
-runCount()
-},[ref,gallery,winX])
+if(gallery.length && winX){
+  runCount()}
+},[ref,winX,gallery.length])
 
 const back=()=>{
   
