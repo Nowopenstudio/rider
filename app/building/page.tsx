@@ -49,24 +49,24 @@ export default async function Home() {
       </div> */}
       <VidHead data={data.build.hero}/>
       <div className="w-full  bg-offWhite  sticky z-2 grid grid-cols-12 rounded-t-[12px]">
-        <div className="col-span-full mb-39"> <TextBlock arrow title={data.build.title} copy={data.build.copy} subhead={data.build.subhead} top right/></div>
-        <Reveal styleSet="col-span-8 col-start-3 mb-39 hoverOn ">
+        <div className="col-span-full mb-9 md:mb-39"> <TextBlock arrow title={data.build.title} copy={data.build.copy} subhead={data.build.subhead} top right/></div>
+        <Reveal styleSet="col-span-full md:col-span-8 md:col-start-3 mb-9 md:mb-39 hoverOn ">
           {data.build.building ? (<SwitchContent  zoom credits captions work={data.build.building} title={'Header Video'} ratio={data.build.building.ratio} audio={false} />) : ('')}
 
         </Reveal>
         {/* Gallery */}
-        <div className="col-span-12 "><div className="w-1/2 px-9"><PortableText value={data.build.outro} />
+        <div className="col-span-12 "><div className="md:w-1/2 px-4 md:px-9"><PortableText value={data.build.outro} />
         </div>
-          <div className="w-full h-[66dvh] my-39"><GalleryC data={data.build.gallery} /></div>
+          <div className="w-full h-[66dvh]  my-9 md:my-39"><GalleryC data={data.build.gallery} /></div>
         </div>
 
         {/* Specs */}
-        <div className="col-span-full grid grid-cols-2 pb-39">
+        <div className="col-span-full grid grid-cols-2 md:pb-39">
 
-          <Reveal styleSet="col-span-1 px-9 ">
+          <Reveal styleSet="col-span-full mb-9 md:mb-0 md:col-span-1 px-4 md:px-9">
             <div className="w-full font-bold uppercase"><p className="subMenu font-medium mb-4">Building Services</p></div>
-            <div className="menuText mb-[42px]"><p><em>{data.landmark.services.title}</em></p></div>
-            <div className="listHold mb-14 border-darkGray border-b">
+            <div className="menuText mb-4 md:mb-[42px]"><p><em>{data.landmark.services.title}</em></p></div>
+            <div className="listHold mb-9 md:mb-14 border-darkGray border-b">
               {data.landmark.services.points.map((item: any, i: number) => {
                 return (
                   <div key={`service-${i}`} className="hoverOn flex gap-x-3 w-full py-[15px] font-semibold text-darkGray border-darkGray border-t uppercase">
@@ -78,8 +78,8 @@ export default async function Home() {
             </div>
             {/* feat */}
             <div className="w-full font-bold uppercase"><p className="subMenu font-medium mb-4">Building Features</p></div>
-            <div className="menuText mb-[42px]"><p><em>{data.landmark.feat.title}</em></p></div>
-            <div className="listHold mb-14 border-darkGray  border-b">
+            <div className="menuText mb-4 md:mb-[42px]"><p><em>{data.landmark.feat.title}</em></p></div>
+            <div className="listHold mb-9 md:mb-14 border-darkGray border-b">
               {data.landmark.feat.points.map((item: any, i: number) => {
                 return (
                   <div key={`service-${i}`} className="flex gap-x-3 w-full py-[15px] font-semibold text-darkGray border-darkGray border-t  uppercase hoverOn">
@@ -91,11 +91,11 @@ export default async function Home() {
             </div>
             <a href={data.landmark.cta.url} className="cta inline-block"><p>{data.landmark.cta.label}</p></a>
           </Reveal>
-          <div className="col-span-1 grid grid-cols-6 pt-29">
-            <Reveal styleSet="col-span-4 col-start-2">
+          <div className="col-span-full md:col-span-1 row-start-1 md:row-start-auto grid grid-cols-6 pt-29">
+            <Reveal styleSet="col-span-full md:col-span-4 md:col-start-2 mb-9 md:mb-0">
               <div className="w-full mb-9 hoverOn"> {data.specs.media ? (<SwitchContent zoom credits captions work={data.specs.media} title={'Building Spec'} ratio={data.specs.media.ratio} audio={false} />) : ('')}</div>
-              <h3 className="mb-10">{data.specs.title}</h3>
-              <div className="specsList w-full">
+              <h3 className="mb-10 px-4 md:px-0">{data.specs.title}</h3>
+              <div className="specsList w-full  px-4 md:px-0">
                 {data.specs.spec.map((item: any, i: number) => {
                   return (
                     <p key={`spec-${i}`} className="uppercase"><span className="text-darkGray uppercase ">{item.title} </span>{item.metric}</p>
@@ -109,25 +109,25 @@ export default async function Home() {
         </div>
 
         {/* dev */}
-        <div className="col-span-full grid grid-cols-12 bg-black p-9 items-center z-2 sticky top-[74px] h-[calc(100dvh_-_74px)]">
-          <Reveal styleSet="col-span-full py-2 border-b border-white pb-4 mb-4 uppercase label font-bold text-white"><p>{data.devStory.label}</p></Reveal>
-          <div className="col-span-full text-white divide">
+        <div className="col-span-full grid grid-cols-12 bg-black p-9 items-center z-2 sticky top-0 md:top-[74px] h-[calc(100dvh_-_74px)]">
+          <Reveal styleSet="col-span-full py-2 border-b border-white pb-4 uppercase label font-bold text-white"><p>{data.devStory.label}</p></Reveal>
+          <div className="col-span-full text-white divide border-b md:border-none py-4">
             <PortableText value={data.devStory.title} />
           </div>
-          <div className="col-span-6 grid grid-cols-6">
-            <div className="col-span-2">
+          <div className="col-span-full md:col-span-6 grid grid-cols-6">
+            <div className=" col-span-full md:col-span-4 col-start-2 md:col-start-auto lg:col-span-3 xl:col-span-2">
               <div className="w-full pb-9 pt-27">
                 {data.devStory.profile ? (<SwitchContent work={data.devStory.profile} title={'Building Spec'} audio={false} />) : ('')}
               </div>
               <div className="profile">
                 <p className="label text-white uppercase mb-4">{data.devStory.profile.name}</p>
-                <div className="label  text-darkGray"><PortableText value={data.devStory.profile.title} /></div>
+                <div className="label text-darkGray"><PortableText value={data.devStory.profile.title} /></div>
 
               </div>
             </div>
           </div>
-          <div className="col-span-6 grid grid-cols-6">
-            <div className="col-span-4 col-start-2 text-white p2"><PortableText value={data.devStory.quote} /></div>
+          <div className="col-span-full md:col-span-6 grid grid-cols-6">
+            <div className="col-span-full md:col-span-4 md:col-start-2 text-white p2"><PortableText value={data.devStory.quote} /></div>
           </div>
           <div className="col-span-full border-white border-b flex mt-21 gap-4 items-end h-auto pb-4">
             {data.devStory.footerLogos.map((item: any, i: number) => {
@@ -161,10 +161,6 @@ export default async function Home() {
             <a href={data.retail.cta.url} className="col-span-12"> <div className="cta inline-block"><p>{data.retail.cta.label}</p></div></a>
 
 
-
-
-
-
           </div>
 
 
@@ -185,8 +181,6 @@ export default async function Home() {
               <div className="cta inline-block inverted"><p>{data.retail.cta.label}</p></div>
             </div>
           </div>
-
-
 
         </div>
 
