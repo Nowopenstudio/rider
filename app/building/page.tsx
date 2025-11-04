@@ -91,7 +91,7 @@ export default async function Home() {
             </div>
             <a href={data.landmark.cta.url} className="cta inline-block"><p>{data.landmark.cta.label}</p></a>
           </Reveal>
-          <div className="col-span-full md:col-span-1 row-start-1 md:row-start-auto grid grid-cols-6 pt-29">
+          <div className="col-span-full md:col-span-1 row-start-1 md:row-start-auto items-start grid grid-cols-6 pt-29">
             <Reveal styleSet="col-span-full md:col-span-4 md:col-start-2 mb-9 md:mb-0">
               <div className="w-full mb-9 hoverOn"> {data.specs.media ? (<SwitchContent zoom credits captions work={data.specs.media} title={'Building Spec'} ratio={data.specs.media.ratio} audio={false} />) : ('')}</div>
               <h3 className="mb-10 px-4 md:px-0">{data.specs.title}</h3>
@@ -109,20 +109,19 @@ export default async function Home() {
         </div>
 
         {/* dev */}
-        <div className="col-span-full grid grid-cols-12 bg-black p-9 items-center z-2 sticky top-0 md:top-[74px] h-[calc(100dvh_-_74px)]">
+        <div className="col-span-full md:grid grid-cols-12 bg-black p-4 md:p-9 items-center z-2 sticky top-0 md:top-[74px] h-[calc(100dvh_-_74px)]">
           <Reveal styleSet="col-span-full py-2 border-b border-white pb-4 uppercase label font-bold text-white"><p>{data.devStory.label}</p></Reveal>
           <div className="col-span-full text-white divide border-b md:border-none py-4">
             <PortableText value={data.devStory.title} />
           </div>
-          <div className="col-span-full md:col-span-6 grid grid-cols-6">
-            <div className=" col-span-full md:col-span-4 col-start-2 md:col-start-auto lg:col-span-3 xl:col-span-2">
-              <div className="w-full pb-9 pt-27">
+          <div className="col-span-full md:col-span-6 grid grid-cols-6 items-start md:items-center">
+            <div className=" col-span-4 md:col-span-4 col-start-2 md:col-start-auto lg:col-span-3 xl:col-span-2">
+              <div className="w-full mb-4 md:pb-9 pt-9 md:pt-27">
                 {data.devStory.profile ? (<SwitchContent work={data.devStory.profile} title={'Building Spec'} audio={false} />) : ('')}
               </div>
               <div className="profile">
                 <p className="label text-white uppercase mb-4">{data.devStory.profile.name}</p>
-                <div className="label text-darkGray"><PortableText value={data.devStory.profile.title} /></div>
-
+                <div className="label text-darkGray mb-9 md:mb-0"><PortableText value={data.devStory.profile.title} /></div>
               </div>
             </div>
           </div>
@@ -141,42 +140,44 @@ export default async function Home() {
         </div>
 
         {/* Rise */}
-        <div className="col-span-12 rounded-t-[12px] bg-offWhite pt-9 z-3 reliatve">
-          <div className="w-full grid grid-cols-12 px-9">
-            <div className="col-span-5 mb-39"><div className="mb-18 divide"><PortableText value={data.rise.title} /></div>
+        <div className="col-span-12 rounded-t-[12px] bg-offWhite pt-4 md:pt-9 z-3 reliatve">
+          <div className="w-full grid grid-cols-12 px-0 md:px-9">
+            <div className="col-span-full md:col-span-5 mb-6.5 md:mb-39 px-4 md:px-0"><div className="mb-6.5 md:mb-18 divide"><PortableText value={data.rise.title} /></div>
               <div className="w-full"><PortableText value={data.rise.copy} /></div>
             </div>
-            <Reveal styleSet="col-span-6 col-start-4 mb-39 hoverOn">
+            <Reveal styleSet="col-span-full md:col-span-6 md:col-start-4 mb-6.5 md:mb-39 hoverOn">
               {data.rise.image ? (<SwitchContent zoom captions credits work={data.rise} title={'Header Video'} audio={false} />) : ('')}
 
             </Reveal>
 
-            <div className="col-span-full py-2 border-b  pb-4 uppercase label font-bold"><p>{data.retail.label}</p></div>
-            <div className="col-span-full divide uppercase mb-14 py-9">
-              <PortableText value={data.retail.title} />
+            <div className="col-span-full grid grid-cols-12 px-4 md:px-0">
+              <div className="col-span-full py-2 border-b  pb-4 uppercase label font-bold"><p>{data.retail.label}</p></div>
+              <div className="col-span-full divide uppercase mb-6.5 md:mb-14 py-4 md:py-9">
+                <PortableText value={data.retail.title} />
+              </div>
+              <div className="col-span-12 md:col-span-6 mb-6.5 md:mb-14">
+                <PortableText value={data.retail.copy} />
+              </div>
+              <a href={data.retail.cta.url} className="col-span-12"> <div className="cta inline-block"><p>{data.retail.cta.label}</p></div></a>
             </div>
-            <div className="col-span-6 mb-14">
-              <PortableText value={data.retail.copy} />
-            </div>
-            <a href={data.retail.cta.url} className="col-span-12"> <div className="cta inline-block"><p>{data.retail.cta.label}</p></div></a>
 
 
           </div>
 
 
-          <div className=" col-span-full pt-13 pb-39"><GalleryC data={data.retail.gallery} /></div>
-          <div className="w-full grid grid-cols-12 px-9">
-            <Reveal styleSet="col-span-6 col-start-4 mb-39 hoverOn">
+          <div className=" col-span-full pt-6.5 md:pt-13 mb-6.5 md:pb-39"><GalleryC data={data.retail.gallery} /></div>
+          <div className="w-full grid grid-cols-12 px-0 md:px-9">
+            <Reveal styleSet="col-span-full md:col-span-6 md:col-start-4 mb-6.5 md:mb-39 hoverOn">
               {data.retail.intro ? (<SwitchContent zoom captions credits work={data.retail.intro} title={'Header Video'} audio={false} />) : ('')}
             </Reveal>
           </div>
-          <div className='w-full aspect-video flex items-center relative'>
+          <div className='w-full h-[100dvh] md:h-auto md:aspect-video flex items-end md:items-center relative'>
             <div className='w-full absolute top-0 h-full left-0 z-0'>
               {data.retail.outro ? (
                 <SwitchContent work={data.retail.outro} title={'Header Video'} ratio={data.retail.outro.ratio} audio={false} cover dim />
               ) : ('')}
             </div>
-            <div className="w-1/4 text-white relative z-10 px-9">
+            <div className="w-2/3 md:w-1/4 text-white relative z-10 pb-4 md:pb-0 px-4 md:px-9">
               <div className="mb-9"><PortableText value={data.retail.outro.title} /></div>
               <div className="cta inline-block inverted"><p>{data.retail.cta.label}</p></div>
             </div>

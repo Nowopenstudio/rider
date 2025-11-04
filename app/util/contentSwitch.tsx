@@ -4,6 +4,7 @@ import { MuxVideoBG } from "./muxPlayer";
 import Image from "next/image";
 import { PortableText } from "next-sanity";
 import { Zoom } from "../components/svg";
+import SmoothScrolling from "./SmoothScrolling";
 
 export function SwitchContent({zoom,work, title,ratio,cover, contain,size, audio,color,ratioImg,dim,height, captions, credits,inside}: any) {
 const [active,setActive] = useState(false);
@@ -47,7 +48,9 @@ const zoomOff=()=>{
       </div>
       <div  className={`fixed w-[100dvw] h-[100dvh] top-0 left-0 bg-black  loader z-[100] ${active?'':'pointer-events-none'} `} style={{opacity:active?1:0}}>
        <div ref={ref}
-          tabIndex={-1} className="w-[100dvw] h-[100dvh] overflow-y-auto"> <Image alt="image" onContextMenu={(e)=>{e.preventDefault()}} height={0}  width={0} sizes={`${size?size:`100vw`}`}  src={work.image}  className={`${height?`h-full w-auto`:'w-full h-auto'}`} style={{aspectRatio:work.ratioImg}}/></div>
+          tabIndex={-1} className="w-[100dvw] h-[100dvh] overflow-y-auto">
+           <SmoothScrolling> <Image alt="image" onContextMenu={(e)=>{e.preventDefault()}} height={0}  width={0} sizes={`${size?size:`100vw`}`}  src={work.image}  className={`${height?`h-full w-auto`:'w-full h-auto'}`} style={{aspectRatio:work.ratioImg}}/></SmoothScrolling>
+        </div>
           <div className={`credits uppercase absolute top-9 left-9 z-2`}>{credits?(<PortableText value={work.credits}/>):('')}</div>
           <div>
             <div onClick={zoomOff} className={`cursor-pointer flex uppercase items-end flex-col justify-between mobileBar w-[42px] h-[16px] absolute top-9 right-9 z-[100]  pointer-events-auto `}>

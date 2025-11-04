@@ -180,6 +180,11 @@ body{
  text-rendering: optimizeLegibility;
 }
 
+#body.lightBox{
+  height:100dvh;
+  overflow:hidden;
+}
+
 
 
 p em{font-family: "serif",'Times New Roman', Times, serif;}
@@ -811,6 +816,7 @@ h1.title br::before,h2 br::before{white-space:30px; margin-right:30px}
   font-size: .5625rem;letter-spacing: .01125em;
 
 
+
 }
   }
 
@@ -822,7 +828,10 @@ h1.title br::before,h2 br::before{white-space:30px; margin-right:30px}
     h2.loader{font-size:3rem}
     h2.serif{font-size:1.5rem;line-height: 1.11em;letter-spacing: -0.01em;}
     .footerContact p{font-size:.875rem;
-    
+   
 } 
+ .p2 p{
+      font-size:1.0625rem
+    }
 
   }
