@@ -14,6 +14,7 @@ const {mobile} = useResize();
   const ref = useRef<HTMLDivElement>(null)
 
 const zoomOn=()=>{
+
   setActive(true)
   const curr = document.getElementById('body')
   if(curr){
@@ -51,7 +52,7 @@ const zoomOff=()=>{
    
   if (work.image) return (
   <div className="w-full relative h-full">
-    <Image alt="image" onClick={zoom?zoomOn:undefined} onContextMenu={(e)=>{e.preventDefault()}} height={0}  width={0} sizes={`${size?size:`100vw`}`}  src={work.image}  className={`${height?`h-full w-auto`:'w-full h-auto'} ${contain?"object-contain h-full":""} ${cover?"object-cover h-full":""} ${zoom?'cursor-pointer':''}`} style={{aspectRatio:work.ratioImg}}/>
+    <Image alt="image" onClick={zoom&&!mobile?zoomOn:undefined} onContextMenu={(e)=>{e.preventDefault()}} height={0}  width={0} sizes={`${size?size:`100vw`}`}  src={work.image}  className={`${height?`h-full w-auto`:'w-full h-auto'} ${contain?"object-contain h-full":""} ${cover?"object-cover h-full":""} ${zoom?'cursor-pointer':''}`} style={{aspectRatio:work.ratioImg}}/>
   {credits || captions?( <div className={`md:flex justify-between w-full onHover py-4 ${inside?"text-white relative md:absolute bottom-0 left-0 px-4 z-10":""}`}><div className={`captions px-4 mb-4 md:mb-0 md:px-0 relative`}>
     {mobile?(
      <div className="absolute right-4 top-0 z-20"  onClick={toggleInfo}> <div className="h-[16px] w-[16px]">{info?(<InfoBAlt className="w-full h-full"/>):<InfoB className="w-full h-full"/> }</div></div>
@@ -74,9 +75,12 @@ const zoomOff=()=>{
 
   {zoom?(
     <React.Fragment>
-      <div onClick={zoomOn} className="absolute z-10 top-2.5 left-2.5 w-[16px] h-[16px] p-[2px] onHover" style={{backgroundColor:`rgba(255,255,255,.8)`}}>
+      {mobile?(''):(
+          <div onClick={zoomOn} className="absolute z-10 top-2.5 left-2.5 w-[16px] h-[16px] p-[2px] onHover" style={{backgroundColor:`rgba(255,255,255,.8)`}}>
         <Zoom className="w-full h-full" fill={`000000`}/>
       </div>
+      )}
+    
       <div  className={`fixed w-[100dvw] h-[100dvh] top-0 left-0 bg-black  loader z-[100] ${active?'':'pointer-events-none'} `} style={{opacity:active?1:0}}>
        <div ref={ref}
           tabIndex={-1} className="w-[100dvw] h-[100dvh] overflow-y-auto">
