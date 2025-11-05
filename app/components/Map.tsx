@@ -15,6 +15,7 @@ export default function Map({data }: any) {
   const [total,setTotal] = useState([]);
   const [cat,setCat]=useState('all');
   const [point,setPoint]=useState(0)
+  const {mobile} = useResize()
 
   const runCount=()=>{
     const count:any = []
@@ -136,7 +137,7 @@ const hidePoints=()=>{
                     <div className="w-full grid grid-cols-2 lg:grid-cols-3 gap-9">
                       <div className="col-span-1 py-2">
                         <Reveal styleSet=" pointer-events-none label"><p className="uppercase mb-2 font-bold">Filter</p></Reveal>
-                        <div className="flex lg:flex-col gap-4 mb-4 items-start">
+                        <div className="flex lg:flex-col gap-2 md:gap-4 mb-4 items-start">
                           <div onClick={()=>toggleFilter('wynwood')} className={`${cat=="wynwood"?'active':''} cta map filter cursor-pointer inline-block`}><p>WYNWOOD</p></div>
           
                           <div onClick={()=>toggleFilter('design-district')} className={`${cat=="design-district"?'active':''} cta filter cursor-pointer inline-block`}><p>DESIGN DISTRICT</p></div>
@@ -148,7 +149,7 @@ const hidePoints=()=>{
                         {data.locations.length?(
                           data.locations.map((item:any,i:number)=>{
                             return(
-                              <div key={`${item.title}`} className="w-1/2 mr-4">
+                              <div key={`${item.title}`} className="md:w-1/2 mr-4">
                                           <div className="w-full py-2   label"><p className="uppercase mb-2 font-bold">{item.title}</p>
                                           <div className='w-full keyHold'>
                                             {item.points?(
