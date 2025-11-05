@@ -20,6 +20,7 @@ import { MediaGrow } from "./components/mediaGrow";
 import GalleryI from "./components/galleryI";
 import Next from "./components/next";
 import {ScrollTarget, ScrollCTA} from "./components/scrollTarget";
+import { HoverVid } from "./components/HoverVideo";
 
 
 
@@ -172,13 +173,12 @@ export default async function Home() {
       </div>
 
       {/* Area */}
-        <div className="col-span-full  grid grid-cols-12 gap-4 md:px-9 relative z-2 bg-offWhite ">
-          <Reveal styleSet='col-span-full uppercase py-3 border-t border-b text-left mb-9 md:mb-42 px-4 md:px-0'><h2 className='w-full serif'>{data.location.title}</h2></Reveal>
-          <Reveal styleSet="col-span-6 col-start-4 aspect-video relative">
-            <div className="absolute center-object w-1/3">
-              <Image alt="image" height={0} width={0} sizes="100vw" src={data.location.video.image} className={`w-full h-auto `} />
-            </div>
-          </Reveal>
+        <div className="col-span-full  grid grid-cols-12 gap-4 md:px-9 relative z-10 bg-offWhite">
+          <Reveal styleSet='col-span-full uppercase py-3 border-t border-b text-left mb-9 px-4 md:px-0'><h2 className='w-full serif'>{data.location.title}</h2></Reveal>
+          
+             <HoverVid data={data.location.video}/>
+             
+          
         </div>
 
         

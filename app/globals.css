@@ -56,6 +56,7 @@ html.lenis, html.lenis body {
 mux-player{
   clip-path: inset(2px 2px);
   transition: opacity .45s ease-in-out;
+  background-color: #ffffff;
 }
   
 .bgMux mux-player{
