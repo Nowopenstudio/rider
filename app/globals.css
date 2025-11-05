@@ -469,7 +469,7 @@ font-style: italic;
   opacity:0;
   pointer-events: none;
 }
-.keyList.hide, .keyHold.dim .keyList{
+.keyList.hide, .keyHold.dim .keyList, .galleryImage.dim{
   opacity:.25;
 
 }

@@ -110,7 +110,7 @@ const next=()=>{
             
               {gallery.map((item:any, i:number)=>{
                 return(
-                  <div key={`image-${i}`}  className={` w-auto h-full  galleryImage origin-center flex-shrink-0`} >
+                  <div key={`image-${i}`}  className={` w-auto h-full  galleryImage rounder-[6px] md:rounded-0 origin-center flex-shrink-0 ${mobile && curr+2!==i?'dim':''}`} >
                    <div className="singleMedia h-full relative w-auto">
                    
                      <div className="w-auto h-full relative"> <SwitchContent work={item} title={`${item}`} ratio={item.ratio} audio={false} height />
