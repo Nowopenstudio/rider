@@ -4,6 +4,7 @@ import { SwitchContent } from '../util/contentSwitch';
 import { PortableText } from 'next-sanity';
 import { Reveal } from '../util/reveal';
 import useResize from '../util/useResize';
+import { InfoBAlt } from './svg';
 
 
 
@@ -16,6 +17,8 @@ export default function GalleryA({data,full}: any) {
   const [disable,setDisable]=useState(false);
   const [animating,setAnim]=useState(false); 
   const [curr,setCurr]=useState(0);
+    const [active,setActive] = useState(false)
+  
   const gallery = [data[data.length-2],data[data.length-1],...data,data[0],data[1]]
 
     const runCount=()=>{
@@ -84,6 +87,12 @@ const next=()=>{
     
   }
 
+      const toggleActive = () => {
+    setActive(!active)
+  }
+
+
+
 
 
 
@@ -91,30 +100,57 @@ const next=()=>{
 
   return (
     <React.Fragment>
-        <Reveal styleSet={`w-full h-full relative overflow-x-hidden  hoverOn` } >
-        <div className={`w-1/2 h-full z-40 left-0 absolute cursor-w-resize `} onClick={back}></div>
-             <div className={`w-1/2 h-full z-40 left-1/2 absolute cursor-e-resize `} onClick={next}></div>
-         
-        
-       <div onTransitionStart={setStart} onTransitionEnd={(curr==data.length)?(resetMin):(curr<0?resetMax:setStop)} className={`w-auto h-full flex flex-nowrap galleryFull gap-9 galleryScroll ${disable?'disable':''}`} ref={ref} style={{transform:`translateX(${total?(winX/2-indie[curr+2]/2-36)+(+(total[curr+1]+((curr+2)*36))*(-1))+36:`36`}px)`}}>
+        <div className="w-full h-full">
+          <Reveal styleSet={`w-full h-full relative overflow-x-hidden  hoverOn` } >
+          <div className={`w-1/2 h-full z-40 left-0 absolute cursor-w-resize `} onClick={back}></div>
+               <div className={`w-1/2 h-full z-40 left-1/2 absolute cursor-e-resize `} onClick={next}></div>
+           
           
-            {gallery.map((item:any, i:number)=>{
-              return(
-                <div key={`image-${i}`}  className={` w-auto h-full  galleryImage origin-center flex-shrink-0`} >
-                 <div className="singleMedia h-full relative w-auto">
-                 
-                   <div className="w-auto h-full relative"> <SwitchContent work={item} title={`${item}`} ratio={item.ratio} audio={false} height />
+         <div onTransitionStart={setStart} onTransitionEnd={(curr==data.length)?(resetMin):(curr<0?resetMax:setStop)} className={`w-auto h-full flex flex-nowrap galleryFull gap-9 galleryScroll ${disable?'disable':''}`} ref={ref} style={{transform:`translateX(${total?(winX/2-indie[curr+2]/2-36)+(+(total[curr+1]+((curr+2)*36))*(-1))+36:`36`}px)`}}>
+            
+              {gallery.map((item:any, i:number)=>{
+                return(
+                  <div key={`image-${i}`}  className={` w-auto h-full  galleryImage origin-center flex-shrink-0`} >
+                   <div className="singleMedia h-full relative w-auto">
+                   
+                     <div className="w-auto h-full relative"> <SwitchContent work={item} title={`${item}`} ratio={item.ratio} audio={false} height />
+                     </div>
+                     <div className={`creditHold justify-between flex ${curr+2==i?"onHover":''} py-2  z-2`}>
+                      <div className="captions"><PortableText value={item.captions}/></div>
+                      <div className="credits uppercase text-right"><PortableText value={item.credits}/></div>
+                     </div>
                    </div>
-                   <div className={`creditHold justify-between flex ${curr+2==i?"onHover":''} py-2  z-2`}>
-                    <div className="captions"><PortableText value={item.captions}/></div>
-                    <div className="credits uppercase text-right"><PortableText value={item.credits}/></div>
-                   </div>
-                 </div>
-                </div>
-              )
-            })}
-       </div>
-        </Reveal>
+                  </div>
+                )
+              })}
+         </div>
+          </Reveal>
+        </div>
+        {mobile ? (
+                            <div className={`mobileCredit py-2 px-4 relative`} >
+                             <div className="absolute right-4 top-2 z-10"  onClick={toggleActive}> <div className="h-[16px] w-[16px]"><InfoBAlt className="w-full h-full"/></div></div>
+                             {data[curr+2]?(
+                             <React.Fragment>
+                                {data[curr+2].caption?( <div className="captions mb-2uppercase md:w-auto mb-4"><PortableText value={data[curr+2].caption} /></div>):('')}
+                               {data[curr+2].credits?(  <div className="credits uppercase md:w-auto" style={{transition:`all .24s ease-in-out`,height:'100px',opacity:active?1:0,maxHeight:active?200:0}}><PortableText value={data[curr+2].credits} /></div>):('')}
+                             </React.Fragment>
+                             ):('')}
+                             
+                              
+                              
+                            
+                                <div className="galleryMarker flex gap-[6px] w-full justify-start">
+                                  {data.map((dot: any, d: number) => {
+                                    return (
+                                      <div key={`${data.title}-${d}`} className={`relative ${d == 0 ? 'z-10' : 'z-1'} galleryDot w-[6px] h-[6px] rounded-full ${d == 0 ? "bg-black" : "bg-darkGray"}`} style={{ transformOrigin: 'center', transform: `scale(${d == 0 ? 1.5 : 1}) translateX(${d == 0 ? (curr * 8) : (d <= curr) ? (-12) : (0)}px)` }}></div>
+                                    )
+                                  })}
+                              
+                              </div>
+        
+        
+                            </div>
+                          ) : ('')}
     </React.Fragment>
   );
 }

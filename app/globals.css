@@ -852,6 +852,6 @@ h4.serif{font-family: "serif",'Times New Roman', Times, serif;font-size:1rem;lin
       font-size:1rem;font-weight: 500;
     }
 
-    .subMenu p, .subMenu,h5, {font-size:1.3125rem;}
+    .subMenu p, .subMenu,h5 {font-size:1.3125rem;}
 
   }

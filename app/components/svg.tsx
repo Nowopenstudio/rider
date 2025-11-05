@@ -30,22 +30,42 @@ export function Right(props:any){
  export function Pause(props:any){
     return(
         <svg {...props}  x="0px" y="0px"  viewBox="0 0 15 15" fill="none">
-<path fill-rule="evenodd" clip-rule="evenodd" d="M0 7.5C0 11.6422 3.35775 15 7.5 15C11.6422 15 15 11.6422 15 7.5C15 3.35775 11.6422 0 7.5 0C3.35775 0 0 3.35775 0 7.5ZM13.5 7.5C13.5 10.8137 10.8137 13.5 7.5 13.5C4.18629 13.5 1.5 10.8137 1.5 7.5C1.5 4.18629 4.18629 1.5 7.5 1.5C10.8137 1.5 13.5 4.18629 13.5 7.5ZM5.25 5.25H6.75V9.75H5.25V5.25ZM9.75 5.25H8.25V9.75H9.75V5.25Z" fill="#001018"/>
+<path fillRule="evenodd" clipRule="evenodd" d="M0 7.5C0 11.6422 3.35775 15 7.5 15C11.6422 15 15 11.6422 15 7.5C15 3.35775 11.6422 0 7.5 0C3.35775 0 0 3.35775 0 7.5ZM13.5 7.5C13.5 10.8137 10.8137 13.5 7.5 13.5C4.18629 13.5 1.5 10.8137 1.5 7.5C1.5 4.18629 4.18629 1.5 7.5 1.5C10.8137 1.5 13.5 4.18629 13.5 7.5ZM5.25 5.25H6.75V9.75H5.25V5.25ZM9.75 5.25H8.25V9.75H9.75V5.25Z" fill="#001018"/>
  </svg>)}
 
  export function Info(props:any){
     return(
         <svg {...props}  x="0px" y="0px" viewBox="0 0 16 16" fill="none">
-<path fill-rule="evenodd" clip-rule="evenodd" d="M8 0C6.41775 0 4.87103 0.469192 3.55544 1.34824C2.23985 2.22729 1.21447 3.47672 0.608967 4.93853C0.00346625 6.40034 -0.15496 8.00887 0.153721 9.56072C0.462403 11.1126 1.22433 12.538 2.34315 13.6569C3.46197 14.7757 4.88743 15.5376 6.43928 15.8463C7.99113 16.155 9.59966 15.9965 11.0615 15.391C12.5233 14.7855 13.7727 13.7602 14.6518 12.4446C15.5308 11.129 16 9.58225 16 8C16 5.87827 15.1571 3.84344 13.6569 2.34315C12.1566 0.842854 10.1217 0 8 0ZM9 13H7V7H9V13ZM9 5L7 4.93853V3H9L9 5Z" fill="white"/>
+<path fillRule="evenodd" clipRule="evenodd" d="M8 0C6.41775 0 4.87103 0.469192 3.55544 1.34824C2.23985 2.22729 1.21447 3.47672 0.608967 4.93853C0.00346625 6.40034 -0.15496 8.00887 0.153721 9.56072C0.462403 11.1126 1.22433 12.538 2.34315 13.6569C3.46197 14.7757 4.88743 15.5376 6.43928 15.8463C7.99113 16.155 9.59966 15.9965 11.0615 15.391C12.5233 14.7855 13.7727 13.7602 14.6518 12.4446C15.5308 11.129 16 9.58225 16 8C16 5.87827 15.1571 3.84344 13.6569 2.34315C12.1566 0.842854 10.1217 0 8 0ZM9 13H7V7H9V13ZM9 5L7 4.93853V3H9L9 5Z" fill="white"/>
  </svg>)}
 
  export function InfoAlt(props:any){
     return(
         <svg {...props}  x="0px" y="0px" viewBox="0 0 16 16" fill="none">
-<g clip-path="url(#clip0_3643_4412)">
+<g clipPath="url(#clip0_3643_4412)">
 <path d="M9 4V6H7V4H9Z" fill="white"/>
 <path d="M9 12V7H7V12H9Z" fill="white"/>
-<path fill-rule="evenodd" clip-rule="evenodd" d="M8 16C12.4183 16 16 12.4183 16 8C16 3.58172 12.4183 0 8 0C3.58172 0 0 3.58172 0 8C0 12.4183 3.58172 16 8 16ZM8 14C11.3137 14 14 11.3137 14 8C14 4.68629 11.3137 2 8 2C4.68629 2 2 4.68629 2 8C2 11.3137 4.68629 14 8 14Z" fill="white"/>
+<path fillRule="evenodd" clipRule="evenodd" d="M8 16C12.4183 16 16 12.4183 16 8C16 3.58172 12.4183 0 8 0C3.58172 0 0 3.58172 0 8C0 12.4183 3.58172 16 8 16ZM8 14C11.3137 14 14 11.3137 14 8C14 4.68629 11.3137 2 8 2C4.68629 2 2 4.68629 2 8C2 11.3137 4.68629 14 8 14Z" fill="white"/>
+</g>
+<defs>
+<clipPath id="clip0_3643_4412">
+<rect width="16" height="16" fill="white"/>
+</clipPath>
+</defs> </svg>)}
+
+ export function InfoB(props:any){
+    return(
+        <svg {...props}  x="0px" y="0px" viewBox="0 0 16 16" fill="none">
+<path fillRule="evenodd" clipRule="evenodd" d="M8 0C6.41775 0 4.87103 0.469192 3.55544 1.34824C2.23985 2.22729 1.21447 3.47672 0.608967 4.93853C0.00346625 6.40034 -0.15496 8.00887 0.153721 9.56072C0.462403 11.1126 1.22433 12.538 2.34315 13.6569C3.46197 14.7757 4.88743 15.5376 6.43928 15.8463C7.99113 16.155 9.59966 15.9965 11.0615 15.391C12.5233 14.7855 13.7727 13.7602 14.6518 12.4446C15.5308 11.129 16 9.58225 16 8C16 5.87827 15.1571 3.84344 13.6569 2.34315C12.1566 0.842854 10.1217 0 8 0ZM9 13H7V7H9V13ZM9 5L7 4.93853V3H9L9 5Z" fill="#6f6f6f"/>
+ </svg>)}
+
+ export function InfoBAlt(props:any){
+    return(
+        <svg {...props}  x="0px" y="0px" viewBox="0 0 16 16" fill="none">
+<g clipPath="url(#clip0_3643_4412)">
+<path d="M9 4V6H7V4H9Z" fill="#6f6f6f"/>
+<path d="M9 12V7H7V12H9Z" fill="#6f6f6f"/>
+<path fillRule="evenodd" clipRule="evenodd" d="M8 16C12.4183 16 16 12.4183 16 8C16 3.58172 12.4183 0 8 0C3.58172 0 0 3.58172 0 8C0 12.4183 3.58172 16 8 16ZM8 14C11.3137 14 14 11.3137 14 8C14 4.68629 11.3137 2 8 2C4.68629 2 2 4.68629 2 8C2 11.3137 4.68629 14 8 14Z" fill="#6f6f6f"/>
 </g>
 <defs>
 <clipPath id="clip0_3643_4412">
@@ -81,4 +101,16 @@ export function Right(props:any){
 
 
 
+ export function GalleryLeft(props:any){
+    return(
+        <svg {...props}  x="0px" y="0px" viewBox="0 0 17 17" fill={'none'} >
+<circle cx="8" cy="8" r="8" transform="matrix(-1 0 0 1 16.5004 0.5)" stroke="#666666" strokeWidth="1.00088" strokeLinejoin="round"/>
+<path d="M10.2504 4.75C8.68833 6.3121 7.81252 7.1879 6.25043 8.75L10.2504 12.75" stroke="#666666" strokeWidth="1.00088" strokeLinejoin="round"/>
+</svg>)}
 
+
+ export function GalleryRight(props:any){
+    return(
+        <svg {...props}  x="0px" y="0px" viewBox="0 0 5 9" fill={'none'} >
+<path d="M0.353852 0.353516C1.91595 1.91561 2.79175 2.79142 4.35385 4.35352L0.353851 8.35352" stroke="#666666" strokeWidth="1.00088" strokeLinejoin="round"/>
+</svg>)}

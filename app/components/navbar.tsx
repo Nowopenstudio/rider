@@ -114,7 +114,7 @@ console.log(scrolled)
       {mobile?(
           <div className={`mainMenu fixed top-0 left-0 z-90 w-[100vw] h-[100dvh] grid grid-cols-2 ${!active?'pointer-events-none':''}`} style={{opacity:active?1:0}}>
           
-            <div className={`col-span-2 bg-black  mobileMenu uppercase text-white relative z-2 px-4 md:px-9 pt-23`}>
+            <div className={`col-span-2 bg-black  mobileMenu uppercase text-white relative z-2 px-9 pt-23`}>
                                               <div className="w-auto flex flex-col">
                                                  <Link href="/" onClick={closeMenu} className="relative navItem"> <div className="cursor-pointer mb-2"><p>Home</p></div></Link>
                                                  <Link href="/building" onClick={closeMenu} className="relative navItem"> <div className="cursor-pointer mb-2"><p>Building</p></div></Link>
