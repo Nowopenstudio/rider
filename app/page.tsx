@@ -62,8 +62,8 @@ export default async function Home() {
 
       </div>
 
-      <div id={'intro'} className="w-full  pt-18 md:pt-0 bg-offWhite relative z-2 grid grid-cols-12 rounded-t-[12px]">
-        <div className="col-span-12 text-right footnote text-gray pointer-events-none sticky md:top-18 right-4 md:right-9 pr-4 md:pr-9 translate-y-4 md:translate-y-9 h-0 z-2"><PortableText value={data.welcome.copy} /></div>
+      <div id={'intro'} className="w-full  pt-18 md:pt-0 bg-offWhite relative z-2 grid grid-cols-12 rounded-t-[12px] overflow-x-hidden">
+        <div className="col-span-12 text-right footnote  pointer-events-none sticky md:top-18 right-4 md:right-9 pr-4 md:pr-9 translate-y-4 md:translate-y-9 h-0 z-2"><PortableText value={data.welcome.copy} /></div>
        <div className="col-span-full"> <TextBlock off title={data.welcome.title} footnote={data.welcome.copy} copy={data.build.copy} subhead={data.build.title}/></div>
         
     

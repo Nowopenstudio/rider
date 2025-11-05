@@ -49,16 +49,16 @@ export default async function Home() {
       </div> */}
           <VidHead data={data.header.video}/>
 
-      <div className="w-full  bg-offWhite  sticky z-2 grid grid-cols-12">
+      <div className="w-full  bg-offWhite  sticky z-2 grid grid-cols-12 overflow-x-hidden">
         <div className="col-span-full mb-9 md:mb-12"> <TextBlock title={data.intro.title} /></div>
         <div className="col-span-full md:col-span-6 divide mb-9 md:mb-24 px-4 md:px-9"><PortableText value={data.intro.subtitle} /></div>
-        <div className="col-span-12 px-9 md:px-9 grid grid-cols-2 gap-4 md:gap-9 items-start mb-45">
-          <div className="col-span-1 cipres"><PortableText value={data.intro.subhead} /></div>
-          <div className="col-span-1 grid grid-cols-6 mb-45"><div className="col-span-5"><PortableText value={data.intro.copy} /></div></div>
-          <div className="grid grid-cols-6"><div className="col-span-5 mb-48"><SwitchContent work={data.intro.left.top} title={'Header Video'} audio={false} cover /></div>
-            <div className="col-span-3 col-start-2"><SwitchContent work={data.intro.left.bottom} title={'Header Video'} audio={false} cover /></div></div>
-          <div className="grid grid-cols-6 gap-9">
-            <div className="benifits border-t col-span-full mb-25">
+        <div className="col-span-12 px-4 md:px-9 grid grid-cols-2 gap-4 md:gap-9 items-start 9 mb-md:mb-45">
+          <div className="col-span-full md:col-span-1 cipres"><PortableText value={data.intro.subhead} /></div>
+          <div className="col-span-full md:col-span-1 grid grid-cols-6 mb-9 md:mb-45"><div className="col-span-full md:col-span-5"><PortableText value={data.intro.copy} /></div></div>
+          <div className="col-span-full md:col-span-1 grid grid-cols-6"><div className="col-span-full md:col-span-5 mb-9 md:mb-48"><SwitchContent work={data.intro.left.top} title={'Header Video'} audio={false} cover /></div>
+            <div className="col-span-4 md:col-span-3 col-start-2"><SwitchContent work={data.intro.left.bottom} title={'Header Video'} audio={false} cover /></div></div>
+          <div className="col-span-full md:col-span-1 grid grid-cols-6 gap-9">
+            <div className="benifits border-t col-span-full mb-9 md:mb-25">
               {data.intro.right.benefits ? (
                 data.intro.right.benefits.map((item: any, i: number) => {
                   return (
@@ -72,25 +72,25 @@ export default async function Home() {
               ) : ('')}
 
             </div>
-            <div className="col-span-3 mb-48"><SwitchContent work={data.intro.right.media} title={'Header Video'} audio={false} cover /></div>
+            <div className="col-span-full md:col-span-3 mb-9 md:mb-48"><SwitchContent work={data.intro.right.media} title={'Header Video'} audio={false} cover /></div>
           </div>
         </div>
 
         {/* edge */}
-        <div className="col-span-full mb-81.5">
-          <div className="w-full grid grid-cols-2 px-9 gap-9">
-            <div className="col-span-full divide py-12 border-t uppercase mb-37.5"><PortableText value={data.edge.title} /></div>
-            <div className="grid grid-cols-9">
-              <div className="col-span-5 col-start-3"><div className="w-full"><SwitchContent work={data.edge.profile.media} title={'Header Video'} audio={false} /></div>
+        <div className="col-span-full mb-9 md:mb-81.5">
+          <div className="w-full grid grid-cols-2 px-4 md:px-9 gap-9">
+            <div className="col-span-full divide py-4 md:py-12 border-t uppercase md:mb-37.5"><PortableText value={data.edge.title} /></div>
+            <div className="col-span-full md:col-span-1 grid grid-cols-9">
+              <div className="col-span-full md:col-span-5 md:col-start-3"><div className="w-full"><SwitchContent work={data.edge.profile.media} title={'Header Video'} audio={false} /></div>
                 <div className="w-full uppercase py-4.5">
                   <p className="mb-2 label">{data.edge.profile.name}</p>
                   <div className="text-darkGray label"><PortableText value={data.edge.profile.title}/></div>
                 </div>
               </div>
             </div>
-            <div className="grid grid-cols-6">
-              <div className="col-span-full mb-31.5"><PortableText value={data.edge.copy} /></div>
-              <div className="benifits border-t col-span-full mb-25">
+            <div className="col-span-full md:col-span-1 grid grid-cols-6">
+              <div className="col-span-full mb-9 md:mb-31.5"><PortableText value={data.edge.copy} /></div>
+              <div className="benifits border-t col-span-full mb-9 md:mb-25">
                 {data.edge.benefits ? (
                   data.edge.benefits.map((item: any, i: number) => {
                     return (
@@ -110,15 +110,15 @@ export default async function Home() {
         </div>
 
         {/* Residences */}
-        <div className="col-span-full mb-81.5">
-          <div className="w-full grid grid-cols-2 px-9 gap-x-9 items-center">
-            <div className="col-span-full divide pt-12 border-t uppercase mb-34"><PortableText value={data.residences.title} /></div>
-            <div className="col-span-full divide uppercase mb-37.5"><PortableText value={data.residences.subtitle} /></div>
-            <div className="grid grid-cols-6">
-              <div className="col-span-5"><PortableText value={data.residences.copy} /></div>
+        <div className="col-span-full mb-9 md:mb-81.5">
+          <div className="w-full grid grid-cols-2 px-4  md:px-9 gap-x-9 items-center">
+            <div className="col-span-full divide pt-4 md:pt-12 border-t uppercase mb-9 md:mb-34"><PortableText value={data.residences.title} /></div>
+            <div className="col-span-full divide uppercase mb-9 md:mb-37.5"><PortableText value={data.residences.subtitle} /></div>
+            <div className="col-span-full md:col-span-1 grid grid-cols-6">
+              <div className="col-span-full md:col-span-5 mb-9 md:mb-0"><PortableText value={data.residences.copy} /></div>
             </div>
-            <div className="grid grid-cols-8">
-              <div className="col-span-4 col-start-3 mb-37.5"><div className="w-full"><SwitchContent work={data.residences.media} title={'Header Video'} audio={false} /></div>
+            <div className="col-span-full md:col-span-1 grid grid-cols-8">
+              <div className="col-span-full md:col-span-4 md:col-start-3 mb-9 md:mb-37.5"><div className="w-full"><SwitchContent work={data.residences.media} title={'Header Video'} audio={false} /></div>
               </div>
             </div>
 
@@ -130,15 +130,15 @@ export default async function Home() {
         </div>
 
         {/* services */}
-        <div className="col-span-full mb-46">
-          <div className="w-full grid grid-cols-12 px-9 gap-x-9 items-center">
-            <div className="col-span-full divide pt-12 border-t uppercase mb-34"><PortableText value={data.services.title} /></div>
-                <div className="col-span-4 col-start-5 mb-27.5"><SwitchContent work={data.services.media} title={'Header Video'} audio={false} /></div>
-            <div className="col-span-full divide uppercase mb-12"><PortableText value={data.services.subtitle} /></div>
+        <div className="col-span-full mb-9 md:mb-46">
+          <div className="w-full grid grid-cols-12 px-4 md:px-9 gap-x-4 md:gap-x-9 items-center">
+            <div className="col-span-full divide pt-9 md:pt-12 border-t uppercase mb-9 md:mb-34"><PortableText value={data.services.title} /></div>
+                <div className="col-span-full md:col-span-4 md:col-start-5 mb-9 md:mb-27.5"><SwitchContent work={data.services.media} title={'Header Video'} audio={false} /></div>
+            <div className="col-span-full divide uppercase mb-9 md:mb-12"><PortableText value={data.services.subtitle} /></div>
             
             
           </div>
-               <div className="w-full px-9">
+               <div className="w-full px-4 md:px-9">
                   {data.services.benefits ? (
                     data.services.benefits.map((item: any, i: number) => {
                       return (
@@ -158,35 +158,35 @@ export default async function Home() {
 
 
         {/* tech */}
-        <div className="col-span-full mb-81.5">
-          <div className="w-full grid grid-cols-2 px-9 gap-9 items-center">
-            <div className="col-span-full divide py-12 border-t uppercase mb-37.5"><PortableText value={data.tech.title} /></div>
-            <div className="grid grid-cols-9">
-              <div className="col-span-5 col-start-3"><div className="w-full"><SwitchContent work={data.tech.media} title={'Header Video'} audio={false} /></div>
+        <div className="col-span-full mb-9 md:mb-81.5">
+          <div className="w-full grid grid-cols-2 px-4 md:px-9 gap-9 items-center">
+            <div className="col-span-full divide py-4 md:py-12 md:border-t uppercase mb-4 md:mb-37.5"><PortableText value={data.tech.title} /></div>
+            <div className="col-span-full md:col-span-1 grid grid-cols-9">
+              <div className="col-span-full md:col-span-5 md:col-start-3"><div className="w-full"><SwitchContent work={data.tech.media} title={'Header Video'} audio={false} /></div>
                 
               </div>
             </div>
-            <div className="grid grid-cols-6">
+            <div className="col-span-full md:col-span-1 grid grid-cols-6">
               <div className="col-span-full mb-9 uppercase divide"><PortableText value={data.tech.subtitle} /></div>
               <div className="col-span-full "><PortableText value={data.tech.copy} /></div>
               
             </div>
             
           </div> 
-          <div className="grid grid-cols-12 px-9 mt-35">
-             <div className="col-span-8 col-start-3"><SwitchContent work={data.tech.screen} title={'Header Video'} audio={false} /></div></div>          
+          <div className="grid grid-cols-12 px-4 md:px-9 mt-9 md:mt-35">
+             <div className="col-span-full md:col-span-8 md:col-start-3"><SwitchContent work={data.tech.screen} title={'Header Video'} audio={false} /></div></div>          
 
         </div> 
 
         
          {/* services */}
-        <div className="col-span-full mb-46">
-          <div className="w-full grid grid-cols-12 px-9 gap-x-9 items-center">
-            <div className="col-span-full divide pt-12 border-t uppercase mb-34"><PortableText value={data.setup.title} /></div>
-                <div className="col-span-8 col-start-3 mb-27.5"><SwitchContent work={data.setup.media} title={'Header Video'} audio={false} /></div>
+        <div className="col-span-full mb-9 md:mb-46">
+          <div className="w-full grid grid-cols-12 px-4 md:px-9 gap-x-9 items-center">
+            <div className="col-span-full divide pt-12 border-t uppercase mb-9 md:mb-34"><PortableText value={data.setup.title} /></div>
+                <div className="col-span-full md:col-span-8 md:col-start-3 mb-9 md:mb-27.5"><SwitchContent work={data.setup.media} title={'Header Video'} audio={false} /></div>
             
           </div>
-               <div className="w-full px-9 mb-23.5">
+               <div className="w-full px-4 md:px-9 mb-9 md:mb-23.5">
                   {data.setup.benefits ? (
                     data.setup.benefits.map((item: any, i: number) => {
                       return (
@@ -203,7 +203,7 @@ export default async function Home() {
   
                </div>
                <div className="w-full grid grid-cols-12 gap-9">
-                <div className="col-span-4 grid grid-cols-3 gap-9 px-9">
+                <div className="col-span-full md:col-span-4 grid grid-cols-3 gap-9 px-9">
                   {data.setup.gallery.map((item:any,i:number)=>{
                     return(
                       <div key={`logo-${i}`} className="h-[30px]">
@@ -217,13 +217,13 @@ export default async function Home() {
 
 
             {/* Guest */}
-        <div className="col-span-full mb-81.5">
-          <div className="w-full grid grid-cols-2 px-9 gap-x-9 items-center">
-            <div className="col-span-full divide pt-12 border-t uppercase mb-34"><PortableText value={data.guest.title} /></div>
-            <div className="grid grid-cols-6 col-span-1 mb-23.5">
-              <div className="col-span-5"><PortableText value={data.residences.copy} /></div>
+        <div className="col-span-full mb-9 md:mb-81.5">
+          <div className="w-full grid grid-cols-2 px-4 md:px-9 gap-x-4 md:gap-x-9 items-center">
+            <div className="col-span-full divide pt-12 border-t uppercase mb-9 md:mb-34"><PortableText value={data.guest.title} /></div>
+            <div className="grid grid-cols-6 col-span-full md:col-span-1 mb-9 md:mb-23.5">
+              <div className="col-span-full md:col-span-5"><PortableText value={data.residences.copy} /></div>
             </div>
-            <div className="col-span-full divide uppercase mb-37.5"><PortableText value={data.guest.subtitle} /></div>
+            <div className="col-span-full divide uppercase mb-9 md:mb-37.5"><PortableText value={data.guest.subtitle} /></div>
             
 
           </div>
@@ -234,19 +234,19 @@ export default async function Home() {
         </div>
 
            {/* Potential */}
-        <div className="col-span-full mb-34.25 px-9">
+        <div className="col-span-full mb-9 md:mb-34.25 px-4 md:px-9">
           <div className="w-full grid grid-cols-2 gap-x-9 items-center border-t">
              
-            <div className="col-span-1">
-             <div className="col-span-full divide pt-12 uppercase mb-34"><PortableText value={data.potential.title} /></div>
-              <div className="grid grid-cols-6 w-full mb-23.5">
-                <div className="col-span-5"><PortableText value={data.potential.copy} /></div>
+            <div className="col-span-full md:col-span-1">
+             <div className="col-span-full divide pt-12 uppercase mb-9 md:mb-34"><PortableText value={data.potential.title} /></div>
+              <div className="col-span-full md:col-span-1 grid grid-cols-6 w-full mb-9 md:mb-23.5">
+                <div className="col-span-full md:col-span-5"><PortableText value={data.potential.copy} /></div>
               </div>
-              <div className="w-full divide uppercase mb-37.5"><PortableText value={data.potential.subtitle} /></div>
+              <div className="w-full divide uppercase mb-9 md:mb-37.5"><PortableText value={data.potential.subtitle} /></div>
             </div>
             
-            <div className="grid grid-cols-9">
-              <div className="col-span-4 col-start-3"><div className="w-full"><SwitchContent work={data.potential.media} title={'Header Video'} audio={false} /></div>
+            <div className="col-span-full md:col-span-1 grid grid-cols-9">
+              <div className="col-span-full md:col-span-4 md:col-start-3"><div className="w-full"><SwitchContent work={data.potential.media} title={'Header Video'} audio={false} /></div>
                 
               </div>
             </div>
@@ -256,18 +256,18 @@ export default async function Home() {
         </div>
         
         {/* contact  */}
-        <div className="bg-black p-9 col-span-full text-white">
-         <div className="w-full grid grid-cols-2 border-t py-23.5 ">
-          <div className="col-span-1">
+        <div className="bg-black p-4 md:p-9 col-span-full text-white">
+         <div className="w-full grid grid-cols-2 border-t py-9 md:py-23.5 ">
+          <div className="col-span-full md:col-span-1">
              <div className="grid grid-cols-9">
-              <div className="col-span-4 col-start-3"><div className="w-full"><SwitchContent work={data.schedule.media} title={'Header Video'} audio={false} /></div>
+              <div className="col-span-full md:col-span-4 md:col-start-3"><div className="w-full"><SwitchContent work={data.schedule.media} title={'Header Video'} audio={false} /></div>
                 
               </div>
             </div>
           </div>
-          <div className="col-span-1 flex flex-col justify-between h-full cipres">
-           <div> <PortableText value={data.schedule.title}/></div>
-           <div className='w-1/2'> <PortableText value={data.schedule.copy}/></div>
+          <div className="col-span-full md:col-span-1 md:flex flex-col justify-between h-auto md:h-full cipres">
+           <div className="mb-9 md:mb-0"> <PortableText value={data.schedule.title}/></div>
+           <div className='md:w-1/2 mb-9 md:mb-0'> <PortableText value={data.schedule.copy}/></div>
            <div> <PortableText value={data.schedule.contact}/></div>
             </div>
           </div>

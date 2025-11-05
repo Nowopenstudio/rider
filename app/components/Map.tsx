@@ -14,6 +14,7 @@ import useResize from '../util/useResize';
 export default function Map({data }: any) {
   const [total,setTotal] = useState([]);
   const [cat,setCat]=useState('all');
+  const [point,setPoint]=useState(0)
 
   const runCount=()=>{
     const count:any = []
@@ -56,6 +57,32 @@ export default function Map({data }: any) {
     }
   }
 
+  const changePoint=(e:any)=>{
+    const curr = e.currentTarget.getAttribute('data-count')
+    const prev = document.getElementsByClassName('chosen')
+    if(prev.length){
+      prev[0].classList.remove('chosen')
+    }
+
+      const prev2 = document.getElementsByClassName('chosenKey')
+    if(prev2.length){
+      prev2[0].classList.remove('chosenKey')
+    }
+  
+    const el = document.querySelector(`div[data-count='${curr}']`)
+    if(el){
+      el.classList.add('chosen')
+    }
+
+    const id = document.getElementById(`key-${curr}`)
+    if(id){
+      id.classList.add('chosenKey')
+    }
+
+    
+  
+  }
+
 const hidePoints=()=>{
    const key =document.getElementsByClassName('keyHold')
        if(key.length){
@@ -91,7 +118,7 @@ const hidePoints=()=>{
                                           {item.points?(
                                             item.points.map((point:any,p:number)=>{
                                               return(
-                                                <div onMouseLeave={hidePoints} onMouseEnter={(e:any)=>showPoint(e)} data-count={p+1+(i>0?total[i-1]:0)} className={`w-[30px] h-[30px] cursor-pointer pointer-events-auto text-darkGray  rounded-full flex items-center justify-center singlePoint absolute mapPoints border border-darkGray bg-offWhite label ${(cat!=="all" && cat!==point.area)?"hide":''} hover:z-[900]`} key={`loc-${point.title}`} style={{left:`${point.lat}%`,top:`${point.long}%`}}>
+                                                <div onMouseLeave={hidePoints} onMouseEnter={(e:any)=>showPoint(e)} data-count={p+1+(i>0?total[i-1]:0)} className={`w-[30px] h-[30px] cursor-pointer pointer-events-auto text-darkGray  rounded-full flex items-center justify-center singlePoint absolute mapPoints border border-darkGray bg-offWhite label ${(cat!=="all" && cat!==point.area)?"hide":''} ${(p+1+(i>0?total[i-1]:0))==point?"chosen":''} hover:z-[900] `} key={`loc-${point.title}`} style={{left:`${point.lat}%`,top:`${point.long}%`}}>
                                                  <p>{p+1+(i>0?total[i-1]:0)}</p>
                                                 </div>
                                               )
@@ -127,7 +154,7 @@ const hidePoints=()=>{
                                             {item.points?(
                                               item.points.map((point:any,p:number)=>{
                                                 return(
-                                                  <div id={`key-${p+1+(i>0?total[i-1]:0)}`} data-count={p+1+(i>0?total[i-1]:0)} onMouseLeave={hidePoints} onMouseEnter={(e:any)=>showPoint(e)} className={`cursor-pointer w-full grid grid-cols-12 mapPoints font-bold keyList text-darkGray ${(cat!=="all" && cat!==point.area)?"hide":''}`} key={`${point.title}`}>
+                                                  <div id={`key-${p+1+(i>0?total[i-1]:0)}`} data-count={p+1+(i>0?total[i-1]:0)} onMouseLeave={hidePoints} onMouseEnter={(e:any)=>showPoint(e)} onClick={(e:any)=>changePoint(e)} className={`cursor-pointer w-full grid grid-cols-12 mapPoints font-bold keyList text-darkGray ${(cat!=="all" && cat!==point.area)?"hide":''}`} key={`${point.title}`}>
                                                     <div className='col-span-1'><p>{p+1+(i>0?total[i-1]:0)}</p></div>
                                                     <div className="col-span-11"><p>{point.title}</p></div>
                                                   </div>
