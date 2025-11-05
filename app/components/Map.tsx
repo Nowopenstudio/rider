@@ -137,7 +137,7 @@ const hidePoints=()=>{
                     <div className="w-full grid grid-cols-2 lg:grid-cols-3 gap-9">
                       <div className="col-span-1 py-2">
                         <Reveal styleSet=" pointer-events-none label"><p className="uppercase mb-2 font-bold">Filter</p></Reveal>
-                        <div className="flex lg:flex-col gap-2 md:gap-4 mb-4 items-start">
+                        <div className="flex flex-wrap lg:flex-col gap-2 md:gap-4 mb-4 items-start">
                           <div onClick={()=>toggleFilter('wynwood')} className={`${cat=="wynwood"?'active':''} cta map filter cursor-pointer inline-block`}><p>WYNWOOD</p></div>
           
                           <div onClick={()=>toggleFilter('design-district')} className={`${cat=="design-district"?'active':''} cta filter cursor-pointer inline-block`}><p>DESIGN DISTRICT</p></div>
