@@ -13,6 +13,9 @@ export default function Footer({ data }: any) {
   const page = usePathname();
   const { mobile } = useResize()
   const [active, setActive] = useState(false)
+  const [rooms,setRooms] = useState()
+    const [broker,setBroker] = useState()
+
 
 
   return (
@@ -37,24 +40,39 @@ export default function Footer({ data }: any) {
                                   </div>
                                 )
                               })}
-                              <div className="col-span-2 mb-8">
+                              <div className="col-span-2 mb-[10px] md:mb-8">
                                 <label className="w-full mb-1">Comments</label>
                                 <textarea className="border resize-none h-[20px] w-full mt-1"></textarea>
                               </div>
                               <div className="col-span-full">
                                <div className="w-full grid grid-cols-8 gap-x-9 pb-7">
-                                  <div className="col-span-2 label mb-1"><p>{data.form.rooms.label}</p></div>
-                                  {data.form.rooms.options.map((item:any,i:number)=>{
+                                  <div className="col-span-full md:col-span-2 label mb-1 "><p>{data.form.rooms.label}</p></div>
+
+                                  {mobile?(
+                                    <select id="dropdown" name="rooms" className="border col-span-full mt-1">
+
+                                      {
+                                         data.form.rooms.options.map((item:any,i:number)=>{
+                                    return(
+                                           <option className="text-black" key={`rooms-${i}`} value={i} >{item.label}</option>
+                                    )
+                                  })}
+
+                                      </select>
+                                  ):(
+                                    data.form.rooms.options.map((item:any,i:number)=>{
                                     return(
                                       <div className="flex items-center gap-2 col-span-1" key={`rooms-${i}`}>
                                           <div className="border w-[10px] h-[10px] rounded-full flex-shrink-0"></div>
                                           <div className="label">{item.label}</div>
                                       </div>
                                     )
-                                  })}
+                                  })
+                                  )}
+                            
                                </div>
-                               <div className="w-full grid grid-cols-8 gap-x-9 pb-7">
-                                  <div className="col-span-2 label"><p>{data.form.broker.label}</p></div>
+                               <div className="w-full grid grid-cols-8 gap-x-9 pb-7 justify-between">
+                                  <div className="col-span-full md:col-span-2 label"><p>{data.form.broker.label}</p></div>
                                   {data.form.broker.options.map((item:any,i:number)=>{
                                     return(
                                       <div className="flex items-center gap-2 col-span-2 xl:col-span-1" key={`rooms-${i}`}>
@@ -63,10 +81,12 @@ export default function Footer({ data }: any) {
                                       </div>
                                     )
                                   })}
+
+                                   <div className={`cta secondary inline-block col-end-9 md:col-end-auto col-span-3 md:col-span-2 text-center ${mobile?'inverted':''}`}><p className="w-full">SUBMIT</p></div>
+                                <div className="disclaimerText text-gray col-span-full md:col-span-5 legal pt-[10px]"><PortableText value={data.form.disclaimers}/></div>
                                </div>
                                <div className="w-full grid grid-cols-8 gap-x-9 items-center">
-                                <div className="cta secondary inline-block col-span-2 text-center"><p className="w-full">SUBMIT</p></div>
-                                <div className="disclaimerText text-gray col-span-5 legal"><PortableText value={data.form.disclaimers}/></div>
+                      
                                </div>
                               </div>
         

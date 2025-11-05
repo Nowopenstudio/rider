@@ -539,7 +539,7 @@ font-style: italic;
 
 
 /* inputs */
-input {height:20px}
+input,select {height:20px}
 
 
 /* gallery */
