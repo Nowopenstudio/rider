@@ -88,7 +88,7 @@ export default async function Home() {
 
 
       </div>
-            <div className="mb-9 md:mb-39 col-span-full">
+            <div className="mb-9 md:mb-39 col-span-full h-[350px] md:h-[66dvh]">
               {data.feat.gallery?(
                  <GalleryC data={data.feat.gallery} />
               ):('')}

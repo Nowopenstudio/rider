@@ -93,7 +93,7 @@ export default async function Home() {
                     </div>
                   ) : ('')}
                 </div>
-                <div className="col-span-2 h-[66dvh] mb-6.5 md:mb-39">
+                <div className="col-span-2 h-[350px] md:h-[66dvh] mb-6.5 md:mb-39">
                   <GalleryC data={item.gallery} />
                 </div>
                 {item.outro ? (
@@ -109,7 +109,7 @@ export default async function Home() {
                 ) : ('')}
 
                 {item.outro.gallery ? (
-                  <div className="col-span-2 h-[66dvh] mb-9 md:mb-39">
+                  <div className="col-span-2 h-[350px] md:h-[66dvh] mb-9 md:mb-39">
                     <GalleryC data={item.outro.gallery} />
                   </div>
                 ) : ('')}

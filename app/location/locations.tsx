@@ -56,7 +56,7 @@ const {mobile} = useResize();
                                   </Reveal>
                           
                     </div>
-                     <div className="h-[66dvh] mb-9 md:mb-39">
+                     <div className="h-[350px] md:h-[66dvh] mb-9 md:mb-39">
                       <GalleryC data={item.gallery}/>
                      </div>
             </div>
