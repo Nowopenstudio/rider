@@ -13,8 +13,18 @@ export default function Footer({ data }: any) {
   const page = usePathname();
   const { mobile } = useResize()
   const [active, setActive] = useState(false)
-  const [rooms,setRooms] = useState()
-    const [broker,setBroker] = useState()
+  const [rooms,setRooms] = useState(0)
+  const [broker,setBroker] = useState(0)
+
+
+  
+  const changeRooms=(i:any)=>{
+    setRooms(i)
+  }
+
+    const changeBroker=(i:any)=>{
+    setBroker(i)
+  }
 
 
 
@@ -60,14 +70,16 @@ export default function Footer({ data }: any) {
 
                                       </select>
                                   ):(
-                                    data.form.rooms.options.map((item:any,i:number)=>{
-                                    return(
-                                      <div className="flex items-center gap-2 col-span-1" key={`rooms-${i}`}>
-                                          <div className="border w-[10px] h-[10px] rounded-full flex-shrink-0"></div>
-                                          <div className="label">{item.label}</div>
-                                      </div>
-                                    )
-                                  })
+                                    <div className="flex gap-9 col-span-6">
+                                      {data.form.rooms.options.map((item:any,i:number)=>{
+                                      return(
+                                        <div onClick={()=>changeRooms(i)} className="flex cursor-point items-center gap-1 col-span-1" key={`rooms-${i}`}>
+                                            <div className={`border w-[10px] h-[10px] rounded-full flex-shrink ${i==rooms?"bg-white lg:bg-black":""}`}></div>
+                                            <div className="label text-nowrap">{item.label}</div>
+                                        </div>
+                                      )
+                                    })}
+                                    </div>
                                   )}
                             
                                </div>
@@ -75,8 +87,8 @@ export default function Footer({ data }: any) {
                                   <div className="col-span-full md:col-span-2 label"><p>{data.form.broker.label}</p></div>
                                   {data.form.broker.options.map((item:any,i:number)=>{
                                     return(
-                                      <div className="flex items-center gap-2 col-span-2 xl:col-span-1" key={`rooms-${i}`}>
-                                          <div className="border w-[10px] h-[10px] rounded-full flex-shrink-0"></div>
+                                      <div onClick={()=>changeBroker(i)} className="cursor-pointer flex items-center gap-2 col-span-2 xl:col-span-1" key={`rooms-${i}`}>
+                                          <div className={`border w-[10px] h-[10px] rounded-full flex-shrink-0 ${i==broker?'bg-white lg:bg-black':''}`}></div>
                                           <div className="label">{item.label}</div>
                                       </div>
                                     )
