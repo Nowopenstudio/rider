@@ -3,11 +3,14 @@ import React, { useRef, useState } from "react";
 import { MuxVideoBG } from "./muxPlayer";
 import Image from "next/image";
 import { PortableText } from "next-sanity";
-import { Zoom } from "../components/svg";
+import { InfoB, InfoBAlt, Zoom } from "../components/svg";
 import SmoothScrolling from "./SmoothScrolling";
+import useResize from "./useResize";
 
 export function SwitchContent({zoom,work, title,ratio,cover, contain,size, audio,color,ratioImg,dim,height, captions, credits,inside}: any) {
 const [active,setActive] = useState(false);
+const [info,setInfo] = useState(false);
+const {mobile} = useResize();
   const ref = useRef<HTMLDivElement>(null)
 
 const zoomOn=()=>{
@@ -18,6 +21,16 @@ const zoomOn=()=>{
   }
     ref.current!.focus();
 }
+
+     const toggleActive = () => {
+    setActive(!active)
+  }
+
+       const toggleInfo = () => {
+    setInfo(!info)
+  }
+
+
 
 const zoomOff=()=>{
  
@@ -39,8 +52,26 @@ const zoomOff=()=>{
   if (work.image) return (
   <div className="w-full relative h-full">
     <Image alt="image" onClick={zoom?zoomOn:undefined} onContextMenu={(e)=>{e.preventDefault()}} height={0}  width={0} sizes={`${size?size:`100vw`}`}  src={work.image}  className={`${height?`h-full w-auto`:'w-full h-auto'} ${contain?"object-contain h-full":""} ${cover?"object-cover h-full":""} ${zoom?'cursor-pointer':''}`} style={{aspectRatio:work.ratioImg}}/>
-  {credits || captions?( <div className={`flex justify-between w-full  onHover py-4 ${inside?"text-white absolute bottom-0 left-0 px-4 z-10":""}`}><div className={`captions px-4 md:px-0`}>{captions?(<PortableText value={work.captions}/>):('')}</div><div className={`credits uppercase px-4 md:px-0 ${captions?'text-right':''}`}>{credits?(<PortableText value={work.credits}/>):('')}</div></div>
+  {credits || captions?( <div className={`md:flex justify-between w-full onHover py-4 ${inside?"text-white relative md:absolute bottom-0 left-0 px-4 z-10":""}`}><div className={`captions px-4 mb-4 md:mb-0 md:px-0 relative`}>
+    {mobile?(
+     <div className="absolute right-4 top-0 z-20"  onClick={toggleInfo}> <div className="h-[16px] w-[16px]">{info?(<InfoBAlt className="w-full h-full"/>):<InfoB className="w-full h-full"/> }</div></div>
   ):('')}
+    {captions?(<PortableText value={work.captions}/>):('')}
+
+
+  
+  </div>
+   {mobile?(
+          <React.Fragment>
+            <div className="credits uppercase md:w-auto mx-4" style={{transition:`all .24s ease-in-out`,height:'100px',opacity:info?1:0,maxHeight:info?200:0}}><PortableText value={work.credits} /></div>
+          </React.Fragment>
+        ):(  <div className={`credits uppercase px-4 md:px-0 ${captions?'md:text-right':''}`}>{credits?(<PortableText value={work.credits}/>):('')}</div>)}
+ </div>
+  ):('')}
+
+
+ 
+
   {zoom?(
     <React.Fragment>
       <div onClick={zoomOn} className="absolute z-10 top-2.5 left-2.5 w-[16px] h-[16px] p-[2px] onHover" style={{backgroundColor:`rgba(255,255,255,.8)`}}>
@@ -51,7 +82,8 @@ const zoomOff=()=>{
           tabIndex={-1} className="w-[100dvw] h-[100dvh] overflow-y-auto">
            <SmoothScrolling> <Image alt="image" onContextMenu={(e)=>{e.preventDefault()}} height={0}  width={0} sizes={`${size?size:`100vw`}`}  src={work.image}  className={`${height?`h-full w-auto`:'w-full h-auto'}`} style={{aspectRatio:work.ratioImg}}/></SmoothScrolling>
         </div>
-          <div className={`credits uppercase absolute top-9 left-9 z-2`}>{credits?(<PortableText value={work.credits}/>):('')}</div>
+       <div className={`credits uppercase absolute top-9 left-9 z-2`}>{credits?(<PortableText value={work.credits}/>):('')}</div>
+        
           <div>
             <div onClick={zoomOff} className={`cursor-pointer flex uppercase items-end flex-col justify-between mobileBar w-[42px] h-[16px] absolute top-9 right-9 z-[100]  pointer-events-auto `}>
                 <div className="w-full border-b-[2px] border-black  h-[1px] singleBar topBar" style={{transform:`rotate(45deg)`,transformOrigin:"25% 30%"}}></div>

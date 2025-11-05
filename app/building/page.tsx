@@ -57,7 +57,7 @@ export default async function Home() {
         {/* Gallery */}
         <div className="col-span-12 "><div className="md:w-1/2 px-4 md:px-9"><PortableText value={data.build.outro} />
         </div>
-          <div className="w-full h-[66dvh]  my-9 md:my-39"><GalleryC data={data.build.gallery} /></div>
+          <div className="w-full h-[350px] md:h-[66dvh]  my-9 md:my-39"><GalleryC data={data.build.gallery} /></div>
         </div>
 
         {/* Specs */}
@@ -165,7 +165,7 @@ export default async function Home() {
           </div>
 
 
-          <div className=" col-span-full pt-6.5 md:pt-13 mb-6.5 md:pb-39"><GalleryC data={data.retail.gallery} /></div>
+          <div className=" col-span-full pt-6.5 md:pt-13 pb-18 md:pb-39 h-[350px] md:h-[66dvh]"><GalleryC data={data.retail.gallery} /></div>
           <div className="w-full grid grid-cols-12 px-0 md:px-9">
             <Reveal styleSet="col-span-full md:col-span-6 md:col-start-4 mb-6.5 md:mb-39 hoverOn">
               {data.retail.intro ? (<SwitchContent zoom captions credits work={data.retail.intro} title={'Header Video'} audio={false} />) : ('')}
