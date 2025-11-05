@@ -4,7 +4,7 @@ import { SwitchContent } from '../util/contentSwitch';
 import { PortableText } from 'next-sanity';
 import { Reveal } from '../util/reveal';
 import useResize from '../util/useResize';
-import { InfoB, InfoBAlt } from './svg';
+import { GalleryLeft, GalleryRight, InfoB, InfoBAlt } from './svg';
 
 
 
@@ -128,7 +128,13 @@ const next=()=>{
         </div>
         {mobile ? (
                             <div className={`mobileCredit py-2 px-4 relative`} >
-                             <div className="absolute right-4 top-2 z-10"  onClick={toggleActive}> <div className="h-[16px] w-[16px]">{active?(<InfoBAlt className="w-full h-full"/>):<InfoB className="w-full h-full"/> }</div></div>
+                             <div className="absolute right-4 top-2 z-10"  onClick={toggleActive}> <div className="h-[10px] w-[10px]">{active?(<InfoBAlt className="w-full h-full"/>):<InfoB className="w-full h-full"/> }</div>
+                               
+                             </div>
+                             <div className="flex gap-[10px] absolute right-4 top-6">
+                                                      <div className="h-[16px] w-[16px]" onClick={back}><GalleryLeft className="w-full h-full"/></div>
+                                                       <div className="h-[16px] w-[16px]" onClick={next}><GalleryRight className="w-full h-full"/></div>
+                                                  </div>
                              {data[curr+2]?(
                              <React.Fragment>
                                 {data[curr+2].caption?( <div className="captions mb-2uppercase md:w-auto mb-4"><PortableText value={data[curr+2].caption} /></div>):('')}
@@ -139,7 +145,7 @@ const next=()=>{
                               
                               
                             
-                                <div className="galleryMarker flex gap-[6px] w-full justify-start">
+                                <div className="galleryMarker pt-2 flex gap-[6px] w-full justify-start">
                                   {data.map((dot: any, d: number) => {
                                     return (
                                       <div key={`${data.title}-${d}`} className={`relative ${d == 0 ? 'z-10' : 'z-1'} galleryDot w-[6px] h-[6px] rounded-full ${d == 0 ? "bg-black" : "bg-darkGray"}`} style={{ transformOrigin: 'center', transform: `scale(${d == 0 ? 1.5 : 1}) translateX(${d == 0 ? (curr * 8) : (d <= curr) ? (-12) : (0)}px)` }}></div>
