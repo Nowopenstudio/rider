@@ -109,7 +109,7 @@ export default async function Home() {
         </div>
 
         {/* dev */}
-        <div className="col-span-full md:grid grid-cols-12 bg-black p-4 md:p-9 items-center z-2 sticky top-0 md:top-[74px] h-[calc(100dvh_-_74px)]">
+        <div className="col-span-full md:grid grid-cols-12 bg-black p-4 md:p-9 items-center z-2 md:sticky top-0 md:top-[74px] md:h-[calc(100dvh_-_74px)]">
           <Reveal styleSet="col-span-full py-2 border-b border-white pb-4 uppercase label font-bold text-white"><p>{data.devStory.label}</p></Reveal>
           <div className="col-span-full text-white divide border-b md:border-none py-4">
             <PortableText value={data.devStory.title} />

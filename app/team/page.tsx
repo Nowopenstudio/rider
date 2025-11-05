@@ -51,9 +51,9 @@ export default async function Home() {
             
                 <VidHead data={data.header.video}/>
             <div className="w-full  bg-offWhite  sticky z-2 grid grid-cols-12 rounded-t-[12px]">
-               <div className="col-span-12 pointer-events-none sticky top-9 md:top-14 mt-[-100dvh] md:mt-0 right-9 pr-4 md:pr-9 translate-y-9 h-0 z-7 flex flex-row-reverse">
+               <div className="col-span-12 pointer-events-none sticky top-9 md:top-14 mt-[-100dvh] md:mt-0 right-9 pr-4 md:pr-9 translate-y-14 h-0 z-7 flex flex-row-reverse">
                                        
-                                        <ScrollCTA id={'map'} cta={data.intro.cta} sub />
+                                        <ScrollCTA id={'video'} cta={data.intro.cta} sub />
                                         </div>
               <div className="col-span-full mb-9 md:mb-24">
                 <TextBlock title={data.intro.title} copy={data.intro.copy} subhead={data.intro.subhead} arrowBot off top />
@@ -107,7 +107,7 @@ export default async function Home() {
          {data.outro.video?(
                           <React.Fragment>
                             
-                            <div className="col-span-full py-4 md:py-14 flex items-center justify-center border-t border-darkGray bg-black flex-wrap px-4 md:px-9 ">
+                            <div id={'video'} className="col-span-full py-4 md:py-14 flex items-center justify-center border-t border-darkGray bg-black flex-wrap px-4 md:px-9 ">
                               <div className="w-full text-white divide uppercase pt-9 border-t border-darkGray mb-14">
                                 <PortableText value={data.outro.title}/>
                               </div>

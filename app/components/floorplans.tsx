@@ -25,7 +25,7 @@ export default function Floorplans({ data, filter,cta }: any) {
 
     })
     setTotal(count)
-    console.log(total, "count")
+
   }
   useEffect(() => {
     runCount()
@@ -84,6 +84,7 @@ export default function Floorplans({ data, filter,cta }: any) {
                           {item.rooms ? (
                             item.rooms.map((point: any, p: number) => {
                               return (
+                               
                                 <div  className={`cursor-pointer hoverOn hoverList w-full flex justify-between items-center gap-4  floorList border-b border-darkGray p-[10px] ${(cat !== 0 && cat !== i+1) ? "hide pointer-events-none" : ''}`} key={`${item.title}-${i}-${p}`}>
                                  <div className="flex gap-4 items-center nameHold">
                                     <div className='col-span-2 planNumber'><p className=" font-medium">{(p + 1 + (i > 0 ? total[i - 1] : 0))<10?'0':''}{p + 1 + (i > 0 ? total[i - 1] : 0)}</p></div>
@@ -91,7 +92,7 @@ export default function Floorplans({ data, filter,cta }: any) {
                                  </div>
                                  <div className="flex  items center text-gray uppercase">
                                   <div onClick={()=>changeImage(i,p)} className="px-4 border-r border-gray hover:text-black"><p className='label'>view</p></div>
-                                 <div className="px-4 hover:text-black"> <p className='label'>download</p></div>
+                                 <a href={`${point.cta?point.cta.url:'/'}`}><div className="px-4 hover:text-black"> <p className='label'>download</p></div></a>
                                  </div>
                                 </div>
                               )
@@ -108,7 +109,7 @@ export default function Floorplans({ data, filter,cta }: any) {
 
           </div>
           <div className=" col-span-full  md:mb-39 mt-10">
-            <a href={cta.url?cta.url:"/"} className="cta inline-block "><p>{cta.label}</p></a>
+            <a href={cta.url?cta.url:'/'} className="cta inline-block "><p>{cta.label}</p></a>
           </div>
         </div>
         <div className="col-span-6 px-9 hoverOn hidden md:block">

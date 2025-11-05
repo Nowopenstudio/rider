@@ -16,8 +16,8 @@ export default function TextBlock({title,footnote,copy,subhead, cta,arrow,top,ri
         <div className={`w-full grid grid-cols-12 gay-x-4 md:gap-x-9 ${top?"items-start":"items-end"} px-4 md:px-9 `}>
                   <div className={`col-span-full grid grid-cols-2 py-4 md:py-9 border-b   relative ${off?'':'border-t mt-9'}`}>
                     <Reveal styleSet="uppercase col-span-2 title"><PortableText value={title} /></Reveal>
-                    {arrow?( <div className="scrollArrow absolute top-4 md:top-9 right-0"><ScrollArrow  className="w-[30px] h-auto" fill={"#000000"} /></div>):('')}
-                    {arrowBot?( <div className="scrollArrow absolute  bottom-4 sm:bottom-9 right-0"><ScrollArrow  className="none md:block w-[30px] h-auto" fill={"#000000"} /></div>):('')}
+                    {arrow?( <div className="scrollArrow absolute top-4 md:top-9 right-0 hidden md:block"><ScrollArrow  className="w-[30px] h-auto" fill={"#000000"} /></div>):('')}
+                    {arrowBot?( <div className="scrollArrow absolute  bottom-4 sm:bottom-9 right-0 hidden md:block"><ScrollArrow  className="none md:block w-[30px] h-auto" fill={"#000000"} /></div>):('')}
                     {cta?(<div className="cta inline-block absolute top-4 sm:top-9 right-0 secondary"><p>{cta.label}</p></div>):('')}
                    
                   </div>

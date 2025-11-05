@@ -53,7 +53,7 @@ export default async function Home() {
        <VidHead data={data.header.video}/>
 
       <div className="w-full  bg-offWhite relative z-2 grid grid-cols-12 rounded-t-[12px]">
-                <div className="col-span-12 pointer-events-none sticky mt-[-100dvh] md:mt=0 top-4 right-9 pr-4 md:pr-9 translate-y-12 md:translate-y-18 h-0 z-10 flex flex-row-reverse">
+                <div className="col-span-12 pointer-events-none sticky mt-[-100dvh] md:mt=0 top-4 right-9 pr-4 md:pr-9 translate-y-16 md:translate-y-18 h-0 z-10 flex flex-row-reverse">
                  
                   <ScrollCTA id={'floors'} cta={data.intro.cta} sub />
                   </div>
@@ -139,7 +139,7 @@ export default async function Home() {
                 )
               })}
             </div>
-            <a href={data.feats.cta.url} className="cta inline-block "><p>{data.feats.cta.label}</p></a>
+            <a href={`${data.feats.cta.url?data.feats.cta.url:'/'}`} className="cta inline-block "><p>{data.feats.cta.label}</p></a>
           </div>
           <div className="col-span-2 md:col-span-1 grid grid-cols-6 px-4 md:px-9 hoverOn">
             <div className="col-span-full md:col-span-4 md:col-end-7"><div className="w-full md:mb-9"> {data.feats.media ? (<SwitchContent captions credits work={data.feats.media} title={'Building Spec'} ratio={data.feats.media.ratio} audio={false} />) : ('')}</div></div>
