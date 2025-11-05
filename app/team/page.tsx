@@ -51,35 +51,35 @@ export default async function Home() {
             
                 <VidHead data={data.header.video}/>
             <div className="w-full  bg-offWhite  sticky z-2 grid grid-cols-12 rounded-t-[12px]">
-               <div className="col-span-12 pointer-events-none sticky top-14 right-9 pr-9 translate-y-9 h-0 z-7 flex flex-row-reverse">
+               <div className="col-span-12 pointer-events-none sticky top-9 md:top-14 mt-[-100dvh] md:mt-0 right-9 pr-4 md:pr-9 translate-y-9 h-0 z-7 flex flex-row-reverse">
                                        
                                         <ScrollCTA id={'map'} cta={data.intro.cta} sub />
                                         </div>
-              <div className="col-span-full mb-24">
+              <div className="col-span-full mb-9 md:mb-24">
                 <TextBlock title={data.intro.title} copy={data.intro.copy} subhead={data.intro.subhead} arrowBot off top />
               </div>
 
               {/* profile */}
       
-            <div className="col-span-full teamHold px-9">
+            <div className="col-span-full teamHold px-4 md:px-9">
                   {data.team.map((item:any,i:number)=>{
                     return(
-                      <div key={`team-${i}`} className="w-full grid grid-cols-12 gap-9 mb-39">
-                        <div className="col-span-full py-2 border-b  pb-4 mb-4 uppercase label font-medium"><p>{item.profile.label}</p></div>
-                        <div className="col-span-6 col-start-4">
+                      <div key={`team-${i}`} className="w-full grid grid-cols-12 gap-9 mb-9 md:mb-39">
+                        <div className="col-span-full py-2 border-b  pb-4 mmb-4 uppercase label font-medium"><p>{item.profile.label}</p></div>
+                        <div className="col-span-full md:col-span-6 md:col-start-4">
                           <h3 className="uppercase text-darkGray mb-2">{item.profile.Role}</h3>
                           <h3 className="uppercase ">{item.profile.Company}</h3>
                         </div>
-                        <div className="col-span-6 grid grid-cols-6 gap-9">
+                        <div className="col-span-full md:col-span-6 grid grid-cols-6 gap-4 md:gap-9">
                           {item.profile.gallery.length?(
-                              <div className="col-span-3 col-start-4">
+                              <div className="col-span-full md:col-span-3 md:col-start-4">
                                   <GalleryF data={item.profile}/>
                                 </div>
                           ):('')}
                               
                         </div>
-                        <div className="col-span-6  grid grid-cols-6 items-start">
-                          <div className="col-span-3 col-start-3 p3  mb-6">
+                        <div className="col-span-full md:col-span-6  grid grid-cols-6 items-start">
+                          <div className="col-span-full md:col-span-3 md:col-start-3 p3  md:mb-6">
                             <div className="mb-6 uppercase font-semibold"><PortableText value={item.profile.intro}/></div>
                             <PortableText value={item.profile.bio}/>
                             </div>
@@ -107,11 +107,11 @@ export default async function Home() {
          {data.outro.video?(
                           <React.Fragment>
                             
-                            <div className="col-span-full py-14 flex items-center justify-center border-t border-darkGray bg-black flex-wrap px-9 ">
+                            <div className="col-span-full py-4 md:py-14 flex items-center justify-center border-t border-darkGray bg-black flex-wrap px-4 md:px-9 ">
                               <div className="w-full text-white divide uppercase pt-9 border-t border-darkGray mb-14">
                                 <PortableText value={data.outro.title}/>
                               </div>
-                              <div className="w-2/3 pb-35">
+                              <div className="w-full md:w-2/3 md:pb-35">
                               
                               {data.outro.video ? (<SwitchContent work={data.outro.video} ratio={data.outro.video.ratio} title={'Building Spec'} audio={true} />) : ('')}</div>
                             </div>

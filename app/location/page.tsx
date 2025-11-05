@@ -52,16 +52,16 @@ export default async function Home() {
        <VidHead data={data.header.video}/>
 
       <div className="w-full  bg-offWhite  sticky z-2 grid grid-cols-12 ">
-         <div className="col-span-12 pointer-events-none sticky top-4 right-9 pr-9 translate-y-18 h-0 z-7 flex flex-row-reverse">
+         <div className="col-span-12 pointer-events-none sticky top-4 mt-[-100dvh] md:mt-0 right-9 pr-4 md:pr-9 translate-y-12 md:translate-y-18 h-0 z-7 flex flex-row-reverse">
                          
                           <ScrollCTA id={'map'} cta={data.intro.cta} sub />
                           </div>
-        <div className="col-span-full mb-24">
+        <div className="col-span-full mb-9 md:mb-24">
             <TextBlock title={data.intro.title} copy={data.intro.copy} subhead={data.intro.subhead}  arrowBot />
         </div>
 
         {/* menu */}
-        <div className="col-span-full flex gap-4 relative">
+        <div className="col-span-full flex justify-between md:justify-start gap-4 relative">
           <Locations data={data.locations}/>
         </div>
 

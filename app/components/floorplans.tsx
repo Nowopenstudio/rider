@@ -55,11 +55,11 @@ export default function Floorplans({ data, filter,cta }: any) {
 
 
 
-        <div className="col-span-6 px-9">
+        <div className="col-span-full md:col-span-6 px-4 md:px-9">
           <div className="w-full">
             
               {filter ? (
-                <div className="flex gap-4 mb-9 ">
+                <div className="flex flex-wrap justify-center md:justify-start gap-y-4 gap-x-9 md:gap-4  mb-9 px-18 md:px-0  ">
               <div  onClick={() => toggleFilter(0)} className={`${cat == 0 ? 'active' : ''} cta filter cursor-pointer inline-block`}><p>All</p></div>
                 {data.map((item: any, i: number) => {
                   return (
@@ -107,11 +107,11 @@ export default function Floorplans({ data, filter,cta }: any) {
             </div>
 
           </div>
-          <div className=" col-span-full mb-39 mt-10">
+          <div className=" col-span-full  md:mb-39 mt-10">
             <a href={cta.url?cta.url:"/"} className="cta inline-block "><p>{cta.label}</p></a>
           </div>
         </div>
-        <div className="col-span-6 px-9 hoverOn">
+        <div className="col-span-6 px-9 hoverOn hidden md:block">
           <div className="w-full mb-9"> {data[curr[0]].rooms[curr[1]].image ? (<SwitchContent credits caption work={data[curr[0]].rooms[curr[1]]} title={'Building Spec'}  audio={false} />) : ('')}</div>
         </div>
       </div>

@@ -50,12 +50,12 @@ export default async function Home() {
           <VidHead data={data.header.video}/>
 
       <div className="w-full  bg-offWhite  sticky z-2 grid grid-cols-12 ">
-        <div className="col-span-full mb-24">
+        <div className="col-span-full mb-9 md:mb-24">
           <TextBlock title={data.intro.title} copy={data.intro.copy} subhead={data.intro.subhead} cta={data.intro.cta} off arrowBot />
         </div>
 
 
-        <Reveal styleSet='col-span-full px-9 mb-35'>
+        <Reveal styleSet='col-span-full px-4 md:px-9 mb-9 md:mb-35'>
           <div className="sheets mb-5"><PortableText value={data.sales.title}/></div>
           <div className="mb-14"><PortableText value={data.sales.subhead}/></div>
           <div className="w-full sheetsHold border-t ">

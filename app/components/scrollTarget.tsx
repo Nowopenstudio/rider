@@ -28,7 +28,7 @@ export  function ScrollTarget({ id}: any) {
   );
 }
 
-export  function ScrollCTA({id,cta,inverted,sub}: any) {
+export  function ScrollCTA({id,cta,inverted,sub,sec,filter}: any) {
 
   const scrollTo=(id:any)=>{
  
@@ -43,7 +43,7 @@ export  function ScrollCTA({id,cta,inverted,sub}: any) {
   return (
     <React.Fragment>
 <div className="h-auto w-auto pointer-events-auto cursor-pointer" onClick={()=>scrollTo(id)}>
-        <div className={`cta ${sub?"secondary":""} inline-block ${inverted?'inverted':''}`}><p>{cta.label}</p></div>
+        <div className={`cta ${sub?"secondary":""} inline-block ${inverted?'inverted':''}  ${filter?'filter':''} ${sec?'secondary':''}`}><p>{cta.label}</p></div>
   
 </div>    </React.Fragment>
   );
