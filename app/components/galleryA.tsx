@@ -111,12 +111,12 @@ export default function GalleryA({ data }: any) {
         </div>
           {mobile ? (
                     <div className={`mobileCredit py-2 px-4 relative`} >
-                     <div className="absolute right-4 top-2 z-10"  onClick={toggleActive}> <div className="h-[16px] w-[16px]"><InfoBAlt className="w-full h-full"/></div>
-                       <div className="flex gap-4">
+                     <div className="absolute right-4 top-2 z-10"  onClick={toggleActive}> <div className="h-[10px] w-[10px]"><InfoBAlt className="w-full h-full"/></div>
+                     
+                     </div>
+                      <div className="flex gap-[10px] absolute right-4 top-6">
                          <div className="h-[16px] w-[16px]" onClick={back}><GalleryLeft className="w-full h-full"/></div>
                           <div className="h-[16px] w-[16px]" onClick={next}><GalleryRight className="w-full h-full"/></div>
-                     </div>
-                     
                      </div>
                              {data[curr].caption?( <div className="captions mb-2uppercase md:w-auto mb-4"><PortableText value={data[curr].caption} /></div>):('')}
                                                    {data[curr].credits?(  <div className="credits uppercase  w-2/3 md:w-auto" style={{transition:`all .24s ease-in-out`,height:'100px',opacity:active?1:0,maxHeight:active?200:0}}><PortableText value={data[curr].credits} /></div>):('')}

@@ -103,7 +103,7 @@ export function Right(props:any){
 
  export function GalleryLeft(props:any){
     return(
-        <svg {...props}  x="0px" y="0px" viewBox="0 0 17 17" fill={'none'} >
+        <svg {...props}  x="0px" y="0px" viewBox="0 0 18 18" fill={'none'} >
 <circle cx="8" cy="8" r="8" transform="matrix(-1 0 0 1 16.5004 0.5)" stroke="#666666" strokeWidth="1.00088" strokeLinejoin="round"/>
 <path d="M10.2504 4.75C8.68833 6.3121 7.81252 7.1879 6.25043 8.75L10.2504 12.75" stroke="#666666" strokeWidth="1.00088" strokeLinejoin="round"/>
 </svg>)}
@@ -111,6 +111,10 @@ export function Right(props:any){
 
  export function GalleryRight(props:any){
     return(
-        <svg {...props}  x="0px" y="0px" viewBox="0 0 5 9" fill={'none'} >
-<path d="M0.353852 0.353516C1.91595 1.91561 2.79175 2.79142 4.35385 4.35352L0.353851 8.35352" stroke="#666666" strokeWidth="1.00088" strokeLinejoin="round"/>
+        <svg {...props}  x="0px" y="0px"  viewBox="0 0 18 18" fill={'none'} >
+<circle cx="8.50043" cy="8.5" r="8" stroke="#666666" strokeWidth="1.00088" strokeLinejoin="round"/>
+<path d="M6.75043 4.75C8.31252 6.3121 9.18833 7.1879 10.7504 8.75L6.75043 12.75" stroke="#666666" strokeWidth="1.00088" strokeLinejoin="round"/>
 </svg>)}
+
+
+
