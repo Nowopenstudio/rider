@@ -7,7 +7,7 @@ import { InfoB, InfoBAlt, Zoom } from "../components/svg";
 import SmoothScrolling from "./SmoothScrolling";
 import useResize from "./useResize";
 
-export function SwitchContent({zoom,work, title,ratio,cover, contain,size, audio,color,ratioImg,dim,height, captions, credits,inside}: any) {
+export function SwitchContent({cullInfo, zoom,work, title,ratio,cover, contain,size, audio,color,ratioImg,dim,height, captions, credits,inside}: any) {
 const [active,setActive] = useState(false);
 const [info,setInfo] = useState(false);
 const {mobile} = useResize();
@@ -54,7 +54,7 @@ const zoomOff=()=>{
   <div className="w-full relative h-full">
     <Image alt="image" onClick={zoom&&!mobile?zoomOn:undefined} onContextMenu={(e)=>{e.preventDefault()}} height={0}  width={0} sizes={`${size?size:`100vw`}`}  src={work.image}  className={`${height?`h-full w-auto`:'w-full h-auto'} ${contain?"object-contain h-full":""} ${cover?"object-cover h-full":""} ${zoom?'cursor-pointer':''}`} style={{aspectRatio:work.ratioImg}}/>
   {credits || captions?( <div className={`md:flex justify-between w-full onHover py-4 ${inside?"text-white relative md:absolute bottom-0 left-0 px-4 z-10":""}`}><div className={`captions px-4 mb-4 md:mb-0 md:px-0 relative`}>
-    {mobile?(
+    {mobile && !cullInfo ?(
      <div className="absolute right-4 top-0 z-20"  onClick={toggleInfo}> <div className="h-[16px] w-[16px]">{info?(<InfoBAlt className="w-full h-full"/>):<InfoB className="w-full h-full"/> }</div></div>
   ):('')}
     {captions?(<PortableText value={work.captions}/>):('')}

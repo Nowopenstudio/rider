@@ -48,7 +48,7 @@ export default async function Home() {
 
       </div> */}
       <VidHead data={data.build.hero}/>
-      <div className="w-full  bg-offWhite  sticky z-2 grid grid-cols-12 rounded-t-[12px]">
+      <div className="w-full  bg-offWhite  sticky z-2 grid grid-cols-12 rounded-t-[12px] overflow-x-hidden">
         <div className="col-span-full mb-9 md:mb-39"> <TextBlock arrow title={data.build.title} copy={data.build.copy} subhead={data.build.subhead} top right/></div>
         <Reveal styleSet="col-span-full md:col-span-8 md:col-start-3 mb-9 md:mb-39 hoverOn ">
           {data.build.building ? (<SwitchContent  zoom credits captions work={data.build.building} title={'Header Video'} ratio={data.build.building.ratio} audio={false} />) : ('')}

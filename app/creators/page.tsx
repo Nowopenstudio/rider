@@ -49,7 +49,7 @@ export default async function Home() {
       </div> */}
       <VidHead data={data.header.video}/>
 
-      <div className="w-full  bg-offWhite  sticky z-2 grid grid-cols-12 rounded-t-[12px] ">
+      <div className="w-full  bg-offWhite  sticky z-2 grid grid-cols-12 rounded-t-[12px] overflow-x-hidden">
         <div className="col-span-full mb-9 md:mb-24">
           <TextBlock title={data.intro.title} copy={data.intro.copy} subhead={data.intro.subhead} arrowBot off />
         </div>

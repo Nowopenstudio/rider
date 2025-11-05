@@ -128,10 +128,10 @@ console.log(scrolled)
                                                          <Link href="brokers" onClick={closeMenu} className="relative navItem"> <div className="cursor-pointer mb-2"><p>Brokers</p></div></Link>
                                               </div>
             </div>
-            <div className="absolute bottom-9 left-4 md:left-9 w-full pointer-events-none z-11 grid grid-cols-2">
+            <div className="absolute bottom-4 md:bottom-9 left-4 md:left-9 w-full pointer-events-none z-11 grid grid-cols-2">
                                                 {footer.contacts.map((item:any,i:number)=>{
                                                   return(
-                                                    <div className={`${i==0?'col-span-2':''} navContact uppercase text-white mb-7 font-bold`} key={`contacts-${i}`}>
+                                                    <div className={`${i==0?'col-span-2':''} navContact uppercase text-white ${i==0?"mb-7":""} font-bold`} key={`contacts-${i}`}>
                                                       <p className='mb-1 text-darkGray'>{item.title}</p>
                                                      {i==0?(
                                                        <p className='mb-1'>{footer.contact.phone}</p>
