@@ -50,9 +50,9 @@ export default async function Home() {
           <VidHead data={data.header.video}/>
 
       <div className="w-full  bg-offWhite  sticky z-2 grid grid-cols-12">
-        <div className="col-span-full mb-12"> <TextBlock title={data.intro.title} /></div>
-        <div className="col-span-6 divide mb-24 px-9"><PortableText value={data.intro.subtitle} /></div>
-        <div className="col-span-12 px-9 grid grid-cols-2 gap-9 items-start mb-45">
+        <div className="col-span-full mb-9 md:mb-12"> <TextBlock title={data.intro.title} /></div>
+        <div className="col-span-full md:col-span-6 divide mb-9 md:mb-24 px-4 md:px-9"><PortableText value={data.intro.subtitle} /></div>
+        <div className="col-span-12 px-9 md:px-9 grid grid-cols-2 gap-4 md:gap-9 items-start mb-45">
           <div className="col-span-1 cipres"><PortableText value={data.intro.subhead} /></div>
           <div className="col-span-1 grid grid-cols-6 mb-45"><div className="col-span-5"><PortableText value={data.intro.copy} /></div></div>
           <div className="grid grid-cols-6"><div className="col-span-5 mb-48"><SwitchContent work={data.intro.left.top} title={'Header Video'} audio={false} cover /></div>

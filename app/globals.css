@@ -824,7 +824,7 @@ h1.title br::before,h2 br::before{white-space:30px; margin-right:30px}
     @media (max-width: 600px) {
     h1.title,h2{font-size:2.35rem;line-height:.88em;letter-spacing: -.05em;text-box: trim-both cap alphabetic;}
       p,li{  font-size:1.0625rem;line-height: 1.17em;}
-    h3{font-size: 1.9rem;}
+    h3, .sheets h3{font-size: 1.9rem;}
     h2.loader{font-size:3rem}
     h2.serif{font-size:1.5rem;line-height: 1.11em;letter-spacing: -0.01em;}
     .footerContact p{font-size:.875rem;
@@ -840,6 +840,6 @@ h4.serif{font-family: "serif",'Times New Roman', Times, serif;font-size:1rem;lin
       font-size:1rem;font-weight: 500;
     }
 
-    .subMenu p, .subMenu{font-size:1.3125rem;}
+    .subMenu p, .subMenu,h5{font-size:1.3125rem;}
 
   }

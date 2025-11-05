@@ -55,9 +55,9 @@ export default async function Home() {
         </div>
 
 
-        <Reveal styleSet='col-span-full px-4 md:px-9 mb-9 md:mb-35'>
+        <Reveal styleSet='col-span-full px-4 md:px-9 mb-18 md:mb-35'>
           <div className="sheets mb-5"><PortableText value={data.sales.title}/></div>
-          <div className="mb-14"><PortableText value={data.sales.subhead}/></div>
+          <div className="mb-9 md:mb-14"><PortableText value={data.sales.subhead}/></div>
           <div className="w-full sheetsHold border-t ">
             {data.sales.sheets.map((item:any,i:number)=>{
               return(
@@ -67,32 +67,32 @@ export default async function Home() {
           </div>
         </Reveal>
 
-        <Reveal styleSet="col-span-full px-9 grid grid-cols-2 items-center mb-39">
-          <div className="col-span-1">
+        <Reveal styleSet="col-span-full px-4 md:px-9 grid grid-cols-2 items-center mb-18 md:mb-39">
+          <div className="col-span-full md:col-span-1">
             <div className="sheets mb-5"><PortableText value={data.toolkit.title}/></div>
-          <div className="mb-14"><PortableText value={data.toolkit.subhead}/></div>
-          <div className="mb-14"><PortableText value={data.toolkit.copy}/></div>
+          <div className="mb-9 md:mb-14"><PortableText value={data.toolkit.subhead}/></div>
+          <div className="mb-9 ,d:mb-14"><PortableText value={data.toolkit.copy}/></div>
           </div>
-          <div className="grid grid-cols-6 col-span-1">
-            <div className="col-span-4 col-end-7">
+          <div className="grid grid-cols-6 col-span-full md:col-span-1">
+            <div className="col-span-full md:col-span-4 md:col-end-7">
               <SwitchContent work={data.toolkit.media} title={'Header Video'} ratio={data.toolkit.media.ratio} audio={false} />
             </div>
           </div>
         </Reveal>
 
-        <div className="col-span-full px-9 grid grid-cols-12 mb-39">
+        <div className="col-span-full px-4 md:px-9 grid grid-cols-12 mb-9 md:mb-39">
           {data.resources.map((item:any,i:number)=>{
             return(
-              <Reveal key={`resources-${i}`} styleSet="col-span-6 col-start-4 mb-22">
+              <Reveal key={`resources-${i}`} styleSet="col-span-full md:col-span-6 md:col-start-4 mb-10.5 md:mb-22">
                 <div className="w-full aspect-[791/532]">
                 <SwitchContent work={item.media} title={'Header Video'} ratio={item.media.ratio} audio={false} cover/>
                 
                 </div>
-                <div className="w-full py-8 flex justify-between items-center">
-                  <div className="w-2/3 uppercase sheets">
+                <div className="w-full py-4 md:py-8 md:flex justify-between items-center">
+                  <div className="w-full md:w-2/3 uppercase sheets mb-4 md:mb-0">
                     <h3>{item.title}</h3>
                   </div>
-                  <div className="w-1/3 flex-shrink-0 text-right resource"><PortableText value={item.copy}/></div>
+                  <div className="w-full md:w-1/3 flex-shrink-0 md:text-right resource"><PortableText value={item.copy}/></div>
                 </div>
                 <div className="cta inline-block"><p>{item.cta.label}</p></div>
               </Reveal>
@@ -100,13 +100,13 @@ export default async function Home() {
           })}
         </div>
 
-        <div className="col-span-full bg-black grid grid-cols-12 p-9 text-white">
-          <Reveal styleSet="col-span-full border-darkGray border-t divide py-9 mb-28">
+        <div className="col-span-full bg-black grid grid-cols-12 p-4 md:p-9 text-white">
+          <Reveal styleSet="col-span-full border-darkGray border-t divide py-9 mb-9 md:mb-28">
             <PortableText value={data.brokers.title}/>
           </Reveal>
-          <div className="col-span-8 col-start-3 mb-28">
-            <Reveal styleSet="w-full uppercase mb-28"><PortableText value={data.brokers.copy}/></Reveal>
-             <div className="w-full grid grid-cols-3 gap-15 mb-39">
+          <div className="col-span-full md:col-span-8 md:col-start-3 mb-4 md:mb-28">
+            <Reveal styleSet="w-full uppercase mb-9 md:mb-28"><PortableText value={data.brokers.copy}/></Reveal>
+             <div className="w-full grid grid-col-1 md:grid-cols-3 gap-4 :gap-15 mb-9 md:mb-39">
               {data.brokers.profiles.map((item:any,i:number)=>{
                 return(
                   <Reveal key={`broker-${i}`} styleSet="col-span-1">
