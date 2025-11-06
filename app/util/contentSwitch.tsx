@@ -21,6 +21,7 @@ const zoomOn=()=>{
     curr.classList.add('lightBox')
   }
     ref.current!.focus();
+    console.log(ref.current!)
 }
 
      const toggleActive = () => {
@@ -81,10 +82,10 @@ const zoomOff=()=>{
       </div>
       )}
     
-      <div  className={`fixed w-[100dvw] h-[100dvh] top-0 left-0 bg-black  loader z-[100] ${active?'':'pointer-events-none'} `} style={{opacity:active?1:0}}>
-       <div ref={ref}
-          tabIndex={-1} className="w-[100dvw] h-[100dvh] overflow-y-auto">
-           <SmoothScrolling> <Image alt="image" onContextMenu={(e)=>{e.preventDefault()}} height={0}  width={0} sizes={`${size?size:`100vw`}`}  src={work.image}  className={`${height?`h-full w-auto`:'w-full h-auto'}`} style={{aspectRatio:work.ratioImg}}/></SmoothScrolling>
+      <div data-lenis-prevent ref={ref} className={`fixed w-[100dvw] h-[100%] top-0 left-0 bg-black  loader z-[100] ${active?'':'pointer-events-none'}  overflow-y-scroll`} style={{opacity:active?1:0}}>
+       <div 
+          tabIndex={-1} className="w-full h-auto">
+           <Image alt="image"  height={0}  width={0} sizes={`${size?size:`100vw`}`}  src={work.image}  className={`${height?`h-full w-auto`:'w-full h-auto'}`} style={{aspectRatio:work.ratioImg}}/>
         </div>
        <div className={`credits uppercase absolute top-9 left-9 z-2`}>{credits?(<PortableText value={work.credits}/>):('')}</div>
         

@@ -64,7 +64,7 @@ export default async function Home() {
             <div className="col-span-full teamHold px-4 md:px-9 overflow-x-hidden">
                   {data.team.map((item:any,i:number)=>{
                     return(
-                      <div key={`team-${i}`} className="w-full grid grid-cols-12 gap-9 mb-9 md:mb-39">
+                      <Reveal key={`team-${i}`} styleSet="w-full grid grid-cols-12 gap-9 mb-9 md:mb-39">
                         <div className="col-span-full py-2 border-b  pb-4 mmb-4 uppercase label font-medium"><p>{item.profile.label}</p></div>
                         <div className="col-span-full md:col-span-6 md:col-start-4">
                           <h3 className="uppercase text-darkGray mb-2">{item.profile.Role}</h3>
@@ -85,7 +85,7 @@ export default async function Home() {
                             </div>
                           
                         </div>
-                      </div>
+                      </Reveal>
                     )
                   })}
             </div>
@@ -107,14 +107,14 @@ export default async function Home() {
          {data.outro.video?(
                           <React.Fragment>
                             
-                            <div id={'video'} className="col-span-full py-4 md:py-14 flex items-center justify-center border-t border-darkGray bg-black flex-wrap px-4 md:px-9 overflow-x-hidden">
+                            <Reveal id={'video'} styleSet="col-span-full py-4 md:py-14 flex items-center justify-center border-t border-darkGray bg-black flex-wrap px-4 md:px-9 overflow-x-hidden">
                               <div className="w-full text-white divide uppercase pt-9 border-t border-darkGray mb-14">
                                 <PortableText value={data.outro.title}/>
                               </div>
                               <div className="w-full md:w-2/3 md:pb-35">
                               
                               {data.outro.video ? (<SwitchContent work={data.outro.video} ratio={data.outro.video.ratio} title={'Building Spec'} audio={true} />) : ('')}</div>
-                            </div>
+                            </Reveal>
                             
                           </React.Fragment>
                         ):('')}

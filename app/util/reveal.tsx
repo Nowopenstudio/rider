@@ -18,7 +18,7 @@ import {motion, useInView, useAnimation } from "framer-motion";
 //     hidden: { opacity: 0 },
 //   }
 
-export function Reveal({children, styleSet, count}:any){
+export function Reveal({children, styleSet, count, id}:any){
    const ref= useRef(null!)
    const isInView = useInView(ref,{once:true,margin: "0px 0px -10% 0px"})
    const mainControls = useAnimation();
@@ -31,7 +31,7 @@ export function Reveal({children, styleSet, count}:any){
    },[isInView])
    return(
       
-            <motion.div ref={ref}  className={`${styleSet}`}
+            <motion.div id={id} ref={ref}  className={`${styleSet}`}
                 variants={{
                     hidden:{opacity:0},
                     visible:{opacity:1}

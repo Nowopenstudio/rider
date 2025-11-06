@@ -54,7 +54,7 @@ export default async function Home() {
           <TextBlock title={data.intro.title} copy={data.intro.copy} subhead={data.intro.subhead} arrowBot off />
         </div>
 
-        <Reveal styleSet="col-span-full md:col-span-9 md:col-span-6 md:col-start-4 mb-9 md:mb-39 ">
+        <Reveal styleSet="col-span-full col-span-9 md:col-span-6 md:col-start-4 mb-9 md:mb-39 ">
           {data.intro.media ? (<SwitchContent work={data.intro.media} title={'Header Video'} ratio={data.intro.media.ratio} audio={false} />) : ('')}
 
         </Reveal>
@@ -71,7 +71,7 @@ export default async function Home() {
         <div className="bg-black p-0 md:p-9 col-span-full overflow-x-hidden">
           {data.artists.map((item: any, i: number) => {
             return (
-              <div className="w-full singleArtist pb-14" key={`${item.profile.name}`}>
+              <Reveal styleSet="w-full singleArtist pb-14" key={`${item.profile.name}`}>
                 <div className="w-full py-4  border-t  border-darkGray text-white items-center relative">
                   <div className='w-full grid grid-cols-12 relative py-9 md:py-18.5'>
                     <div className="w-[1px] h-full absolute top-0 left-1/2 border-darkGray border-l hidden md:block"></div>
@@ -101,28 +101,28 @@ export default async function Home() {
                 {/* feat */}
                 {item.profile.feat?(
                   <React.Fragment>
-                    <div className="col-span-full py-9 text-white px-4 md:px-0 md:uppercase border-t border-darkGray overflow-x-hidden">
+                    <Reveal styleSet="col-span-full py-9 text-white px-4 md:px-0 md:uppercase border-t border-darkGray overflow-x-hidden">
                       {item.profile.feat.headline?(
                          <PortableText value={item.profile.feat.headline} />
                       ):('')}
                      
-                    </div>
-                    <div className="col-span-full pb-9">
+                    </Reveal>
+                    <Reveal styleSet className="col-span-full pb-9">
                       {item.profile.feat ? (<SwitchContent work={item.profile.feat} title={'Building Spec'} audio={false} />) : ('')}
-                    </div>
+                    </Reveal>
                     
                   </React.Fragment>
                 ):('')}
                 {item.profile.gallery?(
-                      <div className="col-span-full h-[calc(100dvh_-_74px)] px-4 md:px-0 py-9 border-t border-darkGray relative">
+                      <Reveal styleSet="col-span-full h-[calc(100dvh_-_74px)] px-4 md:px-0 py-9 border-t border-darkGray relative">
                       <GalleryE data={item.profile.gallery} name={item.profile.name}/>
-                    </div>
+                    </Reveal>
                     ):('')}
 
                     {item.profile.media?(
                   <React.Fragment>
                     
-                    <div className="col-span-full md:h-[100dvh] md:flex items-center justify-center border-t border-darkGray relative px-4 md:px-0">
+                    <Reveal styleSet="col-span-full md:h-[100dvh] md:flex items-center justify-center border-t border-darkGray relative px-4 md:px-0">
                       <div className="md:absolute w-full h-full top-0 left-0 pointer-events-none z-2 grid grid-cols-12">
                         <div className="col-span-full md:col-span-10 md:col-start-2 h-full md:flex items-center justify-center">
                           <div className="w-full md:flex justify-between text-white items-center  ">
@@ -133,11 +133,11 @@ export default async function Home() {
                       </div>
                       <div className="col-span-full w-full md:w-2/3 z-1 relative">{item.profile.media ? (<SwitchContent work={item.profile.media} ratio={item.profile.media.ratio} title={'Building Spec'} autoplay audio={true} />) : ('')}</div>
                       
-                    </div>
+                    </Reveal>
                     
                   </React.Fragment>
                 ):('')}
-              </div>
+              </Reveal>
             )
           })}
         </div>
