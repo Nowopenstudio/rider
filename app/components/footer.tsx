@@ -12,7 +12,7 @@ import { sendContact } from '../util/sanity';
 
 export default function Footer({ data }: any) {
   const page = usePathname();
-  const { mobile } = useResize()
+  const { mobile,winX } = useResize()
   const [rooms,setRooms] = useState(0)
   const [broker,setBroker] = useState(0)
 
@@ -137,7 +137,7 @@ export default function Footer({ data }: any) {
                                     )
                                   })}
 
-                                   <button type="submit" className={`cta secondary row-start-auto mt-0 lg:mt-9 lg:row-start-2 inline-block col-end-9 md:col-end-auto col-span-3 md:col-span-2 text-center ${mobile?'inverted':''}`}><p className="w-full">SUBMIT</p></button>
+                                   <button type="submit" className={`cta  row-start-auto mt-0 lg:mt-9 lg:row-start-2 inline-block col-end-9 md:col-end-auto col-span-4 md:col-span-2 text-center ${winX < 1300?'invertedFooter':''}`}><p className="w-full">SUBMIT</p></button>
                                 <div className="disclaimerText text-gray md:pt-10 col-span-full md:col-span-5 legal pt-[10px]"><PortableText value={data.form.disclaimers}/></div>
                                </div>
                                <div className="w-full grid grid-cols-8 gap-x-9 items-center">
@@ -157,6 +157,13 @@ export default function Footer({ data }: any) {
               <div className="w-full h-full hidden xl:block"><SwitchContent work={data.footerVid} title={`amenities`} ratio={data.footerVid.ratio} audio={false} cover /></div>
               <div className="xl:absolute xl:top-0 left-0 w-full xl:h-full pointer-events-none z-10 hidden xl:block" style={{backgroundColor:`rgba(0,0,0,.6)`}}></div>
               <div className="xl:absolute xl:top-0 left-0 w-full xl:h-full pointer-events-none z-11 xl:flex justify-between items-center px-4 xl:px-11">
+                                  {winX < 1300?(
+                                    <div className="flex-shrink-0 col-span-1 font-bold footerContact uppercase text-white mb-9 xl:mb-0">
+                                        <p className="uppercase mb-2 xl:mb-9 text-darkGray xl:text-white">Call Us</p>
+                                        <p>+1 {data.contact.phone}</p>
+                                      </div>
+                                  ):('')}
+                                  
                                   {data.contacts.map((item:any,i:number)=>{
                                     return(
                                       <div className="flex-shrink-0 col-span-1 font-bold footerContact uppercase text-white mb-9 xl:mb-0" key={`contacts-${i}`}>
