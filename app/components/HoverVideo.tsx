@@ -17,7 +17,7 @@ export function HoverVid({data}:any){
     
   const hoverOn =()=>{
     setActive(true)
-    console.log('on')
+ 
   }
 
     const hoverOff =()=>{

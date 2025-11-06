@@ -15,7 +15,7 @@ export default function GalleryD({ data }: any) {
       setCurr((previousCurr) => previousCurr - 1)
     }
     else { setCurr(data.length - 1) }
-    console.log(curr)
+
   }
 
   const next = () => {
@@ -24,7 +24,7 @@ export default function GalleryD({ data }: any) {
 
     }
     else { setCurr(0) }
-    console.log(curr)
+ 
   }
 
   const checkSpace = (e: any, i: number) => {

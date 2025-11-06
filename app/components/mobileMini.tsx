@@ -8,10 +8,9 @@ import { GalleryLeft, GalleryRight, InfoB, InfoBAlt } from './svg';
 
 
 
-export default function GalleryA({data,full}: any) {
+export default function MobileMini({data}: any) {
   const ref = useRef<HTMLDivElement>(null)
   const {winX, winY, mobile} = useResize();
-  const [x,setX] = useState<number>(0)
   const[indie,setIndie] = useState([])
   const [total,setTotal] = useState([]);
   const [disable,setDisable]=useState(false);
@@ -60,7 +59,6 @@ const next=()=>{
    
   }
   
-
 }
 
   const resetMin=()=>{

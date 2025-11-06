@@ -135,7 +135,7 @@ const hidePoints=()=>{
                     </div>
                   </div>
                   <div className="col-span-full lg:col-span-5 lg:col-end-13">
-                    <div className="w-full grid grid-cols-2 lg:grid-cols-3 gap-9 items-start">
+                    <div className="w-full md:grid md:grid-cols-2 lg:grid-cols-3 gap-9 items-start">
                       <div className="col-span-3 xl:col-span-1 py-2">
                         <Reveal styleSet=" pointer-events-none label"><p className="uppercase mb-2 font-bold">Filter</p></Reveal>
                         <div className="flex w0-full flex-wrap  xl:flex-col gap-2 lg:gap-4 xl:mb-4 items-start">
@@ -146,7 +146,7 @@ const hidePoints=()=>{
                           <div onClick={()=>toggleFilter('Edgewater')} className={`${cat=="Edgewater"?'active':''} cta filter cursor-pointer inline-block`}><p>EDGEWATER</p></div>
                         </div>
                       </div>
-                      <div className="col-span-full xl:col-span-2 max-h-[100dvh] flex flex-wrap flex-col items-start">
+                      <div className="col-span-full xl:col-span-2 md:max-h-[100dvh] flex flex-wrap flex-col items-start">
                         {data.locations.length?(
                           data.locations.map((item:any,i:number)=>{
                             return(
@@ -154,7 +154,7 @@ const hidePoints=()=>{
                                 {mobile?(
                                   <MapExpand data={item} i={i} total={total}/>
                                 ):(
-                                   <div className={`lg:w-1/2 mr-4 `}>
+                                   <div className={`lg:w-1/2 md:mr-4 `}>
                                             <div className="w-full py-2   label"><p className="uppercase mb-2 font-bold">{item.title}</p>
                                             <div className='w-full keyHold'>
                                               {item.points?(

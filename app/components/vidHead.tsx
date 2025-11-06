@@ -23,7 +23,7 @@ export function VidHead({data, size}:any){
             const newRange = (dimensions.height-scroll)/dimensions.height
             setScroll(getRange(newRange,0,1,0,100))
             setPer(getRange(scroll/dimensions.height,0,1,0,100))
-            console.log('scroll')
+     
             setCondense(false)
         }else if((scroll > dimensions.height-dimensions.height*.85)){
           setCondense(true)
@@ -32,7 +32,7 @@ export function VidHead({data, size}:any){
 
       const scrollClick=(id:any)=>{
         const element = document.getElementById(id)
-        console.log('go',element)
+
         lenis!.scrollTo(element!)
       }
 
