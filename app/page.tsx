@@ -90,7 +90,7 @@ export default async function Home() {
                     </div>
                     <div className="w-full md:py-4 border-t md:border-0 onHoverBorder relative md:flex items-center justify-between box-border">
                       <h3 className="uppercase py-4 md:py-3">{item.title}</h3>
-                      <div className="menunote md:text-right onHover"><PortableText value={item.copy}/></div>
+                      <div className="menunote md:text-right onHover w-full md:w-1/2"><PortableText value={item.copy}/></div>
                     </div>
                   </Link>
                 </Reveal>
