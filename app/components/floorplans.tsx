@@ -106,11 +106,11 @@ export default function Floorplans({ data, filter, cta }: any) {
                             <div className={`cursor-pointer hoverOn hoverList w-full flex justify-between items-center gap-4  floorList border-b border-darkGray p-[10px] ${(cat !== 0 && cat !== i + 1) ? "hide pointer-events-none" : ''}`} key={`${item.title}-${i}-${p}`}>
                               <div className="flex gap-4 items-center nameHold">
                                 <div className='col-span-2 planNumber'><p className=" font-medium">{(p + 1 + (i > 0 ? total[i - 1] : 0)) < 10 ? '0' : ''}{p + 1 + (i > 0 ? total[i - 1] : 0)}</p></div>
-                                <div className="col-span-9 planTitle"><p>{point.name}</p></div>
+                                <div className="col-span-9 planTitle"><p>{point.title}</p></div>
                               </div>
                               <div className="flex  items center text-gray uppercase">
                                 <div onClick={() => changeImage(i, p)} className="px-4 border-r border-gray hover:text-black"><p className='label'>view</p></div>
-                                <a href={`${data.cta && data.cta.file?`${data.cta.file}/${data.cta.og}`:(point.cta?point.cta.url : '/')}`}><div className="px-4 hover:text-black"> <p className='label'>download</p></div></a>
+                                <a target="__black" href={`${point.cta && point.cta.file?`${point.cta.file}/${point.cta.og}`:(point.cta?point.cta.url : '/')}`}><div className="px-4 hover:text-black"> <p className='label'>download</p></div></a>
                               </div>
                             </div>
                           )
