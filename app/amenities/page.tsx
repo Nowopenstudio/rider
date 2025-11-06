@@ -53,7 +53,7 @@ export default async function Home() {
       </div> */}
           <VidHead data={data.header.video}/>
 
-      <div className="w-full  bg-offWhite  sticky z-2 grid grid-cols-12 overflow-x-hidden">
+      <div className="w-full  bg-offWhite  sticky z-2 grid grid-cols-12">
         <div className="col-span-full mb-9 md:mb-39">
           <TextBlock title={data.intro.title} copy={data.intro.copy} subhead={data.intro.subhead} arrowBot />
         </div>
@@ -63,7 +63,7 @@ export default async function Home() {
         </div>
 
         {/* amenities */}
-        <div className={'col-span-full md:col-span-6 relative z-2 px-4 md:px-9'}>
+        <div className={'col-span-full md:col-span-6 relative z-2 px-4 md:px-9 overflow-x-hidden'}>
         <div className="w-full font-bold uppercase"><p className="subMenu font-semibold mb-4 text-darkGray md:text-black">{data.feat.title}</p></div>
           <div className="menuText mb-9 md:mb-[42px]"><p><em>{data.feat.subhead}</em></p></div>
           <div className="listHold mb-9 md:mb-14 beorder-darkGray  border-b">
@@ -80,7 +80,7 @@ export default async function Home() {
           </div>
       </div>
 
-      <div className="col-span-full md:col-span-6 grid grid-cols-6  px-4 md:px-9">
+      <div className="col-span-full md:col-span-6 grid grid-cols-6  px-4 md:px-9 overflow-x-hidden ">
         <div className="col-span-full md:col-span-4 md:col-start-3 hoverOn">
           <div className="w-full mb-9 md:mb-46"> {data.feat.media ? (<SwitchContent captions credits work={data.feat.media} title={'Building Spec'} ratio={data.feat.media.ratio} audio={false} />) : ('')}</div>
         
@@ -94,7 +94,7 @@ export default async function Home() {
               ):('')}
              </div>
 
-      <Reveal styleSet="col-span-full md:col-span-4 md:col-start-5 mb-9 md:mb-39 hoverOn px-4 md:px-0">
+      <Reveal styleSet="col-span-full md:col-span-4 md:col-start-5 mb-9 md:mb-39 hoverOn px-4 md:px-0 overflow-x-hidden">
                 {data.outro.media ? (<SwitchContent captions credits work={data.outro.media} title={'Header Video'} ratio={data.outro.media.ratio} audio={false} />) : ('')}
       
       </Reveal>
@@ -106,7 +106,7 @@ export default async function Home() {
       
       </Reveal>
 
-      <div className="col-span-full bg-black  grid grid-cols-12 text-white pb-4 pt-9 md:py-9 relative z-3">
+      <div className="col-span-full bg-black  grid grid-cols-12 text-white pb-4 pt-9 md:py-9 relative z-3 ">
                <div className="px-4 md:px-9 col-span-full"> <div className="col-span-full py-2 border-b  pb-4  uppercase label font-bold"><p>{data.box.label}</p></div></div>
 
         <div className="col-span-full mb-9 md:mb-39 ">
@@ -122,14 +122,14 @@ export default async function Home() {
       
       </Reveal>
 
-          <div className="px-4 md:px-9 col-span-full"> <div className="col-span-full py-2 border-b  pb-4  uppercase label font-bold"><p>{data.swing.label}</p></div></div>
+          <div className="px-4 md:px-9 col-span-full"> <div className="col-span-full py-2 border-b  pb-4 uppercase label font-bold"><p>{data.swing.label}</p></div></div>
 
         <div className="col-span-full md:col-span-6 divide md:uppercase md:mb-14 p-4 md:p-9">
            <div className="mb-9 md:mb-14 uppercase"><PortableText value={data.swing.title} /></div>
             <div className="mb-9 md:mb-39"><PortableText value={data.swing.copy} /></div>
          </div>                        
 
-         <Reveal styleSet="col-span-full md:col-span-8 md:ol-start-3md:mb-39 px-4 md:px-0 ">
+         <Reveal styleSet="col-span-full md:col-span-8 md:col-start-3 md:mb-39 px-4 md:px-0 ">
                 {data.swing.feat ? (<SwitchContent work={data.swing.feat} title={'Header Video'} ratio={data.swing.feat.ratio} audio={false} />) : ('')}
       
       </Reveal>
@@ -150,7 +150,7 @@ export default async function Home() {
             </div>
 
 
-      <div className="col-span-full p-4 md:p-9 grid grid-cols-12">
+      <div className="col-span-full p-4 md:p-9 grid grid-cols-12 overflow-x-hidden">
         <div className="col-span-full md:col-span-7 uppercase mb-14">
           <PortableText value={data.beach.title}/>
         </div>
