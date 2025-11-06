@@ -76,14 +76,14 @@ export default async function Home() {
         {data.specs ? (
           data.specs.map((item: any, i: number) => {
             return (
-              <div className="col-span-full grid grid-cols-2 mb-6.5 md:mb-39 overflow-x-hidden" key={`spec-${i}`}>
-                <div className="grid grid-cols-2 px-4 md:px-9 col-span-full md:col-span-2 relative">
+              <div className="col-span-full grid grid-cols-2 mb-6.5 lg:mb-39 overflow-x-hidden" key={`spec-${i}`}>
+                <div className="grid grid-cols-2 px-4 lg:px-9 col-span-full lg:col-span-2 relative">
                   <div className="header mb-5.5 col-span-full border-t pt-9"><h3 className="serif uppdercase">{item.title}</h3></div>
-                  <div className="subtitle mb-9 md:mb-21  col-span-full "><h4 className="serif uppdercase">{item.subtitle}</h4></div>
+                  <div className="subtitle mb-9 lg:mb-21  col-span-full "><h4 className="serif uppdercase">{item.subtitle}</h4></div>
                   <div className="subhead mb-9  col-span-full serif "><p><em>{item.subHead}</em></p></div>
-                  <div className="col-span-full md:col-span-1 mb-9"><PortableText value={item.copy} /></div>
+                  <div className="col-span-full lg:col-span-1 mb-9"><PortableText value={item.copy} /></div>
                   {item.logos ? (
-                    <div className="col-span-2 md:col-span-1 logo relative md:absolute md:top-9 z-10 md:right-9 flex md:flex-col md:justify-end md:items-end gap-4 mb-9">
+                    <div className="col-span-2 lg:col-span-1 logo relative lg:absolute lg:top-9 z-10 lg:right-9 flex lg:flex-col lg:justify-end lg:items-end gap-4 mb-9">
                       {item.logos.map((logo: any, l: number) => {
                         return (
                           <div className="h-[70px] w-auto mix-blend-difference flex-shrink-0" key={`logo-${i}-${l}`}>
@@ -94,23 +94,23 @@ export default async function Home() {
                     </div>
                   ) : ('')}
                 </div>
-                <div className="col-span-2 h-[350px] md:h-[66dvh] mb-20 md:mb-39">
+                <div className="col-span-2 h-[350px] lg:h-[66dvh] mb-20 lg:mb-39">
                   <GalleryC data={item.gallery} />
                 </div>
                 {item.outro ? (
-                  <div className='col-span-full md:col-span-1 mx-4 md:px-9'>
+                  <div className='col-span-full lg:col-span-1 mx-4 lg:px-9'>
                     <div className="subhead mb-10"><PortableText value={item.outro.title} /></div>
                     <div className="mb-9"><PortableText value={item.outro.copy} /></div>
                   </div>
                 ) : ('')}
                 {item.outro.media ? (
-                  <div className=" relative col-span-full md:col-span-1 hoverOn">
+                  <div className=" relative col-span-full lg:col-span-1 hoverOn">
                     <SwitchContent captions credits work={item.outro.media} title={'Header Video'} ratio={item.outro.media.ratio} audio={false} />
                   </div>
                 ) : ('')}
 
                 {item.outro.gallery ? (
-                  <div className="col-span-2 h-[350px] md:h-[66dvh] mb-20 md:mb-39">
+                  <div className="col-span-2 h-[350px] lg:h-[66dvh] mb-20 lg:mb-39">
                     <GalleryC data={item.outro.gallery} />
                   </div>
                 ) : ('')}

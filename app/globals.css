@@ -837,10 +837,14 @@ h1.title br,h2 br, .break br:after{ content:' '} */
   .divide h3, .cipres p{font-size:1.9rem;letter-spacing: -.05em;margin-bottom: 30px;}
   .label, .label p, label{
   font-size: .715rem;letter-spacing: .01125em;
+     
 
 
 
 }
+ .planNumber p, .planTitle p{
+      font-size:1rem;font-weight: 500;
+    }
   }
 
 
@@ -863,9 +867,7 @@ h4.serif{font-family: "serif",'Times New Roman', Times, serif;font-size:1rem;lin
  .p2 p{
       font-size:1.0625rem
     }
-    .planNumber p, .planTitle p{
-      font-size:1rem;font-weight: 500;
-    }
+
 
     .subMenu p, .subMenu,h5 {font-size:1.3125rem;}
 

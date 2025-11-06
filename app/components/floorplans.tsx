@@ -73,11 +73,11 @@ export default function Floorplans({ data, filter, cta }: any) {
 
 
 
-        <div className="col-span-full md:col-span-6 px-4 md:px-9">
+        <div className="col-span-full lg:col-span-6 px-4 lg:px-9">
           <div className="w-full">
 
             {filter ? (
-              <div className="flex flex-wrap justify-center md:justify-start gap-y-4 gap-x-9 md:gap-4  mb-9 px-18 md:px-0  z-1" style={{opacity:active?0:1}}>
+              <div className="flex flex-wrap justify-center lg:justify-start gap-y-4 gap-x-9 lg:gap-4  mb-9 px-18 lg:px-0  z-1" style={{opacity:active?0:1}}>
                 <div onClick={() => toggleFilter(0)} className={`${cat == 0 ? 'active' : ''} cta filter cursor-pointer inline-block`}><p>All</p></div>
                 {data.map((item: any, i: number) => {
                   return (
@@ -106,7 +106,7 @@ export default function Floorplans({ data, filter, cta }: any) {
                             <div className={`cursor-pointer hoverOn hoverList w-full flex justify-between items-center gap-4  floorList border-b border-darkGray p-[10px] ${(cat !== 0 && cat !== i + 1) ? "hide pointer-events-none" : ''}`} key={`${item.title}-${i}-${p}`}>
                               <div className="flex gap-4 items-center nameHold">
                                 <div className='col-span-2 planNumber'><p className=" font-medium">{(p + 1 + (i > 0 ? total[i - 1] : 0)) < 10 ? '0' : ''}{p + 1 + (i > 0 ? total[i - 1] : 0)}</p></div>
-                                <div className="col-span-9 planTitle"><p>{point.title}</p></div>
+                                <div className="col-span-9 planTitle uppercase"><p>{point.name}</p></div>
                               </div>
                               <div className="flex  items center text-gray uppercase">
                                 <div onClick={() => changeImage(i, p)} className="px-4 border-r border-gray hover:text-black"><p className='label'>view</p></div>
@@ -126,11 +126,11 @@ export default function Floorplans({ data, filter, cta }: any) {
             </div>
 
           </div>
-          <div className=" col-span-full  mb-9 md:mb-39 mt-10">
+          <div className=" col-span-full  mb-9 lg:mb-39 mt-10">
             <a href={cta.url ? cta.url : '/'} className="cta inline-block "><p>{cta.label}</p></a>
           </div>
         </div>
-        <div className="col-span-6 px-9 hoverOn hidden md:block">
+        <div className="col-span-6 px-9 hoverOn hidden lg:block">
           <div className="w-full mb-9"> {data[curr[0]].rooms[curr[1]].image ? (<SwitchContent credits caption work={data[curr[0]].rooms[curr[1]]} title={'Building Spec'} audio={false} />) : ('')}</div>
         </div>
       </div>
@@ -150,7 +150,7 @@ export default function Floorplans({ data, filter, cta }: any) {
                 <div className="w-[32px] h-auto absolute top-1/2 right-0 translate-y-[-50%] onHover"><GalleryR className="w-full h-auto" />  </div>
                 
                </div> */}
-            <a href={data[curr[0]].rooms[curr[1]].cta?`${data[curr[0]].rooms[curr[1]].cta.file}/${data[curr[0]].rooms[curr[1]].cta.og}`:'/'} className="absolute z-100 label text-white uppercase top-4 left-4 md:top-9 md:left-9 font-semibold">
+            <a href={data[curr[0]].rooms[curr[1]].cta?`${data[curr[0]].rooms[curr[1]].cta.file}/${data[curr[0]].rooms[curr[1]].cta.og}`:'/'} className="absolute z-100 label text-white uppercase top-4 left-4 lg:top-9 lg:left-9 font-semibold">
               <p>Download</p>
             </a>
            <div onClick={()=>zoomOff()} className={`cursor-pointer flex uppercase items-end flex-col justify-between w-[42px] h-[16px] absolute top-9 right-9 z-[100]   `}>
