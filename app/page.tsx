@@ -128,7 +128,7 @@ export default async function Home() {
 
       
       </div>
-      <div className='w-full bg-offWhite z-1 sticky top-18 h-[200dvh] pt-10 ' >
+      <div className='w-full bg-offWhite z-1 sticky top-8 md:top-18 h-[200dvh] pt-10 ' >
          <div className="w-full md:px-9 hoverOn mb-39 h-[100dvh] bg-offWhite relative z-2">
             {data.residency.video.vid ? (
                 <MediaGrow data={data.residency.video} size={.568}/>

@@ -19,8 +19,8 @@ export function MediaGrow({data, size}:any){
    
    return(
       
-           <div className="w-full">
-               <div ref={ref} className={`w-full relative  origin-center mediaGrow h-[75dvh] md:h-auto`} style={{ transform:`scale(${isInView?1:size})`,aspectRatio: `${data.ratio.replace(":", " / ")}` }}>
+           <div className="w-full overflow-x-hidden">
+               <div ref={ref} className={`w-full relative  origin-center mediaGrow h-[70dvh] md:h-auto`} style={{ transform:`scale(${isInView?1:size})`,aspectRatio: `${data.ratio.replace(":", " / ")}` }}>
                                  <SwitchContent work={data} title={'Header Video'} ratio={data.ratio} audio={false} cover={mobile?true:undefined} />
                </div>
                <div className="flex py-4 justify-between col-span-full onHover">
