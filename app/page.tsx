@@ -233,7 +233,7 @@ export default async function Home() {
                 })}
 
               </div>
-              <div className="cta inline-block "><p>{data.gallery.cta.label}</p></div>
+             <a href={data.gallery.cta.url?data.gallery.cta.url:'/'}> <div className="cta inline-block "><p>{data.gallery.cta.label}</p></div></a>
             </div>
 
 
