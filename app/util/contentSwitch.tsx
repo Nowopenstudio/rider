@@ -82,7 +82,7 @@ const zoomOff=()=>{
       </div>
       )}
     
-      <div data-lenis-prevent ref={ref} className={`fixed w-[100dvw] h-[100%] top-0 left-0 bg-black  loader z-[100] ${active?'':'pointer-events-none'}  overflow-y-scroll`} style={{opacity:active?1:0}}>
+      <div  data-lenis-prevent ref={ref} className={`fixed w-[100vw] h-[100vh] top-0 left-0 bg-black  loader z-[100] ${active?'':'pointer-events-none'}  overflow-y-scroll overflow-x-hidden`} style={{opacity:active?1:0}}>
        <div 
           tabIndex={-1} className="w-full h-auto">
            <Image alt="image"  height={0}  width={0} sizes={`${size?size:`100vw`}`}  src={work.image}  className={`${height?`h-full w-auto`:'w-full h-auto'}`} style={{aspectRatio:work.ratioImg}}/>

@@ -104,7 +104,7 @@ const hidePoints=()=>{
     <React.Fragment>
         {total.length?(
            <Reveal styleSet="col-span-full grid grid-cols-12 gap-x-4 items-start">
-           <div className="col-span-full md:col-span-6 relative">
+           <div className="col-span-full lg:col-span-6 relative">
                     
                     {data.map ? (
                       <Image alt="image" height={0} width={0} sizes="100vw" src={data.map} className={`w-full h-auto mix-blend-multiply `} />
@@ -133,11 +133,11 @@ const hidePoints=()=>{
                         ):('')}
                     </div>
                   </div>
-                  <div className="col-span-full md:col-span-5 md:col-end-13">
+                  <div className="col-span-full lg:col-span-5 lg:col-end-13">
                     <div className="w-full grid grid-cols-2 lg:grid-cols-3 gap-9">
-                      <div className="col-span-1 py-2">
+                      <div className="col-span-3 xl:col-span-1 py-2">
                         <Reveal styleSet=" pointer-events-none label"><p className="uppercase mb-2 font-bold">Filter</p></Reveal>
-                        <div className="flex flex-wrap lg:flex-col gap-2 md:gap-4 mb-4 items-start">
+                        <div className="flex w0-full flex-wrap  xl:flex-col gap-2 lg:gap-4 xl:mb-4 items-start">
                           <div onClick={()=>toggleFilter('wynwood')} className={`${cat=="wynwood"?'active':''} cta map filter cursor-pointer inline-block`}><p>WYNWOOD</p></div>
           
                           <div onClick={()=>toggleFilter('design-district')} className={`${cat=="design-district"?'active':''} cta filter cursor-pointer inline-block`}><p>DESIGN DISTRICT</p></div>
@@ -145,19 +145,19 @@ const hidePoints=()=>{
                           <div onClick={()=>toggleFilter('Edgewater')} className={`${cat=="Edgewater"?'active':''} cta filter cursor-pointer inline-block`}><p>EDGEWATER</p></div>
                         </div>
                       </div>
-                      <div className="col-span-2 md:h-3/4 flex flex-wrap flex-col">
+                      <div className="col-span-full xl:col-span-2 lg:h-3/4 flex flex-wrap flex-col">
                         {data.locations.length?(
                           data.locations.map((item:any,i:number)=>{
                             return(
-                              <div key={`${item.title}`} className="md:w-1/2 mr-4">
+                              <div key={`${item.title}`} className="lg:w-1/2 mr-4">
                                           <div className="w-full py-2   label"><p className="uppercase mb-2 font-bold">{item.title}</p>
                                           <div className='w-full keyHold'>
                                             {item.points?(
                                               item.points.map((point:any,p:number)=>{
                                                 return(
-                                                  <div id={`key-${p+1+(i>0?total[i-1]:0)}`} data-count={p+1+(i>0?total[i-1]:0)} onMouseLeave={hidePoints} onMouseEnter={(e:any)=>showPoint(e)} onClick={(e:any)=>changePoint(e)} className={`cursor-pointer w-full grid grid-cols-12 mapPoints font-bold keyList text-darkGray ${(cat!=="all" && cat!==point.area)?"hide":''}`} key={`${point.title}`}>
-                                                    <div className='col-span-1'><p>{p+1+(i>0?total[i-1]:0)}</p></div>
-                                                    <div className="col-span-11"><p>{point.title}</p></div>
+                                                  <div id={`key-${p+1+(i>0?total[i-1]:0)}`} data-count={p+1+(i>0?total[i-1]:0)} onMouseLeave={hidePoints} onMouseEnter={(e:any)=>showPoint(e)} onClick={(e:any)=>changePoint(e)} className={`cursor-pointer w-full grid grid-cols-40 lg:grid-cols-12 gap-x-2 mapPoints font-bold keyList text-darkGray ${(cat!=="all" && cat!==point.area)?"hide":''}`} key={`${point.title}`}>
+                                                    <div className='col-span-2'><p>{p+1+(i>0?total[i-1]:0)}</p></div>
+                                                    <div className="col-span-18 lg:col-span-10"><p>{point.title}</p></div>
                                                   </div>
                                                 )
                                               })

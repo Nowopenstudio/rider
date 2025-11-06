@@ -217,7 +217,7 @@ export default function Footer({ data }: any) {
                   <div className="absolute w-full h-full top-0 left-0 flex flex-col justify-between text-white py-9">
                     <div className="px-4 md:px-9"><PortableText value={data.sucessVid.top}/></div>
                        <div className="flex justify-center w-full items-center py-9">
-                       <div className="w-2/3">
+                       <div className="w-full lg:w-2/3">
                           <SwitchContent work={data.sucessVid} title={`amenities`} ratio={data.footerVid.ratio} audio={true} contain />
                          </div>
                        </div>
