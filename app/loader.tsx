@@ -47,7 +47,7 @@ const loadContent=()=>{
 
 
     <React.Fragment>
-      <div className={`z-[105] fixed w-full h-[100dvh] bg-black p-9 ${out?'fadeOut':''} ${loaded?'pointer-events-none':''} loader`} style={{opacity:loaded?0:1}} onTransitionEnd={loadContent}>
+      <div className={`z-[105] fixed w-full h-[100dvh] bg-black px-4 py-9 md:py-9 md:px-9 ${out?'fadeOut':''} ${loaded?'pointer-events-none':''} loader`} style={{opacity:loaded?0:1}} onTransitionEnd={loadContent}>
         {words.map((item:any,i:number)=>{
           return(
             <div key={`loading-${item}`}>
@@ -56,7 +56,7 @@ const loadContent=()=>{
           )
         })}
 
-        <h3 className="text-[rgba(255,255,255,.15)] absolute bottom-9 left-9 uppercase fadeOn">loading</h3>
+        <h3 className="text-[rgba(255,255,255,.15)] absolute bottom-9 left-4 md:left-9 uppercase fadeOn">loading</h3>
         
       </div>
 
