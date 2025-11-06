@@ -69,7 +69,7 @@ console.log(scrolled)
       {mobile?(
          <div className={`navBar mobile fixed top-0 left-0 w-[100vw]  flex items-start justify-between pt-4 px-4 md:px-9  z-100 items-top`} style={{backgroundColor:active?"rgba(255,255,255,0.0)":`rgba(255,255,255,${scrolled?1.0:0.0})`}}>
 
-           <Link className=" md:w-1/3 py-1"  href="/"><div className="relative w-full h-full flex items-center justify-center"><Logo className="px-4 h-[46px] " fill={`${scrolled && !active?'#000000':'#ffffff'}`} style={{transition:`all .25s ease-in-out`}} /></div></Link>
+           <Link className=" md:w-1/3 py-1"  href="/"><div className="relative w-full h-full flex items-center justify-center"><Logo className="md:px-4 h-[46px] " fill={`${scrolled && !active?'#000000':'#ffffff'}`} style={{transition:`all .25s ease-in-out`}} /></div></Link>
            <div className="flex flex-row justify-end gap-4">
             <div className=" h-[30px] rounded-[8px] p-2 flex items-center justify-center" onClick={scrollTo} style={{backgroundColor:`${scrolled && !active?"rgba(0,0,0,0.05)":"rgba(255,255,255,0.2)"}`,opacity:active || scrolled?1:0,transition:`opacity .25s ease-in-out`}}>
               <p className={`${scrolled && !active?'text-black':'text-white'} text-center uppercase inquire font-medium`}>Inquire</p>
