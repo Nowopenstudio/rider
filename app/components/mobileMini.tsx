@@ -5,6 +5,7 @@ import { PortableText } from 'next-sanity';
 import { Reveal } from '../util/reveal';
 import useResize from '../util/useResize';
 import { GalleryLeft, GalleryRight, InfoB, InfoBAlt } from './svg';
+import Link from 'next/link';
 
 
 
@@ -34,7 +35,7 @@ export default function MobileMini({data}: any) {
 
 
 useEffect(()=>{
-if(gallery.length && winX){
+if(gallery.length && winX && mobile){
   runCount()}
 },[ref.current,winX,gallery.length])
 
@@ -98,63 +99,67 @@ const next=()=>{
 
   return (
     <React.Fragment>
-        <div className="w-full h-full">
+      {mobile?(
+         <div className="w-full h-full">
           <Reveal styleSet={`w-full h-full relative overflow-x-hidden  hoverOn` } >
-          <div className={`w-1/2 h-full z-40 left-0 absolute cursor-w-resize `} onClick={back}></div>
-               <div className={`w-1/2 h-full z-40 left-1/2 absolute cursor-e-resize `} onClick={next}></div>
+          <div className={`w-1/7 h-full z-40 left-0 absolute cursor-w-resize `} onClick={back}></div>
+               <div className={`w-1/7 h-full z-40 right-0 absolute cursor-e-resize `} onClick={next}></div>
            
           
-         <div onTransitionStart={setStart} onTransitionEnd={(curr==data.length)?(resetMin):(curr<0?resetMax:setStop)} className={`w-auto h-full flex flex-nowrap galleryFull ${mobile?'gap-4':'gap-9'} galleryScroll ${disable?'disable':''}`} ref={ref} style={{transform:`translateX(${total?(winX/2-indie[curr+2]/2-(mobile?16:36))+(+(total[curr+1]+((curr+2)*(mobile?16:36)))*(-1))+(mobile?16:36):`36`}px)`}}>
+         <div onTransitionStart={setStart} onTransitionEnd={(curr==data.length)?(resetMin):(curr<0?resetMax:setStop)} className={`w-auto h-full flex flex-nowrap galleryFull gap-4 galleryScroll ${disable?'disable':''}`} ref={ref} style={{transform:`translateX(${total?(winX/2-indie[curr+2]/2-(16))+(+(total[curr+1]+((curr+2)*(16)))*(-1))+(16):`36`}px)`}}>
             
               {gallery.map((item:any, i:number)=>{
                 return(
-                  <div key={`image-${i}`}  className={` w-auto h-full  overflow-hidden galleryImage rounded-[6px] md:rounded-none origin-center flex-shrink-0 ${mobile && curr+2!==i?'dim':''}`} >
-                   <div className="singleMedia h-full relative w-auto">
-                   
-                     <div className="w-auto h-full relative"> <SwitchContent work={item} title={`${item}`} ratio={item.ratio} audio={false} height />
-                     </div>
-                     <div className={`creditHold justify-between flex ${curr+2==i?"onHover":''} py-2  z-2`}>
-                      <div className="captions"><PortableText value={item.captions}/></div>
-                      <div className="credits uppercase text-right"><PortableText value={item.credits}/></div>
-                     </div>
-                   </div>
+                  <div key={`image-${i}`}  className={` w-[80vw] h-auto  overflow-hidden galleryImage  origin-center flex-shrink-0 ${curr+2!==i?'dim':''}`} >
+                    <Link href={item.url}>
+                    <div className="aspect-[1.48/1] w-full bg-mux relative mb-4 rounded-[6px] overflow-hidden">
+                      {item.gallery.length ? (<SwitchContent cullInfo work={item.gallery[0]} title={`${item.title}`}  audio={false} cover />) : ('')}
+  
+                       {item.gallery.length >= 2 ? (<div className="w-full h-full absolute z-2 top-0 left-0 onHover"><SwitchContent cullInfo work={item.gallery[1]} title={`${item.title}`}  audio={false} cover credits inside /></div>) : ('')}
+  
+  
+                      
+                    </div>
+                    <div className="w-full md:py-4 border-t md:border-0  relative md:flex items-center justify-between box-border" style={{opacity:curr+2==i?1:0,transition:'.25s opacity ease-in-out'}}>
+                      <div className="absolute cta small inline-block top-3 right-0"><p>View More</p></div>
+                      <h3 className="uppercase py-4 md:py-3">{item.title}</h3>
+                      <div className="menunote md:text-right onHover w-4/5"><PortableText value={item.copy}/></div>
+                    </div>
+                  </Link>
                   </div>
                 )
               })}
          </div>
           </Reveal>
         </div>
-        {mobile ? (
-                            <div className={`mobileCredit pt-2 pb-4 px-4 relative overflow-y-visible`} >
-                             <div className="absolute right-4 top-2 z-10"  onClick={toggleActive}> <div className="h-[10px] w-[10px]">{active?(<InfoBAlt className="w-full h-full"/>):<InfoB className="w-full h-full"/> }</div>
-                               
-                             </div>
-                             <div className="flex gap-[10px] absolute right-4 top-6 z-10">
-                                                      <div className="h-[16px] w-[16px]" onClick={back}><GalleryLeft className="w-full h-full"/></div>
-                                                       <div className="h-[16px] w-[16px]" onClick={next}><GalleryRight className="w-full h-full"/></div>
-                                                  </div>
-                             {data[curr+2]?(
-                             <React.Fragment>
-                                {data[curr+2].caption?( <div className="captions mb-2uppercase md:w-auto mb-4"><PortableText value={data[curr+2].caption} /></div>):('')}
-                               {data[curr+2].credits?(  <div className="credits uppercase md:w-auto" style={{transition:`all .24s ease-in-out`,height:'100px',opacity:active?1:0,maxHeight:active?200:0}}><PortableText value={data[curr+2].credits} /></div>):('')}
-                             </React.Fragment>
-                             ):('')}
-                             
-                              
-                              
-                            
-                                <div className="galleryMarker pt-2 flex gap-[6px] w-full justify-start">
-                                  {data.map((dot: any, d: number) => {
-                                    return (
-                                      <div key={`${data.title}-${d}`} className={`relative ${d == 0 ? 'z-10' : 'z-1'} galleryDot w-[6px] h-[6px] rounded-full ${d == 0 ? "bg-black" : "bg-darkGray"}`} style={{ transformOrigin: 'center', transform: `scale(${d == 0 ? 1.5 : 1}) translateX(${d == 0 ? (curr * 8) : (d <= curr) ? (-12) : (0)}px)` }}></div>
-                                    )
-                                  })}
-                              
-                              </div>
-        
-        
-                            </div>
-                          ) : ('')}
+      ):(
+        <div className="w-full miniMenu grid grid-cols-2 gap-9 col-span-full mb-12.5 md:mb-39 px-4 md:px-9 overflow-x-hidden">
+          {data ? (
+            data.map((item: any, i: number) => {
+              return (
+                <Reveal styleSet={'col-span-full lg:col-span-1 mb-9 relative hoverOn'} key={`${item.title}`} count={i * .25}>
+                  <Link href={item.url}>
+                    <div className="aspect-[1.48/1] w-full bg-mux relative mb-4">
+                      {item.gallery.length ? (<SwitchContent cullInfo work={item.gallery[0]} title={`${item.title}`}  audio={false} cover />) : ('')}
+  
+                       {item.gallery.length >= 2 ? (<div className="w-full h-full absolute z-2 top-0 left-0 onHover"><SwitchContent cullInfo work={item.gallery[1]} title={`${item.title}`}  audio={false} cover credits inside /></div>) : ('')}
+  
+  
+                      
+                    </div>
+                    <div className="w-full md:py-4 border-t md:border-0 onHoverBorder relative md:flex items-center justify-between box-border">
+                      <h3 className="uppercase py-4 md:py-3">{item.title}</h3>
+                      <div className="menunote md:text-right onHover w-full md:w-1/2"><PortableText value={item.copy}/></div>
+                    </div>
+                  </Link>
+                </Reveal>
+              )
+            })
+          ) : ('')}
+        </div>
+      )}
+       
+      
     </React.Fragment>
   );
 }

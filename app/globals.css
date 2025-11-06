@@ -858,10 +858,21 @@ h1.title br,h2 br, .break br:after{ content:' '} */
  .planNumber p, .planTitle p{
       font-size:1rem;font-weight: 500;
     }
+
+    .cta.small {
+  
+  height:25px;
+  padding: 0 calc(var(--spacing) * 2);
+  background-color: rgba(0,0,0,0);
+}
+
+
   }
 
 
     @media (max-width: 600px) {
+
+
     h1.title,h2{font-size:2.35rem;line-height:.88em;letter-spacing: -.05em;text-box: trim-both cap alphabetic;}
       p,li{  font-size:1.0625rem;line-height: 1.17em;}
     h3, .sheets h3,.cipres p {font-size: 1.5rem;}

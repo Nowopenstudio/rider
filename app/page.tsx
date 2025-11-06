@@ -21,6 +21,7 @@ import GalleryI from "./components/galleryI";
 import Next from "./components/next";
 import {ScrollTarget, ScrollCTA} from "./components/scrollTarget";
 import { HoverVid } from "./components/HoverVideo";
+import MobileMini from "./components/mobileMini";
 
 
 
@@ -74,29 +75,9 @@ export default async function Home() {
         </Reveal>
 
         {/* mini menu */}
-        <div className="miniMenu grid grid-cols-2 gap-9 col-span-full mb-12.5 md:mb-39 px-4 md:px-9 overflow-x-hidden">
-          {data.menu ? (
-            data.menu.map((item: any, i: number) => {
-              return (
-                <Reveal styleSet={'col-span-full lg:col-span-1 mb-9 relative hoverOn'} key={`${item.title}`} count={i * .25}>
-                  <Link href={item.url}>
-                    <div className="aspect-[1.48/1] w-full bg-mux relative mb-4">
-                      {item.gallery.length ? (<SwitchContent cullInfo work={item.gallery[0]} title={`${item.title}`} ratio={data.header.gallery[0].ratio} audio={false} cover />) : ('')}
-  
-                       {item.gallery.length >= 2 ? (<div className="w-full h-full absolute z-2 top-0 left-0 onHover"><SwitchContent cullInfo work={item.gallery[1]} title={`${item.title}`}  audio={false} cover credits inside /></div>) : ('')}
-  
-  
-                      
-                    </div>
-                    <div className="w-full md:py-4 border-t md:border-0 onHoverBorder relative md:flex items-center justify-between box-border">
-                      <h3 className="uppercase py-4 md:py-3">{item.title}</h3>
-                      <div className="menunote md:text-right onHover w-full md:w-1/2"><PortableText value={item.copy}/></div>
-                    </div>
-                  </Link>
-                </Reveal>
-              )
-            })
-          ) : ('')}
+        
+        <div className='col-span-full mb-18 md:mb-0 overflow-hidden'>
+          <MobileMini data={data.menu}/>
         </div>
 
        
