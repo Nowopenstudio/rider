@@ -54,9 +54,9 @@ export default function GalleryE({ data,name }: any) {
         <div className="w-[32px] h-auto absolute top-1/2 right-0 translate-y-[-50%] onHover"><GalleryR className="w-full h-auto" />  </div>
         
        </div>
-      <div className="absolute w-1/5 top-0 left-0 flex flex-wrap gap-y-18 text-white z-50">
+      <div className="absolute w-1/2 lg:w-1/5 top-0 left-0 flex flex-wrap gap-y-18 text-white z-50">
         <div onClick={toggleActive} className="info flex gap-4 w-full">
-          <div className="h-[16px] w-[16px]">{active?(<InfoAlt className="w-full h-full" />):(<Info className="w-full h-full  mb-18" />)}</div>
+          <div className="h-[16px] w-[16px] mt-[2px]">{active?(<InfoAlt className="w-full h-full" />):(<Info className="w-full h-full  mb-18" />)}</div>
           <div className="imgTitle"><PortableText value={data[curr].title}/></div>
         </div>
         <div className="imgInfo flex-shrink-0 w-full pointer-events-none galleryFade" style={{opacity:active?1:0}}><PortableText value={data[curr].copy}/></div>

@@ -116,5 +116,7 @@ export function Right(props:any){
 <path d="M6.75043 4.75C8.31252 6.3121 9.18833 7.1879 10.7504 8.75L6.75043 12.75" stroke="#666666" strokeWidth="1.00088" strokeLinejoin="round"/>
 </svg>)}
 
-
-
+ export function Expand(props:any){
+    return(
+        <svg {...props}  x="0px" y="0px"  viewBox="0 0 21 12" fill={'none'} >
+<path d="M20.3536 0.353517L10.3536 10.3535L0.353578 0.353516" stroke="#616161"/></svg>)}

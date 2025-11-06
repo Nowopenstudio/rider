@@ -7,14 +7,15 @@ interface EmailTemplateProps {
   phone:string;
   rooms:string;
   broker:string;
-  message: any;
-  email: any
+  message: string;
+  email: string
 }
 
 
-export const ContactTemplate: React.FC<Readonly<EmailTemplateProps>> = ({
+export function ContactTemplate ({
   firstName, lastName, phone, rooms, broker, message, email
-}) => (
+}:EmailTemplateProps) {
+  return(
   <div>
     <h1 className="uppercase">New Inquiry from, {firstName} {lastName}:</h1>
     <p>Name: {firstName} {lastName}</p>
@@ -26,6 +27,6 @@ export const ContactTemplate: React.FC<Readonly<EmailTemplateProps>> = ({
     <p style={{marginBottom:'20px'}}> {message}</p>
 
   </div>
-);
+)}
 
 

@@ -175,7 +175,7 @@ export default function Footer({ data }: any) {
                              
                                   {data.footerLogos.map((item:any,i:number)=>{
                               return(
-                                     <div className="h-[40px] xl:h-[22px] flex-shrink-0 w-auto mix-blend-difference" key={`footLogo-${i}`}>
+                                     <div className="h-[70px] xl:h-[22px] flex-shrink-0 w-auto mix-blend-difference" key={`footLogo-${i}`}>
                                   <Image alt="image" sizes={`150px`} width={45} height={45} src={item.image}  className={`w-auto h-[full]} `} />
                                 </div>
                               )

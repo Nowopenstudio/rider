@@ -22,19 +22,20 @@ import Floorplans from "../components/floorplans";
 import GalleryD from "../components/galleryD";
 import { VidHead } from "../components/vidHead";
 import { ScrollCTA } from "../components/scrollTarget";
+import { BuildExpand } from "../components/buildExpand";
 
 
 
 export default async function Home() {
   const query = await getData(`{
-    'data': *[_type=='residences'][0]{header{title,video{"image":image.asset->url,"vid":video.asset->playbackId, 'ratioImg':image.asset->metadata.dimensions.aspectRatio,"ratio":video.asset->data.aspect_ratio,'ratioImg':image.asset->metadata.dimensions.aspectRatio,credits,captions}},intro{title,copy,media{"image":image.asset->url,"vid":video.asset->playbackId, 'ratioImg':image.asset->metadata.dimensions.aspectRatio,"ratio":video.asset->data.aspect_ratio,'ratioImg':image.asset->metadata.dimensions.aspectRatio,credits,captions},cta},specs[]{title,subtitle,subHead,copy,logos[]{"image":image.asset->url,url},gallery[]{"image":image.asset->url,"vid":video.asset->playbackId,'ratioImg':image.asset->metadata.dimensions.aspectRatio, 'ratioImg':image.asset->metadata.dimensions.aspectRatio,"ratio":video.asset->data.aspect_ratio,credits,captions},outro{title,copy,media{"image":image.asset->url,"vid":video.asset->playbackId,'ratioImg':image.asset->metadata.dimensions.aspectRatio, 'ratioImg':image.asset->metadata.dimensions.aspectRatio,"ratio":video.asset->data.aspect_ratio,credits,captions},gallery[]{"image":image.asset->url,"vid":video.asset->playbackId,'ratioImg':image.asset->metadata.dimensions.aspectRatio, 'ratioImg':image.asset->metadata.dimensions.aspectRatio,"ratio":video.asset->data.aspect_ratio,credits,captions}}}, feats{label,title,subhead,points[]{title},media{"image":image.asset->url,"vid":video.asset->playbackId,'ratioImg':image.asset->metadata.dimensions.aspectRatio, 'ratioImg':image.asset->metadata.dimensions.aspectRatio,"ratio":video.asset->data.aspect_ratio,credits,captions},cta}, floorplan{label,title,subhead,copy,rooms[]{title,rooms[]{name,copy,"image":image.asset->url,cta}},cta}, floors{label,title,rooms[]{title,rooms[]{name,copy,"image":image.asset->url,cta}},cta,media{"image":image.asset->url,"vid":video.asset->playbackId,'ratioImg':image.asset->metadata.dimensions.aspectRatio, 'ratioImg':image.asset->metadata.dimensions.aspectRatio,"ratio":video.asset->data.aspect_ratio,credits,captions}},smart{label,title,subhead,copy,gallery[]{"image":image.asset->url,"vid":video.asset->playbackId,'ratioImg':image.asset->metadata.dimensions.aspectRatio, 'ratioImg':image.asset->metadata.dimensions.aspectRatio,"ratio":video.asset->data.aspect_ratio,credits,captions}},cta{label,title,copy,"image":image.asset->url,cta},next},
+    'data': *[_type=='residences'][0]{header{title,video{"image":image.asset->url,"vid":video.asset->playbackId, 'ratioImg':image.asset->metadata.dimensions.aspectRatio,"ratio":video.asset->data.aspect_ratio,'ratioImg':image.asset->metadata.dimensions.aspectRatio,credits,captions}},intro{title,copy,media{"image":image.asset->url,"vid":video.asset->playbackId, 'ratioImg':image.asset->metadata.dimensions.aspectRatio,"ratio":video.asset->data.aspect_ratio,'ratioImg':image.asset->metadata.dimensions.aspectRatio,credits,captions},cta},specs[]{title,subtitle,subHead,copy,logos[]{"image":image.asset->url,url},gallery[]{"image":image.asset->url,"vid":video.asset->playbackId,'ratioImg':image.asset->metadata.dimensions.aspectRatio, 'ratioImg':image.asset->metadata.dimensions.aspectRatio,"ratio":video.asset->data.aspect_ratio,credits,captions},outro{title,copy,media{"image":image.asset->url,"vid":video.asset->playbackId,'ratioImg':image.asset->metadata.dimensions.aspectRatio, 'ratioImg':image.asset->metadata.dimensions.aspectRatio,"ratio":video.asset->data.aspect_ratio,credits,captions},gallery[]{"image":image.asset->url,"vid":video.asset->playbackId,'ratioImg':image.asset->metadata.dimensions.aspectRatio, 'ratioImg':image.asset->metadata.dimensions.aspectRatio,"ratio":video.asset->data.aspect_ratio,credits,captions}}}, feats{label,title,subhead,points[]{title},media{"image":image.asset->url,"vid":video.asset->playbackId,'ratioImg':image.asset->metadata.dimensions.aspectRatio, 'ratioImg':image.asset->metadata.dimensions.aspectRatio,"ratio":video.asset->data.aspect_ratio,credits,captions},cta}, floorplan{label,title,subhead,copy,rooms[]{title,rooms[]{name,copy,"image":image.asset->url,cta{label,url,"file":file.asset->url,"og":file.asset->originalFilename}}},cta{label,url,"file":file.asset->url,"og":file.asset->originalFilename}}, floors{label,title,rooms[]{title,rooms[]{name,copy,"image":image.asset->url,cta{label,url,"file":file.asset->url,"og":file.asset->originalFilename}}},cta{label,url,"file":file.asset->url,"og":file.asset->originalFilename},media{"image":image.asset->url,"vid":video.asset->playbackId,'ratioImg':image.asset->metadata.dimensions.aspectRatio, 'ratioImg':image.asset->metadata.dimensions.aspectRatio,"ratio":video.asset->data.aspect_ratio,credits,captions}},smart{label,title,subhead,copy,gallery[]{"image":image.asset->url,"vid":video.asset->playbackId,'ratioImg':image.asset->metadata.dimensions.aspectRatio, 'ratioImg':image.asset->metadata.dimensions.aspectRatio,"ratio":video.asset->data.aspect_ratio,credits,captions}},cta{label,title,copy,"image":image.asset->url,cta},next},
 
     }`)
 
 
 
   const { data } = query.data
-  console.log(data)
+  console.log(data.floors.rooms[0].rooms)
 
   return (
 
@@ -93,7 +94,7 @@ export default async function Home() {
                     </div>
                   ) : ('')}
                 </div>
-                <div className="col-span-2 h-[350px] md:h-[66dvh] mb-6.5 md:mb-39">
+                <div className="col-span-2 h-[350px] md:h-[66dvh] mb-20 md:mb-39">
                   <GalleryC data={item.gallery} />
                 </div>
                 {item.outro ? (
@@ -109,7 +110,7 @@ export default async function Home() {
                 ) : ('')}
 
                 {item.outro.gallery ? (
-                  <div className="col-span-2 h-[350px] md:h-[66dvh] mb-9 md:mb-39">
+                  <div className="col-span-2 h-[350px] md:h-[66dvh] mb-20 md:mb-39">
                     <GalleryC data={item.outro.gallery} />
                   </div>
                 ) : ('')}
@@ -127,18 +128,8 @@ export default async function Home() {
         {/* feat */}
         <div className="col-span-full grid grid-cols-2 md:pb-39 overflow-x-hidden">
           <div className="col-span-2 md:col-span-1 px-4 md:px-9 mb-9 md:mb-0 ">
-            <div className="w-full font-bold uppercase subMenu mb-4 md:mb-0"><PortableText value={data.feats.title} /></div>
-            <div className="menuText mb-9 md:mb-[42px]"><p><em>{data.feats.subhead}</em></p></div>
-            <div className="listHold  border-darkGray border-b mb-[42px]">
-              {data.feats.points.map((item: any, i: number) => {
-                return (
-                  <div key={`service-${i}`} className="hoverOn flex gap-x-3 w-full py-[15px] font-semibold text-darkGray border-darkGray border-t uppercase">
-                    <p className="label">{i < 9 ? '0' : ''}{i + 1}.</p>
-                    <p className="label hoverRight">{item.title}</p>
-                  </div>
-                )
-              })}
-            </div>
+            <BuildExpand title={'RESIDENTIAL FEATURES'} sub={data.feats.subhead} data={data.feats.points}/>
+            
             <a href={`${data.feats.cta.url?data.feats.cta.url:'/'}`} className="cta inline-block "><p>{data.feats.cta.label}</p></a>
           </div>
           <div className="col-span-2 md:col-span-1 grid grid-cols-6 px-4 md:px-9 hoverOn">
@@ -149,7 +140,7 @@ export default async function Home() {
 
         {/* floors */}
         <div id={'floors'} className="col-span-12  bg-offWhite md:py-9 z-3 relative">
-          <div className="w-full grid grid-cols-12 px-4 md:px-9  md:mb-39">
+          <div className="w-full grid grid-cols-12 px-4 md:px-9  md:mb-9">
 
             <div className="col-span-full py-2 border-b  pb-4 uppercase label font-bold"><p>{data.floorplan.label}</p></div>
             <div className="col-span-full md:col-span-6 divide uppercase mb-4 md:mb-14 row-start-2 pt-9">
@@ -159,28 +150,18 @@ export default async function Home() {
               <PortableText value={data.floorplan.copy} />
             </div>
           </div>
-          <div className="col-span-12 mb-9 md:mb-14">
-            <Floorplans data={data.floorplan.rooms} filter cta={data.floorplan.cta}/>
-          </div>
-          
-
-            
-
-
         </div>
 
+         <Floorplans data={data.floorplan.rooms} filter cta={data.floorplan.cta}/>
 
-         <div className="col-span-12  bg-offWhite py-9 z-3 relatve mb-9 md:mb-39 overflow-x-hidden">
-              <div className="w-full uppercase px-4 md:px-9 divide mb-14">
+
+         <div className="col-span-12  bg-offWhite py-9 z-3 relatve  md:mb-14 overflow-x-hidden">
+              <div className="w-full uppercase px-4 md:px-9 divide">
                 <PortableText value={data.floors.title} />
                 
               </div>
-
-              <div className="col-span-12  md:mb-14">
-                <Floorplans data={data.floors.rooms} cta={data.floors.cta}/>
-            </div>
-            
          </div>
+         <Floorplans data={data.floors.rooms} cta={data.floors.cta}/>
          <Reveal styleSet="col-span-full md:col-span-6 md:col-start-4 mb-9 md:mb-39 hoverOn">
           {data.floors.media ? (<SwitchContent credits captions work={data.floors.media} title={'Header Video'} audio={false} />) : ('')}
 

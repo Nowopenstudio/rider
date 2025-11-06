@@ -239,6 +239,8 @@ h4.serif{font-family: "serif",'Times New Roman', Times, serif;font-size:2.4375re
   font-size:2rem;
 }
 
+
+
 li{
   list-style-type: disc;
   list-style-position: inside;
@@ -355,6 +357,14 @@ font-style: italic;
   line-height: 1.17em;
   letter-spacing: .01em;
 
+}
+
+.mobileMapList p.title{
+  font-size:1.5rem;
+}
+
+.mobileMapList .mapPoints p{
+  font-size:.93rem;
 }
 
 .planNumber p{
@@ -846,7 +856,7 @@ h1.title br,h2 br, .break br:after{ content:' '}
 h3.serif{font-family: "serif",'Times New Roman', Times, serif;font-size:1.7rem;line-height:.9em;letter-spacing: -.04em;}
 h4.serif{font-family: "serif",'Times New Roman', Times, serif;font-size:1rem;line-height:.9em;letter-spacing: .04em;}
 
-.fullVid h3,.fullVid p{
+.fullVid h3,.fullVid p, h3.divide{
   font-size:2.06rem;
 }
 

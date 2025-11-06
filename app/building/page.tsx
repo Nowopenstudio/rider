@@ -19,6 +19,7 @@ import TextBlock from "../components/textBlock";
 import Next from "../components/next";
 import GalleryC from "../components/galleryC";
 import { VidHead } from "../components/vidHead";
+import { BuildExpand } from "../components/buildExpand";
 
 
 
@@ -64,37 +65,19 @@ export default async function Home() {
         <div className="col-span-full grid grid-cols-2 md:pb-39">
 
           <Reveal styleSet="col-span-full mb-9 md:mb-0 md:col-span-1 px-4 md:px-9">
-            <div className="w-full font-bold uppercase"><p className="subMenu font-medium mb-4">Building Services</p></div>
-            <div className="menuText mb-4 md:mb-[42px]"><p><em>{data.landmark.services.title}</em></p></div>
-            <div className="listHold mb-9 md:mb-14 border-darkGray border-b">
-              {data.landmark.services.points.map((item: any, i: number) => {
-                return (
-                  <div key={`service-${i}`} className="hoverOn flex gap-x-3 w-full py-[15px] font-semibold text-darkGray border-darkGray border-t uppercase">
-                    <p className="label">{i < 9 ? '0' : ''}{i + 1}.</p>
-                    <p className="label hoverRight">{item.title}</p>
-                  </div>
-                )
-              })}
-            </div>
+            <BuildExpand title={'Building Services'} sub={data.landmark.services.title} data={data.landmark.services.points}/>
+            
             {/* feat */}
-            <div className="w-full font-bold uppercase"><p className="subMenu font-medium mb-4">Building Features</p></div>
-            <div className="menuText mb-4 md:mb-[42px]"><p><em>{data.landmark.feat.title}</em></p></div>
-            <div className="listHold mb-9 md:mb-14 border-darkGray border-b">
-              {data.landmark.feat.points.map((item: any, i: number) => {
-                return (
-                  <div key={`service-${i}`} className="flex gap-x-3 w-full py-[15px] font-semibold text-darkGray border-darkGray border-t  uppercase hoverOn">
-                    <p className="label">{i < 9 ? '0' : ''}{i + 1}.</p>
-                    <p className="label hoverRight">{item.title}</p>
-                  </div>
-                )
-              })}
-            </div>
+
+             <BuildExpand title={'Building Features'} sub={data.landmark.feat.title} data={data.landmark.feat.points}/>
+           
+
             <a href={data.landmark.cta.url} className="cta inline-block"><p>{data.landmark.cta.label}</p></a>
           </Reveal>
           <div className="col-span-full md:col-span-1 row-start-1 md:row-start-auto items-start grid grid-cols-6 pt-29">
-            <Reveal styleSet="col-span-full md:col-span-4 md:col-start-2 mb-9 md:mb-0">
+            <Reveal styleSet={`col-span-full md:col-span-4 md:col-start-2 mb-9 md:mb-0 `}>
               <div className="w-full mb-9 hoverOn"> {data.specs.media ? (<SwitchContent zoom credits captions work={data.specs.media} title={'Building Spec'} ratio={data.specs.media.ratio} audio={false} />) : ('')}</div>
-              <h3 className="mb-10 px-4 md:px-0">{data.specs.title}</h3>
+              <h3 className="mb-10 px-4 md:px-0 divide">{data.specs.title}</h3>
               <div className="specsList w-full  px-4 md:px-0">
                 {data.specs.spec.map((item: any, i: number) => {
                   return (

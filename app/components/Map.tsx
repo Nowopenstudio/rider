@@ -8,6 +8,7 @@ import { usePathname } from 'next/navigation';
 import { Reveal } from '../util/reveal';
 import { TextOn } from '../util/misc';
 import useResize from '../util/useResize';
+import { MapExpand } from './mapExpand';
 
 
 
@@ -149,23 +150,30 @@ const hidePoints=()=>{
                         {data.locations.length?(
                           data.locations.map((item:any,i:number)=>{
                             return(
-                              <div key={`${item.title}`} className="lg:w-1/2 mr-4">
-                                          <div className="w-full py-2   label"><p className="uppercase mb-2 font-bold">{item.title}</p>
-                                          <div className='w-full keyHold'>
-                                            {item.points?(
-                                              item.points.map((point:any,p:number)=>{
-                                                return(
-                                                  <div id={`key-${p+1+(i>0?total[i-1]:0)}`} data-count={p+1+(i>0?total[i-1]:0)} onMouseLeave={hidePoints} onMouseEnter={(e:any)=>showPoint(e)} onClick={(e:any)=>changePoint(e)} className={`cursor-pointer w-full grid grid-cols-40 lg:grid-cols-12 gap-x-2 mapPoints font-bold keyList text-darkGray ${(cat!=="all" && cat!==point.area)?"hide":''}`} key={`${point.title}`}>
-                                                    <div className='col-span-2'><p>{p+1+(i>0?total[i-1]:0)}</p></div>
-                                                    <div className="col-span-18 lg:col-span-10"><p>{point.title}</p></div>
-                                                  </div>
-                                                )
-                                              })
-                                            ):('')}
-                                          </div>
-                                          
-                                          </div>
-                              </div>
+                              <React.Fragment key={`${item.title}`} >
+                                {mobile?(
+                                  <MapExpand data={item} i={i} total={total}/>
+                                ):(
+                                   <div className={`lg:w-1/2 mr-4 `}>
+                                            <div className="w-full py-2   label"><p className="uppercase mb-2 font-bold">{item.title}</p>
+                                            <div className='w-full keyHold'>
+                                              {item.points?(
+                                                item.points.map((point:any,p:number)=>{
+                                                  return(
+                                                    <div id={`key-${p+1+(i>0?total[i-1]:0)}`} data-count={p+1+(i>0?total[i-1]:0)} onMouseLeave={hidePoints} onMouseEnter={(e:any)=>showPoint(e)} onClick={(e:any)=>changePoint(e)} className={`cursor-pointer w-full grid grid-cols-40 lg:grid-cols-12 gap-x-2 mapPoints font-bold keyList text-darkGray ${(cat!=="all" && cat!==point.area)?"hide":''}`} key={`${point.title}`}>
+                                                      <div className='col-span-2'><p>{p+1+(i>0?total[i-1]:0)}</p></div>
+                                                      <div className="col-span-18 lg:col-span-10"><p>{point.title}</p></div>
+                                                    </div>
+                                                  )
+                                                })
+                                              ):('')}
+                                            </div>
+                                            
+                                            </div>
+                                </div>
+                                )}
+                               
+                              </React.Fragment>
                             )
                           })
                         ):('')}
