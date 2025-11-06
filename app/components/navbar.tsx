@@ -27,7 +27,7 @@ export default function Navbar({ data, footer }: any) {
         }
 
       
-console.log(scrolled)
+
        
       }
     

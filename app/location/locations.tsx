@@ -20,9 +20,6 @@ const {mobile} = useResize();
 
 
 
-  const scrollto = (i: number) => {
-   console.log(i)
-  }
 
 
 

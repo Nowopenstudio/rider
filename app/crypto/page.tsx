@@ -29,7 +29,7 @@ export default async function Home() {
 
 
   const { data } = query.data
-  console.log(data)
+
 
   return (
 

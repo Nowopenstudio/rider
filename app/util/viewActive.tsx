@@ -22,7 +22,7 @@ export function ViewActive({children, styleSet, count}:any){
        }
       if(ref.current){
         ref.current.classList.add('itemActive')
-        console.log('active')
+
       }
     }
    },[isInView])

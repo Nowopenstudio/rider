@@ -7,7 +7,7 @@ const resend = new Resend(process.env.NEXT_PUBLIC_RESEND_API_KEY);
 
 export async function POST(req:NextRequest){
     const body = await req.json();
-    console.log('go')
+ 
     const { firstName, lastName, email, phone, subject, message, sender,rooms,broker  } = body;
   try {
     const { data, error } = await resend.emails.send({
@@ -18,7 +18,7 @@ export async function POST(req:NextRequest){
     });
 
     if (error) {
-      console.log(error)
+
       return Response.json({ error }, { status: 500 });
     }
 

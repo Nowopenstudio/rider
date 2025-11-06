@@ -23,7 +23,7 @@ export default function Floorplans({ data, filter, cta }: any) {
     const count: any = []
     data.map((item: any, i: any) => {
       count.push(item.rooms.length + (i > 0 ? count[i - 1] : 0))
-      console.log(data)
+
 
     })
     setTotal(count)
@@ -77,7 +77,7 @@ export default function Floorplans({ data, filter, cta }: any) {
     else {
       setCurr([curr[0], curr[1] - 1])
     }
-     console.log(curr)
+
 
   }
 
@@ -96,7 +96,7 @@ export default function Floorplans({ data, filter, cta }: any) {
       setCurr([curr[0], curr[1] + 1])
     }
 
-     console.log(curr)
+  
   }
 
 

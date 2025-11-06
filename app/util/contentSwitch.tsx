@@ -21,7 +21,7 @@ const zoomOn=()=>{
     curr.classList.add('lightBox')
   }
     ref.current!.focus();
-    console.log(ref.current!)
+
 }
 
      const toggleActive = () => {

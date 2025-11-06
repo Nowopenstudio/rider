@@ -35,7 +35,7 @@ export default async function Home() {
 
 
   const { data } = query.data
-  console.log(data.floors.rooms[0].rooms)
+
 
   return (
 

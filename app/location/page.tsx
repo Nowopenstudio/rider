@@ -33,7 +33,7 @@ export default async function Home() {
 
 
   const { data, map } = query.data
-  console.log(data)
+
 
   return (
 

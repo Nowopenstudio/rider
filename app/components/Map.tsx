@@ -22,11 +22,11 @@ export default function Map({data }: any) {
     const count:any = []
     data.locations.map((item:any,i:any)=>{
       count.push(item.points.length+(i>0?count[i-1]:0))
-      console.log(count)
+
 
     })
     setTotal(count)
-    console.log(total,"count")
+
   }
   useEffect(()=>{
     runCount()
