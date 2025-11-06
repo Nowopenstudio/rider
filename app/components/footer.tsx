@@ -208,7 +208,7 @@ export default function Footer({ data }: any) {
       <div className={`fixed w-full h-full top-0 left-0 bg-black ${!isLoading?"pointer-events-none":''}`} style={{transition:'opacity .5s ease-in-out',opacity:isLoading?(success?1:.75):0,}}>
               {success?(
                 <React.Fragment>
-                   <div onClick={()=>zoomOff()} className={`cursor-pointer flex uppercase items-end flex-col justify-between w-[42px] h-[16px] absolute top-9 right-9 z-[100]  pointer-events-fill `}>
+                   <div onClick={()=>zoomOff()} className={`cursor-pointer flex uppercase items-end flex-col justify-between w-[42px] h-[16px] absolute top-9 right-9 z-[100]   `}>
                 <div className="w-full border-b-[2px] border-white h-[1px] singleBar topBar" style={{transform:`rotate(45deg)`,transformOrigin:"25% 30%"}}></div>
                 
                 <div className="w-full border-b-[2px] border-white h-[1px] singleBar botBar" style={{transform:`rotate(-45deg)`,transformOrigin:"25% 30%"}}></div>
