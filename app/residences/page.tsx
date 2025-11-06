@@ -52,7 +52,7 @@ export default async function Home() {
       </div> */}
        <VidHead data={data.header.video}/>
 
-      <div className="w-full  bg-offWhite relative z-2 grid grid-cols-12 rounded-t-[12px] overflow-x-hidden">
+      <div className="w-full  bg-offWhite relative z-2 grid grid-cols-12 rounded-t-[12px] ">
                 <div className="col-span-12 pointer-events-none sticky mt-[-100dvh] md:mt=0 top-4 right-9 pr-4 md:pr-9 translate-y-16 md:translate-y-18 h-0 z-10 flex flex-row-reverse">
                  
                   <ScrollCTA id={'floors'} cta={data.intro.cta} sub />
@@ -63,7 +63,7 @@ export default async function Home() {
 
 
         </div>
-        <Reveal styleSet="col-span-full md:col-span-6 md:col-start-4 mb-9 md:mb-39 hoverOn ">
+        <Reveal styleSet="col-span-full md:col-span-6 md:col-start-4 mb-9 md:mb-39 hoverOn overflow-x-hidden">
           {data.intro.media ? (<SwitchContent captions credits work={data.intro.media} title={'Header Video'} ratio={data.intro.media.ratio} audio={false} />) : ('')}
 
         </Reveal>
@@ -75,7 +75,7 @@ export default async function Home() {
         {data.specs ? (
           data.specs.map((item: any, i: number) => {
             return (
-              <div className="col-span-full grid grid-cols-2 mb-6.5 md:mb-39" key={`spec-${i}`}>
+              <div className="col-span-full grid grid-cols-2 mb-6.5 md:mb-39 overflow-x-hidden" key={`spec-${i}`}>
                 <div className="grid grid-cols-2 px-4 md:px-9 col-span-full md:col-span-2 relative">
                   <div className="header mb-5.5 col-span-full border-t pt-9"><h3 className="serif uppdercase">{item.title}</h3></div>
                   <div className="subtitle mb-9 md:mb-21  col-span-full "><h4 className="serif uppdercase">{item.subtitle}</h4></div>
@@ -125,7 +125,7 @@ export default async function Home() {
 
 
         {/* feat */}
-        <div className="col-span-full grid grid-cols-2 md:pb-39">
+        <div className="col-span-full grid grid-cols-2 md:pb-39 overflow-x-hidden">
           <div className="col-span-2 md:col-span-1 px-4 md:px-9 mb-9 md:mb-0 ">
             <div className="w-full font-bold uppercase subMenu mb-4 md:mb-0"><PortableText value={data.feats.title} /></div>
             <div className="menuText mb-9 md:mb-[42px]"><p><em>{data.feats.subhead}</em></p></div>
@@ -170,7 +170,7 @@ export default async function Home() {
         </div>
 
 
-         <div className="col-span-12  bg-offWhite py-9 z-3 relatve mb-9 md:mb-39">
+         <div className="col-span-12  bg-offWhite py-9 z-3 relatve mb-9 md:mb-39 overflow-x-hidden">
               <div className="w-full uppercase px-4 md:px-9 divide mb-14">
                 <PortableText value={data.floors.title} />
                 
@@ -187,7 +187,7 @@ export default async function Home() {
         </Reveal>
 
 
-        <div className='col-span-full grid grid-cols-12 px-4 md:px-9'>
+        <div className='col-span-full grid grid-cols-12 px-4 md:px-9 overflow-x-hidden'>
           <div className="col-span-full py-2 border-b  pb-4 mb-4 md:mb-9 uppercase label font-bold"><p>{data.smart.label}</p></div>
           <div className="col-span-full divide uppercase mb-6.5 md:mb-14">
             <PortableText value={data.smart.title} />

@@ -49,7 +49,7 @@ export default async function Home() {
       </div> */}
           <VidHead data={data.header.video}/>
 
-      <div className="w-full  bg-offWhite  sticky z-2 grid grid-cols-12 overflow-x-hidden">
+      <div className="w-full  bg-offWhite  sticky z-2 grid grid-cols-12 ">
         <div className="col-span-full mb-9 md:mb-24">
           <TextBlock title={data.intro.title} copy={data.intro.copy} subhead={data.intro.subhead} cta={data.intro.cta} off arrowBot />
         </div>
@@ -80,7 +80,7 @@ export default async function Home() {
           </div>
         </Reveal>
 
-        <div className="col-span-full px-4 md:px-9 grid grid-cols-12 mb-9 md:mb-39">
+        <div className="col-span-full px-4 md:px-9 grid grid-cols-12 mb-9 md:mb-39 overflow-x-hidden">
           {data.resources.map((item:any,i:number)=>{
             return(
               <Reveal key={`resources-${i}`} styleSet="col-span-full md:col-span-6 md:col-start-4 mb-10.5 md:mb-22">
@@ -100,7 +100,7 @@ export default async function Home() {
           })}
         </div>
 
-        <div className="col-span-full bg-black grid grid-cols-12 p-4 md:p-9 text-white">
+        <div className="col-span-full bg-black grid grid-cols-12 p-4 md:p-9 text-white overflow-x-hidden">
           <Reveal styleSet="col-span-full border-darkGray border-t divide py-9 mb-9 md:mb-28">
             <PortableText value={data.brokers.title}/>
           </Reveal>

@@ -49,7 +49,7 @@ export default async function Home() {
       </div> */}
           <VidHead data={data.header.video}/>
 
-      <div className="w-full  bg-offWhite  sticky z-2 grid grid-cols-12 overflow-x-hidden">
+      <div className="w-full  bg-offWhite  sticky z-2 grid grid-cols-12 ">
         <div className="col-span-full mb-9 md:mb-12"> <TextBlock title={data.intro.title} /></div>
         <div className="col-span-full md:col-span-6 divide mb-9 md:mb-24 px-4 md:px-9"><PortableText value={data.intro.subtitle} /></div>
         <div className="col-span-12 px-4 md:px-9 grid grid-cols-2 gap-4 md:gap-9 items-start 9 mb-md:mb-45">
@@ -77,7 +77,7 @@ export default async function Home() {
         </div>
 
         {/* edge */}
-        <div className="col-span-full mb-9 md:mb-81.5">
+        <div className="col-span-full mb-9 md:mb-81.5 overflow-x-hidden">
           <div className="w-full grid grid-cols-2 px-4 md:px-9 gap-9">
             <div className="col-span-full divide py-4 md:py-12 border-t uppercase md:mb-37.5"><PortableText value={data.edge.title} /></div>
             <div className="col-span-full md:col-span-1 grid grid-cols-9">
@@ -110,7 +110,7 @@ export default async function Home() {
         </div>
 
         {/* Residences */}
-        <div className="col-span-full mb-9 md:mb-81.5">
+        <div className="col-span-full mb-9 md:mb-81.5 overflow-x-hidden">
           <div className="w-full grid grid-cols-2 px-4  md:px-9 gap-x-9 items-center">
             <div className="col-span-full divide pt-4 md:pt-12 border-t uppercase mb-9 md:mb-34"><PortableText value={data.residences.title} /></div>
             <div className="col-span-full divide uppercase mb-9 md:mb-37.5"><PortableText value={data.residences.subtitle} /></div>
@@ -130,7 +130,7 @@ export default async function Home() {
         </div>
 
         {/* services */}
-        <div className="col-span-full mb-9 md:mb-46">
+        <div className="col-span-full mb-9 md:mb-46 overflow-x-hidden">
           <div className="w-full grid grid-cols-12 px-4 md:px-9 gap-x-4 md:gap-x-9 items-center">
             <div className="col-span-full divide pt-9 md:pt-12 border-t uppercase mb-9 md:mb-34"><PortableText value={data.services.title} /></div>
                 <div className="col-span-full md:col-span-4 md:col-start-5 mb-9 md:mb-27.5"><SwitchContent work={data.services.media} title={'Header Video'} audio={false} /></div>
@@ -158,7 +158,7 @@ export default async function Home() {
 
 
         {/* tech */}
-        <div className="col-span-full mb-9 md:mb-81.5">
+        <div className="col-span-full mb-9 md:mb-81.5 overflow-x-hidden">
           <div className="w-full grid grid-cols-2 px-4 md:px-9 gap-9 items-center">
             <div className="col-span-full divide py-4 md:py-12 md:border-t uppercase mb-4 md:mb-37.5"><PortableText value={data.tech.title} /></div>
             <div className="col-span-full md:col-span-1 grid grid-cols-9">
@@ -180,7 +180,7 @@ export default async function Home() {
 
         
          {/* services */}
-        <div className="col-span-full mb-9 md:mb-46">
+        <div className="col-span-full mb-9 md:mb-46 overflow-x-hidden">
           <div className="w-full grid grid-cols-12 px-4 md:px-9 gap-x-9 items-center">
             <div className="col-span-full divide pt-12 border-t uppercase mb-9 md:mb-34"><PortableText value={data.setup.title} /></div>
                 <div className="col-span-full md:col-span-8 md:col-start-3 mb-9 md:mb-27.5"><SwitchContent work={data.setup.media} title={'Header Video'} audio={false} /></div>
@@ -217,7 +217,7 @@ export default async function Home() {
 
 
             {/* Guest */}
-        <div className="col-span-full mb-9 md:mb-81.5">
+        <div className="col-span-full mb-9 md:mb-81.5 overflow-x-hidden">
           <div className="w-full grid grid-cols-2 px-4 md:px-9 gap-x-4 md:gap-x-9 items-center">
             <div className="col-span-full divide pt-12 border-t uppercase mb-9 md:mb-34"><PortableText value={data.guest.title} /></div>
             <div className="grid grid-cols-6 col-span-full md:col-span-1 mb-9 md:mb-23.5">
@@ -234,7 +234,7 @@ export default async function Home() {
         </div>
 
            {/* Potential */}
-        <div className="col-span-full mb-9 md:mb-34.25 px-4 md:px-9">
+        <div className="col-span-full mb-9 md:mb-34.25 px-4 md:px-9 overflow-x-hidden">
           <div className="w-full grid grid-cols-2 gap-x-9 items-center border-t">
              
             <div className="col-span-full md:col-span-1">
@@ -256,7 +256,7 @@ export default async function Home() {
         </div>
         
         {/* contact  */}
-        <div className="bg-black p-4 md:p-9 col-span-full text-white">
+        <div className="bg-black p-4 md:p-9 col-span-full text-white overflow-x-hidden">
          <div className="w-full grid grid-cols-2 border-t py-9 md:py-23.5 ">
           <div className="col-span-full md:col-span-1">
              <div className="grid grid-cols-9">

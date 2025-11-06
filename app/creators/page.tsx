@@ -49,7 +49,7 @@ export default async function Home() {
       </div> */}
       <VidHead data={data.header.video}/>
 
-      <div className="w-full  bg-offWhite  sticky z-2 grid grid-cols-12 rounded-t-[12px] overflow-x-hidden">
+      <div className="w-full  bg-offWhite  sticky z-2 grid grid-cols-12 rounded-t-[12px] ">
         <div className="col-span-full mb-9 md:mb-24">
           <TextBlock title={data.intro.title} copy={data.intro.copy} subhead={data.intro.subhead} arrowBot off />
         </div>
@@ -68,7 +68,7 @@ export default async function Home() {
           </div>
         </div>
 
-        <div className="bg-black p-0 md:p-9 col-span-full">
+        <div className="bg-black p-0 md:p-9 col-span-full overflow-x-hidden">
           {data.artists.map((item: any, i: number) => {
             return (
               <div className="w-full singleArtist pb-14" key={`${item.profile.name}`}>
@@ -101,7 +101,7 @@ export default async function Home() {
                 {/* feat */}
                 {item.profile.feat?(
                   <React.Fragment>
-                    <div className="col-span-full py-9 text-white px-4 md:px-0 md:uppercase border-t border-darkGray">
+                    <div className="col-span-full py-9 text-white px-4 md:px-0 md:uppercase border-t border-darkGray overflow-x-hidden">
                       {item.profile.feat.headline?(
                          <PortableText value={item.profile.feat.headline} />
                       ):('')}

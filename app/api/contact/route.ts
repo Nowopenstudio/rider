@@ -9,20 +9,20 @@ export async function POST(req:NextRequest) {
     const body = await req.json();
     console.log(resend)
     const { firstName, lastName, email, phone, subject, message, sender,rooms,broker  } = body;
-  try {
-    const { data, error } = await resend.emails.send({
-      from: email,
-      to: "ro@nowopen.studio",
-      subject: subject,
-      react: ContactTemplate({ firstName: firstName, lastName:lastName, phone:phone, message:message, email:sender,rooms:rooms, broker:broker }),
-    });
+  // try {
+  //   const { data, error } = await resend.emails.send({
+  //     from: email,
+  //     to: "ro@nowopen.studio",
+  //     subject: subject,
+  //     react: ContactTemplate({ firstName: firstName, lastName:lastName, phone:phone, message:message, email:sender,rooms:rooms, broker:broker }),
+  //   });
 
-    if (error) {
-      return Response.json({ error }, { status: 500 });
-    }
+  //   if (error) {
+  //     return Response.json({ error }, { status: 500 });
+  //   }
 
-    return Response.json(data);
-  } catch (error) {
-    return Response.json({ error }, { status: 500 });
-  }
+  //   return Response.json(data);
+  // } catch (error) {
+  //   return Response.json({ error }, { status: 500 });
+  // }
 }

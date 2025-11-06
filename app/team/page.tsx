@@ -50,7 +50,7 @@ export default async function Home() {
             </div> */}
             
                 <VidHead data={data.header.video}/>
-            <div className="w-full  bg-offWhite  sticky z-2 grid grid-cols-12 rounded-t-[12px] overflow-x-hidden">
+            <div className="w-full  bg-offWhite  sticky z-2 grid grid-cols-12 rounded-t-[12px] ">
                <div className="col-span-12 pointer-events-none sticky top-9 md:top-14 mt-[-100dvh] md:mt-0 right-9 pr-4 md:pr-9 translate-y-14 h-0 z-7 flex flex-row-reverse">
                                        
                                         <ScrollCTA id={'video'} cta={data.intro.cta} sub />
@@ -61,7 +61,7 @@ export default async function Home() {
 
               {/* profile */}
       
-            <div className="col-span-full teamHold px-4 md:px-9">
+            <div className="col-span-full teamHold px-4 md:px-9 overflow-x-hidden">
                   {data.team.map((item:any,i:number)=>{
                     return(
                       <div key={`team-${i}`} className="w-full grid grid-cols-12 gap-9 mb-9 md:mb-39">
@@ -107,7 +107,7 @@ export default async function Home() {
          {data.outro.video?(
                           <React.Fragment>
                             
-                            <div id={'video'} className="col-span-full py-4 md:py-14 flex items-center justify-center border-t border-darkGray bg-black flex-wrap px-4 md:px-9 ">
+                            <div id={'video'} className="col-span-full py-4 md:py-14 flex items-center justify-center border-t border-darkGray bg-black flex-wrap px-4 md:px-9 overflow-x-hidden">
                               <div className="w-full text-white divide uppercase pt-9 border-t border-darkGray mb-14">
                                 <PortableText value={data.outro.title}/>
                               </div>

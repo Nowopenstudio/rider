@@ -89,7 +89,7 @@ export default function Footer({ data }: any) {
                                 return(
                                   <div key={`input-${item.label}`} className="col-span-full xl:col-span-1 mb-[10px]">
                                     <label className="pb-1">{item.label} *</label>
-                                    <input className="border w-full mt-1" name={item.value}></input>
+                                    <input className="border w-full mt-1" name={item.value} required></input >
                                   </div>
                                 )
                               })}

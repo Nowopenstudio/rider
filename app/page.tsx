@@ -63,8 +63,8 @@ export default async function Home() {
 
       </div>
 
-      <div id={'intro'} className="w-full  pt-18 md:pt-0 bg-offWhite relative z-2 grid grid-cols-12 rounded-t-[12px] overflow-x-hidden">
-        <div className="col-span-12 text-right footnote  pointer-events-none sticky md:top-18 right-4 md:right-9 pr-4 md:pr-9 translate-y-4 md:translate-y-9 h-0 z-2"><PortableText value={data.welcome.copy} /></div>
+      <div id={'intro'} className="w-full  pt-18 md:pt-0 bg-offWhite relative z-2 grid grid-cols-12 rounded-t-[12px] ">
+        <div className="col-span-12 text-right footnote  pointer-events-none sticky top-0 md:top-18 right-4 md:right-9 pr-4 md:pr-9 translate-y-4 md:translate-y-9 h-0 z-2"><PortableText value={data.welcome.copy} /></div>
        <div className="col-span-full"> <TextBlock off title={data.welcome.title} footnote={data.welcome.copy} copy={data.build.copy} subhead={data.build.title}/></div>
         
     
@@ -74,7 +74,7 @@ export default async function Home() {
         </Reveal>
 
         {/* mini menu */}
-        <div className="miniMenu grid grid-cols-2 gap-9 col-span-full mb-12.5 md:mb-39 px-4 md:px-9">
+        <div className="miniMenu grid grid-cols-2 gap-9 col-span-full mb-12.5 md:mb-39 px-4 md:px-9 overflow-x-hidden">
           {data.menu ? (
             data.menu.map((item: any, i: number) => {
               return (
@@ -102,7 +102,7 @@ export default async function Home() {
        
 
       {/* Residencies */}
-        <div className="col-span-full gap-4 9">
+        <div className="col-span-full gap-4 overflow-x-hidden">
           <Reveal styleSet="w-full px-4 md:px-9 grid grid-cols-12">
             <div className="col-span-full py-2 border-b  uppercase label font-bold"><p>{data.residency.title}</p></div>
             <div className="md:mb-10 col-span-full divide pt-4 pb-6.5 md:py-9"><PortableText value={data.residency.copy} /></div>
@@ -128,7 +128,7 @@ export default async function Home() {
 
       
       </div>
-      <div className='w-full bg-offWhite z-1 sticky top-18 h-[200dvh] pt-10' >
+      <div className='w-full bg-offWhite z-1 sticky top-18 h-[200dvh] pt-10 ' >
          <div className="w-full md:px-9 hoverOn mb-39 h-[100dvh] bg-offWhite relative z-2">
             {data.residency.video.vid ? (
                 <MediaGrow data={data.residency.video} size={.568}/>
@@ -138,7 +138,7 @@ export default async function Home() {
 
 
       {/* design */}
-      <div className="w-full bg-black py-4 md:py-9 relative z-3 grid grid-cols-12 text-white md:pb-22 mt-[-100dvh] rounded-t-[12px]">
+      <div className="w-full bg-black py-4 md:py-9 relative z-3 grid grid-cols-12 text-white md:pb-22 mt-[-100dvh] rounded-t-[12px overflow-x-hidden]">
         <Reveal styleSet='col-span-full px-4 md:px-9'><div className="w-full py-2 border-b uppercase label font-bold"><p>{data.interiors.title}</p></div></Reveal>
         <Reveal styleSet="col-span-full mb-18 md:mb-39 break">
           <TextBlock title={data.interiors.headline.copy} copy={data.interiors.copy} subhead={data.interiors.subhead} off/>
@@ -173,7 +173,7 @@ export default async function Home() {
       </div>
 
       {/* Area */}
-        <div className="col-span-full  grid grid-cols-12 gap-4 md:px-9 relative z-10 bg-offWhite">
+        <div className="col-span-full  grid grid-cols-12 gap-4 md:px-9 relative z-10 bg-offWhite overflow-x-hidden">
           <Reveal styleSet='col-span-full uppercase py-3 border-t border-b text-left mb-9 px-4 md:px-0'><h2 className='w-full serif'>{data.location.title}</h2></Reveal>
           
              <HoverVid data={data.location.video}/>
@@ -183,7 +183,7 @@ export default async function Home() {
 
         
         {/* Map */}
-        <div className="col-span-full grid grid-cols-12 gap-4 px-4 md:px-9 relative z-4 bg-offWhite pb-18 md:pb-0">
+        <div className="col-span-full grid grid-cols-12 gap-4 px-4 md:px-9 relative z-4 bg-offWhite pb-18 md:pb-0 overflow-x-hidden">
           <Reveal styleSet="col-span-full py-2 border-b md:mb-4 uppercase label font-bold"><p>{data.map.label}</p></Reveal>
           <Reveal styleSet="mb-10 col-span-full md:col-span-8 divide"><PortableText value={data.map.title} /></Reveal>
           {map ? (
@@ -197,7 +197,7 @@ export default async function Home() {
        
 
       {/* amenities */}
-      <div className="w-full relative z-5 bg-offWhite pt-4 ">
+      <div className="w-full relative z-5 bg-offWhite pt-4 overflow-x-hidden">
         <div className="w-full grid grid-cols-12 px-4 md:px-9 mb-10 ">
           <div className="col-span-full py-2 border-b  uppercase label font-bold"><p>{data.amenities.title}</p></div>
           <div className=" col-span-full md:col-span-5 md:mb-10 py-4 md:py-9">
@@ -220,7 +220,7 @@ export default async function Home() {
 
 
         {/* Gallery */}
-        <div className="w-full relative z-5 bg-offWhite pt-4 grid grid-cols-12">
+        <div className="w-full relative z-5 bg-offWhite pt-4 grid grid-cols-12 overflow-x-hidden">
           <div className="col-span-full grid grid-cols-12 px-4 md:px-9 mb-10">
             <div className="col-span-full py-2 border-b  uppercase label font-bold"><p>{data.gallery.title}</p></div>
             <div className=" col-span-full md:mb-10 py-4 md:py-9">

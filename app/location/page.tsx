@@ -51,7 +51,7 @@ export default async function Home() {
       </div> */}
        <VidHead data={data.header.video}/>
 
-      <div className="w-full  bg-offWhite  sticky z-2 grid grid-cols-12 overflow-x-hidden">
+      <div className="w-full  bg-offWhite  sticky z-2 grid grid-cols-12 ">
          <div className="col-span-12 pointer-events-none sticky top-4 mt-[-100dvh] md:mt-0 right-9 pr-4 md:pr-9 translate-y-16 md:translate-y-18 h-0 z-7 flex flex-row-reverse">
                          
                           <ScrollCTA id={'map'} cta={data.intro.cta} sub />
@@ -61,7 +61,7 @@ export default async function Home() {
         </div>
 
         {/* menu */}
-        <div className="col-span-full flex justify-between md:justify-start gap-4 relative">
+        <div className="col-span-full flex justify-between md:justify-start gap-4 relative overflow-x-hidden">
           <Locations data={data.locations}/>
         </div>
 
@@ -78,7 +78,7 @@ export default async function Home() {
 
 
         {/* Map */}
-        <div id={'map'} className="col-span-full grid grid-cols-12 gap-4 px-9 pt-9 relative">
+        <div id={'map'} className="col-span-full grid grid-cols-12 gap-4 px-9 pt-9 relative overflow-x-hidden">
           
           {map ? (
             <Map data={map} />
