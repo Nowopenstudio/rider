@@ -164,7 +164,7 @@ export default async function Home() {
         <div className="sticky top-0 mt-[-100vh] h-[100dvh]">
           {data.interiors.outro.video ? (<SwitchContent work={data.interiors.outro.video} title={'Header Video'} ratio={data.interiors.outro.video.ratio} audio={false} cover/>) : ('')}
           <div className="w-full h-[100dvh] absolute z-3 top-0 left-0 flex md:items-center" style={{backgroundColor:`rgba(0,0,0,.4)`}}>
-              <div className="bottom-4 absolute md:relative w-2/3 mb:w-1/3 px-4 md:px-9 text-white">
+              <div className="bottom-4 absolute md:relative w-2/3 md:w-1/3 px-4 md:px-9 text-white">
                 <div className="w-full mb-9"><PortableText value={data.interiors.outro.title}/></div>
                 <ScrollCTA id={'intro'} cta={data.interiors.outro.cta} inverted />
               </div>
