@@ -1,22 +1,51 @@
 "use client"
 
 
-import React, { useState } from 'react';
+import React, { FormEvent, useState } from 'react';
 import { usePathname } from 'next/navigation';
 import useResize from '../util/useResize';
 import { SwitchContent } from '../util/contentSwitch';
 import { PortableText } from 'next-sanity';
 import Image from 'next/image';
+import { sendContact } from '../util/sanity';
 
 
 export default function Footer({ data }: any) {
   const page = usePathname();
   const { mobile } = useResize()
-  const [active, setActive] = useState(false)
   const [rooms,setRooms] = useState(0)
   const [broker,setBroker] = useState(0)
 
+  const [isLoading, setIsLoading] = useState<boolean>(false)
+  const [success, setSuccess] = useState<boolean>(false)
 
+  
+  const submitForm=(e:FormEvent<HTMLFormElement>)=>{
+    e.preventDefault()
+    setIsLoading(true)
+    const formData = new FormData(e.currentTarget)
+    const newEmail:any  = {}
+
+   newEmail.firstName = formData.get('firstName')
+     newEmail.lastName = formData.get('lastName')
+   newEmail.email = 'info@theriderresidences.com'
+   newEmail.subject = 'New Inquiry: The Rider Residences'
+   newEmail.message = formData.get('comments')
+      newEmail.phone = formData.get('phone')
+   newEmail.sender = formData.get('email')
+    newEmail.rooms = data.form.rooms.options[rooms].label
+   newEmail.broker = data.form.broker.options[broker].label
+
+   console.log(newEmail)
+   sendContact(newEmail)
+   setSuccess(true)
+
+  const curr = document.getElementById('body')
+  if(curr){
+    curr.classList.add('lightBox')
+  }
+
+  }
   
   const changeRooms=(i:any)=>{
     setRooms(i)
@@ -26,12 +55,26 @@ export default function Footer({ data }: any) {
     setBroker(i)
   }
 
+  const zoomOff=()=>{
+  console.log(success,isLoading,'loading')
+  const curr = document.getElementById('body')
+  
+  if(curr){
+    curr.classList.remove('lightBox')
+  }
+   setSuccess(false)
+  setIsLoading(false)
+
+
+
+}
+
 
 
   return (
     <React.Fragment>
       <div id={'footer'} className="w-full xl:h-[200dvh] z-1 xl:pt-0] xl:mt-[-100dvh] bg-black xl:bg-offWhite footer ">
-        <div className="xl:sticky w-full  xl:mt-[0] xl:h-[100dvh] top-0 left-0 xl:grid grid-cols-2">
+        <div className={`footerForm  xl:sticky w-full  xl:mt-[0] xl:h-[100dvh] top-0 left-0 xl:grid grid-cols-2`}>
           <div className="downloadBar absolute top-[74px] px-4 xl:px-9 w-full z-20 bg-black h-[60px] items-center justify-between hidden xl:flex">
             <div className="uppercase text-white"><p>{data.contact.phone}</p></div>
             <div className="uppercase text-darkGray"><p>{data.contact.cta.label}</p></div>
@@ -40,7 +83,7 @@ export default function Footer({ data }: any) {
                 <div className="sticky top-0 xl:relative w-full xl:w-3/4 flex-col flex gap-y-10 pb-9 xl:pb-18 px-4 xl:px-0 pt-50 xl:pt-0">
                       <h3 className="uppercase ">{data.form.headline}</h3>
                       <div><PortableText value={data.form.copy}/></div>
-                      <form className="form w-full px-4 xl:px-0">
+                      <form onSubmit={submitForm} className="form w-full px-4 xl:px-0">
                            <div className="w-full grid grid-cols-1 xl:grid-cols-2 xl:gap-x-4 gap-y-0">
                               {data.form.input.map((item:any,i:number)=>{
                                 return(
@@ -52,7 +95,7 @@ export default function Footer({ data }: any) {
                               })}
                               <div className="col-span-2 mb-[10px] md:mb-8">
                                 <label className="w-full mb-1">Comments</label>
-                                <textarea className="border resize-none h-[20px] w-full mt-1"></textarea>
+                                <textarea className="border resize-none h-[20px] w-full mt-1" name="comments"></textarea>
                               </div>
                               <div className="col-span-full">
                                <div className="w-full grid grid-cols-8 gap-x-9 pb-7">
@@ -73,7 +116,7 @@ export default function Footer({ data }: any) {
                                     <div className="flex gap-9 col-span-6">
                                       {data.form.rooms.options.map((item:any,i:number)=>{
                                       return(
-                                        <div onClick={()=>changeRooms(i)} className="flex cursor-point items-center gap-1 col-span-1" key={`rooms-${i}`}>
+                                        <div onClick={()=>changeRooms(i)} className="flex cursor-pointer items-center gap-1 col-span-1" key={`rooms-${i}`}>
                                             <div className={`border w-[10px] h-[10px] rounded-full flex-shrink ${i==rooms?"bg-white lg:bg-black":""}`}></div>
                                             <div className="label text-nowrap">{item.label}</div>
                                         </div>
@@ -94,8 +137,8 @@ export default function Footer({ data }: any) {
                                     )
                                   })}
 
-                                   <div className={`cta secondary inline-block col-end-9 md:col-end-auto col-span-3 md:col-span-2 text-center ${mobile?'inverted':''}`}><p className="w-full">SUBMIT</p></div>
-                                <div className="disclaimerText text-gray col-span-full md:col-span-5 legal pt-[10px]"><PortableText value={data.form.disclaimers}/></div>
+                                   <button type="submit" className={`cta secondary row-start-auto mt-0 lg:mt-9 lg:row-start-2 inline-block col-end-9 md:col-end-auto col-span-3 md:col-span-2 text-center ${mobile?'inverted':''}`}><p className="w-full">SUBMIT</p></button>
+                                <div className="disclaimerText text-gray md:pt-10 col-span-full md:col-span-5 legal pt-[10px]"><PortableText value={data.form.disclaimers}/></div>
                                </div>
                                <div className="w-full grid grid-cols-8 gap-x-9 items-center">
                       
@@ -161,6 +204,27 @@ export default function Footer({ data }: any) {
                    </div>
                     </div>
 
+      </div>
+      <div className={`fixed w-full h-full top-0 left-0 bg-black ${!isLoading?"pointer-events-none":''}`} style={{transition:'opacity .5s ease-in-out',opacity:isLoading?(success?1:.75):0,}}>
+              {success?(
+                <React.Fragment>
+                   <div onClick={()=>zoomOff()} className={`cursor-pointer flex uppercase items-end flex-col justify-between w-[42px] h-[16px] absolute top-9 right-9 z-[100]  pointer-events-fill `}>
+                <div className="w-full border-b-[2px] border-white h-[1px] singleBar topBar" style={{transform:`rotate(45deg)`,transformOrigin:"25% 30%"}}></div>
+                
+                <div className="w-full border-b-[2px] border-white h-[1px] singleBar botBar" style={{transform:`rotate(-45deg)`,transformOrigin:"25% 30%"}}></div>
+              </div>
+            
+                  <div className="absolute w-full h-full top-0 left-0 flex flex-col justify-between text-white py-9">
+                    <div className="px-4 md:px-9"><PortableText value={data.sucessVid.top}/></div>
+                       <div className="flex justify-center w-full items-center py-9">
+                       <div className="w-2/3">
+                          <SwitchContent work={data.sucessVid} title={`amenities`} ratio={data.footerVid.ratio} audio={true} contain />
+                         </div>
+                       </div>
+                        <div className="px-4 md:px-9 "><PortableText value={data.sucessVid.bottom}/></div>
+                  </div>
+                </React.Fragment>
+              ):('')}
       </div>
     </React.Fragment>
 

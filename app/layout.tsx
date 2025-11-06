@@ -25,7 +25,7 @@ export default async function RootLayout({
     const query = await getData(`{
       'home':*[_type=='home'][0]{loader},
        'data':*[_type=='info'][0]{name,titles,location,bio,links,cv,email, media[]{"image":image.asset->url, "vid":video.asset->playbackId, "ratio":video.asset->data.aspect_ratio}, name, clients[]{title, "image":image.asset->url}},
-       'footer':*[_type=="footer"][0]{contact,form,cta,disclaimers,disclaim{"logo":logo.asset->url,disclaimers,privacy,terms,faqs,copyright},contacts,footerVid{"image":image.asset->url,"vid":video.asset->playbackId, "ratio":video.asset->data.aspect_ratio}, footerLogos[]{'image':image.asset->url,url}}
+       'footer':*[_type=="footer"][0]{contact,form,cta,disclaimers,disclaim{"logo":logo.asset->url,disclaimers,privacy,terms,faqs,copyright},contacts,footerVid{"image":image.asset->url,"vid":video.asset->playbackId, "ratio":video.asset->data.aspect_ratio}, footerLogos[]{'image':image.asset->url,url},sucessVid{top,bottom,"image":image.asset->url,"vid":video.asset->playbackId, "ratio":video.asset->data.aspect_ratio}}
 
        }`)
 

@@ -89,7 +89,7 @@ const zoomOff=()=>{
        <div className={`credits uppercase absolute top-9 left-9 z-2`}>{credits?(<PortableText value={work.credits}/>):('')}</div>
         
           <div>
-            <div onClick={zoomOff} className={`cursor-pointer flex uppercase items-end flex-col justify-between mobileBar w-[42px] h-[16px] absolute top-9 right-9 z-[100]  pointer-events-auto `}>
+            <div onClick={zoomOff} className={`cursor-pointer flex uppercase items-end flex-col justify-between w-[42px] h-[16px] absolute top-9 right-9 z-[100]  pointer-events-auto `}>
                 <div className="w-full border-b-[2px] border-black  h-[1px] singleBar topBar" style={{transform:`rotate(45deg)`,transformOrigin:"25% 30%"}}></div>
                 
                 <div className="w-full border-b-[2px] border-black  h-[1px] singleBar botBar" style={{transform:`rotate(-45deg)`,transformOrigin:"25% 30%"}}></div>

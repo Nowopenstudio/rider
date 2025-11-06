@@ -177,10 +177,14 @@ export const sendContact= (async (message:any)=>{
         },
         body: JSON.stringify({
           email: message.email,
-          name: message.name,
+          firstName: message.firstName,
+           lastName: message.lastName,
           subject:message.subject,
           message:message.message,
-          sender:message.contact
+          sender:message.sender,
+          broker:message.broker,
+          rooms:message.rooms,
+          phone:message.phone
         }),
       });
 

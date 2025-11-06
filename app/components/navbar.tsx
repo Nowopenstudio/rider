@@ -76,7 +76,7 @@ console.log(scrolled)
             </div>
              <div className="w-[47px] h-[30px] rounded-[8px] p-2" style={{backgroundColor:`${scrolled && !active?"rgba(0,0,0,0.05)":"rgba(255,255,255,0.2)"}`}}>
               <div className="w-full h-full" >
-              <div onClick={() => menuToggle()} className={`cursor-pointer  ml-auto mr-0 flex uppercase items-end flex-col justify-between mobileBar w-full h-full relative z-[1]  pointer-events-auto ${active?'active':''}`} style={{transition:`transform .25s ease-out`,transform:`translateX(${active?'3px':'0'})`}}>
+              <div onClick={() => menuToggle()} className={`cursor-pointer  ml-auto mr-0 flex uppercase items-end flex-col justify-between menuBut mobileBar w-full h-full relative z-[1]  pointer-events-auto ${active?'active':''}`} style={{transition:`transform .25s ease-out`,transform:`translateX(${active?'3px':'0'})`}}>
                   <div className={`w-full border-b-[2px] ${scrolled && !active?'border-black':'border-white'} h-[1px] singleBar topBar`} style={{transform:`rotate(${active?'45':'0'}deg)`,transformOrigin:"22% 30%"}}></div>
                   <div className={`w-full border-b-[2px] ${scrolled && !active?'border-black':'border-white'}  h-[1px] singleBar botBar`} style={{transform:`rotate(${active?'-45':'0'}deg)`,transformOrigin:"22% 30%"}}></div>
                   
@@ -100,7 +100,7 @@ console.log(scrolled)
         <Link className=" w-1/3 py-1"  href="/"><div className="relative w-full h-full flex items-center justify-center"  style={{opacity:active?0:1}}> <Logo className="w-auto h-[50px] " fill={'#000000'} /></div></Link>
           <div className=" w-1/3 flex items-center justify-end">
             <div>
-            <div onClick={() => menuToggle()} className={`cursor-pointer mix-blend-difference ml-auto mr-0 flex uppercase items-end flex-col justify-between mobileBar w-[42px] h-[16px] relative z-[1]  pointer-events-auto ${active?'active':''}`}>
+            <div onClick={() => menuToggle()} className={`menuBut cursor-pointer mix-blend-difference ml-auto mr-0 flex uppercase items-end flex-col justify-between mobileBar w-[42px] h-[16px] relative z-[1]  pointer-events-auto ${active?'active':''}`}>
                 <div className={`w-full border-b-[2px] border-white  h-[1px] singleBar topBar`} style={{transform:`rotate(${active?'45':'0'}deg)`,transformOrigin:"25% 30%"}}></div>
                 <div className="w-full  border-b-[2px] border-white  h-[1px] singleBar midBar" style={{maxWidth:active?0:42,transformOrigin:"100% 50%"}} ></div>
                 <div className="w-full border-b-[2px] border-white  h-[1px] singleBar botBar" style={{transform:`rotate(${active?'-45':'0'}deg)`,transformOrigin:"25% 30%"}}></div>

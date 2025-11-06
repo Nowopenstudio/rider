@@ -469,7 +469,7 @@ font-style: italic;
   opacity:0;
   pointer-events: none;
 }
-.keyList.hide, .keyHold.dim .keyList, .galleryImage.dim{
+.keyList.hide, .keyHold.dim .keyList, .galleryImage.dim, .footerForm.dim{
   opacity:.25;
 
 }
@@ -597,9 +597,9 @@ opacity:1;
  transition:  opacity .5s ease-in-out;
 }
 
-.lightBox .navBar{
+.lightBox .navBar, .lightBox .mobileBar{
   opacity:0;
-  pointer-events: none;
+  pointer-events: none !important;
   transition: opacity .25s ease-in-out;
   display: none;
 }

@@ -117,6 +117,7 @@ export default {
                 { name: 'video', type: 'mux.video', title: 'Video' }
             ]
         },
+   
         {
             name: 'footerLogos', type: 'array', title: 'Footer Logos', of: [
                 {
@@ -126,7 +127,15 @@ export default {
                     ]
                 }
             ]
-        }
+        },
+              {
+            name: 'sucessVid', type: "object", title: 'Success Video', fields: [
+                { name: 'image', type: 'image', title: 'Image' },
+                { name: 'video', type: 'mux.video', title: 'Video' },
+                 { name: 'top', type: 'array', title: "Top", of: [{ type: 'block' }] },
+                  { name: 'bottom', type: 'array', title: "Bottom", of: [{ type: 'block' }] }
+            ]
+        },
 
 
 
