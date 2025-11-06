@@ -56,7 +56,7 @@ const zoomOff=()=>{
     <Image alt="image" onClick={zoom&&!mobile?zoomOn:undefined} onContextMenu={(e)=>{e.preventDefault()}} height={0}  width={0} sizes={`${size?size:`100vw`}`}  src={work.image}  className={`${height?`h-full w-auto`:'w-full h-auto'} ${contain?"object-contain h-full":""} ${cover?"object-cover h-full":""} ${zoom?'cursor-pointer':''}`} style={{aspectRatio:work.ratioImg}}/>
   {credits || captions?( <div className={`md:flex justify-between w-full onHover py-4 ${inside?"text-white relative md:absolute bottom-0 left-0 px-4 z-10":""}`}><div className={`captions px-4 mb-4 md:mb-0 md:px-0 relative`}>
     {mobile && !cullInfo ?(
-     <div className="absolute right-4 top-0 z-20"  onClick={toggleInfo}> <div className="h-[16px] w-[16px]">{info?(<InfoBAlt className="w-full h-full"/>):<InfoB className="w-full h-full"/> }</div></div>
+     <div className="absolute right-4 top-[-4px] z-20"  onClick={toggleInfo}> <div className="h-[16px] w-[16px]">{info?(<InfoBAlt className="w-full h-full"/>):<InfoB className="w-full h-full"/> }</div></div>
   ):('')}
     {captions?(<PortableText value={work.captions}/>):('')}
 
@@ -82,21 +82,21 @@ const zoomOff=()=>{
       </div>
       )}
     
-      <div  data-lenis-prevent ref={ref} className={`fixed w-[100vw] h-[100vh] top-0 left-0 bg-black  loader z-[100] ${active?'':'pointer-events-none'}  overflow-y-scroll overflow-x-hidden`} style={{opacity:active?1:0}}>
-       <div 
-          tabIndex={-1} className="w-full h-auto">
+      <div   className={`fixed w-[100vw] h-[100vh] top-0 left-0 bg-black  loader z-[100] ${active?'':'pointer-events-none'}   overflow-x-hidden`} style={{opacity:active?1:0}}>
+       <div  ref={ref} data-lenis-prevent 
+          tabIndex={-1} className="w-full h-[100%] overflow-y-scroll overflow-x-hidden">
            <Image alt="image"  height={0}  width={0} sizes={`${size?size:`100vw`}`}  src={work.image}  className={`${height?`h-full w-auto`:'w-full h-auto'}`} style={{aspectRatio:work.ratioImg}}/>
         </div>
        <div className={`credits uppercase absolute top-9 left-9 z-2`}>{credits?(<PortableText value={work.credits}/>):('')}</div>
         
-          <div>
+        
             <div onClick={zoomOff} className={`cursor-pointer flex uppercase items-end flex-col justify-between w-[42px] h-[16px] absolute top-9 right-9 z-[100] `}>
                 <div className="w-full border-b-[2px] border-black  h-[1px] singleBar topBar" style={{transform:`rotate(45deg)`,transformOrigin:"25% 30%"}}></div>
                 
                 <div className="w-full border-b-[2px] border-black  h-[1px] singleBar botBar" style={{transform:`rotate(-45deg)`,transformOrigin:"25% 30%"}}></div>
               </div>
             </div>
-      </div>
+    
     </React.Fragment>
   ):('')}
   </div>
