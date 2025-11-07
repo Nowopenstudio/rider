@@ -889,6 +889,11 @@ h4.serif{font-family: "serif",'Times New Roman', Times, serif;font-size:1rem;lin
 .fullVid h3,.fullVid p, h3.divide{
   font-size:2.06rem;
 }
+li:before {
+    content: "";
+    margin-left: 0em;
+}
+
 
  .p2 p{
       font-size:1.0625rem
