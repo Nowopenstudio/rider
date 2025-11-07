@@ -174,7 +174,8 @@ export default {
                                         { name: "rooms", type: 'string', title: 'Rooms', initialValue:'0',options:{
                                             list:[
                                                 {title:'studio',value:'0'}, {title:'one',value:'1'},{title:'two',value:'2'},
-                                                {title:'three',value:'3'}
+                                                {title:'three',value:'3'},
+                                                {title:'five',value:'5'}
                             
                                             ]
                                         }},

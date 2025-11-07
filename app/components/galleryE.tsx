@@ -47,11 +47,11 @@ export default function GalleryE({ data,name }: any) {
     <React.Fragment>
       <div className={`galleryD w-full h-full flex items-center justify-center relative`}>
       <div className="w-1/2 h-full z-40 left-0 absolute cursor-w-resize hoverOn" onClick={back}>
-              <div className="w-[32px] h-auto absolute top-1/2 left-0 translate-y-[-50%] onHover">
+              <div className="w-[32px] h-[23px] absolute top-1/2 left-0 translate-y-[-50%] onHover">
                 <GalleryL className="w-full h-auto" /></div>      
       </div>
        <div className="w-1/2 h-full z-40 left-1/2 absolute cursor-e-resize hoverOn" onClick={next}>
-        <div className="w-[32px] h-auto absolute top-1/2 right-0 translate-y-[-50%] onHover"><GalleryR className="w-full h-auto" />  </div>
+        <div className="w-[32px] h-[23px] absolute top-1/2 right-0 translate-y-[-50%] onHover"><GalleryR className="w-full h-auto" />  </div>
         
        </div>
       <div className="absolute w-1/2 lg:w-1/5 top-0 left-0 flex flex-wrap gap-y-18 text-white z-50">

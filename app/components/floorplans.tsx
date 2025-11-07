@@ -13,10 +13,10 @@ import { GalleryL, GalleryR } from './svg';
 
 
 
-export default function Floorplans({ data, filter, cta }: any) {
+export default function Floorplans({ data, filter, cta, line }: any) {
   const [total, setTotal] = useState([]);
   const [curr, setCurr] = useState([0, 0]);
-  const [cat, setCat] = useState(0);
+  const [cat, setCat] = useState(10);
   const [active, setActive] = useState(false)
 
   const runCount = () => {
@@ -38,7 +38,7 @@ export default function Floorplans({ data, filter, cta }: any) {
       setCat(section)
     }
     else {
-      setCat(0)
+      setCat(10)
     }
   }
 
@@ -116,16 +116,18 @@ export default function Floorplans({ data, filter, cta }: any) {
 
             {filter ? (
               <div className="flex flex-wrap justify-center lg:justify-start gap-y-4 gap-x-9 lg:gap-4  mb-9 px-18 lg:px-0  z-1" style={{ opacity: active ? 0 : 1 }}>
-                <div onClick={() => toggleFilter(0)} className={`${cat == 0 ? 'active' : ''} cta filter cursor-pointer inline-block`}><p>All</p></div>
-                {data.map((item: any, i: number) => {
-                  return (
-                    <div key={`filter-${item.title}`} onClick={() => toggleFilter(i + 1)} className={`${cat == i + 1 ? 'active' : ''} cta filter cursor-pointer inline-block`}><p>{item.title}</p></div>
+                <div onClick={() => toggleFilter(10)} className={`${cat == 10 ? 'active' : ''} cta filter cursor-pointer inline-block`}><p>All</p></div>
+               
+                    <div onClick={() => toggleFilter(0)} className={`${cat == 0 ? 'active' : ''} cta filter cursor-pointer inline-block`}><p>Studio</p></div>
+                     <div onClick={() => toggleFilter(1)} className={`${cat == 1 ? 'active' : ''} cta filter cursor-pointer inline-block`}><p>1 Bed</p></div>
+                     <div onClick={() => toggleFilter(2)} className={`${cat == 2 ? 'active' : ''} cta filter cursor-pointer inline-block`}><p>2 Bed</p></div>
+                       <div onClick={() => toggleFilter(3)} className={`${cat == 3 ? 'active' : ''} cta filter cursor-pointer inline-block`}><p>3 Bed</p></div>
+                        <div onClick={() => toggleFilter(5)} className={`${cat == 5 ? 'active' : ''} cta filter cursor-pointer inline-block`}><p>5 Bed</p></div>
 
 
-                  )
+                
 
-                }
-                )}
+  
               </div>) : ('')}
 
 
@@ -141,15 +143,15 @@ export default function Floorplans({ data, filter, cta }: any) {
                         item.rooms.map((point: any, p: number) => {
                           return (
 
-                            <div className={`cursor-pointer hoverOn hoverList w-full flex justify-between items-center gap-4  floorList border-b border-darkGray p-[10px] ${(cat !== 0 && cat !== i + 1) ? "hide pointer-events-none" : ''}`} key={`${item.title}-${i}-${p}`}>
-                              <div className="flex gap-4 items-center nameHold">
-                                <div className='col-span-2 planNumber'><p className=" font-medium">{(p + 1 + (i > 0 ? total[i - 1] : 0)) < 10 ? '0' : ''}{p + 1 + (i > 0 ? total[i - 1] : 0)}</p></div>
-                                <div className="col-span-9 planTitle uppercase"><p>{point.name}</p></div>
+                            <div className={`cursor-pointer hoverOn hoverList w-full flex justify-between items-center gap-4  floorList border-b border-darkGray p-[10px] ${(cat !== 10 && cat !== item.rooms) ? "hide pointer-events-none" : ''}`} key={`${item.title}-${i}-${p}`}>
+                              <div onClick={() => changeImage(i, p)} className="flex gap-4 items-center nameHold">
+                                <div className='col-span-2 planNumber'><p className=" font-medium">{line?point.name:`${(p + 1 + (i > 0 ? total[i - 1] : 0)) < 10 ? '0' : ''}${p + 1 + (i > 0 ? total[i - 1] : 0)}`}</p></div>
+                                <div className="col-span-9 planTitle uppercase"><p>{line?`Line`:point.name}</p></div>
                               </div>
                               <div className="flex  items center text-gray uppercase">
                                 <div onClick={() => changeImage(i, p)} className="px-4 border-r border-gray hover:text-black"><p className='label'>view</p></div>
                                 <a target="__black" href={`${point.cta && point.cta.file ? `${point.cta.file}/${point.cta.og}` : (point.cta ? point.cta.url : '/')}`}><div className="px-4 hover:text-black"> <p className='label'>download</p></div></a>
-                              </div>
+                              </div> 
                             </div>
                           )
                         })
@@ -175,9 +177,9 @@ export default function Floorplans({ data, filter, cta }: any) {
 
       <div className={`fixed w-full h-full top-0 left-0 z-100 bg-black ${!active ? "pointer-events-none" : ''}`} style={{ transition: 'opacity .5s ease-in-out', opacity: active ? 1 : 0, }}>
 
-        <div className="flex justify-center w-full items-center py-4 md:py-20 px-4 md:px-20 h-full">
+        <div className="flex justify-center w-full items-center py-4 md:py-20 px-4 md:px-20 h-full fadeOn"  key={`${curr[0]}-${curr[1]}`}>
 
-          <SwitchContent work={data[curr[0]].rooms[curr[1]]} title={`amenities`} audio={true} contain />
+          <SwitchContent work={data[curr[0]].rooms[curr[1]]} title={`amenities`} audio={true} contain/>
 
         </div>
         {/* <div className="w-1/2 h-full z-40 left-0 absolute cursor-w-resize hoverOn" onClick={back}>
@@ -189,15 +191,15 @@ export default function Floorplans({ data, filter, cta }: any) {
                 
                </div> */}
         <a href={data[curr[0]].rooms[curr[1]].cta ? `${data[curr[0]].rooms[curr[1]].cta.file}/${data[curr[0]].rooms[curr[1]].cta.og}` : '/'} className="absolute z-100 label text-white uppercase top-9 md:top-4 left-4 lg:top-9 lg:left-9 font-semibold">
-          <p>Download {data[curr[0]].rooms[curr[1]].name}</p>
+          <p>Download {data[curr[0]].rooms[curr[1]].name} {line?"Line":''}</p>
         </a>
 
         <div className="w-1/2 h-full top-0 z-99 left-0 absolute cursor-w-resize hoverOn" onClick={back}>
-          <div className="w-[32px] h-auto absolute bottom-4 md:top-1/2 left-4 md:left-9 translate-y-[-50%] onHover">
+          <div className="w-[32px] h-[23px] absolute bottom-4 md:top-1/2 left-4 md:left-9 translate-y-[-50%] onHover">
             <GalleryL className="w-full h-auto" /></div>
         </div>
         <div className="w-1/2 h-full top-0 z-99 left-1/2 absolute cursor-e-resize hoverOn" onClick={next}>
-          <div className="w-[32px] h-auto absolute bottom-4 md:top-1/2 right-4 md:right-9 translate-y-[-50%] onHover"><GalleryR className="w-full h-auto" />
+          <div className="w-[32px] h-[23px] absolute bottom-4 md:top-1/2 right-4 md:right-9 translate-y-[-50%] onHover"><GalleryR className="w-full h-auto" />
           </div>
 
         </div>
