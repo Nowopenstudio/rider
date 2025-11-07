@@ -52,7 +52,7 @@ export default async function Home() {
            <ScrollCTA id={'intro'} cta={data.header.cta} inverted />
 
           </div>
-          <div className="scrollArrow absolute left-9 bottom-9"><ScrollTarget id={'intro'}/></div>
+          <div className="scrollArrow absolute left-4 bottom-4 md:left-9 md:bottom-9"><ScrollTarget id={'intro'}/></div>
 
         </div>
 
