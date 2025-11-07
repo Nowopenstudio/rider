@@ -805,11 +805,11 @@ transform:translateX(0);
   @media (max-width: 1300px) {
     p,li{  font-size:1.875rem;  line-height: 1.06em;}
 h1,h5{font-size:2.275rem;line-height:1.03em;letter-spacing: -0.02em;text-box: trim-both cap alphabetic;}
-h1.title,h2{font-size:5.25rem;line-height:.88em;letter-spacing: -.05em;text-box: trim-both cap alphabetic; white-space:unset;}
+h1.title,h2{white-space: pre-wrap;font-size:5.25rem;line-height:.88em;letter-spacing: -.05em;text-box: trim-both cap alphabetic; white-space:unset;}
 
 h2.serif{font-family: "serif",'Times New Roman', Times, serif;font-size:3.75rem;line-height:.9em;letter-spacing: -2.5px;text-box: trim-both cap alphabetic;}
 h2.loader{font-size:9rem}
-h3{font-size:2.75rem;line-height:.93em;letter-spacing: -.05em;text-box: trim-both cap alphabetic;}
+h3{white-space: pre-wrap;font-size:2.75rem;line-height:.93em;letter-spacing: -.05em;text-box: trim-both cap alphabetic;}
 .footer h3{font-size: 50pt;}
 h3.serif{font-family: "serif",'Times New Roman', Times, serif;font-size:6.25rem;line-height:.9em;letter-spacing: -2.5px;text-box: trim-both cap alphabetic;}
 h4.serif{font-family: "serif",'Times New Roman', Times, serif;font-size:2.4375rem;line-height:.9em;letter-spacing: -2.5px;text-box: trim-both cap alphabetic;font-style: italic;}
@@ -841,8 +841,8 @@ h4.serif{font-family: "serif",'Times New Roman', Times, serif;font-size:2.4375re
 
   @media (max-width: 850px) {
     h1.title,h2{font-size:4.375rem;line-height:.88em;letter-spacing: -.05em;text-box: trim-both cap alphabetic;}
-    /* .break h1.title br,.break h2 br{display:none}
-h1.title br,h2 br, .break br:after{ content:' '} */
+  .break br, h3 br, h4 br{display:none;}
+
     .hoverOn .onHover{
       opacity:1;
     }
