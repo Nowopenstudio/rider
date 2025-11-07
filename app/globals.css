@@ -848,7 +848,7 @@ h1.title br,h2 br, .break br:after{ content:' '} */
     }
     h2.loader{font-size:6rem}
   .divide h3, .cipres p{font-size:1.9rem;letter-spacing: -.05em;margin-bottom: 30px;}
-  .label, .label p, label{
+  .label, .label p, label,.captions p, .captions{
   font-size: .715rem;letter-spacing: .01125em;
      
 
