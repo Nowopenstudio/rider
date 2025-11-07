@@ -171,6 +171,13 @@ export default {
                                 name: 'rooms', type: 'array', title: "Rooms", of: [{
                                     name: 'room', type: 'object', title: "Room", fields: [
                                         { name: "name", type: 'string', title: 'Title' },
+                                        { name: "rooms", type: 'string', title: 'Rooms', initialValue:'0',options:{
+                                            list:[
+                                                {title:'studio',value:'0'}, {title:'one',value:'1'},{title:'two',value:'2'},
+                                                {title:'three',value:'3'}
+                            
+                                            ]
+                                        }},
                                         { name: 'copy', type: "array", title: "Copy", of: [{ type: 'block' }] },
                                         { name: 'image', type: 'image', title: "Image" },
                                         {

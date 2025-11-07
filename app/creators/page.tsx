@@ -90,7 +90,7 @@ export default async function Home() {
                     </div>
                     <div className="col-span-full md:col-span-6 grid grid-cols-6 px-4 md:px-0">
                       
-                      <div className="col-span-4 md:col-span-2 col-start-2 mb-9 md:mb-17.5 hidden md:block">
+                      <div className="col-span-4 md:col-span-2 md:col-start-2 mb-9 md:mb-17.5 hidden md:block">
                         {item.profile.icon?(<SwitchContent work={item.profile.icon} title={`${item.profile.name}-logo`} audio={false} />):('')}
                       </div>
                       <div className="col-span-full md:col-span-4 md:col-start-2 text-white p2 richText "><PortableText value={item.profile.bio} /></div>
