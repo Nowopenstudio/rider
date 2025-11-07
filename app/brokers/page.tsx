@@ -94,7 +94,7 @@ export default async function Home() {
                   </div>
                   <div className="w-full md:w-1/3 flex-shrink-0 md:text-right resource"><PortableText value={item.copy}/></div>
                 </div>
-                <div className="cta inline-block"><p>{item.cta.label}</p></div>
+                <a href={item.cta.url?item.cta.url:'/'}><div className="cta inline-block"><p>{item.cta.label}</p></div></a>
               </Reveal>
             )
           })}
