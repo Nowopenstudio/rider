@@ -111,7 +111,7 @@ export default function Floorplans({ data, filter, cta, line }: any) {
 
 
 
-        <div className="col-span-full lg:col-span-6 px-4 lg:px-9">
+        <div className="col-span-full xl:col-span-6 px-4 lg:px-9">
           <div className="w-full">
 
             {filter ? (
@@ -143,7 +143,7 @@ export default function Floorplans({ data, filter, cta, line }: any) {
                         item.rooms.map((point: any, p: number) => {
                           return (
 
-                            <div className={`cursor-pointer hoverOn hoverList w-full flex justify-between items-center gap-4  floorList border-b border-darkGray p-[10px] ${(cat !== 10 && cat !== item.rooms) ? "hide pointer-events-none" : ''}`} key={`${item.title}-${i}-${p}`}>
+                            <div className={`cursor-pointer hoverOn hoverList w-full flex justify-between items-center gap-4  floorList border-b border-darkGray p-[10px] ${(cat !== 10 && cat !== parseInt(point.rooms)) ? " hidden pointer-events-none" : ''}`} key={`${item.title}-${i}-${p}`}>
                               <div onClick={() => changeImage(i, p)} className="flex gap-4 items-center nameHold">
                                 <div className='col-span-2 planNumber'><p className=" font-medium">{line?point.name:`${(p + 1 + (i > 0 ? total[i - 1] : 0)) < 10 ? '0' : ''}${p + 1 + (i > 0 ? total[i - 1] : 0)}`}</p></div>
                                 <div className="col-span-9 planTitle uppercase"><p>{line?`Line`:point.name}</p></div>
@@ -170,7 +170,7 @@ export default function Floorplans({ data, filter, cta, line }: any) {
             <a href={cta.url ? cta.url : '/'} className="cta inline-block "><p>{cta.label}</p></a>
           </div>
         </div>
-        <div className="md:col-span-6 px-9 hoverOn hidden lg:block">
+        <div className="md:col-span-6 px-9 hoverOn hidden xl:block">
           <div className="w-full mb-9 fadeOn" key={`${curr[0]}-${curr[1]}`}> {data[curr[0]].rooms[curr[1]].image ? (<SwitchContent credits caption work={data[curr[0]].rooms[curr[1]]} title={'Building Spec'} audio={false} />) : ('')}</div>
         </div>
       </div>
