@@ -834,6 +834,11 @@ h4.serif{font-family: "serif",'Times New Roman', Times, serif;font-size:2.4375re
   line-height:1.05em;
   letter-spacing: -0.01em;
 }
+
+ .legal p, .copyright p{
+    font-size:.0.625rem;
+    line-height:1.18em;
+  }
   }
 
 
@@ -850,10 +855,7 @@ h4.serif{font-family: "serif",'Times New Roman', Times, serif;font-size:2.4375re
   .divide h3, .cipres p{font-size:1.9rem;letter-spacing: -.05em;margin-bottom: 30px;}
   .label, .label p, label,.captions p, .captions{
   font-size: .715rem;letter-spacing: .01125em;
-     
-
-
-
+  
 }
  .planNumber p, .planTitle p{
       font-size:1rem;font-weight: 500;
@@ -867,6 +869,8 @@ h4.serif{font-family: "serif",'Times New Roman', Times, serif;font-size:2.4375re
 }
 
 
+
+
   }
 
 
@@ -878,9 +882,7 @@ h4.serif{font-family: "serif",'Times New Roman', Times, serif;font-size:2.4375re
     h3, .sheets h3,.cipres p {font-size: 1.5rem;}
     h2.loader{font-size:3rem}
     h2.serif{font-size:1.5rem;line-height: 1.11em;letter-spacing: -0.01em;}
-    .footerContact p{font-size:.875rem;
-   
-} 
+    .footerContact p{font-size:.875rem;} 
 h3.serif{font-family: "serif",'Times New Roman', Times, serif;font-size:1.7rem;line-height:.9em;letter-spacing: -.04em;}
 h4.serif{font-family: "serif",'Times New Roman', Times, serif;font-size:1rem;line-height:.9em;letter-spacing: .04em;}
 

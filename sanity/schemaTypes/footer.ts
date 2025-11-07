@@ -71,11 +71,18 @@ export default {
         {
             name: 'disclaim', title: "Disclaimers", type: 'object', fields: [
                 { name: 'logo', type: 'image', title: 'Logo' },
-                {
-                    name: 'disclaimers', type: 'array', title: "Disclaimers", of: [
+                { name: 'disclaimers', type: 'array', title: "Disclaimers", of: [
+                   {
+                     name: 'disclaim', title: "Disclaimers", type: 'object', fields: [  {
+                    name: 'copy', type: 'array', title: "Copy", of: [
                         { type: 'block' }
                     ]
-                },
+                },]
+                     
+                }
+
+            ]
+        },
                 {
                     name: 'privacy', type: 'array', title: "Privacy Policy", of: [
                         { type: 'block' }
