@@ -28,12 +28,12 @@ export  function ScrollTarget({ id}: any) {
   );
 }
 
-export  function ScrollCTA({id,cta,inverted,sub,sec,filter}: any) {
+export  function ScrollCTA({id,cta,inverted,sub,sec,filter,bot}: any) {
 
   const scrollTo=(id:any)=>{
  
     const element = document.getElementById(id)
-    const y = element!.getBoundingClientRect().top + window.scrollY - 62;
+    const y = element!.getBoundingClientRect().bottom + (bot?window.scrollY:window.scrollY - 62);
     window.scrollTo({top: y, behavior: 'smooth'});
    
 

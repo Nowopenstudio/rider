@@ -214,7 +214,7 @@ export default async function Home() {
                 })}
 
               </div>
-             <a href={data.gallery.cta.url?data.gallery.cta.url:'/'}> <div className="cta inline-block "><p>{data.gallery.cta.label}</p></div></a>
+             <ScrollCTA id={'footer'} cta={data.gallery.cta} bot/>
             </div>
 
 
