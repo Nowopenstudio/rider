@@ -902,6 +902,11 @@ li:before {
 
     .subMenu p, .subMenu,h5 {font-size:1.3125rem;}
 
+    .creatorCaption p{
+      font-size:.6875rem;
+      line-height: 1.07em;
+    }
+
   }
 
 

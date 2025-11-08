@@ -19,6 +19,12 @@ export function Plus(props:any){
 <path d="M32 16L0 16" stroke="black" strokeWidth="2" strokeLinejoin="round"/> 
  </svg>)}
 
+ export function PlusAlt(props:any){
+    return(
+        <svg {...props}  x="0px" y="0px"  viewBox="0 0 10 10">
+<path d="M4.73684 5.26316V10H5.26316V5.26316H10V4.73684H5.26316V0H4.73684V4.73684H0V5.26316H4.73684Z" fill="white"/>
+ </svg>)}
+
 
 export function Right(props:any){
     return(
@@ -26,6 +32,9 @@ export function Right(props:any){
 <path d="M1 11.1816L27.3027 11.1816" stroke="black" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
 <path d="M18.9023 21.3634L28.9992 11.1817L18.9023 1" stroke="black" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
  </svg>)}
+
+
+
 
  export function Pause(props:any){
     return(

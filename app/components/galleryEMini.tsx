@@ -4,7 +4,7 @@ import { SwitchContent } from '../util/contentSwitch';
 import { PortableText } from 'next-sanity';
 import { Reveal } from '../util/reveal';
 import useResize from '../util/useResize';
-import { GalleryLeft, GalleryRight, InfoB, InfoBAlt } from './svg';
+import { GalleryLeft, GalleryRight, InfoB, InfoBAlt, Plus, PlusAlt } from './svg';
 import Link from 'next/link';
 
 
@@ -101,20 +101,26 @@ export default function GalleryEMini({ data }: any) {
   return (
     <React.Fragment>
 
-      <div className="w-full h-full">
-        <Reveal styleSet={`w-full h-full relative overflow-x-hidden  hoverOn`} >
-          <div className={`w-1/2 h-full z-40 left-0 absolute cursor-w-resize `} onClick={back}></div>
-          <div className={`w-1/2 h-full z-40 right-0 absolute cursor-e-resize `} onClick={next}></div>
+      <div className="w-full h-auto">
+        <Reveal styleSet={`w-full h-auto relative overflow-x-hidden  hoverOn`} >
+          <div className={`w-1/2 h-full z-1 left-0 absolute cursor-w-resize `} onClick={back}></div>
+          <div className={`w-1/2 h-full z-1 right-0 absolute cursor-e-resize `} onClick={next}></div>
 
 
-          <div onTransitionStart={setStart} onTransitionEnd={(curr == data.length) ? (resetMin) : (curr < 0 ? resetMax : setStop)} className={`w-auto h-full flex flex-nowrap items-start galleryFull gap-4 galleryScroll ${disable ? 'disable' : ''}`} ref={ref} style={{ transform: `translateX(${total? ((((curr+2)*(winX*.75)) + ((curr + 2) * (16))) * (-1)) + (16) : `16`}px)` }}>
+          <div onTransitionStart={setStart} onTransitionEnd={(curr == data.length) ? (resetMin) : (curr < 0 ? resetMax : setStop)} className={`w-auto relative z-10 h-auto pointer-events-none flex flex-nowrap items-start galleryFull gap-4 galleryScroll ${disable ? 'disable' : ''}`} ref={ref} style={{ transform: `translateX(${total? ((((curr+2)*(winX*.75)) + ((curr + 2) * (16))) * (-1)) + (16) : `16`}px)` }}>
 
             {gallery.map((item: any, i: number) => {
               return (
-                <div className={`galleryFade w-auto h-auto py-18 flex-shrink-0`} key={`image-${i}`} >
+                <div className={`galleryFade w-auto h-auto pb-18 flex-shrink-0`} key={`image-${i}`} >
                   <div className="w-[75vw] h-auto "> <div className="w-[75vw] h-auto flex-shrink-0"><SwitchContent work={item} title={`smart-gear`} ratio={item.ratio} audio={false} contain /></div></div>
-                  <div className="w-full text-white" style={{ opacity: i == curr+2 ? 1 : 0 }}>
-                    <div> {curr+1}/{data.length}</div>
+                  <div className="w-[75vw] text-white flex flex-nowrap gap-1 items-start py-4 pointer-events-auto relative" onClick={toggleActive} style={{transition:`.2s opacity ease-in-out`, opacity: i == curr+2 ? .5 : 0 }}>
+                    <div className="w-[10px] h-[10px] flex-shrink-0" style={{transformOrigin:'center',transition:'.5s all ease-in-out',transform:`rotate(${active?`45`:`0`}deg)`}}><PlusAlt className="w-full h-full"/></div>
+                    <div className="creatorCaption w-full">
+                      <p >{curr+1}/{data.length}</p>
+                      <div className="mb-4 w-full" ><PortableText value={item.title}/></div>
+                      <div className="w-full overflow-hidden" style={{transition:'.5s all ease-in-out',maxHeight:active?500:0}}><PortableText value={item.copy}/></div>
+                      
+                    </div>
                   </div>
                 </div>
               )
