@@ -19,12 +19,13 @@ import GalleryB from "../components/galleryB";
 import Next from "../components/next";
 import GalleryE from "../components/galleryE";
 import { VidHead } from "../components/vidHead";
+import Bio from "./bio";
 
 
 
 export default async function Home() {
   const query = await getData(`{
-    'data': *[_type=='creators'][0]{header{video{"image":image.asset->url,"vid":video.asset->playbackId, 'ratioImg':image.asset->metadata.dimensions.aspectRatio,"ratio":video.asset->data.aspect_ratio,credits,captions}},intro{title,subhead,copy,outro,media{"image":image.asset->url,"vid":video.asset->playbackId, 'ratioImg':image.asset->metadata.dimensions.aspectRatio,"ratio":video.asset->data.aspect_ratio,credits,caption},cta},legends,artists[]{profile{name,title,"image":image.asset->url,bio,gallery[]{"image":image.asset->url,"vid":video.asset->playbackId, 'ratioImg':image.asset->metadata.dimensions.aspectRatio,"ratio":video.asset->data.aspect_ratio,credits,caption,title,copy},icon{"image":image.asset->url,"vid":video.asset->playbackId, 'ratioImg':image.asset->metadata.dimensions.aspectRatio,"ratio":video.asset->data.aspect_ratio,credits,caption,headline},feat{"image":image.asset->url,"vid":video.asset->playbackId, 'ratioImg':image.asset->metadata.dimensions.aspectRatio,"ratio":video.asset->data.aspect_ratio,credits,caption,headline},media{title,subtitle,"image":image.asset->url,"vid":video.asset->playbackId, 'ratioImg':image.asset->metadata.dimensions.aspectRatio,"ratio":video.asset->data.aspect_ratio,credits,caption,headline}}},cta{cta,label,title,copy,"image":image.asset->url},next},
+    'data': *[_type=='creators'][0]{header{video{"image":image.asset->url,"vid":video.asset->playbackId, 'ratioImg':image.asset->metadata.dimensions.aspectRatio,"ratio":video.asset->data.aspect_ratio,credits,captions}},intro{title,subhead,copy,outro,media{"image":image.asset->url,"vid":video.asset->playbackId, 'ratioImg':image.asset->metadata.dimensions.aspectRatio,"ratio":video.asset->data.aspect_ratio,credits,caption},cta},legends,artists[]{profile{name,title,"image":image.asset->url,intro,bio,gallery[]{"image":image.asset->url,"vid":video.asset->playbackId, 'ratioImg':image.asset->metadata.dimensions.aspectRatio,"ratio":video.asset->data.aspect_ratio,credits,caption,title,copy},icon{"image":image.asset->url,"vid":video.asset->playbackId, 'ratioImg':image.asset->metadata.dimensions.aspectRatio,"ratio":video.asset->data.aspect_ratio,credits,caption,headline},feat{"image":image.asset->url,"vid":video.asset->playbackId, 'ratioImg':image.asset->metadata.dimensions.aspectRatio,"ratio":video.asset->data.aspect_ratio,credits,caption,headline},media{title,subtitle,"image":image.asset->url,"vid":video.asset->playbackId, 'ratioImg':image.asset->metadata.dimensions.aspectRatio,"ratio":video.asset->data.aspect_ratio,credits,caption,headline}}},cta{cta,label,title,copy,"image":image.asset->url},next},
 
     }`)
 
@@ -76,15 +77,15 @@ export default async function Home() {
                   <div className='w-full grid grid-cols-12 relative py-9 md:py-18.5'>
                     <div className="w-[1px] h-full absolute top-0 left-1/2 border-darkGray border-l hidden md:block"></div>
                     <div className="col-span-full md:col-span-6 grid grid-cols-6 px-4 md:px-0">
-                      <div className="col-span-full divide mb-10.5 md:w-3/4"><h3>{item.profile.name}</h3></div>
+                      <div className="col-span-full divide mb-10.5 md:w-3/4"><h3 className="mb-0">{item.profile.name}</h3>
+                     <div className="mt-[-22px]"> <h3 className=" text-darkGray block md:hidden ">{item.profile.title}</h3></div>
+                      </div>
                       <div className="col-span-full md:col-span-3">
                         <div className="w-full pb-10.5">
                           {item.profile ? (<SwitchContent work={item.profile} title={'Building Spec'} audio={false} />) : ('')}
                         </div>
-                        <div className="profile">
+                        <div className="profile hidden md:block">
                           <h3 className=" text-white uppercase mb-9 md:mb-0">{item.profile.title}</h3>
-  
-  
                         </div>
                       </div>
                     </div>
@@ -93,7 +94,9 @@ export default async function Home() {
                       <div className="col-span-4 md:col-span-2 md:col-start-2 mb-9 md:mb-17.5 hidden md:block">
                         {item.profile.icon?(<SwitchContent work={item.profile.icon} title={`${item.profile.name}-logo`} audio={false} />):('')}
                       </div>
-                      <div className="col-span-full md:col-span-4 md:col-start-2 text-white p2 richText "><PortableText value={item.profile.bio} /></div>
+                      <div className="col-span-full md:col-span-4 md:col-start-2 text-white p2 richText ">
+                           <Bio data={item}/>
+                        </div>
                     </div>
                   </div>
                 </div>
@@ -114,7 +117,7 @@ export default async function Home() {
                   </React.Fragment>
                 ):('')}
                 {item.profile.gallery?(
-                      <Reveal styleSet="col-span-full md:h-[calc(100dvh_-_74px)] md:px-0 py-9 border-t border-darkGray relative mt-4 md:mt-9">
+                      <Reveal styleSet="col-span-full md:h-[calc(100dvh_-_74px)] md:px-0 py-9 md:border-t border-darkGray relative mt-4 md:mt-9">
                       <GalleryE data={item.profile.gallery} name={item.profile.name}/>
                     </Reveal>
                     ):('')}

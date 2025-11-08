@@ -77,6 +77,7 @@ export default {
                                         { name: 'credits', title: 'Credits', type: 'array', of: [{ type: 'block' }] },
                                     ]
                                 },
+                                { name: 'intro', title: 'Intro Bio', type: "array", of: [{ type: 'block' }] },
 
                                 { name: 'bio', title: 'Bio', type: "array", of: [{ type: 'block' }] },
                                 {

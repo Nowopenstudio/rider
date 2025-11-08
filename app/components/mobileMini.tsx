@@ -120,7 +120,7 @@ const next=()=>{
   
                       
                     </div>
-                    <div className="w-full md:py-4 border-t md:border-0  relative md:flex items-center justify-between box-border" style={{opacity:curr+2==i?1:0,transition:'.25s opacity ease-in-out'}}>
+                    <div className="w-full md:py-4 border-t md:border-0  relative md:flex items-center justify-between box-border" style={{opacity:curr+2==i?1:0,transition:'.15s opacity ease-in-out'}}>
                       <div className="absolute cta small inline-block top-3 right-0"><p>View More</p></div>
                       <h3 className="uppercase py-4 md:py-3">{item.title}</h3>
                       <div className="menunote md:text-right onHover w-4/5"><PortableText value={item.copy}/></div>

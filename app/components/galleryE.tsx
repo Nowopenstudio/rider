@@ -67,7 +67,7 @@ export default function GalleryE({ data,name }: any) {
             <div className="h-[16px] w-[16px] mt-[2px]">{active?(<InfoAlt className="w-full h-full" />):(<Info className="w-full h-full  mb-18" />)}</div>
             <div className="imgTitle"><PortableText value={data[curr].title}/></div>
           </div>
-          <div className="imgInfo flex-shrink-0 w-full pointer-events-none galleryFade" style={{opacity:active?1:0}}><PortableText value={data[curr].copy}/></div>
+          <div className="imgInfo flex-shrink-0 w-full pointer-events-none galleryFade richText" style={{opacity:active?1:0}}><PortableText value={data[curr].copy}/></div>
         </div>
          <div className="absolute top-0 right-0 z-50 capitalize text-white">
           <p className="capitalize">{name}</p>

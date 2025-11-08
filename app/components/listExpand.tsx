@@ -29,7 +29,7 @@ export function ListExpand({data, size}:any){
                                       <div className="w-[25px] h-[25px] md:w-[45px] md:h-[45px]" style={{transformOrigin:'center',transition:`all .25s ease-in-out`,transform:`rotate(${active?"45":'0'}deg)`}}><Plus className="w-full h-full"/></div>
                                       <div className={"font-medium uppercase listLabel"}><h5>{data.title}</h5></div>
                    </div>
-                   <div className={`listItem w-full h-auto ${active?'show':''}`}>
+                   <div className={`listItem w-full h-auto ${active?'show':'pointer-events-none'}`}>
                     <div className="py-14"><PortableText value={data.copy}/></div>
                    </div>
                  </div>
