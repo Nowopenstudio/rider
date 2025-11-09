@@ -69,7 +69,7 @@ export default async function Home() {
        <div className="col-span-full"> <TextBlock off title={data.welcome.title} footnote={data.welcome.copy} copy={data.build.copy} subhead={data.build.title}/></div>
         
     
-        <Reveal styleSet="col-span-full col-start-1 lg:col-span-8 lg:col-start-3 xl:col-span-6 xl:col-start-4 mb-15 md:mb-76 mt-14 lg:mt-39 relative hoverOn px-0 md:px-9">
+        <Reveal styleSet="col-span-full col-start-1 lg:col-span-8 lg:col-start-3 xl:col-span-6 xl:col-start-4 mb-15 md:mb-31.25 mt-14 lg:mt-39 relative hoverOn px-0 md:px-9">
           {data.build.gallery.length ? (<SwitchContent zoom caption credits work={data.build.gallery[0]} title={'Header Video'} ratio={data.header.gallery[0].ratio} audio={false} />) : ('')}
 
         </Reveal>
@@ -119,14 +119,14 @@ export default async function Home() {
 
 
       {/* design */}
-      <div className="w-full bg-black py-4 md:py-9 relative z-3 grid grid-cols-12 text-white md:pb-22 mt-[-100dvh] rounded-t-[12px overflow-x-hidden]">
+      <div className="w-full bg-black py-4 md:py-9 relative z-3 grid grid-cols-12 text-white mt-[-100dvh] rounded-t-[12px overflow-x-hidden]">
         <Reveal styleSet='col-span-full px-4 md:px-9'><div className="w-full py-2 border-b uppercase label font-bold"><p>{data.interiors.title}</p></div></Reveal>
         <Reveal styleSet="col-span-full mb-18 md:mb-39 break">
           <TextBlock title={data.interiors.headline.copy} copy={data.interiors.copy} subhead={data.interiors.subhead} off/>
         </Reveal>
        
         <Reveal styleSet="deisngHold col-span-full grid grid-cols-12">
-          <div className="col-span-10 col-start-2 md:col-span-6 md:col-start-4 md:mb-10">
+          <div className="col-span-10 col-start-2 md:col-span-6 md:col-start-4 ">
             {data.interiors.features ? (
               data.interiors.features.map((item: any, i: number) => {
                 return (

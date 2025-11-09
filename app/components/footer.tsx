@@ -86,8 +86,8 @@ export default function Footer({ data }: any) {
           </div>
           <div className="form col-span-2 xl:col-span-1 xl:flex items-center justify-center xl:relative text-white xl:text-black pt-39 xl:pt-0 h-[200dvh] xl:h-full mt-[-100dvh] xl:mt-0">
             <div className="sticky top-0 xl:relative w-full xl:w-3/4 flex-col flex gap-y-10 pb-9 xl:pb-18 px-4 xl:px-0 pt-50 xl:pt-0">
-              <h3 className="uppercase ">{data.form.headline}</h3>
-              <div><PortableText value={data.form.copy} /></div>
+              <h3 className="uppercase font-medium">{data.form.headline}</h3>
+              <div className="formP"><PortableText value={data.form.copy} /></div>
               <form onSubmit={submitForm} className="form w-full px-4 xl:px-0">
                 <div className="w-full grid grid-cols-1 xl:grid-cols-2 xl:gap-x-4 gap-y-0">
                   {data.form.input.map((item: any, i: number) => {
@@ -103,7 +103,7 @@ export default function Footer({ data }: any) {
                     <textarea className="border resize-none h-[20px] w-full mt-1" name="comments"></textarea>
                   </div>
                   <div className="col-span-full">
-                    <div className="w-full grid grid-cols-8 gap-x-9 pb-7">
+                    <div className="w-full grid grid-cols-8 gap-x-9 pb-4">
                       <div className="col-span-full md:col-span-2 label mb-1 "><p>{data.form.rooms.label}</p></div>
 
                       {mobile ? (
@@ -131,7 +131,7 @@ export default function Footer({ data }: any) {
                       )}
 
                     </div>
-                    <div className="w-full grid grid-cols-8 gap-x-9 pb-7 justify-between">
+                    <div className="w-full grid grid-cols-8 gap-x-9 pb-4 justify-between">
                       <div className="col-span-full md:col-span-2 label"><p>{data.form.broker.label}</p></div>
                       {data.form.broker.options.map((item: any, i: number) => {
                         return (
@@ -142,7 +142,7 @@ export default function Footer({ data }: any) {
                         )
                       })}
 
-                      <button type="submit" className={`cta  row-start-auto mt-0 lg:mt-9 lg:row-start-2 inline-block col-end-9 md:col-end-auto col-span-4 md:col-span-2 text-center ${winX < 1300 ? 'invertedFooter' : ''}`}><p className="w-full">SUBMIT</p></button>
+                      <button type="submit" className={`cta  ${mobile?'':'secondary'} row-start-auto mt-0 lg:mt-9 lg:row-start-2 inline-block col-end-9 md:col-end-auto col-span-4 md:col-span-2 text-center ${winX < 1300 ? 'invertedFooter' : ''}`}><p className="w-full">SUBMIT</p></button>
                       <div className="disclaimerText text-darkGray md:pt-10 col-span-full md:col-span-5 legal pt-6"><PortableText value={data.form.disclaimers} /></div>
                     </div>
                     <div className="w-full grid grid-cols-8 gap-x-9 items-center">

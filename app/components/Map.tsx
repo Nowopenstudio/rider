@@ -154,7 +154,7 @@ const hidePoints=()=>{
                                 {mobile?(
                                   <MapExpand data={item} i={i} total={total}/>
                                 ):(
-                                   <div className={`lg:w-1/2 md:mr-4 `}>
+                                   <div className={`lg:w-1/2 mr-4 `}>
                                             <div className="w-full py-2   label"><p className="uppercase mb-2 font-bold">{item.title}</p>
                                             <div className='w-full keyHold'>
                                               {item.points?(
