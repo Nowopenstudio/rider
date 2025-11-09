@@ -40,7 +40,7 @@ export default function GalleryB({ data }: any) {
 
   return (
     <React.Fragment>
-      <div className={`galleryB w-full aspect-video relative`}>
+      <div className={`galleryB w-full aspect-video relative hoverOn`}>
         {data.gallery.length > 1?(
           <React.Fragment>
             <div className="w-1/2 h-full z-40 left-0 absolute cursor-w-resize" onClick={back}></div>

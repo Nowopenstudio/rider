@@ -111,7 +111,7 @@ export default function GalleryA({ data }: any) {
         </div>
           {mobile ? (
                     <div className={`mobileCredit py-2 px-4 relative`} >
-                     <div className="absolute right-4 top-2 z-10"  onClick={toggleActive}> <div className="h-[10px] w-[10px]"><InfoBAlt className="w-full h-full"/></div>
+                     <div className="absolute right-4 top-2 z-10"  onClick={toggleActive}> <div className="h-[10px] w-[10px]">{active?<InfoB className="w-full h-full"/>:<InfoBAlt className="w-full h-full"/>}</div>
                      
                      </div>
                       <div className="flex gap-[10px] absolute right-4 top-6">

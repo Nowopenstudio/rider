@@ -116,7 +116,7 @@ timer=setTimeout(()=>{
 
   return (
     <React.Fragment>
-        <div className="w-full h-full">
+        <div className="w-full h-full hoverOn">
           <Reveal styleSet={`w-full h-full relative overflow-x-hidden  hoverOn` } >
           <div className={`w-1/2 h-full z-40 left-0 absolute cursor-w-resize `} onClick={back}></div>
                <div className={`w-1/2 h-full z-40 left-1/2 absolute cursor-e-resize `} onClick={next}></div>
@@ -144,6 +144,7 @@ timer=setTimeout(()=>{
         </div>
         {mobile ? (
                             <div className={`mobileCredit pt-2 pb-4 px-4 relative overflow-y-visible`} >
+                             
                              <div className="absolute right-4 top-2 z-10"  onClick={toggleActive}> <div className="h-[10px] w-[10px]">{active?(<InfoBAlt className="w-full h-full"/>):<InfoB className="w-full h-full"/> }</div>
                                
                              </div>
@@ -160,19 +161,21 @@ timer=setTimeout(()=>{
                              
                               
                               
-                            
-                                <div className="galleryMarker pt-2 flex gap-[6px] w-full justify-start">
+                           
+        
+        
+                            </div>
+                          ) : ('')}
+
+                           {data.length && mobile > 1?(       <div className="galleryMarker px-4 md:px-9 flex pt-2 gap-[6px] w-full justify-start">
                                   {data.map((dot: any, d: number) => {
                                     return (
                                       <div key={`${data.title}-${d}`} className={`relative ${d == 0 ? 'z-10' : 'z-1'} galleryDot w-[6px] h-[6px] rounded-full ${d == 0 ? "bg-black" : "bg-darkGray"}`} style={{ transformOrigin: 'center', transform: `scale(${d == 0 ? 1.5 : 1}) translateX(${d == 0 ? (curr * 8) : (d <= curr) ? (-12) : (0)}px)` }}></div>
                                     )
                                   })}
                               
-                              </div>
-        
-        
-                            </div>
-                          ) : ('')}
+                              </div>):('')}
+                         
     </React.Fragment>
   );
 }

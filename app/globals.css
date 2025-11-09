@@ -602,17 +602,17 @@ input,select {height:20px}
   opacity:.15;
 }
 
-/* menu */
+/* menu */i
 .blur{
 background-color: rgba(95, 95, 95, 0.04);
-backdrop-filter: blur(150px) opacity(0);
+backdrop-filter: blur(0);
 transition: all .5s ease-in-out;
 transition-delay: .25;
 opacity: 0;
 }
 
 .blur.active{
-backdrop-filter: blur(150px) opacity(1);
+animation: blurIn 1s  cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
 opacity:1;
 }
 
@@ -965,3 +965,12 @@ li:before {
 
     }
   }
+
+  @keyframes blurIn {
+  0% {
+    backdrop-filter: blur(0px);
+  }
+  100% {
+    backdrop-filter: blur(150px);
+  }
+}

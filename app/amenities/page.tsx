@@ -58,7 +58,7 @@ export default async function Home() {
           <TextBlock title={data.intro.title} copy={data.intro.copy} subhead={data.intro.subhead} arrowBot />
         </div>
 
-        <div className="col-span-full px-4 md:px-9 mb-9 md:mb-39 hoverOn">
+        <div className="col-span-full px-4 md:px-9 mb-18 md:mb-39 hoverOn">
           <GalleryD data={data.intro.gallery} />
         </div>
 
@@ -88,7 +88,7 @@ export default async function Home() {
 
 
       </div>
-            <div className="mb-9 md:mb-39 col-span-full h-[350px] md:h-[66dvh]">
+            <div className="mb-18 md:mb-39 col-span-full h-[350px] md:h-[66dvh] hoverOn">
               {data.feat.gallery?(
                  <GalleryC data={data.feat.gallery} />
               ):('')}
@@ -99,7 +99,7 @@ export default async function Home() {
       
       </Reveal>
 
-          <Reveal styleSet="col-span-full md:col-span-8 md:col-start-3 mb-9 md:mb-39 px-4 md:px-0">
+          <Reveal styleSet="col-span-full md:col-span-8 md:col-start-3 mb-9 md:mb-39 px-4 md:px-0 hoverOn">
                 {data.outro.media ? (
                   <GalleryD data={data.outro.gallery}/>
                 ) : ('')}
@@ -113,11 +113,11 @@ export default async function Home() {
           <TextBlock off title={data.box.title} copy={data.box.copy} subhead={data.box.subhead} />
         </div>
 
-        <div className="col-span-full mb-9 md:mb-39 md:px-9">
+        <div className="col-span-full mb-9 md:mb-39 md:px-9 hoverOn">
           <SwitchContent work={data.box.feat} title={'Header Video'} ratio={data.box.feat.ratio} audio={false} />
         </div>
 
-        <Reveal styleSet="col-span-full md:col-span-8 md:col-start-3 mb-9 md:mb-39 hidden md:block">
+        <Reveal styleSet="col-span-full md:col-span-8 md:col-start-3 mb-9 md:mb-39 hidden md:block hoverOn">
                 {data.box.outro ? (<SwitchContent work={data.box.outro} title={'Header Video'} ratio={data.box.outro.ratio} audio={false} />) : ('')}
       
       </Reveal>
@@ -129,7 +129,7 @@ export default async function Home() {
             <div className="mb-9 md:mb-39"><PortableText value={data.swing.copy} /></div>
          </div>                        
 
-         <Reveal styleSet="col-span-full md:col-span-8 md:col-start-3 md:mb-39 px-4 md:px-0 ">
+         <Reveal styleSet="col-span-full md:col-span-8 md:col-start-3 md:mb-39 px-4 md:px-0  hoverOn">
                 {data.swing.feat ? (<SwitchContent work={data.swing.feat} title={'Header Video'} ratio={data.swing.feat.ratio} audio={false} />) : ('')}
       
       </Reveal>
@@ -138,9 +138,9 @@ export default async function Home() {
       </div>
 
       <div className="col-span-full  relative z-2 bg-white top-0" style={{height:"200vh"}}>
-              <div className="sticky top-0 mt-[-100vh] h-[100dvh]">
+              <div className="sticky top-0 mt-[-100vh] h-[100dvh] hoverOn">
                 {data.access? (<SwitchContent work={data.access} title={'Header Video'} ratio={data.access.ratio} audio={false} cover/>) : ('')}
-                <div className="w-full h-[100dvh] absolute z-3 bottom-0 md:top-0 left-0 flex items-end md:items-center" style={{backgroundColor:`rgba(0,0,0,.4)`}}>
+                <div className="w-full h-[100dvh] absolute z-3 top-0 left-0 flex items-center" style={{backgroundColor:`rgba(0,0,0,.4)`}}>
                     <div className="w-3/4 md:w-1/3 pb-4 md:pb-0 px-4 md:px-9 text-white">
                       <div className="w-full mb-9 fullVid"><PortableText value={data.access.title}/></div>
                       <ScrollCTA id={'intro'} cta={data.access.cta} inverted />
