@@ -12,6 +12,7 @@ import Link from 'next/link';
 export default function GalleryEMini({ data }: any) {
   const ref = useRef<HTMLDivElement>(null)
   const { winX, winY, mobile } = useResize();
+  let timer = undefined;
   const [indie, setIndie] = useState([])
   const [total, setTotal] = useState([]);
   const [disable, setDisable] = useState(false);
@@ -63,34 +64,47 @@ export default function GalleryEMini({ data }: any) {
 
   }
 
-  const resetMin = () => {
-    setAnim(false)
+  const resetMin=()=>{
+    timer=setTimeout(()=>{
+        setAnim(false)
     setDisable(true)
     setCurr(0)
+
+
+    },100)
+   
+
+   
   }
 
-  const resetMax = () => {
-    setAnim(false)
+    const resetMax=()=>{
+timer=setTimeout(()=>{
+     setAnim(false)
     setDisable(true)
-    setCurr(data.length - 1)
+    setCurr(data.length-1)
 
+    },100)
+
+      
+    
   }
 
-  const setStart = () => {
+      const setStart=()=>{
+           clearTimeout(timer!)
     setAnim(true)
-    setDisable(false)
+    setDisable(false)    
   }
 
-  const setStop = () => {
+    const setStop=()=>{
+      clearTimeout(timer!)
     setAnim(false)
-    setDisable(false)
-
+        setDisable(false)    
+    
   }
 
-  const toggleActive = () => {
+      const toggleActive = () => {
     setActive(!active)
   }
-
 
 
 
@@ -113,7 +127,7 @@ export default function GalleryEMini({ data }: any) {
               return (
                 <div className={`galleryFade w-auto h-auto pb-18 flex-shrink-0`} key={`image-${i}`} >
                   <div className="w-[85vw] h-auto "> <div className="w-[85vw] h-auto flex-shrink-0"><SwitchContent work={item} title={`smart-gear`} ratio={item.ratio} audio={false} contain /></div></div>
-                  <div className="w-[85vw] text-white flex flex-nowrap gap-1 items-start py-4 pointer-events-auto relative" onClick={toggleActive} style={{transition:`.2s opacity ease-in-out`, opacity: i == curr+2 ? .5 : 0 }}>
+                  <div className="w-[85vw] text-white flex flex-nowrap gap-1 items-start py-4 pointer-events-auto relative" onClick={toggleActive} style={{transition:`.2s opacity ease-in-out`, opacity: ((i == curr+2) && (curr >= 0 && curr < data.length)) ? .5 : 0 }}>
                     <div className="w-[10px] h-[10px] flex-shrink-0" style={{transformOrigin:'center',transition:'.5s all ease-in-out',transform:`rotate(${active?`45`:`0`}deg)`}}><PlusAlt className="w-full h-full"/></div>
                     <div className="creatorCaption w-full">
                       <p >{curr+1}/{data.length}</p>

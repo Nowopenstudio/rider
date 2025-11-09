@@ -12,6 +12,7 @@ import Link from 'next/link';
 export default function MobileMini({data}: any) {
   const ref = useRef<HTMLDivElement>(null)
   const {winX, winY, mobile} = useResize();
+  let timer = undefined;
   const[indie,setIndie] = useState([])
   const [total,setTotal] = useState([]);
   const [disable,setDisable]=useState(false);
@@ -62,25 +63,40 @@ const next=()=>{
   
 }
 
+
   const resetMin=()=>{
-    setAnim(false)
+    timer=setTimeout(()=>{
+        setAnim(false)
     setDisable(true)
     setCurr(0)
+
+
+    },100)
+   
+
+   
   }
 
     const resetMax=()=>{
-       setAnim(false)
+timer=setTimeout(()=>{
+     setAnim(false)
     setDisable(true)
     setCurr(data.length-1)
+
+    },100)
+
+      
     
   }
 
       const setStart=()=>{
+           clearTimeout(timer!)
     setAnim(true)
     setDisable(false)    
   }
 
     const setStop=()=>{
+      clearTimeout(timer!)
     setAnim(false)
         setDisable(false)    
     
@@ -89,7 +105,6 @@ const next=()=>{
       const toggleActive = () => {
     setActive(!active)
   }
-
 
 
 

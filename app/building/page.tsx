@@ -160,7 +160,7 @@ export default async function Home() {
                 <SwitchContent work={data.retail.outro} title={'Header Video'} ratio={data.retail.outro.ratio} audio={false} cover dim />
               ) : ('')}
             </div>
-            <div className="w-2/3 md:w-1/4 text-white relative z-10 pb-4 md:pb-0 px-4 md:px-9">
+            <div className="w-3/4 md:w-1/4 text-white relative z-10 pb-4 md:pb-0 px-4 md:px-9">
               <div className="mb-9 fullVid"><PortableText value={data.retail.outro.title} /></div>
               <a href={`${data.retail.cta.url?data.retail.cta.url:'/'}`}><div className="cta inline-block inverted"><p>{data.retail.cta.label}</p></div></a>
             </div>

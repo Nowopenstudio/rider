@@ -72,7 +72,7 @@ const next=()=>{
     setCurr(0)
 
 
-    },750)
+    },100)
    
 
    
@@ -84,7 +84,7 @@ timer=setTimeout(()=>{
     setDisable(true)
     setCurr(data.length-1)
 
-    },750)
+    },100)
 
       
     
