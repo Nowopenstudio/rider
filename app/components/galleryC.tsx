@@ -154,7 +154,7 @@ timer=setTimeout(()=>{
                                                   </div>
                              {data[curr+2]?(
                              <React.Fragment>
-                                {data[curr+2].caption?( <div className="captions mb-2uppercase md:w-auto mb-4"><PortableText value={data[curr+2].caption} /></div>):('')}
+                                {data[curr+2].captions?( <div className="captions mb-2uppercase md:w-auto mb-4"><PortableText value={data[curr+2].captions} /></div>):('')}
                                {data[curr+2].credits?(  <div className="credits uppercase md:w-auto" style={{transition:`all .24s ease-in-out`,height:'100px',opacity:active?1:0,maxHeight:active?200:0}}><PortableText value={data[curr+2].credits} /></div>):('')}
                              </React.Fragment>
                              ):('')}
@@ -167,7 +167,7 @@ timer=setTimeout(()=>{
                             </div>
                           ) : ('')}
 
-                           {data.length && mobile > 1?(       <div className="galleryMarker px-4 md:px-9 flex pt-2 gap-[6px] w-full justify-start">
+                           {data.length > 1 && mobile?(       <div className="galleryMarker px-4 md:px-9 flex pt-2 gap-[6px] w-full justify-start">
                                   {data.map((dot: any, d: number) => {
                                     return (
                                       <div key={`${data.title}-${d}`} className={`relative ${d == 0 ? 'z-10' : 'z-1'} galleryDot w-[6px] h-[6px] rounded-full ${d == 0 ? "bg-black" : "bg-darkGray"}`} style={{ transformOrigin: 'center', transform: `scale(${d == 0 ? 1.5 : 1}) translateX(${d == 0 ? (curr * 8) : (d <= curr) ? (-12) : (0)}px)` }}></div>

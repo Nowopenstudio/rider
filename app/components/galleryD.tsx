@@ -84,7 +84,8 @@ export default function GalleryD({ data }: any) {
                                 ) : ('')}
      
       <div className="w-full flex justify-between items-center py-0 md:py-4">
-        <div className="flex gap-4 items-center">
+        {data.length > 1 ?(
+           <div className="flex gap-4 items-center">
           <div className="galleryMarker flex   gap-[6px]">
             {data.map((dot: any, d: number) => {
               return (
@@ -94,6 +95,8 @@ export default function GalleryD({ data }: any) {
           {mobile?(''):(<div className="captions onHover"><PortableText value={data[curr].captions}/></div>)}
           
         </div>
+        ):('')}
+       
          {mobile?(''):(<div className="credits uppercase text-right onHover"><PortableText value={data[curr].credits}/></div>)}
       </div>
     </React.Fragment>

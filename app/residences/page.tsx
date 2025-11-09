@@ -94,7 +94,7 @@ export default async function Home() {
                     </div>
                   ) : ('')}
                 </div>
-                <div className="col-span-2 h-[350px] lg:h-[66dvh] mb-20 lg:mb-39">
+                <div className="col-span-2 h-[350px] lg:h-[66dvh] mb-20 lg:mb-39 hoverOn">
                   <GalleryC data={item.gallery} />
                 </div>
                 {item.outro ? (
@@ -179,7 +179,7 @@ export default async function Home() {
           <div className="col-span-full md:col-span-6 mb-9 md:mb-14 row-start-4">
             <PortableText value={data.smart.copy} />
           </div>
-          <div className="col-span-full md:col-span-4 md:col-start-5 mt-0 md:mt-39">
+          <div className="col-span-full md:col-span-4 md:col-start-5 mt-0 md:mt-14">
             <GalleryD data={data.smart.gallery}/>
           </div>
         </div>
