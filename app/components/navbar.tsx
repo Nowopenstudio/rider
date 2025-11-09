@@ -112,36 +112,38 @@ export default function Navbar({ data, footer }: any) {
      
 
       {mobile?(
-          <div className={`mainMenu fixed top-0 left-0 z-90 w-[100vw] h-[100dvh] grid grid-cols-2 ${!active?'pointer-events-none':''}`} style={{opacity:active?1:0}}>
+          <div className={`mainMenu fixed top-0 left-0 z-90 w-[100vw] h-[100dvh] grid grid-cols-2 ${!active?'pointer-events-none':''}`} >
           
-            <div className={`col-span-2 bg-black  mobileMenu uppercase text-white relative z-2 px-9 pt-23`}>
-                                              <div className="w-auto flex flex-col">
-                                                 <Link href="/" onClick={closeMenu} className="relative navItem"> <div className="cursor-pointer mb-2"><p>Home</p></div></Link>
-                                                 <Link href="/building" onClick={closeMenu} className="relative navItem"> <div className="cursor-pointer mb-2"><p>Building</p></div></Link>
-                                                 <Link href="/residences" onClick={closeMenu} className="relative navItem"> <div className="cursor-pointer mb-2"><p>Residences</p></div></Link>
-                                                 <Link href="/amenities" onClick={closeMenu} className="relative navItem"> <div className="cursor-pointer mb-2"><p>Amenities</p></div></Link>
-                                                 <Link href="/location" onClick={closeMenu} className="relative navItem"> <div className="cursor-pointer mb-2"><p>Location</p></div></Link>
-                                                 <Link href="/creators" onClick={closeMenu} className="relative navItem"> <div className="cursor-pointer mb-2"><p>Creators</p></div></Link>
-                                                   <Link href="team" onClick={closeMenu}className="relative navItem"> <div className="cursor-pointer mb-2"><p>team</p></div></Link>
-                                                     <Link href="/cipres-living" onClick={closeMenu} className="relative navItem"> <div className="cursor-pointer mb-2"><p>CIPRÉS LIVING</p></div></Link>
-                                                       <Link className="pointer-events-none navItem" href="crypto" onClick={closeMenu}> <div className="pointer-events-none cursor-pointer mb-2 opacity-20"><p>Crypto</p></div></Link>
-                                                         <Link href="brokers" onClick={closeMenu} className="relative navItem"> <div className="cursor-pointer mb-2"><p>Brokers</p></div></Link>
-                                              </div>
+           <div className="col-span-full grid grid-cols-2" style={{transition:`transform 1s cubic-bezier(0.19, 1, 0.22, 1) `,transform:`translateX(${active?"0":"-100%"})`}}>
+              <div className={`col-span-2 bg-black  mobileMenu uppercase text-white relative z-2 px-9 pt-23`}>
+                                                <div className="w-auto flex flex-col">
+                                                   <Link href="/" onClick={closeMenu} className="relative navItem"> <div className="cursor-pointer mb-2"><p>Home</p></div></Link>
+                                                   <Link href="/building" onClick={closeMenu} className="relative navItem"> <div className="cursor-pointer mb-2"><p>Building</p></div></Link>
+                                                   <Link href="/residences" onClick={closeMenu} className="relative navItem"> <div className="cursor-pointer mb-2"><p>Residences</p></div></Link>
+                                                   <Link href="/amenities" onClick={closeMenu} className="relative navItem"> <div className="cursor-pointer mb-2"><p>Amenities</p></div></Link>
+                                                   <Link href="/location" onClick={closeMenu} className="relative navItem"> <div className="cursor-pointer mb-2"><p>Location</p></div></Link>
+                                                   <Link href="/creators" onClick={closeMenu} className="relative navItem"> <div className="cursor-pointer mb-2"><p>Creators</p></div></Link>
+                                                     <Link href="team" onClick={closeMenu}className="relative navItem"> <div className="cursor-pointer mb-2"><p>team</p></div></Link>
+                                                       <Link href="/cipres-living" onClick={closeMenu} className="relative navItem"> <div className="cursor-pointer mb-2"><p>CIPRÉS LIVING</p></div></Link>
+                                                         <Link className="pointer-events-none navItem" href="crypto" onClick={closeMenu}> <div className="pointer-events-none cursor-pointer mb-2 opacity-20"><p>Crypto</p></div></Link>
+                                                           <Link href="brokers" onClick={closeMenu} className="relative navItem"> <div className="cursor-pointer mb-2"><p>Brokers</p></div></Link>
+                                                </div>
+              </div>
+              <div className="absolute bottom-4 md:bottom-9 left-4 md:left-9 w-full pointer-events-none z-11 grid grid-cols-2">
+                                                  {footer.contacts.map((item:any,i:number)=>{
+                                                    return(
+                                                      <div className={`${i==0?'col-span-2':''} navContact uppercase text-white ${i==0?"mb-7":""} font-bold`} key={`contacts-${i}`}>
+                                                        <p className='mb-1 text-darkGray'>{item.title}</p>
+                                                       {i==0?(
+                                                         <p className='mb-1'>{footer.contact.phone}</p>
+             
+                                                       ):('')}
+                                                        <PortableText value={item.copy}/>
+                                                      </div>
+                                                    )
+                                                  })}
+                              </div>
             </div>
-            <div className="absolute bottom-4 md:bottom-9 left-4 md:left-9 w-full pointer-events-none z-11 grid grid-cols-2">
-                                                {footer.contacts.map((item:any,i:number)=>{
-                                                  return(
-                                                    <div className={`${i==0?'col-span-2':''} navContact uppercase text-white ${i==0?"mb-7":""} font-bold`} key={`contacts-${i}`}>
-                                                      <p className='mb-1 text-darkGray'>{item.title}</p>
-                                                     {i==0?(
-                                                       <p className='mb-1'>{footer.contact.phone}</p>
-           
-                                                     ):('')}
-                                                      <PortableText value={item.copy}/>
-                                                    </div>
-                                                  )
-                                                })}
-                            </div>
           
       </div>
       ):(
