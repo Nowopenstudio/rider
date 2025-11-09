@@ -4,7 +4,7 @@ import Image from "next/image";
 import { SwitchContent } from "./util/contentSwitch";
 import { MuxVideoBG } from "./util/muxPlayer";
 import { getData } from "./util/sanity";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 
 
@@ -42,7 +42,16 @@ const loadContent=()=>{
   if(curr){
     curr.style.height='auto'
   }
+  const anim = document.getElementById('videoHeader')
+  if(anim){
+    anim.classList.add('headerAnim')}
 }
+
+useEffect(()=>{
+  const curr = document.getElementsByClassName('headerAnim')
+  if(curr.length){
+    curr[0].classList.remove('headerAnim')}
+},[])
   return (
 
 
