@@ -5,11 +5,13 @@ import { PortableText } from 'next-sanity';
 import { Reveal } from '../util/reveal';
 import useResize from '../util/useResize';
 import { GalleryLeft, GalleryRight, InfoB, InfoBAlt } from './svg';
+import { clearInterval } from 'timers';
 
 
 
 export default function GalleryA({data,full}: any) {
   const ref = useRef<HTMLDivElement>(null)
+  let timer = undefined
   const {winX, winY, mobile} = useResize();
   const [x,setX] = useState<number>(0)
   const[indie,setIndie] = useState([])
@@ -64,24 +66,38 @@ const next=()=>{
 }
 
   const resetMin=()=>{
-    setAnim(false)
+    timer=setTimeout(()=>{
+        setAnim(false)
     setDisable(true)
     setCurr(0)
+
+
+    },750)
+   
+
+   
   }
 
     const resetMax=()=>{
-       setAnim(false)
+timer=setTimeout(()=>{
+     setAnim(false)
     setDisable(true)
     setCurr(data.length-1)
+
+    },750)
+
+      
     
   }
 
       const setStart=()=>{
+           clearTimeout(timer!)
     setAnim(true)
     setDisable(false)    
   }
 
     const setStop=()=>{
+      clearTimeout(timer!)
     setAnim(false)
         setDisable(false)    
     
@@ -106,7 +122,7 @@ const next=()=>{
                <div className={`w-1/2 h-full z-40 left-1/2 absolute cursor-e-resize `} onClick={next}></div>
            
           
-         <div onTransitionStart={setStart} onTransitionEnd={(curr==data.length)?(resetMin):(curr<0?resetMax:setStop)} className={`w-auto h-full flex flex-nowrap galleryFull ${mobile?'gap-4':'gap-9'} galleryScroll ${disable?'disable':''}`} ref={ref} style={{transform:`translateX(${total?(winX/2-indie[curr+2]/2-(mobile?16:36))+(+(total[curr+1]+((curr+2)*(mobile?16:36)))*(-1))+(mobile?16:36):`36`}px)`}}>
+         <div onTransitionStart={setStart} onTransitionEndCapture={(curr==data.length)?(resetMin):(curr<0?resetMax:setStop)} className={`w-auto h-full flex flex-nowrap galleryFull ${mobile?'gap-4':'gap-9'} galleryScroll ${disable?'disable':''}`} ref={ref} style={{transform:`translateX(${total?(winX/2-indie[curr+2]/2-(mobile?16:36))+(+(total[curr+1]+((curr+2)*(mobile?16:36)))*(-1))+(mobile?16:36):`36`}px)`}}>
             
               {gallery.map((item:any, i:number)=>{
                 return(
