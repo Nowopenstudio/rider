@@ -54,7 +54,7 @@ const zoomOff=()=>{
   if (work.image) return (
   <div className="w-full relative h-full">
   <div className='w-full h-full relative'>  <Image alt="image" onClick={zoom&&!mobile?zoomOn:undefined} onContextMenu={(e)=>{e.preventDefault()}} height={0}  width={0} sizes={`${size?size:`100vw`}`}  src={work.image}  className={`${height?`h-full w-auto`:'w-full h-auto'} ${contain?"object-contain h-full":""} ${cover?"object-cover h-full":""} ${zoom?'cursor-pointer':''}`} style={{aspectRatio:work.ratioImg}}/>
-    {mobile && work.credits ?(
+    {mobile && work.credits && !cullInfo ?(
      <div className="absolute right-4 bottom z-30 pt-2"  onClick={toggleInfo}> <div className="h-[16px] w-[16px]">{info?(<InfoBAlt className="w-full h-full"/>):<InfoB className="w-full h-full"/> }</div></div>
   ):('')}
   {credits || captions?(
@@ -63,7 +63,7 @@ const zoomOff=()=>{
       
       {captions?(<div className={`pt-3 captions  md:mb-0 md:px-0 relative`}><div className="mb-4"><PortableText value={work.captions}/></div></div>):('')}
   
-   {mobile?(
+   {mobile && !cullInfo?(
           <React.Fragment>
             <div className="credits uppercase md:w-auto " style={{transition:`all .24s ease-in-out`,height:'100px',opacity:info?1:0,maxHeight:info?200:0}}><PortableText value={work.credits} /></div>
           </React.Fragment>
