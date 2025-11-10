@@ -45,7 +45,7 @@ export default function Gate({data,pro,slug}:any) {
        
              {!access?(
                   
-                    <div className="col-span-full p-4 md:p-9 grid grid-cols-12 h-[50dvh] md:h-[25dvh] items-center md:items-start pb-20 md:pb-0">
+                    <div className="col-span-full p-4 md:p-9 grid grid-cols-12 h-[100dvh] items-center md:items-start pb-20 md:pb-0">
                         <div className="col-span-full">
                             <h1 className="title col-span-full  md:col-start-3 uppercase py-6">Password Required</h1>
                             <form onSubmit={submitForm} className={`col-span-full md:col-span-8 md:col-start-3 grid grid-cols-8 px-2 md:px-4 gap-4 items-end ${isLoading?"opacity-[.25] pointer-events-none":""}`}>
