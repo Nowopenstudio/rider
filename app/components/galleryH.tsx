@@ -51,11 +51,11 @@ export default function GalleryH({ data }: any) {
           )
         })}
     </div>
-      <div className=" w-full flex justify-between">
-     <div className="galleryMarker flex pt-4 gap-2 w-full justify-center">
+      <div className=" w-full flex justify-center">
+     <div className="galleryMarker flex pt-4 gap-[6px] w-full justify-center">
             {data.map((dot: any, d: number) => {
               return (
-                <div key={`${data.title}-${d}`} className={`w-[10px] h-[10px] border border-black rounded-full ${d==curr?"bg-black":""}`}></div>
+                <div key={`${data.title}-${d}`} className={`relative ${d==0?'z-10':'z-1'} galleryDot w-[6px] h-[6px] rounded-full ${d==0?"bg-black":"bg-darkGray"}`} style={{transformOrigin:'center', transform: `scale(${d==0?1.5:1}) translateX(${d==0?(curr*8):(d<=curr)?(-12):(0)}px)`}}></div>
               )
             })}
           </div>

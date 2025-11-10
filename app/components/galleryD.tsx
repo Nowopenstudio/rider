@@ -70,7 +70,7 @@ export default function GalleryD({ data }: any) {
                                                         </div>
                                    {data[curr]?(
                                    <React.Fragment>
-                                      {data[curr].captions?( <div className="captions mb-2 uppercase md:w-auto mb-4"><PortableText value={data[curr].captions} /></div>):('')}
+                                      {data[curr].captions?( <div className="captions mb-2 uppercase md:w-auto md:mb-4"><PortableText value={data[curr].captions} /></div>):('')}
                                      {data[curr].credits?(  <div className="credits uppercase md:w-auto mb-2" style={{transition:`all .24s ease-in-out`,height:'auto',display:active?'block':'none',opacity:active?1:0,maxHeight:active?200:0}}><PortableText value={data[curr].credits} /></div>):('')}
                                    </React.Fragment>
                                    ):('')}
