@@ -45,7 +45,7 @@ export default async function Home() {
       </div> */}
       <VidHead data={data.header.video} />
 
-      <div className="w-full  bg-offWhite  sticky z-2 grid grid-cols-12 text-white">
+      <div className="w-full  bg-offWhite  sticky z-2 grid grid-cols-12">
         <div className="col-span-full mb-9 md:mb-39">
           <TextBlock title={data.intro.title} copy={data.intro.copy} subhead={data.intro.subhead} arrowBot />
         </div>
