@@ -155,7 +155,7 @@ export default async function Home() {
 
       {/* Area */}
         <div className="col-span-full  grid grid-cols-12 gap-4 md:px-9 relative z-10 bg-offWhite overflow-x-hidden">
-          <Reveal styleSet='col-span-full uppercase py-3 border-t border-b text-left mb-9 px-4 md:px-0'><h2 className='w-full serif'>{data.location.title}</h2></Reveal>
+          <Reveal styleSet='col-span-full uppercase py-3 border-t border-b text-left md:mb-9 px-4 md:px-0'><h2 className='w-full serif'>{data.location.title}</h2></Reveal>
           
              <HoverVid data={data.location.video}/>
              

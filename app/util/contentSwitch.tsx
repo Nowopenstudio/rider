@@ -58,7 +58,7 @@ const zoomOff=()=>{
      <div className="absolute right-4 bottom z-30 pt-2"  onClick={toggleInfo}> <div className="h-[16px] w-[16px]">{info?(<InfoBAlt className="w-full h-full"/>):<InfoB className="w-full h-full"/> }</div></div>
   ):('')}
   {credits || captions?(
-    <div className={` md:flex justify-between w-full md:onHover  ${inside?"text-white relative md:absolute  left-0 px-4 z-10":""} px-4 md:px-0`}>
+    <div className={` md:flex justify-between w-full md:onHover  ${inside?"text-white absolute  left-4 px-4 bottom-4 z-10":""} px-4 md:px-0`}>
      
       
       {captions?(<div className={`pt-3 captions  md:mb-0 md:px-0 relative`}><div className="mb-4"><PortableText value={work.captions}/></div></div>):('')}

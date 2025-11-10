@@ -155,9 +155,9 @@ timer=setTimeout(()=>{
                 <Reveal styleSet={'col-span-full lg:col-span-1 mb-9 relative hoverOn'} key={`${item.title}`} count={i * .25}>
                   <Link href={item.url}>
                     <div className="aspect-[1.48/1] w-full bg-mux relative mb-4">
-                      {item.gallery.length ? (<SwitchContent cullInfo work={item.gallery[0]} title={`${item.title}`}  audio={false} cover />) : ('')}
+                      {item.gallery.length ? (<SwitchContent inside work={item.gallery[0]} title={`${item.title}`}  audio={false} cover />) : ('')}
   
-                       {item.gallery.length >= 2 ? (<div className="w-full h-full absolute z-2 top-0 left-0 onHover"><SwitchContent cullInfo work={item.gallery[1]} title={`${item.title}`}  audio={false} cover credits inside /></div>) : ('')}
+                       {item.gallery.length >= 2 ? (<div className="w-full h-full absolute z-2 top-0 left-0 onHover"><SwitchContent inside work={item.gallery[1]} title={`${item.title}`}  audio={false} cover credits /></div>) : ('')}
   
   
                       
