@@ -82,7 +82,7 @@ export default async function Home() {
                                       <div className="w-full grid grid-cols-2 px-4 md:px-9 gap-9">
                                         <div className="col-span-full divide py-4 md:py-12 border-t uppercase md:mb-37.5"><PortableText value={data.edge.title} /></div>
                                         <div className="col-span-full md:col-span-1 grid grid-cols-9">
-                                          <div className="col-span-full md:col-span-5 md:col-start-3"><div className="w-full"><SwitchContent work={data.edge.profile.media} title={'Header Video'} audio={false} /></div>
+                                          <div className="col-span-full md:col-span-5 md:col-start-3"><div className="w-full"><SwitchContent captions credits work={data.edge.profile.media} title={'Header Video'} audio={false} /></div>
                                             <div className="w-full uppercase py-4.5">
                                               <p className="mb-2 label">{data.edge.profile.name}</p>
                                               <div className="text-darkGray label"><PortableText value={data.edge.profile.title}/></div>
@@ -119,7 +119,7 @@ export default async function Home() {
                                           <div className="col-span-full md:col-span-5 mb-9 md:mb-0"><PortableText value={data.residences.copy} /></div>
                                         </div>
                                         <div className="col-span-full md:col-span-1 grid grid-cols-8">
-                                          <div className="col-span-full md:col-span-4 md:col-start-3 mb-9 md:mb-37.5"><div className="w-full"><SwitchContent work={data.residences.media} title={'Header Video'} audio={false} /></div>
+                                          <div className="col-span-full md:col-span-4 md:col-start-3 mb-9 md:mb-37.5"><div className="w-full"><SwitchContent captions credits work={data.residences.media} title={'Header Video'} audio={false} /></div>
                                           </div>
                                         </div>
                             
@@ -134,7 +134,7 @@ export default async function Home() {
                                     <div className="col-span-full mb-9 md:mb-46 overflow-x-hidden">
                                       <div className="w-full grid grid-cols-12 px-4 md:px-9 gap-x-4 md:gap-x-9 items-center">
                                         <div className="col-span-full divide pt-9 md:pt-12 border-t uppercase mb-9 md:mb-34"><PortableText value={data.services.title} /></div>
-                                            <div className="col-span-full md:col-span-4 md:col-start-5 mb-9 md:mb-27.5"><SwitchContent work={data.services.media} title={'Header Video'} audio={false} /></div>
+                                            <div className="col-span-full md:col-span-4 md:col-start-5 mb-9 md:mb-27.5"><SwitchContent captions credits work={data.services.media} title={'Header Video'} audio={false} /></div>
                                         <div className="col-span-full divide uppercase mb-9 md:mb-12"><PortableText value={data.services.subtitle} /></div>
                                         
                                         
@@ -163,7 +163,7 @@ export default async function Home() {
                                       <div className="w-full grid grid-cols-2 px-4 md:px-9 gap-9 items-center">
                                         <div className="col-span-full divide py-4 md:py-12 md:border-t uppercase mb-4 md:mb-37.5"><PortableText value={data.tech.title} /></div>
                                         <div className="col-span-full md:col-span-1 grid grid-cols-9">
-                                          <div className="col-span-full md:col-span-5 md:col-start-3"><div className="w-full"><SwitchContent work={data.tech.media} title={'Header Video'} audio={false} /></div>
+                                          <div className="col-span-full md:col-span-5 md:col-start-3"><div className="w-full"><SwitchContent captions credits work={data.tech.media} title={'Header Video'} audio={false} /></div>
                                             
                                           </div>
                                         </div>
@@ -175,7 +175,7 @@ export default async function Home() {
                                         
                                       </div> 
                                       <div className="grid grid-cols-12 px-4 md:px-9 mt-9 md:mt-35">
-                                         <div className="col-span-full md:col-span-8 md:col-start-3"><SwitchContent work={data.tech.screen} title={'Header Video'} audio={false} /></div></div>          
+                                         <div className="col-span-full md:col-span-8 md:col-start-3"><SwitchContent captions credits work={data.tech.screen} title={'Header Video'} audio={false} /></div></div>          
                             
                                     </div> 
                             
@@ -184,7 +184,7 @@ export default async function Home() {
                                     <div className="col-span-full mb-9 md:mb-46 overflow-x-hidden">
                                       <div className="w-full grid grid-cols-12 px-4 md:px-9 gap-x-9 items-center">
                                         <div className="col-span-full divide pt-12 border-t uppercase mb-9 md:mb-34"><PortableText value={data.setup.title} /></div>
-                                            <div className="col-span-full md:col-span-8 md:col-start-3 mb-9 md:mb-27.5"><SwitchContent work={data.setup.media} title={'Header Video'} audio={false} /></div>
+                                            <div className="col-span-full md:col-span-8 md:col-start-3 mb-9 md:mb-27.5"><SwitchContent captions credits work={data.setup.media} title={'Header Video'} audio={false} /></div>
                                         
                                       </div>
                                            <div className="w-full px-4 md:px-9 mb-9 md:mb-23.5">
@@ -247,7 +247,7 @@ export default async function Home() {
                                         </div>
                                         
                                         <div className="col-span-full md:col-span-1 grid grid-cols-9">
-                                          <div className="col-span-full md:col-span-4 md:col-start-3"><div className="w-full"><SwitchContent work={data.potential.media} title={'Header Video'} audio={false} /></div>
+                                          <div className="col-span-full md:col-span-4 md:col-start-3"><div className="w-full"><SwitchContent captions credits work={data.potential.media} title={'Header Video'} audio={false} /></div>
                                             
                                           </div>
                                         </div>
@@ -261,7 +261,7 @@ export default async function Home() {
                                      <div className="w-full grid grid-cols-2 border-t py-9 md:py-23.5 ">
                                       <div className="col-span-full md:col-span-1">
                                          <div className="grid grid-cols-9">
-                                          <div className="col-span-full md:col-span-4 md:col-start-3"><div className="w-full"><SwitchContent work={data.schedule.media} title={'Header Video'} audio={false} /></div>
+                                          <div className="col-span-full md:col-span-4 md:col-start-3"><div className="w-full"><SwitchContent captions credits work={data.schedule.media} title={'Header Video'} audio={false} /></div>
                                             
                                           </div>
                                         </div>
