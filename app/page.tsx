@@ -109,7 +109,7 @@ export default async function Home() {
 
       
       </div>
-      <div className='w-full bg-offWhite z-1 sticky top-8 md:top-18 h-[200dvh] pt-10 ' >
+      <div className='w-[100vw] overflow-x-hidden bg-offWhite z-1 sticky top-8 md:top-18 h-[200dvh] pt-10 ' >
          <div className="w-full md:px-9 hoverOn mb-39 h-[100dvh] bg-offWhite relative z-2">
             {data.residency.video.vid ? (
                 <MediaGrow data={data.residency.video} size={.568}/>
@@ -142,7 +142,7 @@ export default async function Home() {
 
       </div>
       <div className="col-span-full  relative z-2 bg-white top-0" style={{height:"200vh"}}>
-        <div className="sticky top-0 mt-[-100vh] h-[100dvh]">
+        <div className="sticky top-0 mt-[-100vh] h-[100dvh] w-[100vw] overflow-x-hidden">
           {data.interiors.outro.video ? (<SwitchContent work={data.interiors.outro.video} title={'Header Video'} ratio={data.interiors.outro.video.ratio} audio={false} cover/>) : ('')}
           <div className="w-full h-[100dvh] absolute z-3 top-0 left-0 flex md:items-center" style={{backgroundColor:`rgba(0,0,0,.4)`}}>
               <div className="bottom-4 absolute md:relative w-3/4 md:w-1/3 px-4 md:px-9 text-white">
@@ -190,7 +190,7 @@ export default async function Home() {
 
 
         </div>
-        <div className="w-full galleryHold mb-18 md:mb-39">
+        <div className="w-[100vw] overflow-x-hidden galleryHold mb-18 md:mb-39">
                   {data.amenities.gallery ? (
           <div className='col-span-full overflow-x-hidden pb-4 h-auto'>
             <GalleryA data={data.amenities.gallery} />
@@ -201,7 +201,7 @@ export default async function Home() {
 
 
         {/* Gallery */}
-        <div className="w-full relative z-5 bg-offWhite pt-4 grid grid-cols-12 overflow-x-hidden">
+        <div className="w-[100vw] relative z-5 bg-offWhite pt-4 grid grid-cols-12 overflow-x-hidden">
           <div className="col-span-full grid grid-cols-12 px-4 md:px-9 mb-10">
             <div className="col-span-full py-2 border-b  uppercase label font-bold"><p>{data.gallery.title}</p></div>
             <div className=" col-span-full md:mb-10 py-4 md:py-9">

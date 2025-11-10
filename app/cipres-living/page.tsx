@@ -124,7 +124,7 @@ export default async function Home() {
                                         </div>
                             
                                       </div>
-                                      <div className="w-full h-auto">
+                                      <div className="w-[100vw] overflow-x-hidden h-auto ">
                                         <GalleryC data={data.residences.gallery} />
                                       </div>
                             
@@ -203,7 +203,7 @@ export default async function Home() {
                                               ) : ('')}
                               
                                            </div>
-                                           <div className="w-full grid grid-cols-12 gap-9">
+                                           <div className="w-[100vw] overflow-x-hidden grid grid-cols-12 gap-9">
                                             <div className="col-span-full md:col-span-4 grid grid-cols-3 gap-9 px-9">
                                               {data.setup.gallery.map((item:any,i:number)=>{
                                                 return(
@@ -228,7 +228,7 @@ export default async function Home() {
                                         
                             
                                       </div>
-                                      <div className="w-full h-auto">
+                                      <div className="w-[100vw] overflow-x-hidden h-auto">
                                         <GalleryC data={data.guest.gallery} />
                                       </div>
                             
