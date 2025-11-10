@@ -861,6 +861,14 @@ h4.serif{font-family: "serif",'Times New Roman', Times, serif;font-size:2.4375re
     font-size:17pt;
   }
 
+  .navContact p{
+  font-size:.75rem;
+  line-height: 1em;
+  letter-spacing: .01em;
+  text-box: trim-both cap alphabetic;
+}
+
+
 
 
   }

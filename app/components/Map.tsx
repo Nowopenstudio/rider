@@ -134,7 +134,7 @@ const hidePoints=()=>{
                         ):('')}
                     </div>
                   </div>
-                  <div className="col-span-full lg:col-span-5 lg:col-end-13">
+                  <div className="col-span-full lg:col-span-6 lg:col-end-13 px-0 md:px-9">
                     <div className="w-full md:grid md:grid-cols-2 lg:grid-cols-3 gap-9 items-start">
                       <div className="col-span-3 xl:col-span-1 py-2">
                         <Reveal styleSet=" pointer-events-none label"><p className="uppercase mb-2 font-bold">Filter</p></Reveal>
