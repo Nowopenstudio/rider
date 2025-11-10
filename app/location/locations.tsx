@@ -25,7 +25,7 @@ const {mobile} = useResize();
 
   return (
     <React.Fragment>
-      <div className="col-span-full mb-18 md:mb-79 px-4 md:px-9 flex justify-between sticky top-[70px] md:top-[90px] md:justify-start gap-4 z-10 bg-offWhite md:bg-transparent py-4 md:py-0">
+      <div className="col-span-full mb-18 md:mb-79 px-2 md:px-4 md:px-9 flex justify-between sticky top-[70px] md:top-[90px] md:justify-start md:gap-4 z-10 bg-offWhite md:bg-transparent py-4 md:py-0">
           {data.map((item: any, i: number) => {
             return (
               <div key={`filter-${item.title}`}><ScrollCTA id={`loc-${i}`} cta={{"label":item.title}} sub={mobile?false:true} /></div>

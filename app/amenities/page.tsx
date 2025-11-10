@@ -53,7 +53,7 @@ export default async function Home() {
       </div> */}
       <VidHead data={data.header.video} />
 
-      <div className="w-full  bg-offWhite  sticky z-2 grid grid-cols-12">
+      <div className="w-full  bg-offWhite  sticky z-2 grid grid-cols-12 text-white">
         <div className="col-span-full mb-9 md:mb-39">
           <TextBlock title={data.intro.title} copy={data.intro.copy} subhead={data.intro.subhead} arrowBot />
         </div>
@@ -93,7 +93,7 @@ export default async function Home() {
           ) : ('')}
         </div>
 
-        <Reveal styleSet="col-span-full md:col-span-4 md:col-start-5 mb-9 md:mb-39 hoverOn px-4 md:px-0 overflow-x-hidden">
+        <Reveal styleSet="col-span-full md:col-span-4 md:col-start-5 mb-9 md:mb-39 hoverOn px-4 md:px-0 overflow-x-hidden ">
           {data.outro.media ? (<SwitchContent noBleed captions credits work={data.outro.media} title={'Header Video'} ratio={data.outro.media.ratio} audio={false} />) : ('')}
 
         </Reveal>
@@ -116,8 +116,8 @@ export default async function Home() {
             <SwitchContent work={data.box.feat} title={'Header Video'} ratio={data.box.feat.ratio} audio={false} />
           </div>
 
-          <Reveal styleSet="col-span-full md:col-span-8 md:col-start-3 px-4 md:px-0 mb-9 md:mb-39 hidden md:block hoverOn">
-            {data.box.outro ? (<SwitchContent work={data.box.outro} title={'Header Video'} ratio={data.box.outro.ratio} audio={false} />) : ('')}
+          <Reveal styleSet="col-span-full md:col-span-8 md:col-start-3 px-4 md:px-0 mb-9 md:mb-39 hidden md:block hoverOn text-white">
+            {data.box.outro ? (<SwitchContent captions credits work={data.box.outro} title={'Header Video'} ratio={data.box.outro.ratio} audio={false} />) : ('')}
 
           </Reveal>
 

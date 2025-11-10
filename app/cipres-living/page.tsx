@@ -73,7 +73,7 @@ export default async function Home() {
                                           ) : ('')}
                             
                                         </div>
-                                        <div className="col-span-full md:col-span-3 mb-9 md:mb-48"><SwitchContent work={data.intro.right.media} title={'Header Video'} audio={false} cover /></div>
+                                        <div className="col-span-full md:col-span-3 mb-9 md:mb-48"><SwitchContent captions credits work={data.intro.right.media} title={'Header Video'} audio={false} cover /></div>
                                       </div>
                                     </div>
                             
