@@ -3,6 +3,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { SwitchContent } from '../util/contentSwitch';
 import { PortableText } from 'next-sanity';
 import { Reveal } from '../util/reveal';
+import Hammer from 'hammerjs';
 import useResize from '../util/useResize';
 import { GalleryL, GalleryLeft, GalleryR, GalleryRight, Info, InfoAlt, InfoB, InfoBAlt, Zoom } from './svg';
 
@@ -75,6 +76,12 @@ const zoomOff=()=>{
    setZoom(false)
 }
 
+useEffect(()=>{
+  const hammer = new Hammer(ref.current!);
+   hammer.on('swipeleft', back);
+   hammer.on('swiperight', next);
+},[ref])
+
 
 
   return (
@@ -103,7 +110,7 @@ const zoomOff=()=>{
             })}
           </div>
   
-          <Reveal styleSet="w-full absolute h-full top-0 left-0 hoverOn">
+          <Reveal styleSet="w-full absolute h-full top-0 left-0 hoverOn touchBox">
             <div className="w-1/2 h-full z-40 left-0 absolute cursor-w-resize" onClick={back}></div>
             <div className="w-1/2 h-full z-40 left-1/2 absolute cursor-e-resize" onClick={next}></div>
             {data.map((item: any, i: number) => {
