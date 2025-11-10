@@ -1,8 +1,5 @@
 
-import Link from "next/link";
-import Image from "next/image";
 import { SwitchContent } from "../util/contentSwitch";
-import { MuxVideoBG } from "../util/muxPlayer";
 import { getData } from "../util/sanity";
 import React from "react";
 
@@ -10,15 +7,10 @@ import React from "react";
 
 import ScrollUp from "../util/misc";
 import { PortableText } from "next-sanity";
-import { ScrollArrow } from "../components/svg";
 import { Reveal } from "../util/reveal";
-import Map from "../components/Map";
-import GalleryA from "../components/galleryA";
 import TextBlock from "../components/textBlock";
-import GalleryB from "../components/galleryB";
 import Next from "../components/next";
 import GalleryC from "../components/galleryC";
-import GalleryG from "../components/galleryG";
 import GalleryH from "../components/galleryH";
 import { VidHead } from "../components/vidHead";
 import GalleryD from "../components/galleryD";

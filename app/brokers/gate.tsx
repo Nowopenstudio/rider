@@ -1,12 +1,9 @@
 'use client'
 
 import React, { useState,FormEvent } from "react";
-import Image from "next/image";
 import { PortableText } from "next-sanity";
 import { SwitchContent } from "@/app/util/contentSwitch";
-import { Right } from "@/app/components/svg";
 import Next from "../components/next";
-import GalleryC from "../components/galleryC";
 import TextBlock from "../components/textBlock";
 import { Reveal } from "../util/reveal";
 import { ListExpand } from "../components/listExpand";

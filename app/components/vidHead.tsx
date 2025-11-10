@@ -34,7 +34,7 @@ export function VidHead({data, size}:any){
    
    return(
       
-              <Reveal id={`videoHeader`} styleSet="w-full h-[100dvh] flex items-start justify-center sticky top-0 z-1 bg-medGray headerAnim" style={{animationDelay:`2s`}} >
+              <Reveal id={`videoHeader`} styleSet="w-[100vw] overflow-x-hidden h-[100dvh] flex items-start justify-center sticky top-0 z-1 bg-medGray headerAnim" style={{animationDelay:`2s`}} >
            
                    <div className={`projectCover col-span-2 relative coverSwitch fadeOn w-full  h-full video`} >
                      <SwitchContent work={data} title={'Header Video'} ratio={data.ratio} audio={false} cover />

@@ -1,8 +1,5 @@
 
-import Link from "next/link";
-import Image from "next/image";
 import { SwitchContent } from "../util/contentSwitch";
-import { MuxVideoBG } from "../util/muxPlayer";
 import { getData } from "../util/sanity";
 import React from "react";
 
@@ -10,12 +7,8 @@ import React from "react";
 
 import ScrollUp from "../util/misc";
 import { PortableText } from "next-sanity";
-import { ScrollArrow } from "../components/svg";
 import { Reveal } from "../util/reveal";
-import Map from "../components/Map";
-import GalleryA from "../components/galleryA";
 import TextBlock from "../components/textBlock";
-import GalleryB from "../components/galleryB";
 import Next from "../components/next";
 import GalleryE from "../components/galleryE";
 import { VidHead } from "../components/vidHead";
@@ -118,7 +111,7 @@ export default async function Home() {
                   </React.Fragment>
                 ):('')}
                 {item.profile.gallery?(
-                      <Reveal styleSet="col-span-full md:h-[calc(100dvh_-_74px)] md:px-0 py-9 md:border-t border-darkGray relative mt-4 md:mt-9">
+                      <Reveal styleSet="col-span-full overflow-x-hidden md:h-[calc(100dvh_-_74px)] md:px-0 py-9 md:border-t border-darkGray relative mt-4 md:mt-9">
                       <GalleryE data={item.profile.gallery} name={item.profile.name}/>
                     </Reveal>
                     ):('')}

@@ -1,8 +1,7 @@
 
-import Link from "next/link";
 import Image from "next/image";
 import { SwitchContent } from "../util/contentSwitch";
-import { MuxVideoBG } from "../util/muxPlayer";
+
 import { getData } from "../util/sanity";
 import React from "react";
 
@@ -10,12 +9,11 @@ import React from "react";
 
 import ScrollUp from "../util/misc";
 import { PortableText } from "next-sanity";
-import { ScrollArrow } from "../components/svg";
+
 import { Reveal } from "../util/reveal";
-import Map from "../components/Map";
-import GalleryA from "../components/galleryA";
+
 import TextBlock from "../components/textBlock";
-import GalleryB from "../components/galleryB";
+
 import Next from "../components/next";
 import GalleryC from "../components/galleryC";
 import Floorplans from "../components/floorplans";
@@ -94,7 +92,7 @@ export default async function Home() {
                     </div>
                   ) : ('')}
                 </div>
-                <div className="col-span-2 h-auto mb-10 lg:mb-20 hoverOn">
+                <div className="col-span-2 h-auto mb-10 lg:mb-20 hoverOn overflow-x-hidden">
                   <GalleryC data={item.gallery} />
                 </div>
                 {item.outro ? (
@@ -110,7 +108,7 @@ export default async function Home() {
                 ) : ('')}
 
                 {item.outro.gallery ? (
-                  <div className="col-span-2 h-[350px] lg:h-[66dvh] mb-20 lg:mb-39">
+                  <div className="col-span-2 h-[350px] lg:h-[66dvh] mb-20 lg:mb-39 overflow-x-hidden">
                     <GalleryC data={item.outro.gallery} />
                   </div>
                 ) : ('')}
@@ -179,7 +177,7 @@ export default async function Home() {
           <div className="col-span-full md:col-span-6 mb-9 md:mb-14 row-start-4">
             <PortableText value={data.smart.copy} />
           </div>
-          <div className="col-span-full md:col-span-4 md:col-start-5 mt-0 md:mt-14">
+          <div className="col-span-full md:col-span-4 md:col-start-5 mt-0 md:mt-14 overflow-x-hidden">
             <GalleryD data={data.smart.gallery}/>
           </div>
         </div>

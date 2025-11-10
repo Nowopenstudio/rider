@@ -4,9 +4,7 @@ import { MuxVideoBG } from "./muxPlayer";
 import Image from "next/image";
 import { PortableText } from "next-sanity";
 import { Info, InfoAlt, InfoB, InfoBAlt, Zoom } from "../components/svg";
-import SmoothScrolling from "./SmoothScrolling";
 import useResize from "./useResize";
-import { data } from "motion/react-client";
 
 export function SwitchContent({noBleed,cullInfo, zoom,work, title,ratio,cover, contain,size, audio,color,ratioImg,dim,height, captions, credits,inside}: any) {
 const [active,setActive] = useState(false);

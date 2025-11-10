@@ -1,8 +1,7 @@
 
-import Link from "next/link";
-import Image from "next/image";
+
 import { SwitchContent } from "../util/contentSwitch";
-import { MuxVideoBG } from "../util/muxPlayer";
+
 import { getData } from "../util/sanity";
 import React from "react";
 
@@ -10,12 +9,11 @@ import React from "react";
 
 import ScrollUp from "../util/misc";
 import { PortableText } from "next-sanity";
-import { ScrollArrow } from "../components/svg";
+
 import { Reveal } from "../util/reveal";
-import Map from "../components/Map";
-import GalleryA from "../components/galleryA";
+
 import TextBlock from "../components/textBlock";
-import GalleryB from "../components/galleryB";
+
 import Next from "../components/next";
 import GalleryF from "../components/galleryF";
 import { VidHead } from "../components/vidHead";
@@ -72,7 +70,7 @@ export default async function Home() {
                         </div>
                         <div className="col-span-full md:col-span-6 md:grid grid-cols-6 gap-4 md:gap-9">
                           {item.profile.gallery.length?(
-                              <div className="col-span-full md:col-span-3 md:col-start-4">
+                              <div className="col-span-full md:col-span-3 md:col-start-4 overflow-x-hidden">
                                   <GalleryF data={item.profile}/>
                                 </div>
                           ):('')}

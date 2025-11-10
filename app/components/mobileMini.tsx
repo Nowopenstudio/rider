@@ -4,7 +4,6 @@ import { SwitchContent } from '../util/contentSwitch';
 import { PortableText } from 'next-sanity';
 import { Reveal } from '../util/reveal';
 import useResize from '../util/useResize';
-import { GalleryLeft, GalleryRight, InfoB, InfoBAlt } from './svg';
 import Link from 'next/link';
 
 
@@ -132,7 +131,7 @@ timer=setTimeout(()=>{
   
                        {item.gallery.length >= 2 ? (<div className="w-full h-full absolute z-2 top-0 left-0 onHover"><SwitchContent cullInfo work={item.gallery[1]} title={`${item.title}`}  audio={false} cover credits inside /></div>) : ('')}
   
-  
+                      
                       
                     </div>
                     <div className="w-full md:py-4 border-t md:border-0  relative md:flex items-center justify-between box-border z-80" style={{opacity:curr+2==i?1:0,transition:'.15s opacity ease-in-out'}}>

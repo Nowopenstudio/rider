@@ -1,12 +1,8 @@
-"use client"
+'use client'
+import React from 'react';
 
-import Link from 'next/link';
-import Image from 'next/image';
-import React, { useEffect, useState } from 'react';
-import { ReactLenis } from 'lenis/react';
-import { usePathname } from 'next/navigation';
 import { Reveal } from '../util/reveal';
-import { TextOn } from '../util/misc';
+
 import useResize from '../util/useResize';
 import { SwitchContent } from '../util/contentSwitch';
 import { PortableText } from 'next-sanity';
@@ -25,7 +21,7 @@ const {mobile} = useResize();
 
   return (
     <React.Fragment>
-      <div className="col-span-full mb-18 md:mb-79 px-2 md:px-4 md:px-9 flex justify-between sticky top-[70px] md:top-[90px] md:justify-start md:gap-4 z-10 bg-offWhite md:bg-transparent py-4 md:py-0">
+      <div className="col-span-full mb-18 md:mb-79 px-2  md:px-9 flex justify-between sticky top-[70px] md:top-[90px] md:justify-start md:gap-4 z-10 bg-offWhite md:bg-transparent py-4 md:py-0">
           {data.map((item: any, i: number) => {
             return (
               <div key={`filter-${item.title}`}><ScrollCTA id={`loc-${i}`} cta={{"label":item.title}} sub={mobile?false:true} /></div>
@@ -51,7 +47,7 @@ const {mobile} = useResize();
                                   </Reveal>
                           
                     </div>
-                     <div className="h-auto mb-9 md:mb-39">
+                     <div className="w-[100vw] overflow-x-hidden h-auto mb-9 md:mb-39">
                       <GalleryC data={item.gallery}/>
                      </div>
             </div>
