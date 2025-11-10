@@ -8,6 +8,7 @@ import { PortableText } from 'next-sanity';
 import { useLenis, ReactLenis } from 'lenis/react';
 import { getRange } from '../util/sanity';
 import { Info, InfoAlt } from './svg';
+import { Reveal } from '../util/reveal';
 
 
 
@@ -33,7 +34,7 @@ export function VidHead({data, size}:any){
    
    return(
       
-              <div id={`videoHeader`} className="w-full h-[100dvh] flex items-start justify-center sticky top-0 z-1 bg-medGray headerAnim" style={{animationDelay:`2s`}} >
+              <Reveal id={`videoHeader`} styleSet="w-full h-[100dvh] flex items-start justify-center sticky top-0 z-1 bg-medGray headerAnim" style={{animationDelay:`2s`}} >
            
                    <div className={`projectCover col-span-2 relative coverSwitch fadeOn w-full  h-full video`} >
                      <SwitchContent work={data} title={'Header Video'} ratio={data.ratio} audio={false} cover />
@@ -51,7 +52,7 @@ export function VidHead({data, size}:any){
            
                    </div>
            
-                 </div>
+                 </Reveal>
 
     
     )
