@@ -51,7 +51,7 @@ export default async function Home() {
             
                 <VidHead data={data.header.video}/>
             <div className="w-full  bg-offWhite  sticky z-2 grid grid-cols-12 rounded-t-[12px] ">
-               <div className="col-span-12 pointer-events-none sticky top-9 md:top-14 mt-[-100dvh] md:mt-0 right-9 pr-4 md:pr-9 translate-y-7 h-0 z-7 flex flex-row-reverse">
+               <div className="col-span-12 pointer-events-none sticky top-14 md:top-14 mt-[-100dvh] md:mt-0 right-9 pr-4 md:pr-9 translate-y-7 h-0 z-7 flex flex-row-reverse">
                                        
                                         <ScrollCTA id={'video'} cta={data.intro.cta} sub />
                                         </div>

@@ -136,6 +136,8 @@ export default {
             name: 'devStory', title: "Developer Story", type: 'object', fields: [
                 { name: 'label', title: 'Label', type: 'string' },
                 { name: 'title', title: 'Title', type: 'array', of: [{ type: 'block' }] },
+                { name: 'intro', type: 'array', title: 'Intro', of: [{ type: 'block' }] },
+            
                 { name: 'quote', type: 'array', title: 'Quote', of: [{ type: 'block' }] },
                 {
                     name: 'profile', type: 'object', title: 'Profile', fields: [
