@@ -70,7 +70,7 @@ export default function GalleryD({ data }: any) {
                                                         </div>
                                    {data[curr]?(
                                    <React.Fragment>
-                                      {data[curr].captions?( <div className="captions mb-2uppercase md:w-auto mb-4"><PortableText value={data[curr].captions} /></div>):('')}
+                                      {data[curr].captions?( <div className="captions mb-2 uppercase md:w-auto mb-4"><PortableText value={data[curr].captions} /></div>):('')}
                                      {data[curr].credits?(  <div className="credits uppercase md:w-auto mb-2" style={{transition:`all .24s ease-in-out`,height:'auto',display:active?'block':'none',opacity:active?1:0,maxHeight:active?200:0}}><PortableText value={data[curr].credits} /></div>):('')}
                                    </React.Fragment>
                                    ):('')}
@@ -83,7 +83,7 @@ export default function GalleryD({ data }: any) {
                                   </div>
                                 ) : ('')}
      
-      <div className="w-full flex justify-between items-center py-0 md:py-4">
+      <div className="w-full flex justify-between items-start py-0 md:py-4">
         {data.length > 1 ?(
            <div className="flex gap-4 items-center">
           <div className="galleryMarker flex   gap-[6px]">
@@ -92,12 +92,12 @@ export default function GalleryD({ data }: any) {
                 <div key={`${data.title}-${d}`} className={`relative ${d == 0 ? 'z-10' : 'z-1'} galleryDot w-[6px] h-[6px] rounded-full ${d == 0 ? "bg-black" : "bg-darkGray"}`} style={{ transformOrigin: 'center', transform: `scale(${d == 0 ? 1.5 : 1}) translateX(${d == 0 ? (curr * 8) : (d <= curr) ? (-12) : (0)}px)` }}></div>)
             })}
           </div>
-          {mobile?(''):(<div className="captions onHover"><PortableText value={data[curr].captions}/></div>)}
+          {mobile?(''):(<div className="captions onHover flex-shrink-0"><PortableText value={data[curr].captions}/></div>)}
           
         </div>
         ):('')}
        
-         {mobile?(''):(<div className="credits uppercase text-right onHover"><PortableText value={data[curr].credits}/></div>)}
+         {mobile?(''):(<div className="credits uppercase text-right onHover flex-shrink-0 w-1/2"><PortableText value={data[curr].credits}/></div>)}
       </div>
     </React.Fragment>
   );
