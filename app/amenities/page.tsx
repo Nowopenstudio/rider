@@ -129,8 +129,8 @@ export default async function Home() {
             <div className="mb-9 md:mb-39"><PortableText value={data.swing.copy} /></div>
          </div>                        
 
-         <Reveal styleSet="col-span-full md:col-span-8 md:col-start-3 md:mb-39 px-4 md:px-0  hoverOn">
-                {data.swing.feat ? (<SwitchContent work={data.swing.feat} title={'Header Video'} ratio={data.swing.feat.ratio} audio={false} />) : ('')}
+         <Reveal styleSet="col-span-full md:col-span-8 md:col-start-3 md:mb-28 px-0 md:px-0  hoverOn text-white">
+                {data.swing.feat ? (<SwitchContent credits captions work={data.swing.feat} title={'Header Video'} ratio={data.swing.feat.ratio} audio={false} />) : ('')}
       
       </Reveal>
 
@@ -141,7 +141,7 @@ export default async function Home() {
               <div className="sticky top-0 mt-[-100vh] h-[100dvh] hoverOn">
                 {data.access? (<SwitchContent work={data.access} title={'Header Video'} ratio={data.access.ratio} audio={false} cover/>) : ('')}
                 <div className="w-full h-[100dvh] absolute z-3 top-0 left-0 flex items-center" style={{backgroundColor:`rgba(0,0,0,.4)`}}>
-                    <div className="w-3/4 md:w-1/3 pb-4 md:pb-0 px-4 md:px-9 text-white">
+                    <div className="w-3/4 md:w-1/3 pb-4 md:pb-0 px-0 md:px-9 text-white">
                       <div className="w-full mb-9 fullVid"><PortableText value={data.access.title}/></div>
                       <ScrollCTA id={'intro'} cta={data.access.cta} inverted />
                     </div>

@@ -74,20 +74,21 @@ export default async function Home() {
             return (
               <Reveal styleSet="w-full singleArtist pb-14" key={`${item.profile.name}`}>
                 <div className="w-full py-4  border-t  border-darkGray text-white items-center relative">
-                  <div className='w-full grid grid-cols-12 relative py-9 md:py-18.5'>
+                  <div className='w-full grid grid-cols-12 relative py-10'>
                     <div className="w-[1px] h-full absolute top-0 left-1/2 border-darkGray border-l hidden md:block"></div>
-                    <div className="col-span-full md:col-span-6 grid grid-cols-6 px-4 md:px-0">
-                      <div className="col-span-full divide mb-10.5 md:w-3/4"><h3 className="mb-0">{item.profile.name}</h3>
+                    <div className="col-span-full md:col-span-6 grid grid-cols-6 gap-y-10 px-4 md:px-0">
+                      <div className="col-span-full divide  md:w-3/4"><h3 className="mb-0">{item.profile.name}</h3>
                      <div className="mt-[-22px]"> <h3 className=" text-darkGray block md:hidden ">{item.profile.title}</h3></div>
                       </div>
-                      <div className="col-span-full md:col-span-3">
+                      <div className="col-span-full md:col-span-2">
                         <div className="w-full pb-10.5">
                           {item.profile ? (<SwitchContent work={item.profile} title={'Building Spec'} audio={false} />) : ('')}
                         </div>
-                        <div className="profile hidden md:block">
-                          <h3 className=" text-white uppercase mb-9 md:mb-0">{item.profile.title}</h3>
-                        </div>
+                      
                       </div>
+                        <div className="col-span-full grid-cols-6 profile hidden md:grid">
+                          <h3 className=" col-span-4 text-white uppercase mb-9 md:mb-0">{item.profile.title}</h3>
+                        </div>
                     </div>
                     <div className="col-span-full md:col-span-6 grid grid-cols-6 px-4 md:px-0">
                       

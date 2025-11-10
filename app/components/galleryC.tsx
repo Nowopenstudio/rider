@@ -145,10 +145,10 @@ timer=setTimeout(()=>{
         {mobile ? (
                             <div className={`mobileCredit pt-2 pb-4 px-4 relative overflow-y-visible`} >
                              
-                             <div className="absolute right-4 top-2 z-10"  onClick={toggleActive}> <div className="h-[10px] w-[10px]">{active?(<InfoBAlt className="w-full h-full"/>):<InfoB className="w-full h-full"/> }</div>
+                             <div className="absolute right-4 top-2 z-10"  onClick={toggleActive}> <div className="h-[16px] w-[16px]">{active?(<InfoBAlt className="w-full h-full"/>):<InfoB className="w-full h-full"/> }</div>
                                
                              </div>
-                             <div className="flex gap-[10px] absolute right-4 top-6 z-10">
+                             <div className="flex gap-[10px] absolute right-4 top-7 z-10">
                                                       <div className="h-[16px] w-[16px]" onClick={back}><GalleryLeft className="w-full h-full"/></div>
                                                        <div className="h-[16px] w-[16px]" onClick={next}><GalleryRight className="w-full h-full"/></div>
                                                   </div>
