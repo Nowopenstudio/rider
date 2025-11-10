@@ -3,7 +3,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { SwitchContent } from '../util/contentSwitch';
 import { PortableText } from 'next-sanity';
 import { Reveal } from '../util/reveal';
-import Hammer from 'hammerjs';
+
 import useResize from '../util/useResize';
 import { GalleryL, GalleryLeft, GalleryR, GalleryRight, Info, InfoAlt, InfoB, InfoBAlt, Zoom } from './svg';
 
@@ -76,11 +76,11 @@ const zoomOff=()=>{
    setZoom(false)
 }
 
-useEffect(()=>{
-  const hammer = new Hammer(ref.current!);
-   hammer.on('swipeleft', back);
-   hammer.on('swiperight', next);
-},[ref])
+// useEffect(()=>{
+//   const hammer = new Hammer(ref.current!);
+//    hammer.on('swipeleft', back);
+//    hammer.on('swiperight', next);
+// },[ref])
 
 
 
