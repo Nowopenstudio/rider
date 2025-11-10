@@ -25,17 +25,15 @@ const {mobile} = useResize();
 
   return (
     <React.Fragment>
-
-      <div className="w-full">
-        <div className="w-full mb-18 md:mb-79 px-4 md:px-9 flex justify-between md:justify-start gap-4 ">
+      <div className="col-span-full mb-18 md:mb-79 px-4 md:px-9 flex justify-between sticky top-[70px] md:top-[90px] md:justify-start gap-4 z-10 bg-offWhite md:bg-transparent py-4 md:py-0">
           {data.map((item: any, i: number) => {
             return (
-              <div key={`filter-${item.title}`}><ScrollCTA id={`loc-${i}`} cta={{"label":item.title}} sub={mobile?false:true} filter={mobile?true:false} /></div>
+              <div key={`filter-${item.title}`}><ScrollCTA id={`loc-${i}`} cta={{"label":item.title}} sub={mobile?false:true} /></div>
   
             )
           })}
         </div>
-
+      <div className="col-span-full h-auto relative hoverOn overflow-x-hidden">
         {data.map((item:any,i:number)=>{
           return(
             <div id={`loc-${i}`} className="w-full" key={`location-${i}`}>
