@@ -61,13 +61,13 @@ const zoomOff=()=>{
     <div className={` md:flex justify-between w-full md:onHover  ${inside?"text-white absolute  left-4 px-4 bottom-4 z-10":""}  ${noBleed?'px-0':'px-4'} md:px-0`}>
      
       
-      {captions?(<div className={`pt-3 captions  md:mb-0 md:px-0 relative`}><div className="mb-4"><PortableText value={work.captions}/></div></div>):('')}
+      {captions?(<div className={`pt-3 captions  md:mb-0 md:px-0 relative flex-shrink-0 w-1/3`}><div className="mb-4"><PortableText value={work.captions}/></div></div>):('')}
   
    {mobile && !cullInfo?(
           <React.Fragment>
             <div className="credits uppercase md:w-auto " style={{transition:`all .24s ease-in-out`,height:'100px',opacity:info?1:0,maxHeight:info?200:0}}><PortableText value={work.credits} /></div>
           </React.Fragment>
-        ):(  <div className={`credits uppercase ${noBleed?'px-0':'px-4'} md:px-0 pt-3 ${captions?'md:text-right':''}`}>{credits?(<PortableText value={work.credits}/>):('')}</div>)}
+        ):(  <div className={`credits uppercase w-2/3 ${noBleed?'px-0':'px-4'} md:px-0 pt-3 ${captions?'md:text-right':''}`}>{credits?(<PortableText value={work.credits}/>):('')}</div>)}
  </div>
   ):('')}
   

@@ -31,7 +31,7 @@ export default function Next({ cta,next}: any) {
                 <Link href={next.url?next.url:"/"} className="col-span-1 md:border-r md:px-9" >
                   <Reveal styleSet="w-full h-full relative" count={1}>
                     <div className="w-full border-t md:border-b h-full bg-gray md:bg-white px-4 md:px-0 py-9 md:py-2 flex items-center md:justify-center relative">
-                    <div className="cta-sub text-black md:text-darkGray relative font-semibold">
+                    <div className="cta-sub text-black md:text-darkGray relative font-medium">
                       <p>{next.label}</p>
                     
                       <div className="w-[40px] h-auto absolute right-0 top-0 nextArrow hidden md:block"><Right className="w-full h-auto"/></div>

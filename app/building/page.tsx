@@ -101,7 +101,7 @@ export default async function Home() {
             <PortableText value={data.devStory.title} />
           </div>
             <div className=" col-span-4 md:col-span-4 col-start-2 md:col-start-auto lg:col-span-3 xl:col-span-2">
-              <div className="w-full mb-4 md:pb-9 mt-9 md:mt-0">
+              <div className="w-full mb-4 md:pb-9 mt-9 md:mt-14">
                 {data.devStory.profile ? (<SwitchContent work={data.devStory.profile} title={'Building Spec'} audio={false} />) : ('')}
               </div>
               <div className="profile">
@@ -110,8 +110,8 @@ export default async function Home() {
               </div>
             </div>
           </div>
-          <div className="col-span-full md:col-span-6 grid grid-cols-6">
-            <div className="col-span-full h-full xl:col-span-5 richText  text-white p2 flex items-end justify-center">
+          <div className="col-span-full h-full md:col-span-6 grid grid-cols-6">
+            <div className="col-span-full h-full xl:col-span-5 richText  text-white p2 flex items-center justify-center">
                <div className="w-full "><Bio data={data.devStory}/></div>
               </div>
           </div>

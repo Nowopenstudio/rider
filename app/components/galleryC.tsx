@@ -152,8 +152,8 @@ timer=setTimeout(()=>{
                                
                              </div>
                              <div className="flex gap-[10px] absolute right-4 top-7 z-10">
-                                                      <div className="h-[16px] w-[16px]" onClick={back}><GalleryLeft className="w-full h-full"/></div>
-                                                       <div className="h-[16px] w-[16px]" onClick={next}><GalleryRight className="w-full h-full"/></div>
+                                                      <div className="h-[14px] w-[14px]" onClick={back}><GalleryLeft className="w-full h-full"/></div>
+                                                       <div className="h-[14px] w-[14px]" onClick={next}><GalleryRight className="w-full h-full"/></div>
                                                   </div>
                             
                              <React.Fragment>

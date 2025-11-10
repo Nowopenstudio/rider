@@ -65,8 +65,8 @@ export default function GalleryD({ data }: any) {
                                      
                                    </div>
                                    <div className="flex gap-[10px] absolute right-0 top-7 z-10">
-                                                            <div className="h-[16px] w-[16px]" onClick={back}><GalleryLeft className="w-full h-full"/></div>
-                                                             <div className="h-[16px] w-[16px]" onClick={next}><GalleryRight className="w-full h-full"/></div>
+                                                            <div className="h-[14px] w-[14px]" onClick={back}><GalleryLeft className="w-full h-full"/></div>
+                                                             <div className="h-[14px] w-[14px]" onClick={next}><GalleryRight className="w-full h-full"/></div>
                                                         </div>
                                    {data[curr]?(
                                    <React.Fragment>
