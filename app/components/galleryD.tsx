@@ -53,7 +53,7 @@ export default function GalleryD({ data }: any) {
         {data.map((item: any, i: number) => {
           return (
             <div className={`galleryB w-full ${i > 0 ? "absolute top-0 left-0 " : ''}`} key={`image-${i}`} style={{ opacity: i == curr ? 1 : 0 }}>
-              <SwitchContent work={item} title={`smart-gear`} ratio={item.ratio} audio={false} />
+              <SwitchContent cullInfo work={item} title={`smart-gear`} ratio={item.ratio} audio={false} />
             </div>
           )
         })}
@@ -61,17 +61,17 @@ export default function GalleryD({ data }: any) {
         {mobile ? (
                                   <div className={`mobileCredit pt-2   relative overflow-y-visible`} >
                                    
-                                   <div className="absolute right-0 top-2 z-10"  onClick={toggleActive}> <div className="h-[10px] w-[10px]">{active?(<InfoB className="w-full h-full"/>):<InfoBAlt className="w-full h-full"/> }</div>
+                                   <div className="absolute right-0 top-2 z-10"  onClick={toggleActive}> <div className="h-[16px] w-[16px]">{active?(<InfoBAlt className="w-full h-full"/>):<InfoB className="w-full h-full"/> }</div>
                                      
                                    </div>
-                                   <div className="flex gap-[10px] absolute right-0 top-6 z-10">
+                                   <div className="flex gap-[10px] absolute right-0 top-7 z-10">
                                                             <div className="h-[16px] w-[16px]" onClick={back}><GalleryLeft className="w-full h-full"/></div>
                                                              <div className="h-[16px] w-[16px]" onClick={next}><GalleryRight className="w-full h-full"/></div>
                                                         </div>
                                    {data[curr]?(
                                    <React.Fragment>
                                       {data[curr].captions?( <div className="captions mb-2uppercase md:w-auto mb-4"><PortableText value={data[curr].captions} /></div>):('')}
-                                     {data[curr].credits?(  <div className="credits uppercase md:w-auto" style={{transition:`all .24s ease-in-out`,height:'100px',opacity:active?1:0,maxHeight:active?200:0}}><PortableText value={data[curr].credits} /></div>):('')}
+                                     {data[curr].credits?(  <div className="credits uppercase md:w-auto mb-2" style={{transition:`all .24s ease-in-out`,height:'auto',display:active?'block':'none',opacity:active?1:0,maxHeight:active?200:0}}><PortableText value={data[curr].credits} /></div>):('')}
                                    </React.Fragment>
                                    ):('')}
                                    

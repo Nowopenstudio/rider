@@ -569,7 +569,7 @@ input,select {height:20px}
 
 /* gallery */
 .galleryImage{
-  transition: transform .75s ease-in-out;
+  transition: transform .25s ease-in-out;
 }
 
 .galleryImage.static{

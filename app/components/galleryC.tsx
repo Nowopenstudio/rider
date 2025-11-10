@@ -116,25 +116,28 @@ timer=setTimeout(()=>{
 
   return (
     <React.Fragment>
-        <div className="w-full h-full hoverOn">
-          <Reveal styleSet={`w-full h-full relative overflow-x-hidden  hoverOn` } >
+        <div className="w-full h-auto hoverOn">
+          <Reveal styleSet={`w-full h-full relative overflow-x-hidden ` } >
           <div className={`w-1/2 h-full z-40 left-0 absolute cursor-w-resize `} onClick={back}></div>
                <div className={`w-1/2 h-full z-40 left-1/2 absolute cursor-e-resize `} onClick={next}></div>
            
           
-         <div onTransitionStart={setStart} onTransitionEndCapture={(curr==data.length)?(resetMin):(curr<0?resetMax:setStop)} className={`w-auto h-full flex flex-nowrap galleryFull ${mobile?'gap-4':'gap-9'} galleryScroll ${disable?'disable':''}`} ref={ref} style={{transform:`translateX(${total?(winX/2-indie[curr+2]/2-(mobile?16:36))+(+(total[curr+1]+((curr+2)*(mobile?16:36)))*(-1))+(mobile?16:36):`36`}px)`}}>
+         <div onTransitionStart={setStart} onTransitionEndCapture={(curr==data.length)?(resetMin):(curr<0?resetMax:setStop)} className={`w-auto h-auto flex flex-nowrap galleryFull ${mobile?'gap-4':'gap-9'} galleryScroll ${disable?'disable':''}`} ref={ref} style={{transform:`translateX(${total?(winX/2-indie[curr+2]/2-(mobile?16:36))+(+(total[curr+1]+((curr+2)*(mobile?16:36)))*(-1))+(mobile?16:36):`36`}px)`}}>
             
               {gallery.map((item:any, i:number)=>{
                 return(
-                  <div key={`image-${i}`}  className={` w-auto h-full  overflow-hidden galleryImage rounded-[6px] md:rounded-none origin-center flex-shrink-0 ${mobile && curr+2!==i?'dim':''}`} >
+                  <div key={`image-${i}`}  className={` w-auto  h-auto overflow-hidden galleryImage rounded-[6px] md:rounded-none origin-center flex-shrink-0 ${mobile && curr+2!==i?'dim':''}`} >
                    <div className="singleMedia h-full relative w-auto">
                    
-                     <div className="w-auto h-full relative"> <SwitchContent work={item} title={`${item}`} ratio={item.ratio} audio={false} height />
+                     <div className="w-auto h-[350px] md:h-[66dvh] relative"> <SwitchContent cullInfo work={item} title={`${item}`} ratio={item.ratio} audio={false} height />
                      </div>
-                     <div className={`creditHold justify-between flex ${curr+2==i?"onHover":''} py-2  z-2`}>
+                     {mobile?(''):(
+                        <div className={`creditHold justify-between flex ${curr+2==i?"onHover":''} py-2  z-2`}>
                       <div className="captions"><PortableText value={item.captions}/></div>
                       <div className="credits uppercase text-right"><PortableText value={item.credits}/></div>
                      </div>
+                     )}
+                     
                    </div>
                   </div>
                 )
@@ -143,7 +146,7 @@ timer=setTimeout(()=>{
           </Reveal>
         </div>
         {mobile ? (
-                            <div className={`mobileCredit pt-2 pb-4 px-4 relative overflow-y-visible`} >
+                            <div className={`mobileCredit pt-2 pb-1 px-4 relative`} >
                              
                              <div className="absolute right-4 top-2 z-10"  onClick={toggleActive}> <div className="h-[16px] w-[16px]">{active?(<InfoBAlt className="w-full h-full"/>):<InfoB className="w-full h-full"/> }</div>
                                
@@ -152,12 +155,12 @@ timer=setTimeout(()=>{
                                                       <div className="h-[16px] w-[16px]" onClick={back}><GalleryLeft className="w-full h-full"/></div>
                                                        <div className="h-[16px] w-[16px]" onClick={next}><GalleryRight className="w-full h-full"/></div>
                                                   </div>
-                             {data[curr+2]?(
+                            
                              <React.Fragment>
-                                {data[curr+2].captions?( <div className="captions mb-2uppercase md:w-auto mb-4"><PortableText value={data[curr+2].captions} /></div>):('')}
-                               {data[curr+2].credits?(  <div className="credits uppercase md:w-auto" style={{transition:`all .24s ease-in-out`,height:'100px',opacity:active?1:0,maxHeight:active?200:0}}><PortableText value={data[curr+2].credits} /></div>):('')}
+                                {gallery[curr+2].captions?( <div className="captions uppercase md:w-auto "><PortableText value={gallery[curr+2].captions} /></div>):('')}
+                               {gallery[curr+2].credits?(  <div className="credits uppercase w-3/4 mt-2 md:w-auto" style={{transition:`all .24s ease-in-out`,height:'auto',opacity:active?1:0,maxHeight:active?200:0,display:active?'block':'none'}}><PortableText value={gallery[curr+2].credits} /></div>):('')}
                              </React.Fragment>
-                             ):('')}
+                           
                              
                               
                               
