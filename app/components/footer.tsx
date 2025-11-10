@@ -18,7 +18,8 @@ export default function Footer({ data }: any) {
 
   const [isLoading, setIsLoading] = useState<boolean>(false)
   const [success, setSuccess] = useState<boolean>(false)
-    const [active, setActive] = useState<boolean>(false)
+  const [active, setActive] = useState<boolean>(false)
+  const [policy, setPolicy] = useState<boolean>(false)
 
 
   const submitForm = (e: FormEvent<HTMLFormElement>) => {
@@ -70,9 +71,14 @@ export default function Footer({ data }: any) {
 
   }
 
-  const toggleActive=()=>{
+  const toggleActive = () => {
     setActive(!active)
   }
+
+  const togglePolicy = () => {
+    setPolicy(!policy)
+  }
+
 
 
 
@@ -142,7 +148,7 @@ export default function Footer({ data }: any) {
                         )
                       })}
 
-                      <button type="submit" className={`cta  ${mobile?'':'secondary'} row-start-auto mt-0 lg:mt-9 lg:row-start-2 inline-block col-end-9 md:col-end-auto col-span-4 md:col-span-2 text-center ${winX < 1300 ? 'invertedFooter' : ''}`}><p className="w-full">SUBMIT</p></button>
+                      <button type="submit" className={`cta  ${mobile ? '' : 'secondary'} row-start-auto mt-0 lg:mt-9 lg:row-start-2 inline-block col-end-9 md:col-end-auto col-span-4 md:col-span-2 text-center ${winX < 1300 ? 'invertedFooter' : ''}`}><p className="w-full">SUBMIT</p></button>
                       <div className="disclaimerText text-darkGray md:pt-10 col-span-full md:col-span-5 legal pt-6"><PortableText value={data.form.disclaimers} /></div>
                     </div>
                     <div className="w-full grid grid-cols-8 gap-x-9 items-center">
@@ -206,7 +212,7 @@ export default function Footer({ data }: any) {
                 </div>
                 <div onClick={toggleActive}><p className="cursor-n-resize text-nowrap mr-9 xl:mr-0">Disclaimers ↓</p></div>
                 <div className="flex flex-wrap w-full">
-                  <div className="pr-2 xl:px-2 border-r "><p>Privacy Policy</p></div>
+                  <div className="pr-2 xl:px-2 border-r" onClick={togglePolicy}><p>Privacy Policy</p></div>
                   <div className="px-2 border-r"><p>Terms of Use</p></div>
                   <div className="px-2 border-r xl:border-0"><p>Faqs</p></div>
                 </div>
@@ -238,20 +244,31 @@ export default function Footer({ data }: any) {
           </React.Fragment>
         ) : ('')}
       </div>
-      <div onClick={toggleActive}  data-lenis-prevent  className={`cursor-s-resize w-[100vw] xl:w-[50vw] fixed bottom-0 left-0 bg-white px-9 pt-9 pb-10.5 copyright uppercase z-100 max-h-[calc(100dvh_-_60px)] overflow-y-scroll`} style={{transition:`transform .5s  cubic-bezier(0.165, 0.84, 0.44, 1)`,transform:`translateY(${active?'0':'100%'})`}}>
+      <div onClick={toggleActive} data-lenis-prevent className={`cursor-s-resize w-[100vw] xl:w-[50vw] fixed bottom-0 left-0 bg-white px-9 pt-9 pb-10.5 copyright uppercase z-100 max-h-[calc(100dvh_-_60px)] overflow-y-scroll`} style={{ transition: `transform .5s  cubic-bezier(0.165, 0.84, 0.44, 1)`, transform: `translateY(${active ? '0' : '100%'})` }}>
         <div className="flex flex-wrap w-full gap-5 items-start">
-         <div className="flex gap-3 w-full border-t border-darkGray pt-2">
+          <div className="flex gap-3 w-full border-t border-darkGray pt-2">
             <div className="h-[22px] w-[22px] mix-blend-difference flex-shrink-0 ">
               <Image alt="image" sizes={`150px`} width={45} height={45} src={data.disclaim.logo} className={`w-full h-full `} />
             </div>
-            <div className='' ><PortableText value={data.disclaim.disclaimers[0].copy}/></div>
-         </div>
-          {data.disclaim.disclaimers.map((item:any,i:number)=>{
-              return(
-               <React.Fragment key={`disclaim-${i}}`}> 
-               {i==0?(''):(<div className='w-full border-t border-darkGray pt-2' ><PortableText value={item.copy}/></div>)}</React.Fragment>
-              )
+            <div className='' ><PortableText value={data.disclaim.disclaimers[0].copy} /></div>
+          </div>
+          {data.disclaim.disclaimers.map((item: any, i: number) => {
+            return (
+              <React.Fragment key={`disclaim-${i}}`}>
+                {i == 0 ? ('') : (<div className='w-full border-t border-darkGray pt-2' ><PortableText value={item.copy} /></div>)}</React.Fragment>
+            )
           })}
+        </div>
+      </div>
+
+      <div onClick={togglePolicy} data-lenis-prevent className={`cursor-s-resize w-[100vw] xl:w-[50vw] fixed bottom-0 left-0 bg-white px-9 pt-9 pb-10.5 copyright uppercase z-100 max-h-[calc(100dvh_-_60px)] overflow-y-scroll`} style={{ transition: `transform .5s  cubic-bezier(0.165, 0.84, 0.44, 1)`, transform: `translateY(${policy ? '0' : '100%'})` }}>
+        <div className="flex flex-wrap w-full gap-5 items-start">
+          <div className="flex gap-3 w-full border-t border-darkGray pt-2">
+            <div className="h-[22px] w-[22px] mix-blend-difference flex-shrink-0 ">
+              <Image alt="image" sizes={`150px`} width={45} height={45} src={data.disclaim.logo} className={`w-full h-full `} />
+            </div>
+            <div className='w-full' ><PortableText value={data.disclaim.privacy} /></div>
+          </div>
         </div>
       </div>
     </React.Fragment>

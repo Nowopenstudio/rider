@@ -342,9 +342,17 @@ font-style: italic;
   
 }
 
-.copyright p{
+.copyright p, .copyright li, .copyright h3{
   font-size: .5625rem;
 
+}
+
+.copyright p{
+    margin-bottom: 4px;
+}
+
+.copyright h3, .copyright p strong{
+  margin-top:20px;
 }
 
 .legal p{
