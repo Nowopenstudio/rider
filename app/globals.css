@@ -656,7 +656,7 @@ opacity:1;
 
 /* hovers */
 
-.navItem:hover p::after{
+.navItem:hover p::after, .navItem.selected p::after{
   max-width: 900px;
 }
 
@@ -891,6 +891,12 @@ h4.serif{font-family: "serif",'Times New Roman', Times, serif;font-size:2.4375re
 
 .menunote p{
   font-size:14pt;
+}
+
+.navItem p::after{
+
+  transform: translateY(2px);
+
 }
 
 

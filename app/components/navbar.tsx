@@ -116,18 +116,18 @@ export default function Navbar({ data, footer }: any) {
           
            <div className="col-span-full grid grid-cols-2" style={{transition:`transform 1s cubic-bezier(0.19, 1, 0.22, 1) `,transform:`translateX(${active?"0":"-100%"})`}}>
               <div className={`col-span-2 bg-black  mobileMenu uppercase text-white relative z-2 px-9 pt-23`}>
-                                                <div className="w-auto flex flex-col">
-                                                   <Link href="/" onClick={closeMenu} className="relative navItem"> <div className="cursor-pointer mb-2"><p>Home</p></div></Link>
-                                                   <Link href="/building" onClick={closeMenu} className="relative navItem"> <div className="cursor-pointer mb-2"><p>Building</p></div></Link>
-                                                   <Link href="/residences" onClick={closeMenu} className="relative navItem"> <div className="cursor-pointer mb-2"><p>Residences</p></div></Link>
-                                                   <Link href="/amenities" onClick={closeMenu} className="relative navItem"> <div className="cursor-pointer mb-2"><p>Amenities</p></div></Link>
-                                                   <Link href="/location" onClick={closeMenu} className="relative navItem"> <div className="cursor-pointer mb-2"><p>Location</p></div></Link>
-                                                   <Link href="/creators" onClick={closeMenu} className="relative navItem"> <div className="cursor-pointer mb-2"><p>Creators</p></div></Link>
-                                                     <Link href="team" onClick={closeMenu}className="relative navItem"> <div className="cursor-pointer mb-2"><p>team</p></div></Link>
-                                                       <Link href="/cipres-living" onClick={closeMenu} className="relative navItem"> <div className="cursor-pointer mb-2"><p>CIPRÉS LIVING</p></div></Link>
-                                                         <Link className="pointer-events-none navItem" href="crypto" onClick={closeMenu}> <div className="pointer-events-none cursor-pointer mb-2 opacity-20"><p>Crypto</p></div></Link>
-                                                           <Link href="brokers" onClick={closeMenu} className="relative navItem"> <div className="cursor-pointer mb-2"><p>Brokers</p></div></Link>
-                                                </div>
+                                               <div className="w-auto flex flex-col">
+                                                 <Link href="/" onClick={closeMenu} className={`relative navItem ${page=="/"?"selected":''}`}> <div className="cursor-pointer mb-2"><p>Home</p></div></Link>
+                                                 <Link href="/building" onClick={closeMenu} className={`relative navItem ${page=="/building"?"selected":''}`}> <div className="cursor-pointer mb-2"><p>Building</p></div></Link>
+                                                 <Link href="/residences" onClick={closeMenu} className={`relative navItem ${page=="/residences"?"selected":''}`}> <div className="cursor-pointer mb-2"><p>Residences</p></div></Link>
+                                                 <Link href="/amenities" onClick={closeMenu} className={`relative navItem ${page=="/amenities"?"selected":''}`}> <div className="cursor-pointer mb-2"><p>Amenities</p></div></Link>
+                                                 <Link href="/location" onClick={closeMenu} className={`relative navItem ${page=="/location"?"selected":''}`}> <div className="cursor-pointer mb-2"><p>Location</p></div></Link>
+                                                 <Link href="/creators" onClick={closeMenu} className={`relative navItem ${page=="/creators"?"selected":''}`}> <div className="cursor-pointer mb-2"><p>Creators</p></div></Link>
+                                                   <Link href="team" onClick={closeMenu} className={`relative navItem ${page=="/team"?"selected":''}`}> <div className="cursor-pointer mb-2"><p>team</p></div></Link>
+                                                     <Link href="/cipres-living" onClick={closeMenu} className={`relative navItem ${page=="/cipres-living"?"selected":''}`}> <div className="cursor-pointer mb-2"><p>CIPRÉS LIVING</p></div></Link>
+                                                       <Link className="pointer-events-none navItem" href="crypto" onClick={closeMenu}> <div className="pointer-events-none cursor-pointer mb-2 opacity-20"><p>Crypto</p></div></Link>
+                                                         <Link href="brokers" onClick={closeMenu} className={`relative navItem ${page=="/brokers"?"selected":''}`}> <div className="cursor-pointer mb-2"><p>Brokers</p></div></Link>
+                                              </div>
               </div>
               <div className="absolute bottom-4 md:bottom-9 left-4 md:left-9 w-full pointer-events-none z-11 grid grid-cols-2">
                                                   {footer.contacts.map((item:any,i:number)=>{
@@ -168,16 +168,16 @@ export default function Navbar({ data, footer }: any) {
             </div>
             <div className={`bg-black flex items-center justify-center menu uppercase text-white relative z-2`}>
                                               <div className="w-auto flex flex-col">
-                                                 <Link href="/" onClick={closeMenu} className="relative navItem"> <div className="cursor-pointer mb-8"><p>Home</p></div></Link>
-                                                 <Link href="/building" onClick={closeMenu} className="relative navItem"> <div className="cursor-pointer mb-8"><p>Building</p></div></Link>
-                                                 <Link href="/residences" onClick={closeMenu} className="relative navItem"> <div className="cursor-pointer mb-8"><p>Residences</p></div></Link>
-                                                 <Link href="/amenities" onClick={closeMenu} className="relative navItem"> <div className="cursor-pointer mb-8"><p>Amenities</p></div></Link>
-                                                 <Link href="/location" onClick={closeMenu} className="relative navItem"> <div className="cursor-pointer mb-8"><p>Location</p></div></Link>
-                                                 <Link href="/creators" onClick={closeMenu} className="relative navItem"> <div className="cursor-pointer mb-8"><p>Creators</p></div></Link>
-                                                   <Link href="team" onClick={closeMenu}className="relative navItem"> <div className="cursor-pointer mb-8"><p>team</p></div></Link>
-                                                     <Link href="/cipres-living" onClick={closeMenu} className="relative navItem"> <div className="cursor-pointer mb-8"><p>CIPRÉS LIVING</p></div></Link>
+                                                 <Link href="/" onClick={closeMenu} className={`relative navItem ${page=="/"?"selected":''}`}> <div className="cursor-pointer mb-8"><p>Home</p></div></Link>
+                                                 <Link href="/building" onClick={closeMenu} className={`relative navItem ${page=="/building"?"selected":''}`}> <div className="cursor-pointer mb-8"><p>Building</p></div></Link>
+                                                 <Link href="/residences" onClick={closeMenu} className={`relative navItem ${page=="residence"?"selected":''}`}> <div className="cursor-pointer mb-8"><p>Residences</p></div></Link>
+                                                 <Link href="/amenities" onClick={closeMenu} className={`relative navItem ${page=="amenities"?"selected":''}`}> <div className="cursor-pointer mb-8"><p>Amenities</p></div></Link>
+                                                 <Link href="/location" onClick={closeMenu} className={`relative navItem ${page=="location"?"selected":''}`}> <div className="cursor-pointer mb-8"><p>Location</p></div></Link>
+                                                 <Link href="/creators" onClick={closeMenu} className={`relative navItem ${page=="/creators"?"selected":''}`}> <div className="cursor-pointer mb-8"><p>Creators</p></div></Link>
+                                                   <Link href="team" onClick={closeMenu} className={`relative navItem ${page=="team"?"selected":''}`}> <div className="cursor-pointer mb-8"><p>team</p></div></Link>
+                                                     <Link href="/cipres-living" onClick={closeMenu} className={`relative navItem ${page=="/cipres-living"?"selected":''}`}> <div className="cursor-pointer mb-8"><p>CIPRÉS LIVING</p></div></Link>
                                                        <Link className="pointer-events-none navItem" href="crypto" onClick={closeMenu}> <div className="pointer-events-none cursor-pointer mb-8 opacity-20"><p>Crypto</p></div></Link>
-                                                         <Link href="brokers" onClick={closeMenu} className="relative navItem"> <div className="cursor-pointer mb-8"><p>Brokers</p></div></Link>
+                                                         <Link href="brokers" onClick={closeMenu} className={`relative navItem ${page=="brokers"?"selected":''}`}> <div className="cursor-pointer mb-8"><p>Brokers</p></div></Link>
                                               </div>
             </div>
       </div>
