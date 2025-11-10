@@ -117,17 +117,17 @@ timer=setTimeout(()=>{
       {mobile?(
          <div className="w-full h-full">
           <Reveal styleSet={`w-full h-full relative overflow-x-hidden  hoverOn` } >
-          <div className={`w-1/7 h-full z-40 left-0 absolute cursor-w-resize `} onClick={back}></div>
-               <div className={`w-1/7 h-full z-40 right-0 absolute cursor-e-resize `} onClick={next}></div>
+          <div className={`w-1/2 h-full z-40 left-0 absolute cursor-w-resize `} onClick={back}></div>
+               <div className={`w-1/2 h-full z-40 right-0 absolute cursor-e-resize `} onClick={next}></div>
            
           
-         <div onTransitionStart={setStart} onTransitionEnd={(curr==data.length)?(resetMin):(curr<0?resetMax:setStop)} className={`w-auto h-full flex flex-nowrap galleryFull gap-4 galleryScroll ${disable?'disable':''}`} ref={ref} style={{transform:`translateX(${total?(winX/2-indie[curr+2]/2-(16))+(+(total[curr+1]+((curr+2)*(16)))*(-1))+(16):`36`}px)`}}>
+         <div onTransitionStart={setStart} onTransitionEnd={(curr==data.length)?(resetMin):(curr<0?resetMax:setStop)} className={`w-auto h-full relative flex flex-nowrap galleryFull gap-4 galleryScroll z-60 pointer-events-none ${disable?'disable':''}`} ref={ref} style={{transform:`translateX(${total?(winX/2-indie[curr+2]/2-(16))+(+(total[curr+1]+((curr+2)*(16)))*(-1))+(16):`36`}px)`}}>
             
               {gallery.map((item:any, i:number)=>{
                 return(
                   <div key={`image-${i}`}  className={` w-[80vw] h-auto  overflow-hidden galleryImage  origin-center flex-shrink-0 ${curr+2!==i?'dim':''}`} >
-                    <Link href={item.url}>
-                    <div className="aspect-[1.48/1] w-full bg-mux relative mb-4 rounded-[6px] overflow-hidden">
+                  
+                    <div className="aspect-[1.12/1] md:aspect-[1.48/1] w-full bg-mux relative mb-4 rounded-[6px] overflow-hidden">
                       {item.gallery.length ? (<SwitchContent cullInfo work={item.gallery[0]} title={`${item.title}`}  audio={false} cover />) : ('')}
   
                        {item.gallery.length >= 2 ? (<div className="w-full h-full absolute z-2 top-0 left-0 onHover"><SwitchContent cullInfo work={item.gallery[1]} title={`${item.title}`}  audio={false} cover credits inside /></div>) : ('')}
@@ -135,12 +135,12 @@ timer=setTimeout(()=>{
   
                       
                     </div>
-                    <div className="w-full md:py-4 border-t md:border-0  relative md:flex items-center justify-between box-border" style={{opacity:curr+2==i?1:0,transition:'.15s opacity ease-in-out'}}>
-                      <div className="absolute cta small inline-block top-3 right-0"><p>View More</p></div>
+                    <div className="w-full md:py-4 border-t md:border-0  relative md:flex items-center justify-between box-border z-80" style={{opacity:curr+2==i?1:0,transition:'.15s opacity ease-in-out'}}>
+                      <Link href={item.url} className="cursor-pointer absolute z-80 cta small inline-block top-3 right-0 pointer-events-auto"><p>View More</p></Link>
                       <h3 className="uppercase py-4 md:py-3">{item.title}</h3>
                       <div className="menunote md:text-right onHover w-4/5"><PortableText value={item.copy}/></div>
                     </div>
-                  </Link>
+                 
                   </div>
                 )
               })}

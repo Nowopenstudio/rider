@@ -57,7 +57,7 @@ export default async function Home() {
         </div>
 
         <div className="projectCover col-span-1  h-[100dvh] relative coverSwitch fadeOn hidden md:block">
-          {data.header.gallery.length ? (<SwitchContent work={data.header.gallery[0]} title={'Header Video'} ratio={data.header.gallery[0].ratio} audio={false} cover />) : ('')}
+          {data.header.gallery.length ? (<SwitchContent inside captions credits work={data.header.gallery[0]} title={'Header Video'} ratio={data.header.gallery[0].ratio} audio={false} cover />) : ('')}
 
 
         </div>

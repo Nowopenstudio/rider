@@ -56,7 +56,7 @@ export default async function Home() {
         </div>
 
         <Reveal styleSet="col-span-full col-span-9 md:col-span-6 md:col-start-4 mb-9 md:mb-39 ">
-          {data.intro.media ? (<SwitchContent work={data.intro.media} title={'Header Video'} ratio={data.intro.media.ratio} audio={false} />) : ('')}
+          {data.intro.media ? (<SwitchContent captions credits work={data.intro.media} title={'Header Video'} ratio={data.intro.media.ratio} audio={false} />) : ('')}
 
         </Reveal>
         <div className="col-span-full md:col-span-6 mb-9 md:mb-14 px-4 md:px-9">

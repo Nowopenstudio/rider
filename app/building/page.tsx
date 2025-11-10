@@ -111,7 +111,7 @@ export default async function Home() {
             </div>
           </div>
           <div className="col-span-full h-full md:col-span-6 grid grid-cols-6">
-            <div className="col-span-full h-full xl:col-span-5 richText  text-white p2 flex items-end justify-center">
+            <div className="col-span-full h-full xl:col-span-5 richText  text-white p2 md:flex items-end justify-center">
                <div className="w-full "><Bio data={data.devStory}/></div>
               </div>
           </div>

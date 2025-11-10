@@ -3,9 +3,10 @@ import React, { useRef, useState } from "react";
 import { MuxVideoBG } from "./muxPlayer";
 import Image from "next/image";
 import { PortableText } from "next-sanity";
-import { InfoB, InfoBAlt, Zoom } from "../components/svg";
+import { Info, InfoAlt, InfoB, InfoBAlt, Zoom } from "../components/svg";
 import SmoothScrolling from "./SmoothScrolling";
 import useResize from "./useResize";
+import { data } from "motion/react-client";
 
 export function SwitchContent({noBleed,cullInfo, zoom,work, title,ratio,cover, contain,size, audio,color,ratioImg,dim,height, captions, credits,inside}: any) {
 const [active,setActive] = useState(false);
@@ -57,15 +58,25 @@ const zoomOff=()=>{
     {mobile && work.credits && !cullInfo ?(
      <div className={`absolute ${noBleed?'right-0':' right-4'} bottom z-30 pt-2`}  onClick={toggleInfo}> <div className="h-[16px] w-[16px]">{info?(<InfoBAlt className="w-full h-full"/>):<InfoB className="w-full h-full"/> }</div></div>
   ):('')}
+
+   {mobile && inside?(
+  
+                           <div className="credits w-full absolute bottom-0 p-4 flex gap-4 left-0 text-white items-end overflow-hidden">
+                            <div className="w-[16px] h-[16px] pointer-events-auto" onClick={toggleActive}>{active?(<Info className="w-full h-full" />):(<InfoAlt className="w-full h-full" />)}</div>
+                           <div className="w-full" style={{transition:'.5s all cubic-bezier(0.075, 0.82, 0.165, 1)',opacity:active?1:0, transform:`translateX(${active?'0':'20'}px)`}}> <PortableText value={work.credits}/></div></div>
+                       
+                       ):('')}
   {credits || captions?(
-    <div className={` md:flex justify-between w-full md:onHover  ${inside?"text-white absolute  left-4 px-4 bottom-4 z-10":""}  ${noBleed?'px-0':'px-4'} md:px-0`}>
+    <div className={` md:flex justify-between w-full md:onHover  ${inside?"text-white absolute hidden md:block  left-4 px-4 bottom-4 z-10":""}  ${noBleed?'px-0':'px-2'} md:px-0`}>
      
+
+
       
       {captions?(<div className={`pt-3 captions  md:mb-0 md:px-0 relative flex-shrink-0 w-1/3`}><div className="mb-4"><PortableText value={work.captions}/></div></div>):('')}
   
    {mobile && !cullInfo?(
           <React.Fragment>
-            <div className="credits uppercase md:w-auto " style={{transition:`all .24s ease-in-out`,height:'100px',opacity:info?1:0,maxHeight:info?200:0}}><PortableText value={work.credits} /></div>
+            <div className={`credits uppercase md:w-auto  ${!work.captions?'mt-3':''}`} style={{transition:`all .24s ease-in-out`,height:'100px',opacity:info?1:0,maxHeight:info?200:0}}><PortableText value={work.credits} /></div>
           </React.Fragment>
         ):(  <div className={`credits uppercase w-2/3 ${noBleed?'px-0':'px-4'} md:px-0 pt-3 ${captions?'md:text-right':''}`}>{credits?(<PortableText value={work.credits}/>):('')}</div>)}
  </div>
