@@ -57,7 +57,7 @@ export default async function Home() {
 
         </Reveal>
         {/* Gallery */}
-        <div className="col-span-12 "><div className="md:w-1/2 px-4 md:px-9"><PortableText value={data.build.outro} />
+        <div className="col-span-12 "><div className="w-full xl:w-1/2 px-4 md:px-9"><PortableText value={data.build.outro} />
         </div>
           <div className="w-full h-auto  my-9 md:my-39"><GalleryC data={data.build.gallery} /></div>
         </div>
@@ -111,7 +111,7 @@ export default async function Home() {
             </div>
           </div>
           <div className="col-span-full h-full md:col-span-6 grid grid-cols-6">
-            <div className="col-span-full h-full xl:col-span-5 richText  text-white p2 flex items-center justify-center">
+            <div className="col-span-full h-full xl:col-span-5 richText  text-white p2 flex items-end justify-center">
                <div className="w-full "><Bio data={data.devStory}/></div>
               </div>
           </div>

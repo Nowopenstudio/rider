@@ -782,6 +782,16 @@ transform:translateX(0);
 
 
 
+  @media (max-width: 1600px) {
+ h1.title,.title h1,h2{font-size:5.25rem;line-height:.88em;letter-spacing: -.05em;;}
+ .p2 p{
+  font-size:1.25rem;
+  line-height: 1.05em;
+  letter-spacing: -0.02em;
+}
+  }
+
+
   @media (max-width: 1300px) {
     p,li{  font-size:1.875rem;  line-height: 1.06em;}
 h1,h5{font-size:2.275rem;line-height:1.03em;letter-spacing: -0.02em;text-box: trim-both cap alphabetic;}
@@ -794,6 +804,7 @@ h3{white-space: pre-wrap;font-size:2.75rem;line-height:.93em;letter-spacing: -.0
 h3.serif{font-family: "serif",'Times New Roman', Times, serif;font-size:6.25rem;line-height:.9em;letter-spacing: -2.5px;text-box: trim-both cap alphabetic;}
 h4.serif{font-family: "serif",'Times New Roman', Times, serif;font-size:2.4375rem;line-height:.9em;letter-spacing: -2.5px;text-box: trim-both cap alphabetic;font-style: italic;}
 .divide h3{font-size:3rem;letter-spacing: -.05em;text-box: trim-both cap alphabetic;margin-bottom: 74px;}
+  .break br, h3 br, h4 br{display:none;}
 
 .cipres p{
   font-size: 2.3125em;
@@ -803,11 +814,7 @@ h4.serif{font-family: "serif",'Times New Roman', Times, serif;font-size:2.4375re
 }
 
 
-.p2 p{
-  font-size:1.5rem;
-  line-height: 1.05em;
-  letter-spacing: -0.02em;
-}
+
 
 .p3 p{
   font-size:1.06rem;
@@ -822,11 +829,17 @@ h4.serif{font-family: "serif",'Times New Roman', Times, serif;font-size:2.4375re
   }
 
 
+  
+  @media (max-width: 1000px) {
+ h1.title,.title h1,h2{font-size:3.75rem;line-height:.88em;letter-spacing: -.05em;;}
+
+  }
+
 
 
   @media (max-width: 850px) {
     h1.title,.title h1,h2{font-size:4.375rem;line-height:.88em;letter-spacing: -.05em;text-box: trim-both cap alphabetic;}
-  .break br, h3 br, h4 br{display:none;}
+
 
     .hoverOn .onHover{
       opacity:1;
