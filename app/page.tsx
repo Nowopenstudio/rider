@@ -46,8 +46,8 @@ export default async function Home() {
 
         <div className="projectCover col-span-2 md:col-span-1 h-[100dvh] relative coverSwitch fadeOn overflow-hidden">
           <SwitchContent work={data.header.video} title={'Header Video'} ratio={data.header.video.ratio} audio={false} cover />
-          <div className='z-20 center-object w-full text-white px-4 md:px-9'>
-            <div className="w-auto mb-9 break"> <PortableText value={data.header.headlines[0].title} /></div>
+          <div className='z-20 center-object w-full text-white px-4  md:px-9 '>
+            <div className="w-auto mb-9"> <PortableText value={data.header.headlines[0].title} /></div>
             
            <ScrollCTA id={'intro'} cta={data.header.cta} inverted />
 

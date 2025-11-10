@@ -238,7 +238,7 @@ export default function Footer({ data }: any) {
           </React.Fragment>
         ) : ('')}
       </div>
-      <div onClick={toggleActive} className={`cursor-s-resize w-[100vw] xl:w-[50vw] fixed bottom-0 left-0 bg-white px-9 pt-9 pb-10.5 copyright uppercase z-100`} style={{transition:`transform .5s  cubic-bezier(0.165, 0.84, 0.44, 1)`,transform:`translateY(${active?'0':'100%'})`}}>
+      <div onClick={toggleActive}  data-lenis-prevent  className={`cursor-s-resize w-[100vw] xl:w-[50vw] fixed bottom-0 left-0 bg-white px-9 pt-9 pb-10.5 copyright uppercase z-100 max-h-[calc(100dvh_-_60px)] overflow-y-scroll`} style={{transition:`transform .5s  cubic-bezier(0.165, 0.84, 0.44, 1)`,transform:`translateY(${active?'0':'100%'})`}}>
         <div className="flex flex-wrap w-full gap-5 items-start">
          <div className="flex gap-3 w-full border-t border-darkGray pt-2">
             <div className="h-[22px] w-[22px] mix-blend-difference flex-shrink-0 ">
