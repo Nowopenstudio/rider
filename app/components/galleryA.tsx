@@ -79,7 +79,7 @@ const zoomOff=()=>{
 
   return (
     <React.Fragment>
-      <div className="w-full relative">
+      <div className="w-full relative h-auto">
         <div className="w-full relative overflow-x-hidden" ref={ref} >
   
           <div className="opacity-0 flex flex-nowrap">
@@ -93,7 +93,7 @@ const zoomOff=()=>{
                     {mobile?(''):(
                        <div className={`creditHold justify-between flex ${curr == i ? "show" : ""} py-1`}>
                       
-                      <div className="credits uppercase"><PortableText value={item.credits} /></div>
+                      <div className="credits uppercase pb-4"><PortableText value={item.credits} /></div>
                     </div>
                     )}
                    

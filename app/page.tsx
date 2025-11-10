@@ -192,7 +192,7 @@ export default async function Home() {
         </div>
         <div className="w-full galleryHold mb-18 md:mb-39">
                   {data.amenities.gallery ? (
-          <div className='col-span-full overflow-x-hidden'>
+          <div className='col-span-full overflow-x-hidden pb-4 h-auto'>
             <GalleryA data={data.amenities.gallery} />
           </div>
         ) : ('')}
