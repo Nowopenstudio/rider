@@ -45,7 +45,7 @@ const zoomOff=()=>{
 
   
   if (work.vid){
-    return <div className={`w-full  ${audio?'':"noControl"} ${contain?"object-contain h-full":""} ${cover?"bgMux h-full":""}`}> <MuxVideoBG playbackId={(mobile && work.mobileVid)?work.mobileVid:work.vid} title={title} ratio={(mobile&&work.mobileVid)?work.mobileRatio:ratio} audio={audio?audio:false} color={color}/></div>
+    return <div className={`w-full  ${audio?'':"noControl"} ${contain?"object-contain h-full":""} ${cover?"bgMux h-full overflow-x-hidden pointer-events-none":""}`}> <MuxVideoBG playbackId={(mobile && work.mobileVid)?work.mobileVid:work.vid} title={title} ratio={(mobile&&work.mobileVid)?work.mobileRatio:ratio} audio={audio?audio:false} color={color}/></div>
     
 
     }
