@@ -55,7 +55,7 @@ export default async function Home() {
         {/* Gallery */}
         <div className="col-span-12 "><div className="w-full xl:w-1/2 px-4 md:px-9"><PortableText value={data.build.outro} />
         </div>
-          <div className="w-[100vw] overflow-x-hidden h-auto  my-9 md:my-39"><GalleryC data={data.build.gallery} /></div>
+          <div className="w-[100vw] overflow-x-hidden h-auto  pb-9 md:pb-39"><GalleryC data={data.build.gallery} /></div>
         </div>
 
         {/* Specs */}
