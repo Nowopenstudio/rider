@@ -157,7 +157,7 @@ mux-player {
 
 @font-face {
 	font-family: 'serif';
-	src: url('/fonts/serif.woff2');
+	src: url('/fonts/serif.woff');
 	font-weight: 400;
 	font-style: normal;
 }
@@ -165,7 +165,7 @@ mux-player {
 
 @font-face {
 	font-family: 'serif';
-	src: url('/fonts/serif-italic.woff2');
+	src: url('/fonts/serif-italics.woff');
 	font-weight: 400;
 	font-style: italic;
 }
