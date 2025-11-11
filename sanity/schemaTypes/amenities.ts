@@ -17,6 +17,7 @@ export default {
                     name: 'video', title: 'video', type: 'object', fields: [
                         { name: 'image', title: 'thumb', type: 'image' },
                         { name: 'video', title: 'Video', type: 'mux.video' },
+                         {name: 'mobileVid', title: 'Mobile Video', type: 'mux.video' },
                         { name: 'credits', title: 'Credits', type: "array", of: [{ type: 'block' }] }
                     ]
                 },
@@ -177,6 +178,7 @@ export default {
             name: 'access', title: 'Beach Access', type: 'object', fields: [
                 { name: 'image', title: 'thumb', type: 'image' },
                 { name: 'video', title: 'Video', type: 'mux.video' },
+                 {name: 'mobileVid', title: 'Mobile Video', type: 'mux.video' },
                 { name: 'credits', title: 'Credits', type: "array", of: [{ type: 'block' }] },
                 { name: 'captions', title: 'Captions', type: "array", of: [{ type: 'block' }] },
 
