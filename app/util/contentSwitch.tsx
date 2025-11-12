@@ -51,10 +51,10 @@ const zoomOff=()=>{
     }
    
   if (work.image) return (
-  <div className="w-full relative h-full overflow-visible">
+  <div className="w-full relative h-full overflow-hidden pointer-events-none">
   <div className='w-full h-full relative'>  <Image alt="image" onClick={zoom&&!mobile?zoomOn:undefined} onContextMenu={(e)=>{e.preventDefault()}} height={0}  width={0} sizes={`${size?size:`100vw`}`}  src={work.image}  className={`${height?`h-full w-auto`:'w-full h-auto'} ${contain?"object-contain h-full":""} ${cover?"object-cover h-full":""} ${zoom?'cursor-pointer':''}`} style={{aspectRatio:work.ratioImg}}/>
     {mobile && work.credits && !cullInfo ?(
-     <div className={`absolute ${noBleed?'right-0':' right-4'} bottom z-30 pt-2`}  onClick={toggleInfo}> <div className="h-[16px] w-[16px]">{info?(<InfoBAlt className="w-full h-full"/>):<InfoB className="w-full h-full"/> }</div></div>
+     <div className={`absolute ${noBleed?'right-0':' right-4'} bottom z-30 pt-2 pointer-events-auto`}  onClick={toggleInfo}> <div className="h-[16px] w-[16px]">{info?(<InfoBAlt className="w-full h-full"/>):<InfoB className="w-full h-full"/> }</div></div>
   ):('')}
 
    {mobile && inside?(
