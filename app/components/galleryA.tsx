@@ -87,7 +87,7 @@ const zoomOff=()=>{
   return (
     <React.Fragment>
       <div className="w-full relative h-auto">
-        <div className="w-full relative overflow-x-hidden" ref={ref} >
+        <div className="w-full relative overflow-hidden" ref={ref} >
   
           <div className="opacity-0 flex flex-nowrap">
             {data.map((item: any, i: number) => {
@@ -118,7 +118,7 @@ const zoomOff=()=>{
                 <div key={`image-${i}`} onTransitionStart={(e) => checkSpace(e, i)} className={`w-[100%] md:w-[66.67%] h-auto absolute galleryImage origin-center pointer-events-none z-60`} style={{ left: '50%', zIndex: i == curr ? 60: data.length - 1, transform: `translateX(${(i == 0 && (curr == data.length - 1)) ? `50` : `${(i == data.length - 1 && curr == 0) ? '-150' : `${((100 * i) - (curr * 100)) - 50}`}`}%) scale(${i == curr ? "1.0" : ".75"})` }}>
                   <div className="singleMedia w-full px-4 md:px-0 pointer-events-none" ref={i == 0 ? ref : undefined}>
                     {/* <div className="w-full h-full z-40 left-0 absolute text-white pointer-events-none" ><h2>{i}</h2></div> */}
-                    <div className="w-full h-auto relative"> <SwitchContent cullInfo work={item} title={`${item}`} ratio={item.ratio} audio={false} contain />
+                    <div className="w-full h-auto relative pointer-events-none"> <SwitchContent cullInfo work={item} title={`${item}`} ratio={item.ratio} audio={false} contain />
                     </div>
                     {mobile ? (
                       ''
