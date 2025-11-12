@@ -24,7 +24,7 @@ export default function Next({ cta,next}: any) {
                   <div className="w-2/3 mb-16"><PortableText value={cta.copy}/></div>
                   <div className="w-full flex gap-13 pb-4 items-center">
                     <div className="h-[45px] w-[45px]"><Image alt="image" sizes={`150px`} width={45} height={45} src={cta.image}  className={`w-auto h-[45px]}`} /></div>
-                    <Link href="/" className="cta secondary inline-block"><p>{cta.cta.label}</p></Link>
+                    {/* <Link href="/" className="cta secondary inline-block"><p>{cta.cta.label}</p></Link> */}
                   </div>
                 </div>
               </Reveal >
