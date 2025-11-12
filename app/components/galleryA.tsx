@@ -86,7 +86,7 @@ const zoomOff=()=>{
 
   return (
     <React.Fragment>
-      <div className="w-full relative h-auto">
+      <div className="w-full relative h-auto overflow-hidden">
         <div className="w-full relative overflow-hidden" ref={ref} >
   
           <div className="opacity-0 flex flex-nowrap">
