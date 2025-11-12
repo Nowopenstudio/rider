@@ -128,7 +128,7 @@ export default async function Home() {
           <div className="col-span-2 md:col-span-1 px-4 md:px-9 mb-9 md:mb-0 ">
             <BuildExpand title={'RESIDENTIAL FEATURES'} sub={data.feats.subhead} data={data.feats.points}/>
             
-            <a href={`${data.feats.cta.url?data.feats.cta.url:'/'}`} className="cta inline-block "><p>{data.feats.cta.label}</p></a>
+            <a href={`${data.feats.cta.url?data.feats.cta.url:'/'}`} target="__blank" className="cta inline-block "><p>{data.feats.cta.label}</p></a>
           </div>
           <div className="col-span-2 md:col-span-1 grid grid-cols-6 px-4 md:px-9 hoverOn">
             <div className="col-span-full md:col-span-4 md:col-end-7"><div className="w-full md:mb-9"> {data.feats.media ? (<SwitchContent captions credits work={data.feats.media} title={'Building Spec'} ratio={data.feats.media.ratio} audio={false} />) : ('')}</div></div>
