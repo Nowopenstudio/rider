@@ -116,9 +116,9 @@ timer=setTimeout(()=>{
 
   return (
     <React.Fragment>
-        <div className="w-full h-auto hoverOn">
-          <Reveal styleSet={`w-full h-full relative overflow-x-hidden overflow-y-visible ` } >
-          <div className={`w-1/2 h-full z-40 left-0 absolute cursor-w-resize `} onClick={back}></div>
+        <div className="w-full h-auto hoverOn overflow-y-visible">
+          <Reveal styleSet={`w-full h-auto relative overflow-x-hidden overflow-y-visible ` } >
+          <div className={`w-1/2 h-full z-40 left-0 absolute cursor-w-resize over `} onClick={back}></div>
                <div className={`w-1/2 h-full z-40 left-1/2 absolute cursor-e-resize `} onClick={next}></div>
            
           
@@ -146,31 +146,18 @@ timer=setTimeout(()=>{
           </Reveal>
         </div>
         {mobile ? (
-                            <div className={`mobileCredit pt-2 pb-1 px-4 relative`} >
-                             
-                             <div className="absolute right-4 top-2 z-10"  onClick={toggleActive}> <div className="h-[16px] w-[16px]">{active?(<InfoBAlt className="w-full h-full"/>):<InfoB className="w-full h-full"/> }</div>
-                               
-                             </div>
-                             <div className="flex gap-[10px] absolute right-4 top-7 z-10">
-                                                      <div className="h-[14px] w-[14px]" onClick={back}><GalleryLeft className="w-full h-full"/></div>
-                                                       <div className="h-[14px] w-[14px]" onClick={next}><GalleryRight className="w-full h-full"/></div>
-                                                  </div>
-                            
-                             <React.Fragment>
-                                {gallery[curr+2].captions?( <div className="captions uppercase md:w-auto "><PortableText value={gallery[curr+2].captions} /></div>):('')}
-                               {gallery[curr+2].credits?(  <div className="credits uppercase w-3/4 mt-2 md:w-auto" style={{transition:`all .24s ease-in-out`,height:'auto',opacity:active?1:0,maxHeight:active?200:0,display:active?'block':'none'}}><PortableText value={gallery[curr+2].credits} /></div>):('')}
-                             </React.Fragment>
-                           
-                             
-                              
-                              
-                           
-        
-        
-                            </div>
-                          ) : ('')}
-
-                           {data.length > 1 && mobile?(       <div className="galleryMarker px-4 md:px-9 flex pt-2 gap-[6px] w-full justify-start">
+                            <div className={`mobileCredit py-2 px-4 relative`} >
+                                                 <div className="absolute right-4 top-2 z-10"  onClick={toggleActive}> <div className="h-[16px] w-[16px]">{active?<InfoBAlt className="w-full h-full"/>:<InfoB className="w-full h-full"/>}</div>
+                                                 
+                                                 </div>
+                                                  <div className="flex gap-[10px] absolute right-4 top-7">
+                                                     <div className="h-[14px] w-[14px]" onClick={back}><GalleryLeft className="w-full h-full"/></div>
+                                                      <div className="h-[14px] w-[14px]" onClick={next}><GalleryRight className="w-full h-full"/></div>
+                                                 </div>
+                                                         {gallery[curr+2].caption?( <div className="captions mb-2uppercase md:w-auto mb-4"><PortableText value={gallery[curr+2].caption} /></div>):('')}
+                                                                               {gallery[curr+2].credits?(  <div className="credits uppercase  w-2/3 md:w-auto" style={{transition:`all .24s ease-in-out`,height:'auto',opacity:active?1:0,maxHeight:active?200:0,paddingBottom:active?'20px':0}}><PortableText value={gallery[curr+2].credits} /></div>):('')}
+                                                
+                                                    {data.length > 1 && mobile?(       <div className="galleryMarker flex pt-2 gap-[6px] w-full justify-start">
                                   {data.map((dot: any, d: number) => {
                                     return (
                                       <div key={`${data.title}-${d}`} className={`relative ${d == 0 ? 'z-10' : 'z-1'} galleryDot w-[6px] h-[6px] rounded-full ${d == 0 ? "bg-black" : "bg-darkGray"}`} style={{ transformOrigin: 'center', transform: `scale(${d == 0 ? 1.5 : 1}) translateX(${d == 0 ? (curr * 8) : (d <= curr) ? (-12) : (0)}px)` }}></div>
@@ -178,6 +165,12 @@ timer=setTimeout(()=>{
                                   })}
                               
                               </div>):('')}
+                            
+                            
+                                                </div>
+                          ) : ('')}
+
+                           
                          
     </React.Fragment>
   );

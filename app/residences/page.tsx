@@ -92,7 +92,7 @@ export default async function Home() {
                     </div>
                   ) : ('')}
                 </div>
-                <div className="col-span-2 h-auto mb-10 lg:mb-20 hoverOn overflow-x-hidden">
+                <div className="col-span-2 h-auto pb-10 lg:pb-20 hoverOn overflow-x-hidden">
                   <GalleryC data={item.gallery} />
                 </div>
                 {item.outro ? (
@@ -108,7 +108,7 @@ export default async function Home() {
                 ) : ('')}
 
                 {item.outro.gallery ? (
-                  <div className="col-span-2 h-[350px] lg:h-[66dvh] mb-20 lg:mb-39 overflow-x-hidden">
+                  <div className="col-span-2  pb-20 lg:pb-39 overflow-x-hidden">
                     <GalleryC data={item.outro.gallery} />
                   </div>
                 ) : ('')}
