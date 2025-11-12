@@ -69,7 +69,7 @@ export default async function Home() {
              <BuildExpand title={'Building Features'} sub={data.landmark.feat.title} data={data.landmark.feat.points}/>
            
 
-            <a href={data.landmark.cta.url} className="cta inline-block"><p>{data.landmark.cta.label}</p></a>
+            <a href={data.landmark.cta.url} target="__blank" className="cta inline-block"><p>{data.landmark.cta.label}</p></a>
           </Reveal>
           <div className="col-span-full md:col-span-1 row-start-1 md:row-start-auto items-start grid grid-cols-6 pt-29">
             <Reveal styleSet={`col-span-full md:col-span-4 md:col-start-2 mb-9 md:mb-0 `}>
@@ -141,7 +141,7 @@ export default async function Home() {
               <div className="col-span-12 md:col-span-6 mb-6.5 md:mb-14">
                 <PortableText value={data.retail.copy} />
               </div>
-              <a href={data.retail.cta.url} className="col-span-12"> <div className="cta inline-block"><p>{data.retail.cta.label}</p></div></a>
+              <a href={data.retail.cta.url} target="__blank" className="col-span-12"> <div className="cta inline-block"><p>{data.retail.cta.label}</p></div></a>
             </div>
 
 
@@ -162,7 +162,7 @@ export default async function Home() {
             </div>
             <div className="w-3/4 md:w-1/4 text-white relative z-10 pb-4 md:pb-0 px-4 md:px-9">
               <div className="mb-9 fullVid"><PortableText value={data.retail.outro.title} /></div>
-              <a href={`${data.retail.cta.url?data.retail.cta.url:'/'}`}><div className="cta inline-block inverted"><p>{data.retail.cta.label}</p></div></a>
+              <a href={`${data.retail.cta.url?data.retail.cta.url:'/'}`} target="__blank"><div className="cta inline-block inverted"><p>{data.retail.cta.label}</p></div></a>
             </div>
           </div>
 
