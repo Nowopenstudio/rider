@@ -66,7 +66,7 @@ export default async function Home() {
        <div className="col-span-full"> <TextBlock off title={data.welcome.title} footnote={data.welcome.copy} copy={data.build.copy} subhead={data.build.title}/></div>
         
     
-        <Reveal styleSet="col-span-full col-start-1 lg:col-span-8 lg:col-start-3 xl:col-span-6 xl:col-start-4 mb-15 md:mb-31.25 mt-14 lg:mt-39 relative hoverOn px-0 md:px-9">
+        <Reveal styleSet="col-span-full col-start-1 lg:col-span-8 lg:col-start-3 xl:col-span-6 xl:col-start-4 pb-15 md:pb-31.25 mt-14 lg:mt-39 relative hoverOn px-0 md:px-9">
           {data.build.gallery.length ? (<SwitchContent zoom caption credits work={data.build.gallery[0]} title={'Header Video'} ratio={data.header.gallery[0].ratio} audio={false} />) : ('')}
 
         </Reveal>
