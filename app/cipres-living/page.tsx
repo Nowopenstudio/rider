@@ -104,7 +104,7 @@ export default async function Home() {
                                     </div>
                             
                                     {/* Residences */}
-                                    <div className="col-span-full mb-9 md:mb-81.5 overflow-x-hidden">
+                                    <div className="col-span-full md:mb-81.5 overflow-x-hidden">
                                       <div className="w-full grid grid-cols-2 px-4  md:px-9 gap-x-9 items-center">
                                         <div className="col-span-full divide pt-4 md:pt-12 border-t uppercase mb-9 md:mb-34"><PortableText value={data.residences.title} /></div>
                                         <div className="col-span-full divide uppercase mb-9 md:mb-37.5 "><PortableText value={data.residences.subtitle} /></div>
@@ -117,7 +117,7 @@ export default async function Home() {
                                         </div>
                             
                                       </div>
-                                      <div className="w-[100vw] overflow-x-hidden h-auto ">
+                                      <div className="w-[100vw] overflow-x-hidden h-auto py-9">
                                         <GalleryC data={data.residences.gallery} />
                                       </div>
                             
@@ -211,7 +211,7 @@ export default async function Home() {
                             
                             
                                         {/* Guest */}
-                                    <div className="col-span-full mb-9 md:mb-81.5 overflow-x-hidden">
+                                    <div className="col-span-full  md:mb-81.5 overflow-x-hidden">
                                       <div className="w-full grid grid-cols-2 px-4 md:px-9 gap-x-4 md:gap-x-9 items-center">
                                         <div className="col-span-full divide pt-12 border-t uppercase mb-9 md:mb-34"><PortableText value={data.guest.title} /></div>
                                         <div className="grid grid-cols-6 col-span-full md:col-span-1 mb-9 md:mb-23.5">
@@ -221,7 +221,7 @@ export default async function Home() {
                                         
                             
                                       </div>
-                                      <div className="w-[100vw] overflow-x-hidden h-auto">
+                                      <div className="w-[100vw] overflow-x-hidden py-9 h-auto">
                                         <GalleryC data={data.guest.gallery} />
                                       </div>
                             
