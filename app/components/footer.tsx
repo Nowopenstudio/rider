@@ -86,9 +86,16 @@ export default function Footer({ data }: any) {
     <React.Fragment>
       <div id={'footer'} className="w-full xl:h-[200dvh] z-1 xl:pt-0] xl:mt-[-100dvh] bg-black xl:bg-offWhite footer ">
         <div className={`footerForm  xl:sticky w-full  xl:mt-[0] xl:h-[100dvh] top-0 left-0 xl:grid grid-cols-2`}>
-          <div className="downloadBar absolute top-[74px] px-4 md:px-9 w-full z-20 bg-black h-[60px] items-center justify-between hidden xl:flex">
+          <div className="downloadBar absolute top-[74px] px-4 md:px-9 w-full z-20 bg-black h-[60px] items-center justify-between hidden xl:flex hoverOn">
             <div className="uppercase text-white"><p>{data.contact.phone}</p></div>
-            <div className="uppercase text-darkGray"><p>{data.contact.cta.label}</p></div>
+           <div className="flex justify-end gap-9 relative z-4"> 
+            {data.downloads.map((item:any,i:number)=>{
+              return(
+                <a href={item.url?item.url:"/"} key={`${item.label}`} className="cursor-pointer uppercase text-darkGray py-2 hover:text-white onHoverFill"><p>{item.label}</p></a>
+              )
+            })}
+            <div className="uppercase text-darkGray py-2"><p>{data.contact.cta.label}</p></div>
+            </div>
           </div>
           <div className="form col-span-2 xl:col-span-1 xl:flex items-center justify-center xl:relative text-white xl:text-black pt-39 xl:pt-0 h-[200dvh] xl:h-full mt-[-100dvh] xl:mt-0">
             <div className="sticky top-0 xl:relative w-full xl:w-3/4 flex-col flex gap-y-10 pb-9 xl:pb-18 px-4 xl:px-0 pt-50 xl:pt-0">

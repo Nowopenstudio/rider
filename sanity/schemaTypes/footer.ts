@@ -14,6 +14,17 @@ export default {
                 },
             ]
         },
+    {
+        name:'downloads',type:'array',title:"Donwloads",of:[
+            {
+                    name: 'cta', title: "CTA", type: 'object', fields: [
+                        { type: 'string', title: 'Label', name: 'label' },
+                        { type: 'string', title: 'URL', name: 'url' },
+                    ]
+                }]
+        }
+    ,
+        
         {
             name: 'form', title: "Form", type: 'object', fields: [
                 { name: 'headline', type: 'string', title: "Headline" },

@@ -661,7 +661,7 @@ opacity:1;
 }
 
 
-.onHover{
+.onHover,.onHoverFill{
   opacity: 0;
   pointer-events:none;
   transition:opacity .25s ease-in-out;
@@ -669,6 +669,11 @@ opacity:1;
 
 .hoverOn:hover .onHover{
   opacity: 1;
+}
+
+.hoverOn:hover .onHoverFill{
+  opacity: 1;
+  pointer-events: auto;
 }
 .onHoverBorder::after{
   content: '';

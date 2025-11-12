@@ -179,6 +179,19 @@ export default function Navbar({ data, footer }: any) {
                                                        <Link className="pointer-events-none navItem" href="crypto" onClick={closeMenu}> <div className="pointer-events-none cursor-pointer mb-8 opacity-20"><p>Crypto</p></div></Link>
                                                          <Link href="brokers" onClick={closeMenu} className={`relative navItem ${page=="brokers"?"selected":''}`}> <div className="cursor-pointer mb-8"><p>Brokers</p></div></Link>
                                               </div>
+
+                                               <div className="flex w-full justify-end gap-9 z-10 absolute bottom-9 right-9 downloadBar hoverOn"> 
+            {footer.downloads.map((item:any,i:number)=>{
+              return(
+                <a href={item.url?item.url:"/"} key={`${item.label}`} className="cursor-pointer uppercase text-darkGray py-2 hover:text-white onHoverFill"><p>{item.label}</p></a>
+              )
+            })}
+            <div className="uppercase text-darkGray py-2"><p>Downloads</p></div>
+            </div>
+
+         
+           
+        
             </div>
       </div>
       )}
