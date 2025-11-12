@@ -51,8 +51,8 @@ const zoomOff=()=>{
     }
    
   if (work.image) return (
-  <div className="w-full relative h-full overflow-hidden pointer-events-none">
-  <div className='w-full h-full relative'>  <Image alt="image" onClick={zoom&&!mobile?zoomOn:undefined} onContextMenu={(e)=>{e.preventDefault()}} height={0}  width={0} sizes={`${size?size:`100vw`}`}  src={work.image}  className={`${height?`h-full w-auto`:'w-full h-auto'} ${contain?"object-contain h-full":""} ${cover?"object-cover h-full":""} ${zoom?'cursor-pointer':''}`} style={{aspectRatio:work.ratioImg}}/>
+  <div className="w-full relative h-full overflow-visible">
+  <div className='w-full h-full relative '>  <Image alt="image" onClick={zoom&&!mobile?zoomOn:undefined} onContextMenu={(e)=>{e.preventDefault()}} height={0}  width={0} sizes={`${size?size:`100vw`}`}  src={work.image}  className={`${height?`h-full w-auto`:'w-full h-auto'} ${contain?"object-contain h-full":""} ${cover?"object-cover h-full":""} ${zoom?'cursor-pointer':''}`} style={{aspectRatio:work.ratioImg}}/>
     {mobile && work.credits && !cullInfo ?(
      <div className={`absolute ${noBleed?'right-0':' right-4'} bottom z-30 pt-2 pointer-events-auto`}  onClick={toggleInfo}> <div className="h-[16px] w-[16px]">{info?(<InfoBAlt className="w-full h-full"/>):<InfoB className="w-full h-full"/> }</div></div>
   ):('')}
@@ -74,7 +74,7 @@ const zoomOff=()=>{
   
    {mobile && !cullInfo?(
           <React.Fragment>
-            <div className={`credits uppercase md:w-auto  ${!work.captions?'mt-3':''}`} style={{transition:`all .24s ease-in-out`,height:'100px',opacity:info?1:0,maxHeight:info?200:0}}><PortableText value={work.credits} /></div>
+            <div className={`credits uppercase w-2/3 md:w-auto  ${!work.captions?'mt-3':''}`} style={{transition:`all .24s ease-in-out`,height:'100px',opacity:info?1:0,maxHeight:info?200:0}}><PortableText value={work.credits} /></div>
           </React.Fragment>
         ):(  <div className={`credits uppercase w-2/3 ${noBleed?'px-0':'px-4'} md:px-0 pt-3 ${captions?'md:text-right':''}`}>{credits?(<PortableText value={work.credits}/>):('')}</div>)}
  </div>
@@ -89,7 +89,7 @@ const zoomOff=()=>{
   {zoom?(
     <React.Fragment>
       {mobile?(''):(
-          <div onClick={zoomOn} className="absolute z-10 top-2.5 left-2.5 w-[16px] h-[16px] p-[2px] onHover" style={{backgroundColor:`rgba(255,255,255,.8)`}}>
+          <div onClick={zoomOn} className="absolute z-10 top-2.5 left-2.5 w-[16px] h-[16px] p-[2px] onHover pointer-events-auto " style={{backgroundColor:`rgba(255,255,255,.8)`}}>
         <Zoom className="w-full h-full" fill={`000000`}/>
       </div>
       )}
