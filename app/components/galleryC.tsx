@@ -117,7 +117,7 @@ timer=setTimeout(()=>{
   return (
     <React.Fragment>
         <div className="w-full h-auto hoverOn">
-          <Reveal styleSet={`w-full h-full relative overflow-x-hidden ` } >
+          <Reveal styleSet={`w-full h-full relative overflow-x-hidden overflow-y-visible ` } >
           <div className={`w-1/2 h-full z-40 left-0 absolute cursor-w-resize `} onClick={back}></div>
                <div className={`w-1/2 h-full z-40 left-1/2 absolute cursor-e-resize `} onClick={next}></div>
            
