@@ -66,9 +66,9 @@ export default async function Home() {
                         <div className="col-span-full py-2 border-b  pb-4 mb-4 uppercase label font-medium"><p>{item.profile.label}</p></div>
                         <div className="col-span-full md:col-span-6 md:col-start-4">
                           <h3 className="uppercase text-darkGray mb-2">{item.profile.Role}</h3>
-                          <h3 className="uppercase ">{item.profile.Company}</h3>
+                          <h3 className="uppercase mb-4 md:mb-0">{item.profile.Company}</h3>
                         </div>
-                        <div className="col-span-full md:col-span-6 md:grid grid-cols-6 gap-4 md:gap-9">
+                        <div className="col-span-full md:col-span-6 md:grid grid-cols-6 gap-4 md:gap-9 mb-9 md:mb-0">
                           {item.profile.gallery.length?(
                               <div className="col-span-full md:col-span-3 md:col-start-4 overflow-x-hidden">
                                   <GalleryF data={item.profile}/>
@@ -79,7 +79,7 @@ export default async function Home() {
                         <div className="col-span-full md:col-span-6  md:grid grid-cols-6 items-start">
                           <div className="col-span-full md:col-span-3 md:col-start-3 p3 md:mb-6">
                             <div className="w-full mb-6 uppercase font-semibold"><PortableText value={item.profile.intro}/></div>
-                            <PortableText value={item.profile.bio}/>
+                            <div className="richText"><PortableText value={item.profile.bio}/></div>
                             </div>
                           
                         </div>
