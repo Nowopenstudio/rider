@@ -172,9 +172,9 @@ export default function Footer({ data }: any) {
 
           </div>
           <div className="col-span-2 xl:col-span-1 h-full relative pt-9 xl:pt-0">
-            <div className="w-full h-full hidden xl:block"><SwitchContent work={data.footerVid} title={`amenities`} ratio={data.footerVid.ratio} audio={false} cover /></div>
+            <div className="w-full h-full hidden xl:block pointer-events-none"><SwitchContent work={data.footerVid} title={`amenities`} ratio={data.footerVid.ratio} audio={false} cover /></div>
             <div className="xl:absolute xl:top-0 left-0 w-full xl:h-full pointer-events-none z-10 hidden xl:block" style={{ backgroundColor: `rgba(0,0,0,.6)` }}></div>
-            <div className="xl:absolute xl:top-0 left-0 w-full xl:h-full pointer-events-none z-11 xl:flex justify-between items-center px-4 md:px-9 xl:px-11">
+            <div className="xl:absolute xl:top-0 left-0 w-full xl:h-full pointer-events-auto z-11 xl:flex justify-between items-center px-4 md:px-9 xl:px-11">
               {winX < 1300 ? (
                 <div className="flex-shrink-0 col-span-1 font-bold footerContact uppercase text-white mb-9 xl:mb-0">
                   <p className="uppercase mb-2 xl:mb-9 text-darkGray xl:text-white">Call Us</p>
@@ -185,7 +185,7 @@ export default function Footer({ data }: any) {
               {data.contacts.map((item: any, i: number) => {
                 return (
                   <div className="flex-shrink-0 col-span-1 font-bold footerContact uppercase text-white mb-9 xl:mb-0" key={`contacts-${i}`}>
-                    <p className="uppercase mb-2 xl:mb-9 text-darkGray xl:text-white">{item.title}</p>
+                    <p className="uppercase mb-2 xl:mb-9 text-darkGray xl:text-white pointer-events-auto">{item.title}</p>
                     <PortableText value={item.copy} />
                   </div>
                 )
