@@ -669,7 +669,7 @@ opacity:1;
 
 .onHover,.onHoverFill{
   opacity: 0;
-  pointer-events:none;
+  pointer-events:auto;
   transition:opacity .25s ease-in-out;
 }
 
