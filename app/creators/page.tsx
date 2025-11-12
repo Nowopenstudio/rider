@@ -111,7 +111,7 @@ export default async function Home() {
                   </React.Fragment>
                 ):('')}
                 {item.profile.gallery?(
-                      <Reveal styleSet="col-span-full overflow-x-hidden md:h-[calc(100dvh_-_74px)] md:px-0 py-9 md:border-t border-darkGray relative mt-4 md:mt-9">
+                      <Reveal styleSet="col-span-full overflow-x-hidden md:h-[calc(100dvh_-_74px)] md:px-0 py-9 md:border-t border-darkGray relative ">
                       <GalleryE data={item.profile.gallery} name={item.profile.name}/>
                     </Reveal>
                     ):('')}
