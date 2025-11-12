@@ -505,6 +505,11 @@ font-style: italic;
 
 }
 
+.keyHold.dimLight .mapPoints{
+  opacity:.2
+}
+
+
 
 
 .cta:hover, .filter.active, .singlePoint:hover, .singlePoint.highlight, .chosen {
@@ -519,6 +524,7 @@ font-style: italic;
 
   opacity:1 !important;
   z-index: 900;
+  color:#000000;
 
 }
 

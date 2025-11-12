@@ -60,6 +60,12 @@ export default function Map({data }: any) {
   }
 
   const changePoint=(e:any)=>{
+    const key=document.getElementsByClassName('keyHold')
+       if(key.length){
+      Array.from(key).forEach(function(item){
+        item.classList.add('dimLight')
+    })}
+
     const curr = e.currentTarget.getAttribute('data-count')
     const prev = document.getElementsByClassName('chosen')
     if(prev.length){
@@ -81,6 +87,7 @@ export default function Map({data }: any) {
       id.classList.add('chosenKey')
     }
 
+     
     
   
   }
