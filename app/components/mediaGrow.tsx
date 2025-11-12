@@ -24,12 +24,12 @@ const toggleActive=()=>{
    return(
       
            <div className="w-full overflow-x-hidden relative">
-               <div ref={ref} className={`w-full  origin-center mediaGrow h-[100dvh] md:h-[75dvh]`} style={{ transform:`scale(${isInView?1:size})` }}>
+               <div ref={ref} className={`w-full  origin-center mediaGrow h-[80dvh] md:h-[75dvh]`} style={{ transform:`scale(${isInView?1:size})` }}>
                                  <SwitchContent work={data} title={'Header Video'} ratio={data.ratio} audio={false} cover />
                </div>
 
                {mobile?(
-                <div className="credits w-full absolute bottom-0 px-4 flex gap-4 left-0 text-white items-end overflow-hidden z-10 translate-y-[-100%]">
+                <div className="credits w-full absolute bottom-4 md:bottom-0 px-4 flex gap-4 left-0 text-white items-end overflow-hidden z-10 md:translate-y-[-100%]">
                                           <div className="w-[16px] h-[16px]" onClick={toggleActive}>{active?(<InfoAlt className="w-full h-full" />):(<Info className="w-full h-full" />)}</div>
                                          <div className="w-full uppercase" style={{transition:'.5s all cubic-bezier(0.075, 0.82, 0.165, 1)',opacity:active?1:0, transform:`translateX(${active?'0':'20'}px)`}}> <PortableText value={data.credits}/></div></div> 
                ):(

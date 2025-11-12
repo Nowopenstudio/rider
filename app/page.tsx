@@ -106,7 +106,7 @@ export default async function Home() {
 
       
       </div>
-      <div className='w-[100vw] overflow-x-hidden bg-offWhite z-1 sticky top-8 md:top-18 h-[200dvh] pt-10 ' >
+      <div className='w-[100vw] overflow-hidden bg-offWhite z-1 sticky top-8 md:top-18 h-[200dvh] pt-10 ' >
          <div className="w-full md:px-9 hoverOn mb-39 h-[100dvh] bg-offWhite relative z-2">
             {data.residency.video.vid ? (
                 <MediaGrow data={data.residency.video} size={.568}/>
@@ -139,7 +139,7 @@ export default async function Home() {
 
       </div>
       <div className="col-span-full  relative z-2 bg-white top-0" style={{height:"200vh"}}>
-        <div className="sticky top-0 mt-[-100vh] h-[100dvh] w-[100vw] overflow-x-hidden">
+        <div className="sticky top-0 mt-[-100vh] h-[100dvh] w-[100vw] overflow-hidden">
           {data.interiors.outro.video ? (<SwitchContent work={data.interiors.outro.video} title={'Header Video'} ratio={data.interiors.outro.video.ratio} audio={false} cover/>) : ('')}
           <div className="w-full h-[100dvh] absolute z-3 top-0 left-0 flex md:items-center" style={{backgroundColor:`rgba(0,0,0,.4)`}}>
               <div className="bottom-4 absolute md:relative w-3/4 md:w-1/3 px-4 md:px-9 text-white">
@@ -151,7 +151,7 @@ export default async function Home() {
       </div>
 
       {/* Area */}
-        <div className="col-span-full  grid grid-cols-12 gap-4 md:px-9 relative z-10 bg-offWhite overflow-x-hidden">
+        <div className="col-span-full  grid grid-cols-12 gap-4 md:px-9 relative z-10 bg-offWhite overflow-hidden">
           <Reveal styleSet='col-span-full uppercase py-3 border-t border-b text-left md:mb-9 px-4 md:px-0'><h2 className='w-full serif'>{data.location.title}</h2></Reveal>
           
              <HoverVid data={data.location.video}/>
