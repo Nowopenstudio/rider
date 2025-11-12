@@ -172,7 +172,7 @@ export default function Floorplans({ data, filter, cta, line }: any) {
 
           </div>
           <div className=" col-span-full  mb-9 lg:mb-39 mt-10">
-            <a href={cta.url ? cta.url : '/'} className="cta inline-block "><p>{cta.label}</p></a>
+            <a href={cta.url ? cta.url : '/'} target="__blank" className="cta inline-block "><p>{cta.label}</p></a>
           </div>
         </div>
         <div className="md:col-span-6 px-9 hoverOn hidden xl:block">
