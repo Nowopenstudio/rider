@@ -95,7 +95,7 @@ export default async function Home() {
           <div className="col-span-full md:col-span-6 grid grid-cols-6 items-end md:items-center">
             <div className="col-span-full text-white divide border-b md:border-none py-4">
             <PortableText value={data.devStory.title} />
-          </div>
+            </div>
             <div className=" col-span-4 md:col-span-4 col-start-2 md:col-start-auto lg:col-span-3 xl:col-span-2">
               <div className="w-full mb-4 md:pb-9 mt-9 md:mt-14">
                 {data.devStory.profile ? (<SwitchContent work={data.devStory.profile} title={'Building Spec'} audio={false} />) : ('')}
@@ -106,7 +106,7 @@ export default async function Home() {
               </div>
             </div>
           </div>
-          <div className="col-span-full h-full md:col-span-6 grid grid-cols-6">
+          <div className="col-span-full md:h-full md:col-span-6 grid grid-cols-6">
             <div className="col-span-full h-full xl:col-span-5 richText  text-white p2 md:flex items-end justify-center">
                <div className="w-full "><Bio data={data.devStory}/></div>
               </div>
