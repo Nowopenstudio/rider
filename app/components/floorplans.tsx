@@ -148,9 +148,9 @@ export default function Floorplans({ data, filter, cta, line }: any) {
                         item.rooms.map((point: any, p: number) => {
                           return (
 
-                            <div className={`cursor-pointer hoverOn hoverList w-full flex justify-between items-center gap-4  floorList border-b border-darkGray p-[10px] ${(cat !== 10 && cat !== parseInt(point.rooms)) ? " hidden pointer-events-none" : ''}`} onMouseOver={() => changeHover(i, p)}  onClick={() => changeImage(i, p)} key={`${item.title}-${i}-${p}`}>
+                            <div className={`cursor-pointer hoverOn hoverList w-full flex justify-between items-center gap-4  floorList border-b border-darkGray p-[10px] ${(cat !== 10 && cat !== parseInt(point.rooms)) ? " hidden pointer-events-none" : ''}`} onMouseOver={() => changeHover(i, p)}  key={`${item.title}-${i}-${p}`}>
                               <div className="flex gap-4 items-center nameHold">
-                                <div className='col-span-2 planNumber'><p className=" font-medium">{line?point.name:`${(p + 1 + (i > 0 ? total[i - 1] : 0)) < 10 ? '0' : ''}${p + 1 + (i > 0 ? total[i - 1] : 0)}`}</p></div>
+                                <div className='col-span-2 planNumber' onClick={() => changeImage(i, p)} ><p className=" font-medium">{line?point.name:`${(p + 1 + (i > 0 ? total[i - 1] : 0)) < 10 ? '0' : ''}${p + 1 + (i > 0 ? total[i - 1] : 0)}`}</p></div>
                                 <div className="col-span-9 planTitle uppercase"><p>{line?`Line`:point.name}</p></div>
                               </div>
                               <div className="flex  items center text-gray uppercase">
