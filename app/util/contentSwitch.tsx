@@ -51,8 +51,8 @@ const zoomOff=()=>{
     }
    
   if (work.image) return (
-  <div className="w-full relative h-full overflow-visible " >
-  <div className='w-full h-full relative'>  <Image alt="image" onContextMenu={(e)=>{e.preventDefault()}} height={0}  width={0} sizes={`${size?size:`100vw`}`}  src={work.image}  className={`${height?`h-full w-auto`:'w-full h-auto'} ${contain?"object-contain h-full":""} ${cover?"object-cover h-full":""} ${zoom?'cursor-pointer':''} pointer-events-none`} style={{aspectRatio:work.ratioImg}}/>
+  <div className={`w-full relative h-full overflow-hidden ${credits && mobile?"pb-4":""}`} >
+  <div className='w-full h-full relative overflow-hidden'>  <Image alt="image" onContextMenu={(e)=>{e.preventDefault()}} height={0}  width={0} sizes={`${size?size:`100vw`}`}  src={work.image}  className={`${height?`h-full w-auto`:'w-full h-auto'} ${contain?"object-contain h-full":""} ${cover?"object-cover h-full":""} ${zoom?'cursor-pointer':''} pointer-events-none`} style={{aspectRatio:work.ratioImg}}/>
     {mobile && work.credits && !cullInfo ?(
      <div className={`absolute ${noBleed?'right-0':' right-4'} bottom z-30 pt-2 pointer-events-auto`}  onClick={toggleInfo}> <div className="h-[16px] w-[16px]">{info?(<InfoBAlt className="w-full h-full"/>):<InfoB className="w-full h-full"/> }</div></div>
   ):('')}
