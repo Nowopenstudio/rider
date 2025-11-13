@@ -129,7 +129,7 @@ export default function Navbar({ data, footer }: any) {
                                                          <Link href="brokers" onClick={closeMenu} className={`relative navItem ${page=="/brokers"?"selected":''}`}> <div className="cursor-pointer mb-2"><p>Brokers</p></div></Link>
                                               </div>
               </div>
-              <div className="absolute bottom-4 md:bottom-9 left-4 md:left-9 w-full pointer-events-none z-11 grid grid-cols-2">
+              <div className="absolute bottom-4 md:bottom-9 left-4 md:left-9 w-full pointer-events-auto z-11 grid grid-cols-2">
                                                   {footer.contacts.map((item:any,i:number)=>{
                                                     return(
                                                       <div className={`${i==0?'col-span-2':''} navContact uppercase text-white ${i==0?"mb-7":""} font-bold`} key={`contacts-${i}`}>
@@ -151,7 +151,7 @@ export default function Navbar({ data, footer }: any) {
             <div className={'col-span-1 h-full flex items-center justify-center'}>
               <div className={`absolute top-0 left-0 w-full h-full blur z-0 ${active?'active':''}`}></div>
               <div className="relative w-[286px] z-1" > <Logo className="w-auto h-full mx-auto my-0 " fill={'#231F20'} /></div>
-              <div className="absolute bottom-9 left-9 w-full pointer-events-none z-11">
+              <div className="absolute bottom-9 left-9 w-full pointer-events-auto z-11">
                                                 {footer.contacts.map((item:any,i:number)=>{
                                                   return(
                                                     <div className="navContact uppercase text-black mb-7 font-bold" key={`contacts-${i}`}>
