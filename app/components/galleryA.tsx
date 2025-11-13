@@ -169,7 +169,7 @@ const zoomOff=()=>{
                   
       </div>
 
-       <div className={`fixed w-full h-full top-0 left-0 z-100 bg-black ${!zoom ? "pointer-events-none" : ''}`} style={{ transition: 'opacity .5s ease-in-out', opacity: zoom ? 1 : 0, }}>
+       <div className={`fixed w-full h-full top-0 left-0 z-110 bg-black ${!zoom ? "pointer-events-none" : ''}`} style={{ transition: 'opacity .5s ease-in-out', opacity: zoom ? 1 : 0, }}>
       
               <div className="flex justify-center w-full items-center  h-full fadeOn text-white"  key={`${curr}`}>
       
