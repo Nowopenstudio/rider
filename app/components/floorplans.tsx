@@ -176,7 +176,7 @@ export default function Floorplans({ data, filter, cta, line }: any) {
           </div>
         </div>
         <div className="md:col-span-6 px-9 hoverOn hidden xl:block">
-          <div className="w-full mb-9 fadeOn"  key={`${curr[0]}-${curr[1]}`}> {data[curr[0]].rooms[curr[1]].image ? (<SwitchContent credits caption work={data[curr[0]].rooms[curr[1]]} title={'Building Spec'} audio={false} />) : ('')}</div>
+          <div className="w-full mb-9 fadeOn xl:sticky top-39"  key={`${curr[0]}-${curr[1]}`}> {data[curr[0]].rooms[curr[1]].image ? (<SwitchContent credits caption work={data[curr[0]].rooms[curr[1]]} title={'Building Spec'} audio={false} />) : ('')}</div>
         </div>
       </div>
 
