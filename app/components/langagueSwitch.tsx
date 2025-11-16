@@ -75,14 +75,14 @@ import React from 'react';
                     <>
                         {currentLanguage === ld.name ||
                         (currentLanguage === 'auto' && languageConfig.defaultLanguage === ld) ? (
-                            <div className="px-1 text-black underline"><p className="langOption">
+                            <div className="px-1 text-white md:text-black underline"><p className="langOption">
                                 {ld.name}
                             </p></div>
                         ) : (
                             <a
                                 key={`l_s_${ld}`}
                                 onClick={switchLanguage(ld.name)}
-                                className="px-1 text-gray"
+                                className="px-1 text-darkGray md:text-gray cursor-pointer"
                             >
                                <p className="langOption"> {ld.name}</p>
                             </a>

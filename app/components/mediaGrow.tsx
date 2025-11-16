@@ -33,7 +33,7 @@ const toggleActive=()=>{
                                           <div className="w-[16px] h-[16px] pointer-events-auto" onClick={toggleActive}>{active?(<InfoAlt className="w-full h-full" />):(<Info className="w-full h-full" />)}</div>
                                          <div className="w-full uppercase" style={{transition:'.5s all cubic-bezier(0.075, 0.82, 0.165, 1)',opacity:active?1:0, transform:`translateX(${active?'0':'20'}px)`}}> <PortableText value={data.credits}/></div></div> 
                ):(
-                    <div className="flex py-4 justify-between col-span-full onHover">
+                    <div className="flex py-4 justify-between col-span-full">
                     <div className="credits px-4 md:px-0 w-full lg:w-2/3 uppercase"><PortableText value={data.credits}/></div>
                </div>
                )}
