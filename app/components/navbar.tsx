@@ -10,6 +10,7 @@ import { TextOn } from '../util/misc';
 import useResize from '../util/useResize';
 import { Logo } from './svg';
 import { PortableText } from 'next-sanity';
+import { LanguageSwitcher } from './langagueSwitch';
 
 
 export default function Navbar({ data, footer }: any) {
@@ -90,9 +91,10 @@ export default function Navbar({ data, footer }: any) {
         <div className="uppercase  flex items-center h-full w-1/3">
           <div><p className="pr-4 text-black font-medium pointer-events-auto cursor-pointer" onClick={scrollTo} >Inquries</p></div>
           <div className={"flex"} style={{opacity:active?0:1}}>
-            <div className="px-1 text-gray"><p className="langOption">en</p></div>
+            {/* <div className="px-1 text-gray"><p className="langOption">en</p></div>
             <div className='px-1   text-gray'><p className="langOption ">es</p></div>
-            <div className="px-1  text-gray"><p className="langOption">pt</p></div>
+            <div className="px-1  text-gray"><p className="langOption">pt</p></div> */}
+              <LanguageSwitcher />
           </div>
           
 

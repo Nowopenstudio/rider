@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from 'next/script';
 import "./globals.css";
 import Navbar from "./components/navbar";
 import { getData } from "./util/sanity";
@@ -13,7 +14,7 @@ import Loader from "./loader";
 
 export const metadata: Metadata = {
   title: "Experience the Rider",
-  description: "lorem"
+  description: "lorem ipsum"
 };
 
 export default async function RootLayout({
@@ -34,6 +35,11 @@ export default async function RootLayout({
 
   return (
     <html lang="en" >
+      <head>
+         <Script src="/assets/lang-config.js" strategy="beforeInteractive" />
+      <Script src="/assets/translation.js" strategy="beforeInteractive" />
+      <Script src="//translate.google.com/translate_a/element.js?cb=TranslateInit" strategy="afterInteractive" />
+      </head>
      <SmoothScrolling>
         <body id="body" className="w-[100vw] relative" style={{height:'100dvh'}}>
           <Loader words={home.loader.words}/>
