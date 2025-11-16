@@ -181,6 +181,11 @@ body{
  text-rendering: optimizeLegibility;
 }
 
+.VIpgJd-ZVi9od-ORHb{
+  display:none !important;
+}
+
+
 #body.lightBox{
   height:100dvh;
   overflow:hidden;

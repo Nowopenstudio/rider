@@ -16,7 +16,8 @@ import React from 'react';
     declare global {
         // eslint-disable-next-line @typescript-eslint/no-namespace
         namespace globalThis {
-            let __GOOGLE_TRANSLATION_CONFIG__: {
+            // eslint-disable-next-line no-var
+            var __GOOGLE_TRANSLATION_CONFIG__: {
                 languages: LanguageDescriptor[];
                 defaultLanguage: string;
             };
