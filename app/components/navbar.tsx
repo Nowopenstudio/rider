@@ -51,7 +51,7 @@ export default function Navbar({ data, footer }: any) {
   }
 
     const toggleLang = () => {
-    setActive(!lang)
+    setLang(!lang)
   }
 
 
@@ -123,18 +123,18 @@ export default function Navbar({ data, footer }: any) {
         <div className={`mainMenu fixed top-0 left-0 z-90 w-[100vw] h-[100dvh] grid grid-cols-2 ${!active ? 'pointer-events-none' : ''}`} >
 
           <div className="col-span-full" style={{ transition: `transform 1s cubic-bezier(0.19, 1, 0.22, 1) `, transform: `translateX(${active ? "0" : "-100%"})` }}>
-            <div className={`w-full h-[100dvh] grid grid-cols-1 bg-black  mobileMenu uppercase text-white relative z-2 px-9 pt-23`}>
-              <div >
-               <div className="flex relative items-center navContact gap-2 mb-9" onClick={toggleLang}>
-                  <p className=" text-darkGray font-semibold">Select Langauge</p>
+            <div className={`w-full h-[100dvh] grid grid-cols-1 bg-black  mobileMenu uppercase text-white relative z-2 px-4 md:px-9 pt-23`}>
+              <div>
+               <div  onClick={toggleLang} className="flex relative items-center navContact gap-2 mb-4">
+                  <p className=" text-darkGray font-semibold" >Select Langauge</p>
                    <div className="z-10 w-[20px] h-auto" style={{transformOrigin:'center',transform:`rotate(${lang?`180`:`0`}deg)`}}><Expand className={`w-full h-auto`}/></div>
                </div>
-               <div className="w-[150px] flex justify-between items-center ">
+               <div className="w-[150px] flex justify-between items-center overflow-hidden" style={{transition:'all .5s ease-in-out',maxWidth:lang?100:0}}>
                       <LanguageSwitcher/>
                </div>
                                                             
                 </div>
-              <div className="col-span-full flex flex-col justify-center">
+              <div className="col-span-full flex flex-col justify-start">
                 <Link href="/" onClick={closeMenu} className={`relative navItem ${page == "/" ? "selected" : ''}`}> <div className="cursor-pointer mb-2"><p>Home</p></div></Link>
                 <Link href="/building" onClick={closeMenu} className={`relative navItem ${page == "/building" ? "selected" : ''}`}> <div className="cursor-pointer mb-2"><p>Building</p></div></Link>
                 <Link href="/residences" onClick={closeMenu} className={`relative navItem ${page == "/residences" ? "selected" : ''}`}> <div className="cursor-pointer mb-2"><p>Residences</p></div></Link>

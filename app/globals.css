@@ -183,6 +183,7 @@ body{
 
   .skiptranslate {
         display: none !important;
+        
     }
 
 
@@ -956,8 +957,8 @@ li:before {
 
   
     @media (max-width: 400px) {
-      .mobileMenu p{
-        font-size:1.5rem;
+      .mobileMenu .navItem p{
+        font-size:1.25rem;
       }
     }
 
