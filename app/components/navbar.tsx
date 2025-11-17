@@ -170,7 +170,7 @@ export default function Navbar({ data, footer }: any) {
           <div className={'col-span-1 h-full flex items-center justify-center'}>
             <div className={`absolute top-0 left-0 w-full h-full blur z-0 ${active ? 'active' : ''}`}></div>
             <div className="relative w-[286px] z-1" > <Logo className="w-auto h-full mx-auto my-0 " fill={'#231F20'} /></div>
-            <div className="absolute bottom-0 left-0 w-full p-9 md:w-[50vw] pointer-events-auto z-11">
+            <div className={`absolute bottom-0 left-0 w-full p-9 md:w-[50vw] ${active?"pointer-events-auto":"pointer-events-none"} z-11`}>
               {footer.contacts.map((item: any, i: number) => {
                 return (
                   <div className="navContact uppercase text-black mb-7 font-bold" key={`contacts-${i}`}>
