@@ -20,6 +20,8 @@ export default function Footer({ data }: any) {
   const [success, setSuccess] = useState<boolean>(false)
   const [active, setActive] = useState<boolean>(false)
   const [policy, setPolicy] = useState<boolean>(false)
+  const [terms, setTerms] = useState<boolean>(false)
+  const [faqs, setFaqs] = useState<boolean>(false)
 
 
   const submitForm = (e: FormEvent<HTMLFormElement>) => {
@@ -80,6 +82,17 @@ export default function Footer({ data }: any) {
   }
 
 
+  const toggleTerms = () => {
+    setTerms(!terms)
+  }
+
+
+  const toggleFaqs = () => {
+    setFaqs(!faqs)
+  }
+
+
+
 
 
   return (
@@ -88,13 +101,13 @@ export default function Footer({ data }: any) {
         <div className={`footerForm  xl:sticky w-full  xl:mt-[0] xl:h-[100dvh] top-0 left-0 xl:grid grid-cols-2`}>
           <div className="downloadBar absolute top-[74px] px-4 md:px-9 w-full z-20 bg-black h-[60px] items-center justify-between hidden xl:flex hoverOn">
             <div className="uppercase text-white"><p>{data.contact.phone}</p></div>
-           <div className="flex justify-end gap-9 relative z-4"> 
-            {data.downloads.map((item:any,i:number)=>{
-              return(
-                <a href={item.url?item.url:"/"} key={`${item.label}`} className="cursor-pointer uppercase text-darkGray py-2 hover:text-white onHoverFill"><p>{item.label}</p></a>
-              )
-            })}
-            <div className="uppercase text-darkGray py-2"><p>{data.contact.cta.label}</p></div>
+            <div className="flex justify-end gap-9 relative z-4">
+              {data.downloads.map((item: any, i: number) => {
+                return (
+                  <a href={item.url ? item.url : "/"} key={`${item.label}`} className="cursor-pointer uppercase text-darkGray py-2 hover:text-white onHoverFill"><p>{item.label}</p></a>
+                )
+              })}
+              <div className="uppercase text-darkGray py-2"><p>{data.contact.cta.label}</p></div>
             </div>
           </div>
           <div className="form col-span-2 xl:col-span-1 xl:flex items-center justify-center xl:relative text-white xl:text-black pt-39 xl:pt-0 h-[200dvh] xl:h-full mt-[-100dvh] xl:mt-0">
@@ -214,14 +227,14 @@ export default function Footer({ data }: any) {
           <div className="xl:absolute bottom-0 left-0 w-full xl:w-1/2 px-4 md:px-9 relative text-white xl:text-black">
             <div className='w-full py-9 border-0 xl:border-t flex justify-start xl:justify-between items-center flex-wrap xl:flex-nowrap'>
               <div className={`${mobile ? 'copyright' : ''} disclaim flex flex-row-reverse  w-full xl:w-auto xl:flex-row gap-0 xl:gap-9 footnote items-center policies xl:bg-offWhite`}>
-                <div onClick={toggleActive} className="cursor-n-resize h-[22px] w-[22px] mix-blend-difference flex-shrink-0">
+                <div onClick={toggleActive} className="cursor-pointer h-[22px] w-[22px] mix-blend-difference flex-shrink-0">
                   <Image alt="image" sizes={`150px`} width={45} height={45} src={data.disclaim.logo} className={`w-full h-full `} />
                 </div>
-                <div onClick={toggleActive}><p className="cursor-n-resize text-nowrap mr-9 xl:mr-0">Disclaimers ↓</p></div>
+                <div onClick={toggleActive}><p className="cursor-pointer text-nowrap mr-9 xl:mr-0">Disclaimers ↓</p></div>
                 <div className="flex flex-wrap w-full">
-                  <div className="pr-2 xl:px-2 border-r" onClick={togglePolicy}><p>Privacy Policy</p></div>
-                  <div className="px-2 border-r"><p>Terms of Use</p></div>
-                  <div className="px-2 border-r xl:border-0"><p>Faqs</p></div>
+                  <div className="pr-2 xl:px-2 border-r cursor-pointer" onClick={togglePolicy}><p>Privacy Policy</p></div>
+                  <div className="px-2 border-r cursor-pointer" onClick={toggleTerms}><p>Terms of Use</p></div>
+                  <div className="px-2 border-r xl:border-0 cursor-pointer" onClick={toggleFaqs}><p>Faqs</p></div>
                 </div>
               </div>
               <div className="copyright w-full md:w-auto flex-shrink-0"><PortableText value={data.disclaim.copyright} /></div>
@@ -251,7 +264,7 @@ export default function Footer({ data }: any) {
           </React.Fragment>
         ) : ('')}
       </div>
-      <div onClick={toggleActive} data-lenis-prevent className={`cursor-s-resize w-[100vw] xl:w-[50vw] fixed bottom-0 left-0 bg-white px-9 pt-9 pb-10.5 copyright uppercase z-100 max-h-[calc(100dvh_-_60px)] overflow-y-scroll`} style={{ pointerEvents:active?"auto":"none",transition: `transform .5s  cubic-bezier(0.165, 0.84, 0.44, 1)`, transform: `translateY(${active ? '0' : '100%'})` }}>
+      <div onClick={toggleActive} data-lenis-prevent className={`cursor-s-resize w-[100vw] xl:w-[50vw] fixed bottom-0 left-0 bg-white px-9 pt-9 pb-10.5 copyright uppercase z-100 max-h-[calc(100dvh_-_60px)] overflow-y-scroll`} style={{ pointerEvents: active ? "auto" : "none", transition: `transform .5s  cubic-bezier(0.165, 0.84, 0.44, 1)`, transform: `translateY(${active ? '0' : '100%'})` }}>
         <div className="flex flex-wrap w-full gap-5 items-start">
           <div className="flex gap-3 w-full border-t border-darkGray pt-2">
             <div className="h-[22px] w-[22px] mix-blend-difference flex-shrink-0 ">
@@ -268,11 +281,38 @@ export default function Footer({ data }: any) {
         </div>
       </div>
 
-      <div onClick={togglePolicy} data-lenis-prevent className={`cursor-s-resize w-[100vw] xl:w-[50vw] fixed bottom-0 left-0 bg-white px-4 md:px-9 pt-9 pb-10.5 copyright uppercase z-100 max-h-[calc(100dvh_-_60px)] overflow-y-scroll`} style={{ pointerEvents:policy?"auto":"none",transition: `transform .5s  cubic-bezier(0.165, 0.84, 0.44, 1)`, transform: `translateY(${policy ? '0' : '100%'})` }}>
+      <div onClick={togglePolicy} data-lenis-prevent className={`cursor-s-resize w-[100vw] xl:w-[50vw] fixed bottom-0 left-0 bg-white px-4 md:px-9 pt-9 pb-10.5 copyright uppercase z-100 max-h-[calc(100dvh_-_60px)] overflow-y-scroll`} style={{ pointerEvents: policy ? "auto" : "none", transition: `transform .5s  cubic-bezier(0.165, 0.84, 0.44, 1)`, transform: `translateY(${policy ? '0' : '100%'})` }}>
         <div className="flex flex-wrap w-full gap-5 items-start">
           <div className="flex gap-3 w-full border-t border-darkGray pt-2">
             <div className='w-full' ><PortableText value={data.disclaim.privacy} /></div>
           </div>
+        </div>
+      </div>
+
+      <div onClick={toggleTerms} data-lenis-prevent className={`cursor-s-resize w-[100vw] xl:w-[50vw] fixed bottom-0 left-0 bg-white px-4 md:px-9 pt-9 pb-10.5 copyright uppercase z-100 max-h-[calc(100dvh_-_60px)] overflow-y-scroll`} style={{ pointerEvents: terms ? "auto" : "none", transition: `transform .5s  cubic-bezier(0.165, 0.84, 0.44, 1)`, transform: `translateY(${terms ? '0' : '100%'})` }}>
+        <div className="flex flex-wrap w-full gap-5 items-start">
+          <div className="flex gap-3 w-full border-t border-darkGray pt-2">
+            <div className='w-full' ><PortableText value={data.disclaim.terms} /></div>
+          </div>
+        </div>
+      </div>
+
+      <div onClick={toggleFaqs} data-lenis-prevent className={`cursor-s-resize w-[100vw] xl:w-[50vw] fixed bottom-0 left-0 bg-white px-4 md:px-9 pt-9 pb-10.5 copyright uppercase z-100 max-h-[calc(100dvh_-_60px)] overflow-y-scroll`} style={{ pointerEvents: faqs ? "auto" : "none", transition: `transform .5s  cubic-bezier(0.165, 0.84, 0.44, 1)`, transform: `translateY(${faqs ? '0' : '100%'})` }}>
+        <div className="flex flex-wrap w-full gap-5 items-start">
+          <div className="w-full border-t border-darkGray py-2">
+            <div className='w-full' ><p>FAQs</p></div>
+          </div>
+          {data.disclaim.faqs.length?(
+              data.disclaim.faqs.map((item:any,i:number)=>{
+                return(
+          <div key={`faqs-${i}`}className=" w-full  pt-2">
+            <div className='w-full mb-1 font-bold' ><PortableText value={item.question} /></div>
+            <div className='w-full' ><PortableText value={item.answers} /></div>
+          </div>
+                )
+              })
+          ):('')}
+          
         </div>
       </div>
     </React.Fragment>
