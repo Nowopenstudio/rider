@@ -97,8 +97,8 @@ export default function Footer({ data }: any) {
 
   return (
     <React.Fragment>
-      <div id={'footer'} className="w-full xl:h-[200dvh] z-1 xl:pt-0] xl:mt-[-100dvh] bg-black xl:bg-offWhite footer ">
-        <div className={`footerForm  xl:sticky w-full  xl:mt-[0] xl:h-[100dvh] top-0 left-0 xl:grid grid-cols-2`}>
+      <div id={'footer'} className="w-full xl:h-[250dvh] z-1 xl:pt-20 xl:mt-[-100dvh] bg-black xl:bg-offWhite footer ">
+        <div className={`footerForm  xl:sticky w-full  xl:mt-0 xl:h-[100dvh] top-0 left-0 xl:grid grid-cols-2`}>
           <div className="downloadBar absolute top-[74px] px-4 md:px-9 w-full z-20 bg-black h-[60px] items-center justify-between hidden xl:flex hoverOn">
             <div className="uppercase text-white"><p>{data.contact.phone}</p></div>
             <div className="flex justify-end gap-9 relative z-4">
@@ -255,8 +255,8 @@ export default function Footer({ data }: any) {
             <div className="absolute w-full h-full top-0 left-0 flex flex-col justify-between text-white py-9">
               <div className="px-4 md:px-9"><PortableText value={data.sucessVid.top} /></div>
               <div className="flex justify-center w-full items-center py-9">
-                <div className="w-full lg:w-2/3">
-                  <SwitchContent work={data.sucessVid} title={`amenities`} ratio={data.footerVid.ratio} audio={true} contain />
+                <div className="w-full lg:w-2/3 aspect-video relative">
+                  <SwitchContent work={data.sucessVid} title={`amenities`} ratio={data.footerVid.ratio} audio={false} cover />
                 </div>
               </div>
               <div className="px-4 md:px-9 "><PortableText value={data.sucessVid.bottom} /></div>

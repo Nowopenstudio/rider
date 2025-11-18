@@ -5,14 +5,16 @@ import { Resend } from 'resend';
 
 const resend = new Resend(process.env.NEXT_PUBLIC_RESEND_API_KEY);
 
+resend.domains.create({ name: 'mail.theriderresidences.com' });
+
 export async function POST(req:NextRequest){
     const body = await req.json();
  
     const { firstName, lastName, email, phone, subject, message, sender,rooms,broker  } = body;
   try {
     const { data, error } = await resend.emails.send({
-      from: email,
-      to: "r0@nowopen.studio",
+      from: "info@mail.theriderresidences.com",
+      to: "ro@nowopen.studio",
       subject: subject,
       react: ContactTemplate({ firstName: firstName, lastName:lastName, phone:phone, message:message, email:sender,rooms:rooms, broker:broker }),
     });
