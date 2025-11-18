@@ -71,7 +71,7 @@ export default async function Home() {
 
 
         {/* Map */}
-        <div id={'map'} className="col-span-full grid grid-cols-12 gap-4 px-9 pt-9 relative overflow-x-hidden">
+        <div id={'map'} className="col-span-full grid grid-cols-12 gap-4 px-4 md:px-9 pt-9 relative overflow-x-hidden">
           
           {map ? (
             <Map data={map} />
