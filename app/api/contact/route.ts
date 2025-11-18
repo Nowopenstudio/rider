@@ -12,7 +12,7 @@ export async function POST(req:NextRequest){
   try {
     const { data, error } = await resend.emails.send({
       from: email,
-      to: "info@theriderresidences.com",
+      to: "r0@nowopen.studio",
       subject: subject,
       react: ContactTemplate({ firstName: firstName, lastName:lastName, phone:phone, message:message, email:sender,rooms:rooms, broker:broker }),
     });
