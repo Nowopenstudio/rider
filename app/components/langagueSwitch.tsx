@@ -72,7 +72,7 @@ import React from 'react';
         return (
             <React.Fragment>
                 {languageConfig.languages.map((ld: LanguageDescriptor, i: number) => (
-                    <>
+                    <React.Fragment key={`lang-${ld.name}`}>
                         {currentLanguage === ld.name ||
                         (currentLanguage === 'auto' && languageConfig.defaultLanguage === ld) ? (
                             <div className="px-1 text-white md:text-black underline"><p className="langOption">
@@ -87,7 +87,7 @@ import React from 'react';
                                <p className="langOption"> {ld.name}</p>
                             </a>
                         )}
-                    </>
+                    </React.Fragment>
                 ))}
            </React.Fragment>
         );
