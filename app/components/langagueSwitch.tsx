@@ -43,16 +43,16 @@ import React from 'react';
                 }
             }
             // 3. If __GOOGLE_TRANSLATION_CONFIG__ is defined and we still not decided about languageValue - use default one
-            if (global.__GOOGLE_TRANSLATION_CONFIG__ && !languageValue) {
-                languageValue = global.__GOOGLE_TRANSLATION_CONFIG__.defaultLanguage;
+            if (globalThis.__GOOGLE_TRANSLATION_CONFIG__ && !languageValue) {
+                languageValue = globalThis.__GOOGLE_TRANSLATION_CONFIG__.defaultLanguage;
             }
             if (languageValue) {
                 // 4. Set the current language if we have a related decision.
                 setCurrentLanguage(languageValue);
             }
             // 5. Set the language config.
-            if (global.__GOOGLE_TRANSLATION_CONFIG__) {
-                setLanguageConfig(global.__GOOGLE_TRANSLATION_CONFIG__);
+            if (globalThis && globalThis.__GOOGLE_TRANSLATION_CONFIG__) {
+                setLanguageConfig(globalThis.__GOOGLE_TRANSLATION_CONFIG__);
             }
         }, []);
     

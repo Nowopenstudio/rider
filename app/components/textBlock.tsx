@@ -1,5 +1,4 @@
-
-import React, { useEffect, useRef, useState } from 'react';
+import React from 'react';
 import { PortableText } from 'next-sanity';
 import { Reveal } from '../util/reveal';
 import { ScrollArrow } from './svg';
