@@ -14,7 +14,7 @@ export async function POST(req:NextRequest){
   try {
     const { data, error } = await resend.emails.send({
       from: "info@mail.theriderresidences.com",
-      to: "ro@nowopen.studio",
+      to: "octavio.alvarez@followupboss.me",
       subject: subject,
       react: ContactTemplate({ firstName: firstName, lastName:lastName, phone:phone, message:message, email:sender,rooms:rooms, broker:broker }),
     });

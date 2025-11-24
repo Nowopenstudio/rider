@@ -16,17 +16,16 @@ export function ContactTemplate ({
   firstName, lastName, phone, rooms, broker, message, email
 }:EmailTemplateProps) {
   return(
-  <div>
-    <h1 className="uppercase">New Inquiry from, {firstName} {lastName}:</h1>
-    <p>Name: {firstName} {lastName}</p>
-    <p>Email: {email}</p>
-     <p>Phone: {phone}</p>
-     <p>Rooms: {rooms}</p>
-     <p style={{marginBottom:'20px'}}> Broker: {broker}</p>
+  <p>
+    First Name: {firstName}<br/>
+    Last Name: {lastName}<br/>
+    Email: {email}<br/>
+    Comments: {message}<br/>
+    Phone: {phone}<br/>
+    Is Broker: {broker}<br/>
+    Unit Interest: {rooms}<br/>
 
-    <p style={{marginBottom:'20px'}}> {message}</p>
-
-  </div>
+  </p>
 )}
 
 
