@@ -36,11 +36,11 @@ export default async function RootLayout({
 
   return (
     <html lang="en" >
-      <head>
+      {/* <head>
         <Script src="/assets/lang-config.js" strategy="beforeInteractive" />
         <Script src="/assets/translation.js" strategy="beforeInteractive" />
         <Script src="//translate.google.com/translate_a/element.js?cb=TranslateInit" strategy="afterInteractive" />
-      </head>
+      </head> */}
       <GoogleTagManager gtmId="GTM-TZSW26XN"/>
       <SmoothScrolling>
         <body id="body" className="w-[100vw] relative" style={{ height: '100dvh' }}>

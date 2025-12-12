@@ -10,7 +10,7 @@ import { TextOn } from '../util/misc';
 import useResize from '../util/useResize';
 import { Expand, Logo } from './svg';
 import { PortableText } from 'next-sanity';
-import { LanguageSwitcher } from './langagueSwitch';
+// import { LanguageSwitcher } from './langagueSwitch';
 
 
 export default function Navbar({ data, footer }: any) {
@@ -96,12 +96,12 @@ export default function Navbar({ data, footer }: any) {
         <div className={`navBar fixed top-0 left-0 w-[100vw] h-[74px] flex px-9  z-100 items-top`} style={{ backgroundColor: active ? "rgba(255,255,255,0.0)" : "rgba(255,255,255,1.0)" }}>
           <div className="uppercase  flex items-center h-full w-1/3">
             <div><p className="pr-4 text-black font-medium pointer-events-auto cursor-pointer" onClick={scrollTo} >Inquries</p></div>
-            <div className={"flex"} style={{ opacity: active ? 0 : 1 }}>
-              {/* <div className="px-1 text-gray"><p className="langOption">en</p></div>
+            {/* <div className={"flex"} style={{ opacity: active ? 0 : 1 }}>
+              <div className="px-1 text-gray"><p className="langOption">en</p></div>
             <div className='px-1   text-gray'><p className="langOption ">es</p></div>
-            <div className="px-1  text-gray"><p className="langOption">pt</p></div> */}
+            <div className="px-1  text-gray"><p className="langOption">pt</p></div>
               <LanguageSwitcher />
-            </div>
+            </div> */}
 
 
           </div>
@@ -129,9 +129,9 @@ export default function Navbar({ data, footer }: any) {
                   <p className=" text-darkGray font-semibold" >Select Langauge</p>
                    <div className="z-10 w-[20px] h-auto" style={{transformOrigin:'center',transform:`rotate(${lang?`180`:`0`}deg)`}}><Expand className={`w-full h-auto`}/></div>
                </div>
-               <div className="w-[150px] flex justify-between items-center overflow-hidden" style={{transition:'all .5s ease-in-out',maxWidth:lang?100:0}}>
+               {/* <div className="w-[150px] flex justify-between items-center overflow-hidden" style={{transition:'all .5s ease-in-out',maxWidth:lang?100:0}}>
                       <LanguageSwitcher/>
-               </div>
+               </div> */}
                                                             
                 </div>
               <div className="col-span-full flex flex-col justify-start">
